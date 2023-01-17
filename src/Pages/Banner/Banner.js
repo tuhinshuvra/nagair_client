@@ -54,7 +54,6 @@ const Banner = () => {
                                 </div>
                                 <div className="form-outline  col-lg-3 mx-1">
                                     <label className="form-label float-start fw-bold" for="password">Cabin Class</label>
-                                    {/* <input type="text" id="journey-from" className="form-control" placeholder='Enter journey to' /> */}
                                     <select className="form-select select-bordered  ">
                                         <option disabled selected>Select</option>
                                         <option value={0}>Economy</option>
@@ -65,7 +64,6 @@ const Banner = () => {
                                 </div>
                                 <div className="form-outline  col-lg-3 mx-1">
                                     <label className="form-label float-start fw-bold" for="password">Travellers</label>
-                                    {/* <input type="text" id="journey-from" className="form-control" placeholder='Enter journey to' /> */}
                                     <select className="form-select select-bordered  ">
                                         <option disabled selected>Select</option>
                                         <option value={0}>One</option>

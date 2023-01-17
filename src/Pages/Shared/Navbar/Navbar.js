@@ -1,47 +1,58 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Logo from '../../../assets/logo/carreers-bangladesh-small.png';
+import './Navbar.css'
 
 const Navbar = () => {
     return (
         <div>
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="container-fluid">
-                    <Link class="navbar-brand" href="#">Nag Air</Link>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+            <nav className="navbar navbar-expand-lg bg-body-tertiary">
+                <div className="container-fluid">
+                    <img className='navlogo' src={Logo} alt="" />
+                    <Link to="/" className="navbar-brand" href="#"><h1> Nag Air</h1></Link>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarScroll">
-                        <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" >
-                            <li class="nav-item">
-                                <Link to="/" class="nav-link active" aria-current="page" href="#">Home</Link>
+                    <div className="collapse navbar-collapse" id="navbarScroll">
+                        <ul className="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" >
+                            <li className="nav-item">
+                                <Link to="/" className="nav-link active" aria-current="page" href="#">Home</Link>
                             </li>
-                            <li class="nav-item">
-                                <Link to="/about" class="nav-link" href="#">About Us</Link>
+                            <li className="nav-item">
+                                <Link to="/about" className="nav-link" href="#">About Us</Link>
                             </li>
-                            <li class="nav-item">
-                                <Link to="/contact" class="nav-link" href="#">Contact</Link>
+                            <li className="nav-item">
+                                <Link to="/contact" className="nav-link" href="#">Contact</Link>
                             </li>
 
-                            <li class="nav-item dropdown">
-                                <Link class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <li className="nav-item dropdown">
+                                <Link className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Booking
                                 </Link>
-                                <ul class="dropdown-menu">
-                                    <li><Link class="dropdown-item" href="#">Plan a Trip</Link></li>
-                                    <li><Link class="dropdown-item" href="#">Flight Info</Link></li>
-                                    {/* <li><hr class="dropdown-divider" /></li> */}
-                                    <li><Link class="dropdown-item" href="#">Services</Link></li>
+                                <ul className="dropdown-menu">
+                                    <li><Link to="/" className="dropdown-item" href="#">Plan a Trip</Link></li>
+                                    <li><Link to="/" className="dropdown-item" href="#">Flight Info</Link></li>
+                                    {/* <li><hr className="dropdown-divider" /></li> */}
+                                    <li><Link to="/" className="dropdown-item" href="#">Services</Link></li>
                                 </ul>
                             </li>
+
                             <li>
-                                <form class="d-flex" role="search">
-                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                <form className="d-flex" role="search">
+                                    <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                                    <button className="btn btn-outline-success" type="submit">Search</button>
                                 </form>
                             </li>
-                            <li></li>
-                            <li class="nav-item">
-                                <Link to="/login" class="nav-link disabled">Login</Link>
+
+                            <li className="nav-item mx-lg-2 nav-margin">
+                                <div className="btn-group" role="group" aria-label="Alter Language">
+                                    <button type="button" className="btn btn-primary"><Link className=' text-decoration-none text-white' to="/" >BN</Link></button>
+                                    <button type="button" className="btn btn-secondary"><Link className=' text-decoration-none text-white' to="/" >EN</Link></button>
+                                </div>
+                            </li>
+
+                            <li className="nav-item">
+                                <Link to="/login" className="nav-link">Login</Link>
                             </li>
                         </ul>
                     </div>

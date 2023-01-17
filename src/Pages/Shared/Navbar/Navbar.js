@@ -7,9 +7,12 @@ const Navbar = () => {
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
-                <div className="container-fluid">
-                    <img className='navlogo' src={Logo} alt="" />
-                    <Link to="/" className="navbar-brand" href="#"><h1> Nag Air</h1></Link>
+                <div className="container">
+                    <Link to="/" className="navbar-brand d-flex">
+                        <img className='navlogo' src={Logo} alt="" />
+                        <h1>Nag Air</h1>
+                    </Link>
+
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>

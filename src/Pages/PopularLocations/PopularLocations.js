@@ -7,7 +7,7 @@ import './MulitImageSlider.css';
 const PopularLocations = () => {
 
     return (
-        <div className='popular-location banner  pb-lg-5 pt-lg-2'>
+        <div className='popular-location location-bg  pb-lg-5 pt-lg-2'>
             <h1 className=' text-center my-lg-5 fw-bold  '> Popular Locations </h1>
             <Carousel cols={4} rows={1} gap={5} loop={true} autoplay={3000} >
                 <Carousel.Item>

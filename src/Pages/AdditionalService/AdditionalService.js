@@ -6,7 +6,7 @@ import '../PopularLocations/MulitImageSlider.css';
 const AdditionalService = () => {
 
     return (
-        <div className='popular-location banner bg-secondary pb-lg-5 pt-lg-1'>
+        <div className='popular-location location-bg bg-secondary pb-lg-5 pt-lg-1'>
             <h1 className=' text-center my-lg-5 fw-bold '> Our Aditional Sevice </h1>
             <Carousel cols={4} rows={1} gap={5} loop={true} autoplay={3000} >
                 <Carousel.Item>

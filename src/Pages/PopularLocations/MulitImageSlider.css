@@ -8,3 +8,10 @@
         margin: 50px 0;
     }
 }
+
+.location-bg {
+    background-image: url('../../assets/image/plane/aeroplane.jpg');
+    background-size: 100vw;
+    height: 500px;
+    background-repeat: no-repeat;
+}

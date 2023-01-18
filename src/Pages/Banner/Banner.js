@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
-        <div className='col-lg-12'>
-            <div className="py-5 my-5 text-center banner d-flex flex-column justify-content-center">
+        <div className=' my-0 py-0'>
+            <div className="text-center banner d-flex flex-column justify-content-center">
                 <h1 className="display-5 fw-bold text-text-black ">LIFE IS SHORT, OR IT'S BIG <br /> LET'S EXPLORE IT</h1>
                 {/* <div className="col-lg-6 mx-auto ">
 

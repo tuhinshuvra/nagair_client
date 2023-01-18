@@ -11,17 +11,10 @@ const Subscription = () => {
                         {/* <p class="col-lg-10 fs-4">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p> */}
                     </div>
 
-                    <div class="col-md-10 mx-auto col-lg-5">
-                        <form class="p-4 p-md-5 border rounded-3 bg-light">
-                            <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" />
-                                <label for="floatingInput">Email address</label>
-                            </div>
-
-
-                            <button class="w-100 btn btn-primary" type="submit">Subscribe</button>
-                            {/* <hr class="my-4" /> */}
-                            {/* <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small> */}
+                    <div class=" d-flex justify-content-center align-items-center">
+                        <form className=' d-flex'>
+                            <input type="email" className=' form-control' placeholder='Email address' />
+                            <button className=' btn btn-primary ms-1' >Subscrive</button>
                         </form>
                     </div>
                 </div>

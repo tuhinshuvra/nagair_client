@@ -6,8 +6,8 @@ import './AdditionalService.css';
 const AdditionalService = () => {
 
     return (
-        <div className='popular-location ad-service bg-secondary pb-lg-5 pt-lg-1'>
-            <h1 className=' text-center my-lg-5 fw-bold '> Our Aditional Sevice </h1>
+        <div className='popular-location ad-service my-0 py-0'>
+            <h1 className='text-center fw-bold '> Our Aditional Sevice </h1>
             <Carousel cols={3} rows={1} gap={5} loop={true} autoplay={3000} >
                 <Carousel.Item>
                     <div class="card">

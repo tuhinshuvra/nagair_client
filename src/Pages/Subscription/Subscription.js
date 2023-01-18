@@ -4,7 +4,7 @@ import './Subscription.css';
 const Subscription = () => {
     return (
         <div>
-            <div class="subs-bg col-xl-12 px-4 py-lg-5">
+            <div class=" bg-info col-xl-12 px-4 py-lg-5">
                 <div class="align-items-center g-lg-5">
                     <div class="col-lg-7 text-center  mx-auto my-lg-5">
                         <h1 class="display-4 fw-bold lh-1 mb-3">Subscribe & Receive <br />Our Exclusive Offers</h1>

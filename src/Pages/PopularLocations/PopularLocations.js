@@ -13,7 +13,7 @@ const PopularLocations = () => {
                 <div className='row'>
 
                     <div className=' col-lg-6'>
-                        <h2 className=' fw-bold text-center'>Domestic</h2>
+                        {/* <h2 className=' fw-bold text-center'>Domestic</h2> */}
                         <Carousel cols={2} rows={1} gap={5} loop={true} autoplay={3000} >
                             <Carousel.Item>
                                 <div class="card" style={{ width: "18rem" }}>
@@ -162,7 +162,7 @@ const PopularLocations = () => {
                         </Carousel>
                     </div>
                     <div className=' col-lg-6'>
-                        <h2 className=' fw-bold text-center'>International</h2>
+                        {/* <h2 className=' fw-bold text-center'>International</h2> */}
                         <Carousel cols={2} rows={1} gap={5} loop={true} autoplay={3000} >
                             <Carousel.Item>
                                 <div class="card" style={{ width: "18rem" }}>

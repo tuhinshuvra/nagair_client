@@ -1,0 +1,34 @@
+[debug] [2023-01-18T13:02:26.325Z] ----------------------------------------------------------------------
+[debug] [2023-01-18T13:02:26.327Z] Command:       C:\Program Files (x86)\nodejs\node.exe C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-01-18T13:02:26.327Z] CLI Version:   11.20.0
+[debug] [2023-01-18T13:02:26.328Z] Platform:      win32
+[debug] [2023-01-18T13:02:26.328Z] Node Version:  v18.13.0
+[debug] [2023-01-18T13:02:26.328Z] Time:          Wed Jan 18 2023 19:02:26 GMT+0600 (Bangladesh Standard Time)
+[debug] [2023-01-18T13:02:26.328Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-01-18T13:02:26.391Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-01-18T13:02:26.391Z] > authorizing via signed-in user (tuhinshuvrabd@gmail.com)
+[debug] [2023-01-18T13:02:26.391Z] [iam] checking project nagair for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-01-18T13:02:26.393Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/nagair:testIamPermissions [none]
+[debug] [2023-01-18T13:02:26.394Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/nagair:testIamPermissions x-goog-quota-user=projects/nagair
+[debug] [2023-01-18T13:02:26.394Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/nagair:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-01-18T13:02:27.929Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/nagair:testIamPermissions 200
+[debug] [2023-01-18T13:02:27.930Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/nagair:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-01-18T13:02:27.931Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/nagair [none]
+[debug] [2023-01-18T13:02:28.474Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/nagair 200
+[debug] [2023-01-18T13:02:28.474Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/nagair {"projectId":"nagair","projectNumber":"191422439784","displayName":"nagair","name":"projects/nagair","resources":{"hostingSite":"nagair"},"state":"ACTIVE","etag":"1_963e65a2-9e73-4fbf-96c6-ae9accf256a3"}
+[info] 
+[info] === Deploying to 'nagair'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2023-01-18T13:02:28.480Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/nagair/versions [none]
+[debug] [2023-01-18T13:02:28.480Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/nagair/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2023-01-18T13:02:29.752Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/nagair/versions 200
+[debug] [2023-01-18T13:02:29.752Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/nagair/versions {"name":"projects/191422439784/sites/nagair/versions/5952dbf4c5c06425","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[nagair]: beginning deploy... 
+[info] i  hosting[nagair]: found 25 files in build 
+[debug] [2023-01-18T13:02:29.764Z] [hosting] uploading with 200 concurrency
+[debug] [2023-01-18T13:02:29.913Z] [hosting] hash cache [YnVpbGQ] stored for 25 files
+[debug] [2023-01-18T13:02:29.914Z] [hosting][hash queue][FINAL] {"max":142,"min":4,"avg":22.24,"active":0,"complete":25,"success":25,"errored":0,"retried":0,"total":25,"elapsed":147}
+[debug] [2023-01-18T13:02:29.914Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/191422439784/sites/nagair/versions/5952dbf4c5c06425:populateFiles [none]
+[debug] [2023-01-18T13:02:29.914Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/191422439784/sites/nagair/versions/5952dbf4c5c06425:populateFiles {"files":{"/favicon.ico":"eae62e993eb980ec8a25058c39d5a51feab118bd2100c4deebb2a9c158ec11f9","/logo192.png":"3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b","/logo512.png":"ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331","/manifest.json":"aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a","/robots.txt":"bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49","/asset-manifest.json":"d896669bf85c24da1458129b9dc935c04f8e1fdbccb2c998c83e3ce0a261cb13","/index.html":"ce5d5ca0b856f61b325e7996798470aab7e801c935640680835670573b869807","/static/js/787.1da3d1d4.chunk.js":"e92f3558760c5051da2ca02a121c7f1aca9a98e6e972dec7239aeca74c38ef16","/static/js/main.b1ab3f7b.js.LICENSE.txt":"07d9730aefac598080860389889bdcd757cfbb92a58a2b5a20cc228b30363463","/static/js/787.1da3d1d4.chunk.js.map":"8055d328ae7eeeaba7a37701288f14aa9003e9cf81f8dae099986631e3d96640","/static/media/nag-air-logo-small.2b79f3c5a0877cd994d7.png":"4c1ae0f4962d64fcdea6dfc79307b56b2f1ae522f4e100168c0ecd8137f1e5d7","/static/media/offer5.55839bf04701a2cf3e56.jpg":"e159ea636072701a8f85a8d2d8870817b85cb86e498ba6c43533e5c1051b6cd6","/static/css/main.7171ed3d.css":"73ee44eb11726510ebb56329d66177a243b43f51d38106f7f0e6d321ef6584c9","/static/media/offer7.9dbaecce8514fec4de26.jpg":"f5de64ef23c6f56054b0338e532c0169926c09dafbd622f1ac12d461637251be","/static/media/offer2.7d074b185be0bb420638.jpg":"970e31cca73a21d8e7008868ce270dc72822e4dbb39f052b1df9d978c7087a57","/static/media/offer3.731544a01b739b24af58.jpg":"54b7b110a904880affb5ea05a3c862e8850c4da07e3840899f95a7202b83a1a4","/static/media/offer6.f1ecffe77bc38a49e495.jpg":"b0b3256ea8fe187ad5b812c27f786ee56c18314107151e71c064391bc63b796f","/static/media/offer4.bb692246d565b9ca335e.jpg":"39314247540060995bbe9e35eb75108f94c113790297156b91e51aecfcad8a85","/static/media/aeroplane-mobile.fa84ac15507b85c47a8e.jpg":"9a2224f7fffcad2a191ac3a71c31652c96b079bc12abcfc71d4d429545e23983","/static/js/main.b1ab3f7b.js":"12025b5c2cd86c767871b4c7e97efaa71d34a86c3e867f171412de80a2ab153d","/static/media/aeroplane.fd4f33b3717b52513919.jpg":"cd56526676b6025cc9731d35ec1ad9721d795a2dd7643a45b87139b35b0d9cea","/static/media/offer1.79beebf59f9e9484e9aa.jpg":"338388a8a77d2121c4e390c79b498d694141c2c090f8e9c2810597f5749f03eb","/static/css/main.7171ed3d.css.map":"3c09f2812ed8b010dc0b425910b77875b685b7c89f84bbcc88d17391025a11f2","/static/media/nature.4f55ec704111833544a3.png":"f33b621ed92c4d6cbcbb92e97a8a6242263f879292c3ef8b026cd47b44326039","/static/js/main.b1ab3f7b.js.map":"d337e2a5d682b609684cfa02ecdcd87ebb371b1058d636609025d5a6313aeb9f"}}

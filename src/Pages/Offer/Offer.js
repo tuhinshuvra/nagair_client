@@ -9,29 +9,29 @@ import Offer7 from '../../assets/image/offer/offer7.jpg';
 
 const Offer = () => {
     return (
-        <div>
-            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div className=' p-4 bg-secondary'>
+            <div id="carouselExampleInterval" class="carousel slide " data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="5000">
-                        <img src={Offer1} class="d-block w-100" alt="..." />
+                        <img src={Offer1} class="d-block w-100 rounded-3 " alt="..." />
                     </div>
                     <div class="carousel-item" data-bs-interval="2000">
-                        <img src={Offer2} class="d-block w-100" alt="..." />
+                        <img src={Offer2} class="d-block w-100 rounded-3 " alt="..." />
                     </div>
                     <div class="carousel-item">
-                        <img src={Offer3} class="d-block w-100" alt="..." />
+                        <img src={Offer3} class="d-block w-100 rounded-3 " alt="..." />
                     </div>
                     <div class="carousel-item">
-                        <img src={Offer4} class="d-block w-100" alt="..." />
+                        <img src={Offer4} class="d-block w-100 rounded-3 " alt="..." />
                     </div>
                     <div class="carousel-item">
-                        <img src={Offer5} class="d-block w-100" alt="..." />
+                        <img src={Offer5} class="d-block w-100 rounded-3 " alt="..." />
                     </div>
                     <div class="carousel-item">
-                        <img src={Offer6} class="d-block w-100" alt="..." />
+                        <img src={Offer6} class="d-block w-100 rounded-3 " alt="..." />
                     </div>
                     <div class="carousel-item">
-                        <img src={Offer7} class="d-block w-100" alt="..." />
+                        <img src={Offer7} class="d-block w-100 rounded-3 " alt="..." />
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">

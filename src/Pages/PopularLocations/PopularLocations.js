@@ -1,36 +1,162 @@
 import React from 'react';
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import './MulitImageSlider.css';
+import { Link } from 'react-router-dom';
+import Carousel from 'react-grid-carousel';
+import './MulitImageSlider.css';
 
 const PopularLocations = () => {
-    const responsive = {
-        desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: 3,
-            slidesToSlide: 3 // optional, default to 1.
-        },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 2,
-            slidesToSlide: 2 // optional, default to 1.
-        },
-        mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1,
-            slidesToSlide: 1 // optional, default to 1.
-        }
-    };
-
 
     return (
-        <div>
-            <h2>This is Popular Location section</h2>
-            <Carousel responsive={responsive}>
-                <div>Item 1</div>
-                <div>Item 2</div>
-                <div>Item 3</div>
-                <div>Item 4</div>
-            </Carousel>;
+        <div className='popular-location banner  pb-lg-5 pt-lg-2'>
+            <h1 className=' text-center my-lg-5 fw-bold  '> Popular Locations </h1>
+            <Carousel cols={4} rows={1} gap={5} loop={true} autoplay={3000} >
+                <Carousel.Item>
+                    <div class="card" style={{ width: "18rem" }}>
+                        <img class="card-img-top img-fluid p-2 rounded-4" style={{ height: "8rem" }} src="https://picsum.photos/800/600?random=1" alt='' />
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Cox's Bazar</h5>
+                        </div>
+
+                        <div class="card-body">
+                            <Link to="#" class="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                        </div>
+                    </div>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <div class="card" style={{ width: "18rem" }}>
+                        <img class="card-img-top img-fluid p-2 rounded-4" style={{ height: "8rem" }} src="https://picsum.photos/800/600?random=2" alt='' />
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Kolkata</h5>
+                        </div>
+
+                        <div class="card-body">
+                            <Link to="#" class="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                        </div>
+                    </div>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <div class="card" style={{ width: "18rem" }}>
+                        <img class="card-img-top img-fluid p-2 rounded-4" style={{ height: "8rem" }} src="https://picsum.photos/800/600?random=3" alt='' />
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Bangkok</h5>
+                        </div>
+
+                        <div class="card-body">
+                            <Link to="#" class="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                        </div>
+                    </div>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <div class="card" style={{ width: "18rem" }}>
+                        <img class="card-img-top img-fluid p-2 rounded-4" style={{ height: "8rem" }} src="https://picsum.photos/800/600?random=4" alt='' />
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Londhon</h5>
+                        </div>
+
+                        <div class="card-body">
+                            <Link to="#" class="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                        </div>
+                    </div>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <div class="card" style={{ width: "18rem" }}>
+                        <img class="card-img-top img-fluid p-2 rounded-4" style={{ height: "8rem" }} src="https://picsum.photos/800/600?random=1" alt='' />
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Cox's Bazar</h5>
+                        </div>
+
+                        <div class="card-body">
+                            <Link to="#" class="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                        </div>
+                    </div>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <div class="card" style={{ width: "18rem" }}>
+                        <img class="card-img-top img-fluid p-2 rounded-4" style={{ height: "8rem" }} src="https://picsum.photos/800/600?random=2" alt='' />
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Kolkata</h5>
+                        </div>
+
+                        <div class="card-body">
+                            <Link to="#" class="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                        </div>
+                    </div>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <div class="card" style={{ width: "18rem" }}>
+                        <img class="card-img-top img-fluid p-2 rounded-4" style={{ height: "8rem" }} src="https://picsum.photos/800/600?random=3" alt='' />
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Bangkok</h5>
+                        </div>
+
+                        <div class="card-body">
+                            <Link to="#" class="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                        </div>
+                    </div>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <div class="card" style={{ width: "18rem" }}>
+                        <img class="card-img-top img-fluid p-2 rounded-4" style={{ height: "8rem" }} src="https://picsum.photos/800/600?random=4" alt='' />
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Londhon</h5>
+                        </div>
+
+                        <div class="card-body">
+                            <Link to="#" class="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                        </div>
+                    </div>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <div class="card" style={{ width: "18rem" }}>
+                        <img class="card-img-top img-fluid p-2 rounded-4" style={{ height: "8rem" }} src="https://picsum.photos/800/600?random=1" alt='' />
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Cox's Bazar</h5>
+                        </div>
+
+                        <div class="card-body">
+                            <Link to="#" class="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                        </div>
+                    </div>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <div class="card" style={{ width: "18rem" }}>
+                        <img class="card-img-top img-fluid p-2 rounded-4" style={{ height: "8rem" }} src="https://picsum.photos/800/600?random=2" alt='' />
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Kolkata</h5>
+                        </div>
+
+                        <div class="card-body">
+                            <Link to="#" class="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                        </div>
+                    </div>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <div class="card" style={{ width: "18rem" }}>
+                        <img class="card-img-top img-fluid p-2 rounded-4" style={{ height: "8rem" }} src="https://picsum.photos/800/600?random=3" alt='' />
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Bangkok</h5>
+                        </div>
+
+                        <div class="card-body">
+                            <Link to="#" class="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                        </div>
+                    </div>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <div class="card" style={{ width: "18rem" }}>
+                        <img class="card-img-top img-fluid p-2 rounded-4" style={{ height: "8rem" }} src="https://picsum.photos/800/600?random=4" alt='' />
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Londhon</h5>
+                        </div>
+
+                        <div class="card-body">
+                            <Link to="#" class="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                        </div>
+                    </div>
+                </Carousel.Item>
+
+
+            </Carousel>
         </div>
     );
 };

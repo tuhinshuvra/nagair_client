@@ -1,6 +1,7 @@
 .banner {
     background-image: url('../../assets/image/plane/aeroplane.jpg');
     background-size: 100vw;
+    height: 750px;
     background-repeat: no-repeat;
 }
 
@@ -9,8 +10,16 @@
 @media (min-width: 320px) and (max-width: 992px) {
     .banner {
         background-image: url('../../assets/image/plane/aeroplane-mobile.jpg');
+        /* background-image: url('../../assets/image/plane/aeroplane.jpg'); */
         background-size: 100vh;
+        height: 830px;
         background-repeat: no-repeat;
     }
 
+}
+
+.flight-search {
+    background-image: url('../../assets/image/nature/nature.png');
+    background-size: 100vw;
+    background-repeat: no-repeat;
 }

@@ -17,7 +17,7 @@ const Register = () => {
                                         <div className="px-3 py-lg-4 p-md-5  mx-auto">
                                             <img className='logo' src={Logo} alt="" />
                                         </div>
-                                        <h2 className=" mb-lg-4 text-white text-center">Careers Bangladesh</h2>
+                                        <h6 className=" mb-lg-4 text-white text-center">Providing reliable air travel service</h6>
                                     </div>
                                     <div className="col-lg-7">
                                         <div className="card-body login-form" style={{ backgroundColor: "#EEF1F6" }}>
@@ -57,7 +57,7 @@ const Register = () => {
 
                                                     <div className="d-flex align-items-center justify-content-center mb-3">
                                                         <p className="mb-0 me-2">Already have an account?</p>
-                                                        <Link to="/signin"><button type="button" className="btn btn-outline-primary">Go SignIn</button></Link>
+                                                        <Link to="/login"><button type="button" className="btn btn-outline-primary">Go SignIn</button></Link>
                                                     </div>
 
                                                     <div className="text-center">

@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FooterLogo from '../../../assets/logo/nag-air-logo-small.png';
+import '../Navbar/Navbar.css';
 
 const Footer = () => {
     return (
 
-        <footer className=" py-2">
+        <footer className=" py-2 nav_custom">
             <div className="row">
                 <div className="col-12 col-md-4  d-flex  flex-column justify-content-center align-items-center">
                     <div className=' d-flex justify-content-center'>

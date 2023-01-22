@@ -6,7 +6,7 @@ import './Navbar.css';
 const Navbar = () => {
     return (
         <div>
-            <nav className="navbar navbar-expand-lg bg-body-tertiary">
+            <nav className="navbar nav_custom navbar-expand-lg ">
                 <div className="container-fluid">
                     <Link to="/" className="navbar-brand">
                         <img className='' src={Logo} alt="" />
@@ -44,6 +44,12 @@ const Navbar = () => {
                                     <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                                     {/* <button className="btn btn-outline-success" type="submit">Search</button> */}
                                 </form>
+                            </li>
+                            <li className=' d-flex'>
+                                <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                    <button type="button" class="btn btn-outline-primary btn-sm">EN</button>
+                                    <button type="button" class="btn btn-outline-primary btn-sm">BN</button>
+                                </div>
                             </li>
 
                             <li className="nav-item">

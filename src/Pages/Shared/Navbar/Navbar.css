@@ -2,6 +2,10 @@
     width: 30%;
 }
 
+.nav_custom {
+    background-color: skyblue;
+}
+
 
 @media (min-width: 320px) and (max-width: 768px) {
     .nav-margin {

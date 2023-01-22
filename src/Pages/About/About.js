@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AboutImage from '../../assets/image/plane/aeroplane-mobile.jpg';
+import '../About/About.css';
 
 const About = () => {
     return (
-        <div class=" col-xxl-8 px-4 py-5">
+        <div class="about_us col-xxl-8 px-4 py-5">
             <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
                 <div class="col-10 col-sm-8 col-lg-6">
                     <img src={AboutImage} class="d-block mx-lg-auto img-fluid rounded-5 shadow-lg" alt="Bootstrap Themes" width="700" height="500" loading="lazy" />

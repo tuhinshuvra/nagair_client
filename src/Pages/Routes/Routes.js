@@ -11,6 +11,7 @@ import AdditionalService from '../AdditionalService/AdditionalService';
 import PopularLocations from '../PopularLocations/PopularLocations';
 import Trip from '../Trip/Trip';
 import Booking from '../Booking/Booking';
+import Banner from '../Banner/Banner';
 
 const router = createBrowserRouter([
     {
@@ -31,11 +32,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "/trip",
-                element: <Trip></Trip>
+                element: <Banner></Banner>
             },
             {
                 path: "/booking",
-                element: <Booking></Booking>
+                element: <Banner></Banner>
             },
             {
                 path: "/info",

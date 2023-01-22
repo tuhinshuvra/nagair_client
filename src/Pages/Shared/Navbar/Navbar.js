@@ -17,26 +17,26 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+                                <Link className="nav-link nav_btn fw-bold" aria-current="page" to="/">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/about">AboutUs</Link>
+                                <Link className="nav-link  fw-bold " aria-current="page" to="/about">AboutUs</Link>
                             </li>
 
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/contact">Contact</Link>
+                                <Link className="nav-link fw-bold " aria-current="page" to="/contact">Contact</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/booking">Booking</Link>
+                                <Link className="nav-link fw-bold" aria-current="page" to="/booking">Booking</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/trip">Trip</Link>
+                                <Link className="nav-link fw-bold" aria-current="page" to="/trip">Trip</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/info">FlightInfo</Link>
+                                <Link className="nav-link fw-bold" aria-current="page" to="/info">FlightInfo</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/services">Services</Link>
+                                <Link className="nav-link fw-bold " aria-current="page" to="/services">Services</Link>
                             </li>
 
                             <li>
@@ -53,7 +53,7 @@ const Navbar = () => {
                             </li>
 
                             <li className="nav-item">
-                                <Link to="/login" className="nav-link active" aria-current="page">Login</Link>
+                                <Link to="/login" className="nav-link fw-bold " aria-current="page">Login</Link>
                             </li>
                         </ul>
                     </div>

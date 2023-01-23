@@ -53,7 +53,7 @@ const Navbar = () => {
                             </li>
 
                             <li className="nav-item">
-                                <Link to="/login" className="nav-link fw-bold " aria-current="page">Login</Link>
+                                <Link to="/login" className="nav-link fw-bold custom_link " aria-current="page">Login</Link>
                             </li>
                         </ul>
                     </div>

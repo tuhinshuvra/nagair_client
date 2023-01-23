@@ -30,7 +30,7 @@ p {
 }
 
 
-custom_link {
+/* custom_link {
   color: rgb(229, 13, 13);
   -moz-transition: all 0.2s ease-in;
   -o-transition: all 0.2s ease-in;
@@ -51,4 +51,4 @@ custom_link:hover {
   -o-transition: all 0.2s ease-in;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
-}
+} */

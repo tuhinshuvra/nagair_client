@@ -9,29 +9,34 @@
     transform: rotate(360deg);
 } */
 
-.custom_link {
+.lan_btn {
+    width: 10px;
+}
+
+/* .custom_link {
+    display: block;
+    padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+    font-size: var(--bs-nav-link-font-size);
+    font-weight: var(--bs-nav-link-font-weight);
+    color: rgb(206, 20, 20) !important;
     text-decoration: none;
-    color: rgb(236, 10, 10);
-    -moz-transition: all 0.2s ease-in;
-    -o-transition: all 0.2s ease-in;
-    -webkit-transition: all 0.2s ease-in;
-    transition: all 0.2s ease-in;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
 }
 
 .custom_link:visited {
     text-decoration: none;
-    color: rgb(30, 3, 93)
+    color: rgb(30, 3, 93) !important;
 }
 
 
 .custom_link:hover {
-    color: white;
+    color: rgb(5, 151, 51) !important;
     text-shadow: 0px 0px 30px #fdec6e;
     -moz-transition: all 0.2s ease-in;
     -o-transition: all 0.2s ease-in;
     -webkit-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
-}
+} */
 
 .navlogo {
     width: 30%;

@@ -1,11 +1,11 @@
 import React from 'react';
-import Offer1 from '../../assets/image/offer/offer1.jpg';
-import Offer2 from '../../assets/image/offer/offer2.jpg';
-import Offer3 from '../../assets/image/offer/offer3.jpg';
-import Offer4 from '../../assets/image/offer/offer4.jpg';
-import Offer5 from '../../assets/image/offer/offer5.jpg';
-import Offer6 from '../../assets/image/offer/offer6.jpg';
-import Offer7 from '../../assets/image/offer/offer7.jpg';
+import Offer1 from '../../assets/image/offer/offer1.png';
+import Offer2 from '../../assets/image/offer/offer2.png';
+import Offer3 from '../../assets/image/offer/offer3.png';
+import Offer4 from '../../assets/image/offer/offer4.png';
+import Offer5 from '../../assets/image/offer/offer5.png';
+import Offer6 from '../../assets/image/offer/offer6.png';
+import Offer7 from '../../assets/image/offer/offer3.png';
 
 const Offer = () => {
     return (

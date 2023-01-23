@@ -6,7 +6,7 @@ import './Navbar.css';
 const Navbar = () => {
     return (
         <div>
-            <nav className="navbar nav_custom navbar-expand-lg ">
+            <nav className="navbar nav_custom navbar-expand-lg">
                 <div className="container-fluid">
                     <Link to="/" className="navbar-brand">
                         <img className='nav_img' src={Logo} alt="" />
@@ -17,26 +17,26 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link className="nav-link nav_btn fw-bold" aria-current="page" to="/">Home</Link>
+                                <Link className="nav-link fw-bold custom_link " aria-current="page" to="/">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link  fw-bold " aria-current="page" to="/about">AboutUs</Link>
+                                <Link className="nav-link  fw-bold custom_link " aria-current="page" to="/about">AboutUs</Link>
                             </li>
 
                             <li className="nav-item">
-                                <Link className="nav-link fw-bold " aria-current="page" to="/contact">Contact</Link>
+                                <Link className="nav-link fw-bold custom_link" aria-current="page" to="/contact">Contact</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link fw-bold" aria-current="page" to="/booking">Booking</Link>
+                                <Link className="nav-link fw-bold custom_link" aria-current="page" to="/booking">Booking</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link fw-bold" aria-current="page" to="/trip">Trip</Link>
+                                <Link className="nav-link fw-bold custom_link" aria-current="page" to="/trip">Trip</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link fw-bold" aria-current="page" to="/info">FlightInfo</Link>
+                                <Link className="nav-link fw-bold custom_link" aria-current="page" to="/info">FlightInfo</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link fw-bold " aria-current="page" to="/services">Services</Link>
+                                <Link className="nav-link fw-bold custom_link" aria-current="page" to="/services">Services</Link>
                             </li>
 
                             <li>
@@ -46,9 +46,9 @@ const Navbar = () => {
                                 </form>
                             </li>
                             <li className=' d-flex'>
-                                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                    <button type="button" class="btn btn-outline-primary btn-sm">EN</button>
-                                    <button type="button" class="btn btn-outline-primary btn-sm">BN</button>
+                                <div className="btn-group" role="group" aria-label="Basic outlined example">
+                                    <button type="button" className="btn btn-outline-primary btn-sm">EN</button>
+                                    <button type="button" className="btn btn-outline-primary btn-sm">BN</button>
                                 </div>
                             </li>
 

@@ -26,7 +26,7 @@ const Footer = () => {
                 </div>
 
                 <div className="col-6 col-md-2 ">
-                    <h5>HOT LINK</h5>
+                    <h5>Hot Link</h5>
                     <ul className="nav flex-column">
                         <li className="nav-item mb-2"><Link href="#" className="nav-link p-0 text-muted">Home</Link></li>
                         <li className="nav-item mb-2"><Link href="#" className="nav-link p-0 text-muted">Features</Link></li>

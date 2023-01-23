@@ -2,27 +2,28 @@
     /* width: 100px; */
     /* height: 100px; */
     /* background: red; */
-    transition: width 2s, height 2s, transform 3s;
+    /* transition: width 2s, height 2s, transform 3s; */
 }
 
-.nav_img:hover {
+/* .nav_img:hover {
     transform: rotate(360deg);
-}
-
-a:visited {
+} */
+.custom_link {
     text-decoration: none;
-    color: rgb(50, 7, 152)
-}
-
-a {
-    color: black;
+    color: rgb(236, 10, 10);
     -moz-transition: all 0.2s ease-in;
     -o-transition: all 0.2s ease-in;
     -webkit-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
 }
 
-a:hover {
+.custom_link:visited {
+    text-decoration: none;
+    color: rgb(30, 3, 93)
+}
+
+
+.custom_link:hover {
     color: white;
     text-shadow: 0px 0px 30px #fdec6e;
     -moz-transition: all 0.2s ease-in;
@@ -31,9 +32,7 @@ a:hover {
     transition: all 0.2s ease-in;
 }
 
-
-
-.navlogo {
+*/ .navlogo {
     width: 30%;
 }
 

@@ -27,9 +27,26 @@ const AdditionalService = () => {
                 </Carousel.Item>
                 <Carousel.Item>
                     <div className="card">
+                        <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src="https://picsum.photos/800/600?random=2" alt='' />
+                        <div className="card-body">
+                            <Link className=' text-decoration-none' to="">   <h5 className="card-title fw-bold text-center">Ship Rental</h5></Link>
+                        </div>
+                    </div>
+                </Carousel.Item>
+
+                <Carousel.Item>
+                    <div className="card">
                         <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src="https://picsum.photos/800/600?random=3" alt='' />
                         <div className="card-body">
                             <Link className=' text-decoration-none' to="">   <h5 className="card-title fw-bold text-center">Money Transfer</h5></Link>
+                        </div>
+                    </div>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <div className="card">
+                        <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src="https://picsum.photos/800/600?random=2" alt='' />
+                        <div className="card-body">
+                            <Link className=' text-decoration-none' to=""> <h5 className="card-title fw-bold text-center">Car Rental</h5></Link>
                         </div>
                     </div>
                 </Carousel.Item>
@@ -43,20 +60,21 @@ const AdditionalService = () => {
                 </Carousel.Item>
                 <Carousel.Item>
                     <div className="card">
+                        <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src="https://picsum.photos/800/600?random=1" alt='' />
+                        <div className="card-body">
+                            <Link className=' text-decoration-none' to=""><h5 className="card-title fw-bold text-center">Hotel Booking</h5></Link>
+                        </div>
+                    </div>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <div className="card">
                         <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src="https://picsum.photos/800/600?random=2" alt='' />
                         <div className="card-body">
                             <Link className=' text-decoration-none' to="">   <h5 className="card-title fw-bold text-center">Ship Rental</h5></Link>
                         </div>
                     </div>
                 </Carousel.Item>
-                <Carousel.Item>
-                    <div className="card">
-                        <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src="https://picsum.photos/800/600?random=5" alt='' />
-                        <div className="card-body">
-                            <Link className=' text-decoration-none' to=""> <h5 className="card-title fw-bold text-center">Ship Rental</h5></Link>
-                        </div>
-                    </div>
-                </Carousel.Item>
+
 
             </Carousel>
         </div>

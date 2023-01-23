@@ -7,6 +7,8 @@
 
 
 
+
+
 @media (min-width: 320px) and (max-width: 992px) {
     .banner {
         background-image: url('../../assets/image/plane/aeroplane-mobile.jpg');
@@ -25,7 +27,7 @@
 }
 
 
-h1 {
+/* h1 {
     color: black;
     -moz-transition: all 0.2s ease-in;
     -o-transition: all 0.2s ease-in;
@@ -51,4 +53,4 @@ p:hover {
     -o-transition: all 0.2s ease-in;
     -webkit-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
-}
+} */

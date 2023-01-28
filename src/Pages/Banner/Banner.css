@@ -1,13 +1,9 @@
 .banner {
-    background-image: url('../../assets/image/plane/aeroplane.jpg');
+    background-image: url('../../assets/image/Nagair.jpg');
     background-size: 100vw;
-    height: 750px;
+    height: 900px;
     background-repeat: no-repeat;
 }
-
-
-
-
 
 @media (min-width: 320px) and (max-width: 992px) {
     .banner {
@@ -21,7 +17,8 @@
 }
 
 .flight-search {
-    background-image: url('../../assets/image/nature/nature.jpg');
+    /* background-image: url('../../assets/image/nature/nature.jpg'); */
+    background-color: rgba(255, 255, 255, 0.267);
     background-size: 100vw;
     background-repeat: no-repeat;
 }

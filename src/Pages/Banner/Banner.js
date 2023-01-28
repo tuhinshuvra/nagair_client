@@ -10,7 +10,7 @@ const Banner = () => {
                 {/* <div className="col-lg-6 mx-auto ">
 
                 </div> */}
-                <form className='rounded rounded-2 bg-sm p-2 m-3 flight-search'>
+                <form className='rounded rounded-2 p-2 m-3 flight-search'>
                     <div className=''>
                         <div className='col-lg-4'>
                             <div className="form-check form-check-inline">

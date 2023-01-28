@@ -2,51 +2,68 @@ import React from 'react';
 
 const Contact = () => {
     return (
-        <div className=''>
-            <div className="col-lg-12 px-4 py-5">
-                <div className="row align-items-center g-lg-5 py-5">
-                    <div className="col-lg-5 text-center text-lg-start">
-                        <div className="">
-                            <h1 className="text-3xl font-bold mb-5">Get in Touch!</h1>
-                            <p>Address: H-20, Shah Makdum Avenue, Uttara-11, Dhaka</p>
-                            <p>Email: abedefth@gmail.com</p>
-                            <p>WhatsApp +8801123456789</p>
-                            <p>Linkedin: @abcdefgh</p>
-                            <p>Facebook @abcdefghijk</p>
-                        </div>
-                    </div>
-                    <div className="col-lg-6 mx-auto col-lg-5">
-                        <form className="p-4 p-md-5 border rounded-3 bg-light">
-                            <div className="form-floating mb-3">
-                                <input type="text" className="form-control" id="floatingInput" placeholder="Input full name" />
-                                <label htmlFor="floatingInput">Full Name</label>
-                            </div>
-                            <div className="form-floating mb-3">
-                                <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
-                                <label htmlFor="floatingInput">Email address</label>
-                            </div>
-                            <div className="form-floating mb-3">
-                                <input type="text" className="form-control" id="floatingInput" placeholder="0123456789" />
-                                <label htmlFor="floatingInput">Phone No</label>
-                            </div>
-                            <div className="form-floating mb-3">
-                                <textarea type="message" className="form-control" id="floatingInput" placeholder="Input message" />
-                                <label htmlFor="floatingInput">Message</label>
-                            </div>
+        <div className="contact_bg col-lg-12 px-4 py-5" style={{ backgroundColor: '#D0DFFD' }}>
+            <div className="row align-items-center g-lg-5 py-lg-5 col-lg-10 mx-auto p-sm-0">
+                <div className="col-lg-5 text-center text-lg-start">
+                    <div className=" mb-lg-0 mb-4 ">
+                        <h1 className="text-3xl font-bold mb-2 text-success">Get in Touch!</h1>
+                        <h5 className=' mb-0'><b>Nag Air Ltd</b></h5>
+                        <p className=' mb-0'><b>Corporate Office:</b></p>
+                        <p className=' mb-0'>MAG House, House No-20, Shah Makhdum</p>
+                        <p>Avenue, Uttara Sector -11, Dhaka-1230</p>
 
-                            {/* <div className="checkbox mb-3">
-                                <label>
-                                    <input type="checkbox" value="remember-me" /> Remember me
-                                </label>
-                            </div> */}
-                            <button className="w-100 btn btn-lg btn-outline-primary" type="submit">Submit</button>
-                            {/* <hr className="my-4" /> */}
-                            {/* <small className="text-muted">By clicking Sign up, you agree to the terms of use.</small> */}
-                        </form>
+                        <p className=' mb-0'><b>Email:</b> info@gbl-bd.com</p>
+                        <p className=' mb-0'><b>Facebook:</b>
+                            <a className=' text-decoration-none' href="https://www.facebook.com/GorgeousBangladeshLtd" target="_blank" >Nag Air Ltd</a> <br />
+                        </p>
+                        <p className=' mb-0'><b>Phone:</b> +8802 224470053, +8802 224470056</p>
                     </div>
+                </div>
+                <div className="col-lg-6 mx-auto">
+                    <form
+                        className='d-flex flex-column'
+                        action="https://formspree.io/f/mbjelnwv"
+                        method="POST">
+
+                        <input type="text"
+
+                            className=' mb-2 form-control'
+                            name="username"
+                            autoComplete="off"
+                            placeholder='Name'
+                            required
+                        />
+
+                        <input type="text"
+                            className=' mb-2 form-control'
+                            name="phone"
+                            autoComplete="off"
+                            placeholder='Phone No'
+                            required
+                        />
+
+                        <input type="email"
+                            className=' mb-2 form-control'
+                            name="email"
+                            autoComplete="off"
+                            placeholder='Email Address'
+
+                        />
+                        <textarea
+                            className=' mb-2 form-control'
+                            name='message'
+                            cols="30"
+                            rows="3"
+                            autoComplete="off"
+                            placeholder='Message'
+                            required
+                        ></textarea>
+                        <input className=' btn btn-outline-success my-lg-5' type="submit" value="Send Message" />
+                    </form>
                 </div>
             </div>
         </div>
+
     );
 };
 

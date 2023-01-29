@@ -9,7 +9,7 @@ import Offer7 from '../../assets/image/offer/offer3.png';
 
 const Offer = () => {
     return (
-        <div className=' my-0 py-0'>
+        <div className='my-0 py-0'>
             <div id="carouselExampleInterval" className="carousel slide " data-bs-ride="carousel">
                 <div className="carousel-inner">
                     <div className="carousel-item active" data-bs-interval="5000">

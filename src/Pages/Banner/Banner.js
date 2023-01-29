@@ -5,12 +5,12 @@ import './Banner.css'
 const Banner = () => {
     return (
         <div className=' my-0 py-0'>
-            <div className="text-center banner d-flex flex-column justify-content-center">
+            <div className="text-center banner d-flex flex-column justify-content-end">
                 <h1 className="display-5 fw-bold text-text-black ">Life Is Short, Or It's, Big<br /> Let's Explore It</h1>
                 {/* <div className="col-lg-6 mx-auto ">
 
                 </div> */}
-                <form className='rounded rounded-2 p-2 m-3 flight-search'>
+                <form className='col-lg-10 mx-auto rounded rounded-2 p-2 m-3 flight-search'>
                     <div className=''>
                         <div className='col-lg-4'>
                             <div className="form-check form-check-inline">

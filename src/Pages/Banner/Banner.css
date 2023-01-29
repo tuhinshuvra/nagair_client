@@ -52,3 +52,11 @@ p:hover {
     -webkit-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
 } */
+
+
+.nag_heading {
+    /* color: #D61355 */
+    color: #A61F69
+        /* color: #CDE990 */
+        /* color: #FFC3A1 */
+}

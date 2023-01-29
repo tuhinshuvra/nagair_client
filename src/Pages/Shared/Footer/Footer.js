@@ -10,9 +10,9 @@ const Footer = () => {
             <div className="row">
                 <div className="col-12 col-md-4  d-flex  flex-column justify-content-center align-items-center">
                     <div className=' d-flex justify-content-center'>
-                        <Link to="/"> <img className='' src={FooterLogo} alt="" /></Link>
+                        <Link to="/"> <img className='nav_img' src={FooterLogo} alt="" /></Link>
                     </div>
-                    <h5 className=' text-center '>Providing reliable air travel service</h5>
+                    {/* <h5 className=' text-center '>Providing reliable air travel service</h5> */}
                 </div>
 
                 <div className="col-6 col-md-2 ">

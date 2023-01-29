@@ -1,5 +1,6 @@
 .ad-service {
-    background-image: url('../../assets/image/plane/aeroplane.jpg');
+    /* background-image: url('../../assets/image/plane/aeroplane.jpg'); */
+    background-color: skyblue;
     background-size: 100vw;
     height: 500px;
     background-repeat: no-repeat;

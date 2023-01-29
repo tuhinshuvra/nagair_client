@@ -1,16 +1,14 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import MainLayout from '../../layout/MainLayout';
-import Home from '../Home/Home';
 import About from '../About/About';
 import Contact from '../Contact/Contact';
+import Home from '../Home/Home';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import WrongRoute from '../Shared/ErrorDisplay/WrongRoute';
 import AdditionalService from '../AdditionalService/AdditionalService';
 import PopularLocations from '../PopularLocations/PopularLocations';
-import Trip from '../Trip/Trip';
-import Booking from '../Booking/Booking';
 import Banner from '../Banner/Banner';
 
 const router = createBrowserRouter([

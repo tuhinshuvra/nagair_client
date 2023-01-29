@@ -1,42 +1,32 @@
-.nav_img {
-    /* width: 100px; */
-    /* height: 100px; */
-    /* background: red; */
-    /* transition: width 2s, height 2s, transform 3s; */
+.nav_btn {
+    color: #EF3A24;
+    text-decoration: none;
 }
 
-/* .nav_img:hover {
-    transform: rotate(360deg);
-} */
+.nav_btn:hover {
+    color: green;
+    background-color: #EF3A24;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.footer_bg {
+    background-color: #0e3e1e27;
+}
+
+.copyright_text {
+    color: #0E3E1E;
+}
+
+
+
+.nav_img {
+    width: 260px;
+}
 
 .lan_btn {
     width: 10px;
 }
-
-/* .custom_link {
-    display: block;
-    padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
-    font-size: var(--bs-nav-link-font-size);
-    font-weight: var(--bs-nav-link-font-weight);
-    color: rgb(206, 20, 20) !important;
-    text-decoration: none;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
-}
-
-.custom_link:visited {
-    text-decoration: none;
-    color: rgb(30, 3, 93) !important;
-}
-
-
-.custom_link:hover {
-    color: rgb(5, 151, 51) !important;
-    text-shadow: 0px 0px 30px #fdec6e;
-    -moz-transition: all 0.2s ease-in;
-    -o-transition: all 0.2s ease-in;
-    -webkit-transition: all 0.2s ease-in;
-    transition: all 0.2s ease-in;
-} */
 
 .navlogo {
     width: 30%;

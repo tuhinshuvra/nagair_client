@@ -6,7 +6,7 @@ const Banner = () => {
     return (
         <div className=' my-0 py-0'>
             <div className="text-center banner d-flex flex-column justify-content-end">
-                <h1 className="display-5 fw-bold text-text-black ">Life Is Short, Or It's, Big<br /> Let's Explore It</h1>
+                <h1 className="display-5 fw-bold text-text-black nag_heading animate_bottom">Life Is Short, Or It's, Big<br /> Let's Explore It</h1>
                 {/* <div className="col-lg-6 mx-auto ">
 
                 </div> */}

@@ -44,16 +44,16 @@ const Navbar = () => {
                             </li>
                             <li className="nav-item mb-2">
                                 {/* <Link className="nav-link fw-bold custom_link" aria-current="page" to="/info">FlightInfo</Link> */}
-                                <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/service">Services</Link>
+                                <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/services">Services</Link>
                             </li>
 
 
                             <li className=' mav-item mb-2'>
                                 <form className="d-flex" role="search">
                                     <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                                    {/* <button className="btn btn-outline-success" type="submit">Search</button> */}
                                 </form>
                             </li>
+
                             <li className=' d-flex mb-3'>
                                 <div className="btn-group" role="group" aria-label="Basic outlined example">
                                     <button type="button" className="btn btn-outline-primary btn-sm">EN</button>
@@ -61,8 +61,17 @@ const Navbar = () => {
                                 </div>
                             </li>
 
+                            <li className="nav-item dropdown mb-2">
+                                {/* <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="#">Profile</Link> */}
+                                <Link className="nav-link dropdown-toggle fw-bold nav_btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</Link>
+                                <ul className="dropdown-menu">
+                                    <li><Link className="dropdown-item fw-bold nav_btn" to="/passenger">Passenger</Link></li>
+                                    <li><Link className="dropdown-item fw-bold nav_btn" to="/admin">Admin</Link></li>
+                                </ul>
+                            </li>
+
+
                             <li className="nav-item mb-2">
-                                {/* <Link to="/login" className="nav-link fw-bold custom_link " aria-current="page">Login</Link> */}
                                 <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/login">Login</Link>
                             </li>
                         </ul>

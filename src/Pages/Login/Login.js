@@ -27,7 +27,7 @@ const Login = () => {
                                                 <h4 className="mt-1 mb-5 pb-1">We are The Lotus Team</h4>
                                             </div> */}
 
-                                            <form className=' rounded rounded-2 bg-sm p-5 '>
+                                            <form className=' rounded rounded-2 bg-sm login_form p-5'>
                                                 <div className=''>
                                                     <h5 className=' mb-4'>Please login to your account</h5>
 

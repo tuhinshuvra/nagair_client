@@ -10,6 +10,8 @@ import WrongRoute from '../Shared/ErrorDisplay/WrongRoute';
 import AdditionalService from '../AdditionalService/AdditionalService';
 import PopularLocations from '../PopularLocations/PopularLocations';
 import Banner from '../Banner/Banner';
+import Passenger from '../Profile/Passenger/Passenger';
+import Admin from '../Profile/Admin/Admin';
 
 const router = createBrowserRouter([
     {
@@ -35,6 +37,14 @@ const router = createBrowserRouter([
             {
                 path: "/booking",
                 element: <Banner></Banner>
+            },
+            {
+                path: "/passenger",
+                element: <Passenger></Passenger>
+            },
+            {
+                path: "/admin",
+                element: <Admin></Admin>
             },
             {
                 path: "/info",

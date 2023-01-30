@@ -10,8 +10,11 @@ import WrongRoute from '../Shared/ErrorDisplay/WrongRoute';
 import AdditionalService from '../AdditionalService/AdditionalService';
 import PopularLocations from '../PopularLocations/PopularLocations';
 import Banner from '../Banner/Banner';
-import Passenger from '../Profile/Passenger/Passenger';
-import Admin from '../Profile/Admin/Admin';
+import PassengerForm from '../Profile/Passenger/PassengerForm';
+import AdminForm from '../Profile/Admin/AdminForm';
+import PassengerList from '../Profile/Passenger/PassengerList';
+import AdminList from '../Profile/Admin/AdminList';
+import PassengerProfile from '../Profile/Passenger/PassengerProfile';
 
 const router = createBrowserRouter([
     {
@@ -39,12 +42,24 @@ const router = createBrowserRouter([
                 element: <Banner></Banner>
             },
             {
-                path: "/passenger",
-                element: <Passenger></Passenger>
+                path: "/passengerEntry",
+                element: <PassengerForm></PassengerForm>
             },
             {
-                path: "/admin",
-                element: <Admin></Admin>
+                path: "/passengerList",
+                element: <PassengerList></PassengerList>
+            },
+            {
+                path: "/passengerProfile",
+                element: <PassengerProfile></PassengerProfile>
+            },
+            {
+                path: "/adminEntry",
+                element: <AdminForm></AdminForm>
+            },
+            {
+                path: "/adminList",
+                element: <AdminList></AdminList>
             },
             {
                 path: "/info",

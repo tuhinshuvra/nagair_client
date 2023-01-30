@@ -1,11 +1,12 @@
 import React from 'react';
-import '../Passenger/FormDesign.css';
+import './FormDesign.css';
 
-const Admin = () => {
+
+const PassengerForm = () => {
     return (
         <div className='col-lg-6 mx-auto'>
             <h2 className="text-center text-2xl font-medium text-primary my-4">
-                Admin Infomation
+                Passenger Infomation Form
             </h2>
 
             <form action="">
@@ -42,6 +43,27 @@ const Admin = () => {
                         <input type="text" id='secondary-mobile' placeholder="880 1123456789" className="input form-control  " />
                     </div>
                 </div>
+
+                {/* <div className="row my-4">
+                    <div className='col-lg-6 my-lg-0 margin-sm'>
+                        <label className="label">
+                            <span className="label-text text-md font-bold ">Nationality</span>
+                            <span className=" ms-5">Bangladeshi</span>
+                            <input className="form-check-input mx-3" type="checkbox" value="" id="flexCheckChecked" />
+                        </label>
+
+                        <input type="text" id='nationality' placeholder="Type here" className="input form-control  " />
+                    </div>
+                    <div className='col-lg-6 my-lg-0 margin-sm'>
+                        <label className="label">
+                            <span className="label-text text-md font-bold ">National ID</span>
+                        </label>
+                        <input type="text" id='national-id' placeholder="Type here" className="input form-control  " />
+                    </div>
+                </div> */}
+
+
+
 
                 <div className="row my-4">
 
@@ -80,4 +102,4 @@ const Admin = () => {
 
     );
 };
-export default Admin;
+export default PassengerForm;

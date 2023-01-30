@@ -1,0 +1,31 @@
+.footer_logo {}
+
+.nav_btn {
+    color: #EF3A24 !important;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.nav_btn:hover {
+    color: rgb(6, 6, 6) !important;
+    /* background-color: #EF3A24; */
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.footer_bg {
+    background-color: #0e3e1e27;
+}
+
+.copyright_text {
+    color: #EF3A24;
+}
+
+
+
+
+
+
+
+@media (min-width: 320px) and (max-width: 768px) {}

@@ -42,10 +42,11 @@ const Navbar = () => {
                                 {/* <Link className="nav-link fw-bold custom_link" aria-current="page" to="/info">FlightInfo</Link> */}
                                 <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/info">FlightInfo</Link>
                             </li>
-                            <li className="nav-item mb-3">
-                                {/* <Link className="nav-link fw-bold custom_link" aria-current="page" to="/services">Services</Link> */}
-                                <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/services">Services</Link>
+                            <li className="nav-item mb-2">
+                                {/* <Link className="nav-link fw-bold custom_link" aria-current="page" to="/info">FlightInfo</Link> */}
+                                <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/service">Services</Link>
                             </li>
+
 
                             <li className=' mav-item mb-2'>
                                 <form className="d-flex" role="search">

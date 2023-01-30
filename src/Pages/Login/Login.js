@@ -1,26 +1,26 @@
 import React from 'react';
 import Logo from '../../assets/logo/nag-air-logo.png';
 import { FaBeer, FaFacebook, FaGithub, FaGoogle, FaTwitter } from 'react-icons/fa';
-import './Login.css';
 import { Link } from 'react-router-dom';
+import './Login.css';
 
 const Login = () => {
     return (
         <div>
-            <section className="  gradient-form" style={{ backgroundColor: "#eee" }}>
+            <section className="gradient-form">
                 <div className="container py-5">
                     <div className="row d-flex justify-content-center align-items-center">
                         <div className="col-xl-10">
                             <div className="card text-black">
                                 <div className="row g-0  rounded-5">
-                                    <div className="col-lg-5 d-flex flex-column justify-content-center align-items-center logo-area" style={{ backgroundColor: "#505b79" }}>
+                                    <div className="col-lg-5 d-flex flex-column justify-content-center align-items-center logo_area"  >
                                         <div className="px-3 py-lg-4 p-md-5  mx-auto">
                                             <img className='logo' src={Logo} alt="" />
                                         </div>
-                                        <h6 className=" mb-lg-4 text-white text-center">Providing reliable air travel service</h6>
+                                        {/* <h6 className=" mb-lg-4 text-white text-center">Providing reliable air travel service</h6> */}
                                     </div>
                                     <div className="col-lg-7">
-                                        <div className="card-body login-form" style={{ backgroundColor: "#EEF1F6" }}>
+                                        <div className="card-body login-form p-5" style={{ backgroundColor: "#EEF1F6" }}>
                                             {/* <div className="text-center">
                                                 <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
                                                     style={{ width: " 185px" }} alt="logo" />

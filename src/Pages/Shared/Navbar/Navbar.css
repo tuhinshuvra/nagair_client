@@ -1,10 +1,12 @@
 .nav_btn {
     color: #EF3A24;
     text-decoration: none;
+    padding: 8px;
+    border-radius: 10px;
 }
 
 .nav_btn:hover {
-    color: green;
+    color: rgb(6, 6, 6);
     background-color: #EF3A24;
     padding: 8px;
     border-radius: 10px;
@@ -32,7 +34,7 @@
     width: 30%;
 }
 
-.nav_custom {
+.nav_bg {
     background-color: rgba(135, 207, 235, 0.399);
 }
 

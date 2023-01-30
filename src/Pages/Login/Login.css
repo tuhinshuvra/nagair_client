@@ -1,3 +1,7 @@
+.logo_area {
+    background-color: skyblue;
+}
+
 @media (min-width: 992px) {
     .bg-sm {
         background-color: white;

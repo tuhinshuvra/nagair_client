@@ -5,9 +5,9 @@ import '../About/About.css';
 
 const About = () => {
     return (
-        <div className="about_us col-lg-12 px-4 py-5">
-            <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
-                <div className="col-10 col-sm-8 col-lg-6">
+        <div className="about_us px-4 py-5">
+            <div className="col-lg-10 mx-auto row  flex-lg-row-reverse align-items-center g-5 py-5">
+                <div className="col-lg-6">
                     <img src={AboutImage} className="d-block mx-lg-auto img-fluid rounded-5 shadow-lg" alt="Bootstrap Themes" width="700" height="500" loading="lazy" />
                 </div>
                 <div className="col-lg-6">

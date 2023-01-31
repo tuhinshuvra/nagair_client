@@ -12,7 +12,7 @@ const AdditionalService = () => {
 
     return (
         <div className='ad-service'>
-            <h1 className='text-center fw-bold nag_heading '> Our Aditional Sevice </h1>
+            <h1 className='text-center fw-bold location_heading '> Our Aditional Sevice </h1>
             <div className='col-lg-10 mx-auto'>
                 <Carousel cols={4} rows={1} gap={5} loop={true} autoplay={3000} >
                     <Carousel.Item>

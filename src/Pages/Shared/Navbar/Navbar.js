@@ -9,9 +9,12 @@ const Navbar = () => {
         <div>
             <nav className="navbar nav_bg navbar-expand-lg">
                 <div className="container-fluid">
-                    <Link to="/" className="navbar-brand">
+                    <Link to="/" className="navbar-brand spin_logo">
                         <img className='nav_img' src={Logo} alt="" />
                     </Link>
+
+                    {/* <p><i class="fa fa-spinner w3-spin" style="font-size:64px"></i></p> */}
+
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -20,7 +23,7 @@ const Navbar = () => {
                             <li className="nav-item mb-2">
                                 <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/">Home</Link>
                             </li>
-                                <li className="nav-item mb-2">
+                            <li className="nav-item mb-2">
                                 <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/booking">Booking</Link>
                             </li>
                             {/* <li className="nav-item mb-2">

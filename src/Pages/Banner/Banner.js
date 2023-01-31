@@ -10,7 +10,7 @@ const Banner = () => {
                 {/* <div className="col-lg-6 mx-auto ">
 
                 </div> */}
-                <form className='col-lg-10 mx-auto rounded rounded-2 p-2 m-3 flight-search'>
+                <form className='col-lg-10 mx-auto rounded rounded-2 p-2 m-3 flight-search mb-3'>
                     <div className=''>
                         <div className='col-lg-4'>
                             <div className="form-check form-check-inline">
@@ -79,8 +79,8 @@ const Banner = () => {
                         </div>
 
 
-                        <div className="text-center pt-1 mb-5 pb-1 my-2">
-                            <button className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 float-end" type="button">
+                        <div className="text-center pt-3 pb-3">
+                            <button className="custom_btn" type="button">
                                 Search Flights &#10148;
                             </button>
                         </div>

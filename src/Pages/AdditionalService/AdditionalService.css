@@ -1,7 +1,8 @@
 .ad-service {
     /* background-image: url('../../assets/image/plane/aeroplane.jpg'); */
-    background-color: skyblue;
-    background-size: 100vw;
-    height: 500px;
-    background-repeat: no-repeat;
+    background-color: rgba(128, 128, 128, 0.323);
+    padding: 60px 0;
+    /* background-size: 100vw; */
+    /* height: 500px; */
+    /* background-repeat: no-repeat; */
 }

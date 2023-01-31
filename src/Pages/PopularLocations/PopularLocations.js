@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-grid-carousel';
 import './MulitImageSlider.css';
+
 import DomesticOne from '../../assets/image/flights/domestic/Barisal.png';
 import DomesticTwo from '../../assets/image/flights/domestic/Chittagong.png';
 import DomesticThree from '../../assets/image/flights/domestic/Jessore.png';
@@ -30,8 +31,8 @@ const PopularLocations = () => {
 
     return (
         <div className='popular-location location-bg my-0 py-lg-5 '>
-            <h1 className=' text-center fw-bold pt-lg-5  nag_heading animate_bottom'> Popular Locations </h1>
-            <h2 className='text-center fw-bold pt-lg-2 nag_heading animate_left'> Domestic Flights</h2>
+            <h1 className=' text-center fw-bold pt-lg-5 animate_bottom location_heading '> Popular Locations </h1>
+            <h2 className='text-center fw-bold pt-lg-2  animate_left location_heading mb-lg-3'> Domestic Flights</h2>
             <div className=' col-lg-10 mx-auto'>
                 <div className="animate_left" >
                     <Carousel cols={4} rows={1} gap={5} loop={true} autoplay={3000} >
@@ -180,14 +181,13 @@ const PopularLocations = () => {
                                 </div>
                             </div>
                         </Carousel.Item>
-
-
-
                     </Carousel>
                 </div>
             </div>
+
+
             <div className=' col-lg-10 mx-auto'>
-                <h2 className='text-center fw-bold pt-lg-5 nag_heading animate_right'> International Flights</h2>
+                <h2 className='text-center fw-bold pt-lg-5 nag_heading animate_right location_heading mb-lg-3'> International Flights</h2>
 
                 <div className="animate_right" >
                     <Carousel cols={4} rows={1} gap={5} loop={true} autoplay={3000} className="animate_right">

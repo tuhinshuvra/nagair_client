@@ -1,15 +1,19 @@
+
+
 .nav_btn {
     color: #EF3A24;
     text-decoration: none;
     padding: 8px;
     border-radius: 10px;
+    border: 0;
+    font-weight: bold;
 }
 
 .nav_btn:hover {
-    color: rgb(6, 6, 6);
+    color: white;
     background-color: #EF3A24;
     padding: 8px;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 .footer_bg {
@@ -35,7 +39,8 @@
 }
 
 .nav_bg {
-    background-color: rgba(135, 207, 235, 0.399);
+    background-color: #C0B6C1;
+    /* background-color: #667695; */
 }
 
 

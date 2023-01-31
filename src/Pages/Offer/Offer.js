@@ -10,7 +10,7 @@ import Offer7 from '../../assets/image/offer/offer3.png';
 const Offer = () => {
     return (
         <div className='my-0 py-0'>
-            <div id="carouselExampleInterval" className="carousel slide " data-bs-ride="carousel">
+            <div id="nagAirCarouseleInterval" className="carousel slide carousel-dark" data-bs-ride="carousel">
                 <div className="carousel-inner">
                     <div className="carousel-item active" data-bs-interval="5000">
                         <img src={Offer1} className="d-block w-100 rounded-3 " alt="..." />
@@ -34,11 +34,11 @@ const Offer = () => {
                         <img src={Offer7} className="d-block w-100 rounded-3 " alt="..." />
                     </div>
                 </div>
-                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                <button className="carousel-control-prev" type="button" data-bs-target="#nagAirCarouseleInterval" data-bs-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Previous</span>
                 </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                <button className="carousel-control-next" type="button" data-bs-target="#nagAirCarouseleInterval" data-bs-slide="next">
                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Next</span>
                 </button>

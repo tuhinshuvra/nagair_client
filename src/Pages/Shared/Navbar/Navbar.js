@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../../../assets/logo/nag-air-logo-small.png'
+import Logo from '../../../assets/logo/nag-air-logo.png';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -29,9 +29,9 @@ const Navbar = () => {
                             <li className="nav-item mb-2">
                                 <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/booking">Booking</Link>
                             </li>
-                            <li className="nav-item mb-2">
+                            {/* <li className="nav-item mb-2">
                                 <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/trip">Trip</Link>
-                            </li>
+                            </li> */}
                             <li className="nav-item mb-2">
                                 <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/info">FlightInfo</Link>
                             </li>

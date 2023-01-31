@@ -3,16 +3,22 @@
 }
 
 
+
+.location-bg {
+    /* background-color: white; */
+    background-image: url('../../assets/image/bgColor/bg_popular_location.png');
+    background-size: 100vw;
+    /* height: 850px; */
+    background-repeat: no-repeat;
+}
+
+.location_heading {
+    color: #EF3A24;
+}
+
+
 @media (min-width: 320px) and (max-width: 992px) {
     .popular-location {
         margin: 50px 0;
     }
-}
-
-.location-bg {
-    background-color: rgba(251, 8, 8, 0.168)
-        /* background-image: url('../../assets/image/plane/aeroplane.jpg'); */
-        /* background-size: 100vw;
-    height: 850px;
-    background-repeat: no-repeat; */
 }

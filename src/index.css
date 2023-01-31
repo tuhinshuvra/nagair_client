@@ -19,14 +19,14 @@ code {
 
 h1,
 h2 {
-  font-family: 'ArthausBold';
+  /* font-family: 'ArthausBold'; */
   color: white;
 }
 
 h5,
 h6,
 p {
-  font-family: 'ArthausBold';
+  /* font-family: 'ArthausBold'; */
   font-size: 18px;
 }
 
@@ -52,4 +52,31 @@ custom_link:hover {
   -o-transition: all 0.2s ease-in;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
+} */
+
+
+.custom_btn {
+  /* background-color: #C0B6C1; */
+  color: #EF3A24;
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 10px;
+  border: 0;
+  font-weight: bold;
+}
+
+.custom_btn:hover {
+  color: white;
+  background-color: #EF3A24;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+
+/* .custom_btn:active {
+  background: rgb(13, 170, 78);
+}
+
+.custom_btn:focus {
+  background: rgb(34, 0, 255);
 } */

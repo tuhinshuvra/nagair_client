@@ -1,5 +1,5 @@
 .banner {
-    background-image: url('../../assets/image/Nagair.jpg');
+    background-image: url('../../assets/image/NagAirBanner.png');
     /* background-size: 100vw; */
     /* width: 100%; */
     height: 600px;
@@ -56,7 +56,7 @@ p:hover {
 
 .nag_heading {
     /* color: #D61355 */
-    color: #A61F69
-        /* color: #CDE990 */
-        /* color: #FFC3A1 */
+    /* color: #A61F69 */
+    /* color: #CDE990 */
+    /* color: #FFC3A1 */
 }

@@ -8,8 +8,7 @@
 
 @media (min-width: 320px) and (max-width: 992px) {
     .banner {
-        background-image: url('../../assets/image/plane/aeroplane-mobile.jpg');
-        /* background-image: url('../../assets/image/plane/aeroplane.jpg'); */
+        background-image: url('../../assets/image/NagAirBanner.png');
         background-size: 100vh;
         height: 830px;
         background-repeat: no-repeat;
@@ -18,40 +17,10 @@
 }
 
 .flight-search {
-    /* background-image: url('../../assets/image/nature/nature.jpg'); */
     background-color: rgba(255, 255, 255, 0.267);
     background-size: 100vw;
     background-repeat: no-repeat;
 }
-
-
-/* h1 {
-    color: black;
-    -moz-transition: all 0.2s ease-in;
-    -o-transition: all 0.2s ease-in;
-    -webkit-transition: all 0.2s ease-in;
-    transition: all 0.2s ease-in;
-}
-
-h1:hover {
-    color: blue;
-    text-shadow: 0px 0px 30px #fdec6e;
-    -moz-transition: all 0.2s ease-in;
-    -o-transition: all 0.2s ease-in;
-    -webkit-transition: all 0.2s ease-in;
-    transition: all 0.2s ease-in;
-}
-
-
-h2:hover,
-p:hover {
-    color: rgb(141, 94, 7);
-    text-shadow: 0px 0px 30px #fdec6e;
-    -moz-transition: all 0.2s ease-in;
-    -o-transition: all 0.2s ease-in;
-    -webkit-transition: all 0.2s ease-in;
-    transition: all 0.2s ease-in;
-} */
 
 
 .nag_heading {

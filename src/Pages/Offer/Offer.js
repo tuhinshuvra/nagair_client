@@ -4,8 +4,6 @@ import Offer2 from '../../assets/image/offer/offer2.png';
 import Offer3 from '../../assets/image/offer/offer3.png';
 import Offer4 from '../../assets/image/offer/offer4.png';
 import Offer5 from '../../assets/image/offer/offer5.png';
-import Offer6 from '../../assets/image/offer/offer6.png';
-import Offer7 from '../../assets/image/offer/offer3.png';
 
 const Offer = () => {
     return (
@@ -26,12 +24,6 @@ const Offer = () => {
                     </div>
                     <div className="carousel-item">
                         <img src={Offer5} className="d-block w-100 rounded-3 " alt="..." />
-                    </div>
-                    <div className="carousel-item">
-                        <img src={Offer6} className="d-block w-100 rounded-3 " alt="..." />
-                    </div>
-                    <div className="carousel-item">
-                        <img src={Offer7} className="d-block w-100 rounded-3 " alt="..." />
                     </div>
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#nagAirCarouseleInterval" data-bs-slide="prev">

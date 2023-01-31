@@ -1,17 +1,17 @@
-.footer_logo {}
-
-.nav_btn {
-    /* color: #EF3A24 !important;
+.footer_btn {
+    color: #EF3A24;
     text-decoration: none;
     padding: 8px;
-    border-radius: 10px; */
+    border-radius: 10px;
+    border: 0;
+    font-weight: bold;
 }
 
-.nav_btn:hover {
-    /* color: rgb(6, 6, 6) !important; */
-    /* background-color: #EF3A24; */
-    /* padding: 8px; */
-    /* border-radius: 10px; */
+.footer_btn:hover {
+    color: white;
+    background-color: #EF3A24;
+    padding: 6px;
+    border-radius: 8px;
 }
 
 .footer_bg {
@@ -19,7 +19,7 @@
 }
 
 .copyright_text {
-    color: #EF3A24;
+    color: #ed250a;
 }
 
 

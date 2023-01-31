@@ -1,3 +1,5 @@
 .about_us {
-    background-color: rgba(203, 196, 182, 0.478);
+
+    background-image: url('../../assets/image/bgColor/bg_additional_services.png');
+    background-size: 100vw;
 }

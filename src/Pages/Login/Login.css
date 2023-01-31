@@ -1,5 +1,6 @@
 .logo_area {
-    background-color: skyblue;
+    background-image: url('../../assets/image/bgColor/bg_additional_services.png');
+    background-size: 100vw;
 }
 
 @media (min-width: 992px) {

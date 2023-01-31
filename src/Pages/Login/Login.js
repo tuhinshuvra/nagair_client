@@ -33,8 +33,8 @@ const Login = () => {
 
                                                     <div className="form-outline mb-4">
                                                         <label className="form-label" htmlFor="username">Username</label>
-                                                        <input type="email" id="username" className="form-control"
-                                                            placeholder="Phone number or email address" />
+                                                        <input type="text" id="username" className="form-control"
+                                                            placeholder="Enter Name" />
                                                     </div>
 
                                                     <div className="form-outline mb-4">

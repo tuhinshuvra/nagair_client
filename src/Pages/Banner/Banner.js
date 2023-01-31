@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { FaCalendarCheck, FaCannabis, FaPeopleArrows, FaPlaneArrival, FaPlaneDeparture } from 'react-icons/fa';
 import './Banner.css'
 
 const Banner = () => {
@@ -32,27 +32,43 @@ const Banner = () => {
                         <div className='row col-lg-12'>
                             <div className=' col-lg-5 d-lg-flex'>
                                 <div className="form-outline  col-lg-6 mx-1">
-                                    <label className="form-label float-start fw-bold" htmlFor="username">From</label>
+                                    <label className="form-label float-start fw-bold" htmlFor="journey-from">
+                                        <FaPlaneDeparture />
+                                        <span className=''>   From</span>
+                                    </label>
                                     <input type="text" id="journey-from" className="form-control" placeholder="Enter journety to" />
                                 </div>
 
                                 <div className="form-outline  col-lg-6 mx-1">
-                                    <label className="form-label float-start fw-bold" htmlFor="password">To</label>
+                                    <label className="form-label float-start fw-bold " htmlFor="journey-to">
+                                        <FaPlaneArrival />
+                                        <span className=''>  To </span>
+                                    </label>
                                     <input type="text" id="journey-to" className="form-control" placeholder='Enter journey to' />
                                 </div>
 
                             </div>
                             <div className=' col-lg-7 d-lg-flex'>
                                 <div className="form-outline  col-lg-3 mx-1">
-                                    <label className="form-label float-start fw-bold" htmlFor="password">Depart</label>
+                                    <label className="form-label float-start fw-bold" htmlFor="password">
+                                        < FaCalendarCheck />
+                                        <span className=''>Depart</span>
+                                    </label>
                                     <input type="date" id="from-date" className="form-control" />
                                 </div>
                                 <div className="form-outline  col-lg-3 mx-1">
-                                    <label className="form-label float-start fw-bold" htmlFor="password">Return</label>
+                                    <label className="form-label float-start fw-bold" htmlFor="password">
+                                        < FaCalendarCheck />
+                                        <span className=''> Return</span>
+                                    </label>
                                     <input type="date" id="to-date" className="form-control" />
                                 </div>
                                 <div className="form-outline  col-lg-3 mx-1">
-                                    <label className="form-label float-start fw-bold" htmlFor="password">Cabin Class</label>
+                                    <label className="form-label float-start fw-bold" htmlFor="password">
+                                        < FaCannabis />
+                                        <span className=''>  Cabin Class </span>
+
+                                    </label>
                                     <select className="form-select select-bordered  ">
                                         <option disabled defaultValue>Select</option>
                                         <option value={0}>Economy</option>
@@ -62,7 +78,11 @@ const Banner = () => {
                                     </select>
                                 </div>
                                 <div className="form-outline  col-lg-3 mx-1">
-                                    <label className="form-label float-start fw-bold" htmlFor="password">Travellers</label>
+                                    <label className="form-label float-start fw-bold" htmlFor="password">
+
+                                        < FaPeopleArrows />
+                                        <span className=''>Travellers</span>
+                                    </label>
                                     <select className="form-select select-bordered  ">
                                         <option disabled defaultValue>Select</option>
                                         <option value={0}>One</option>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../../assets/logo/nag-air-logo.png';
 import './Navbar.css';
+import { FaSearch } from 'react-icons/fa';
 
 const Navbar = () => {
     return (
@@ -19,14 +20,7 @@ const Navbar = () => {
                             <li className="nav-item mb-2">
                                 <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/">Home</Link>
                             </li>
-                            <li className="nav-item mb-2">
-                                <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/about">AboutUs</Link>
-                            </li>
-
-                            <li className="nav-item mb-2">
-                                <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/contact">Contact</Link>
-                            </li>
-                            <li className="nav-item mb-2">
+                                <li className="nav-item mb-2">
                                 <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/booking">Booking</Link>
                             </li>
                             {/* <li className="nav-item mb-2">
@@ -39,21 +33,30 @@ const Navbar = () => {
                                 <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/services">Services</Link>
                             </li>
 
+                            <li className="nav-item mb-2">
+                                <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/about">AboutUs</Link>
+                            </li>
+
+                            <li className="nav-item mb-2">
+                                <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/contact">Contact</Link>
+                            </li>
+
                             <li className=' mav-item mb-2'>
-                                <form className="d-flex" role="search">
-                                    <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                                <form className=" " role="search">
+                                    {/* <FaSearch></FaSearch> */}
+                                    <input className=" align-items-center form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                                 </form>
                             </li>
 
-                            <li className=' d-flex mb-3'>
+                            {/* <li className=' d-flex mb-3'>
                                 <div className="btn-group" role="group" aria-label="Basic outlined example">
                                     <button type="button" className="btn btn-outline-primary btn-sm">EN</button>
                                     <button type="button" className="btn btn-outline-primary btn-sm">BN</button>
                                 </div>
-                            </li>
+                            </li> */}
 
                             <li className="nav-item dropdown mb-2">
-                                <Link className="nav-link dropdown-toggle fw-bold nav_btn" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</Link>
+                                <Link className="  dropdown-toggle fw-bold nav_btn" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</Link>
                                 <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkRight">
                                     {/* <li><Link className="dropdown-item fw-bold nav_btn" to="#">Passenger</Link></li> */}
                                     {/* <li><Link className="dropdown-item fw-bold nav_btn" to="#">Admin</Link></li> */}
@@ -61,13 +64,13 @@ const Navbar = () => {
                                         <Link className="dropdown-item fw-bold nav_btn" to="#">Passenger &raquo; </Link>
                                         <ul className="dropdown-menu dropdown-submenu dropdown-submenu-left">
                                             <li>
-                                                <Link className="dropdown-item fw-bold nav_btn" to="/passengerEntry">Passenger Entry</Link>
+                                                <Link className="  fw-bold nav_btn my-1" to="/passengerEntry">Passenger Entry</Link>
                                             </li>
                                             <li>
-                                                <Link className="dropdown-item fw-bold nav_btn" to="/passengerList">Passenger List</Link>
+                                                <Link className="fw-bold nav_btn my-1" to="/passengerList">Passenger List</Link>
                                             </li>
                                             <li>
-                                                <Link className="dropdown-item fw-bold nav_btn" to="/passengerProfile">Passenger Profile</Link>
+                                                <Link className="fw-bold nav_btn my-1" to="/passengerProfile">Passenger Profile</Link>
                                             </li>
                                         </ul>
                                     </li>
@@ -75,10 +78,10 @@ const Navbar = () => {
                                         <Link className="dropdown-item fw-bold nav_btn" to="#">Admin &raquo; </Link>
                                         <ul className="dropdown-menu dropdown-submenu dropdown-submenu-left">
                                             <li>
-                                                <Link className="dropdown-item fw-bold nav_btn" to="/adminEntry">Admin Entry</Link>
+                                                <Link className=" ropdown-item fw-bold nav_btn my-1" to="/adminEntry">Admin Entry</Link>
                                             </li>
                                             <li>
-                                                <Link className="dropdown-item fw-bold nav_btn" to="/adminList">Admin List</Link>
+                                                <Link className="  fw-bold nav_btn my-1" to="/adminList">Admin List</Link>
                                             </li>
                                         </ul>
                                     </li>

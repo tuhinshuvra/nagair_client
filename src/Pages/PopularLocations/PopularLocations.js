@@ -44,7 +44,7 @@ const PopularLocations = () => {
                                 </div>
 
                                 <div className="card-body">
-                                    <Link to="#" className="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
                                 </div>
                             </div>
                         </Carousel.Item>
@@ -56,7 +56,7 @@ const PopularLocations = () => {
                                 </div>
 
                                 <div className="card-body">
-                                    <Link to="#" className="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
                                 </div>
                             </div>
                         </Carousel.Item>
@@ -68,7 +68,7 @@ const PopularLocations = () => {
                                 </div>
 
                                 <div className="card-body">
-                                    <Link to="#" className="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
                                 </div>
                             </div>
                         </Carousel.Item>
@@ -80,7 +80,7 @@ const PopularLocations = () => {
                                 </div>
 
                                 <div className="card-body">
-                                    <Link to="#" className="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
                                 </div>
                             </div>
                         </Carousel.Item>
@@ -92,7 +92,7 @@ const PopularLocations = () => {
                                 </div>
 
                                 <div className="card-body">
-                                    <Link to="#" className="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
                                 </div>
                             </div>
                         </Carousel.Item>
@@ -104,7 +104,7 @@ const PopularLocations = () => {
                                 </div>
 
                                 <div className="card-body">
-                                    <Link to="#" className="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
                                 </div>
                             </div>
                         </Carousel.Item>
@@ -116,7 +116,7 @@ const PopularLocations = () => {
                                 </div>
 
                                 <div className="card-body">
-                                    <Link to="#" className="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
                                 </div>
                             </div>
                         </Carousel.Item>
@@ -128,7 +128,7 @@ const PopularLocations = () => {
                                 </div>
 
                                 <div className="card-body">
-                                    <Link to="#" className="card-link text-decoration-none float-end fw-bold  ">From BDT 11894 &#10148;</Link>
+                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold  ">From BDT 11894 &#10148;</Link>
                                 </div>
                             </div>
                         </Carousel.Item>
@@ -140,7 +140,7 @@ const PopularLocations = () => {
                                 </div>
 
                                 <div className="card-body">
-                                    <Link to="#" className="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
                                 </div>
                             </div>
                         </Carousel.Item>
@@ -152,7 +152,7 @@ const PopularLocations = () => {
                                 </div>
 
                                 <div className="card-body">
-                                    <Link to="#" className="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
                                 </div>
                             </div>
                         </Carousel.Item>
@@ -165,7 +165,7 @@ const PopularLocations = () => {
                                 </div>
 
                                 <div className="card-body">
-                                    <Link to="#" className="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
                                 </div>
                             </div>
                         </Carousel.Item>
@@ -177,7 +177,7 @@ const PopularLocations = () => {
                                 </div>
 
                                 <div className="card-body">
-                                    <Link to="#" className="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
                                 </div>
                             </div>
                         </Carousel.Item>
@@ -199,7 +199,7 @@ const PopularLocations = () => {
                                 </div>
 
                                 <div className="card-body">
-                                    <Link to="#" className="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
                                 </div>
                             </div>
                         </Carousel.Item>
@@ -211,7 +211,7 @@ const PopularLocations = () => {
                                 </div>
 
                                 <div className="card-body">
-                                    <Link to="#" className="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
                                 </div>
                             </div>
                         </Carousel.Item>
@@ -223,7 +223,7 @@ const PopularLocations = () => {
                                 </div>
 
                                 <div className="card-body">
-                                    <Link to="#" className="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
                                 </div>
                             </div>
                         </Carousel.Item>
@@ -235,7 +235,7 @@ const PopularLocations = () => {
                                 </div>
 
                                 <div className="card-body">
-                                    <Link to="#" className="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
                                 </div>
                             </div>
                         </Carousel.Item>
@@ -247,7 +247,7 @@ const PopularLocations = () => {
                                 </div>
 
                                 <div className="card-body">
-                                    <Link to="#" className="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
                                 </div>
                             </div>
                         </Carousel.Item>
@@ -259,7 +259,7 @@ const PopularLocations = () => {
                                 </div>
 
                                 <div className="card-body">
-                                    <Link to="#" className="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
                                 </div>
                             </div>
                         </Carousel.Item>
@@ -271,7 +271,7 @@ const PopularLocations = () => {
                                 </div>
 
                                 <div className="card-body">
-                                    <Link to="#" className="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
                                 </div>
                             </div>
                         </Carousel.Item>
@@ -283,7 +283,7 @@ const PopularLocations = () => {
                                 </div>
 
                                 <div className="card-body">
-                                    <Link to="#" className="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
                                 </div>
                             </div>
                         </Carousel.Item>
@@ -295,7 +295,7 @@ const PopularLocations = () => {
                                 </div>
 
                                 <div className="card-body">
-                                    <Link to="#" className="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
                                 </div>
                             </div>
                         </Carousel.Item>
@@ -307,7 +307,7 @@ const PopularLocations = () => {
                                 </div>
 
                                 <div className="card-body">
-                                    <Link to="#" className="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
                                 </div>
                             </div>
                         </Carousel.Item>
@@ -320,7 +320,7 @@ const PopularLocations = () => {
                                 </div>
 
                                 <div className="card-body">
-                                    <Link to="#" className="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
                                 </div>
                             </div>
                         </Carousel.Item>
@@ -332,7 +332,7 @@ const PopularLocations = () => {
                                 </div>
 
                                 <div className="card-body">
-                                    <Link to="#" className="card-link text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
+                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
                                 </div>
                             </div>
                         </Carousel.Item>

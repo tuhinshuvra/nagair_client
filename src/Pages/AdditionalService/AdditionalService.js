@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { span } from 'react-router-dom';
 import Carousel from 'react-grid-carousel';
 import './AdditionalService.css';
 
@@ -12,14 +12,14 @@ const AdditionalService = () => {
 
     return (
         <div className='ad-service'>
-            <h1 className='text-center fw-bold nag_heading location_heading'> Our Aditional Sevice </h1>
+            <h1 className='text-center fw-bold nag_heading '> Our Aditional Sevice </h1>
             <div className='col-lg-10 mx-auto'>
                 <Carousel cols={4} rows={1} gap={5} loop={true} autoplay={3000} >
                     <Carousel.Item>
                         <div className="card">
                             <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={AditionalServiceOne} alt='' />
                             <div className="card-body">
-                                <Link className='text-decoration-none' to="">   <h5 className="card-title fw-bold text-center">Money Transfer</h5></Link>
+                                <span className='text-decoration-none' to="">   <h5 className=" card-title fw-bold text-center">Money Transfer</h5></span>
                             </div>
                         </div>
                     </Carousel.Item>
@@ -28,7 +28,7 @@ const AdditionalService = () => {
                         <div className="card">
                             <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={AditionalServiceTwo} alt='' />
                             <div className="card-body">
-                                <Link className=' text-decoration-none' to="">   <h5 className="card-title fw-bold text-center">Ship Rental</h5></Link>
+                                <span className=' text-decoration-none' to="">   <h5 className=" card-title fw-bold text-center">Ship Rental</h5></span>
                             </div>
                         </div>
                     </Carousel.Item>
@@ -37,7 +37,7 @@ const AdditionalService = () => {
                         <div className="card">
                             <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={AditionalServiceThree} alt='' />
                             <div className="card-body">
-                                <Link className=' text-decoration-none' to=""> <h5 className="card-title fw-bold text-center">Car Rental</h5></Link>
+                                <span className=' text-decoration-none' to=""> <h5 className=" card-title fw-bold text-center">Car Rental</h5></span>
                             </div>
                         </div>
                     </Carousel.Item>
@@ -46,7 +46,7 @@ const AdditionalService = () => {
                         <div className="card">
                             <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={AditionalServiceFour} alt='' />
                             <div className="card-body">
-                                <Link className=' text-decoration-none' to=""><h5 className="card-title fw-bold text-center">Hotel Booking</h5></Link>
+                                <span className=' text-decoration-none' to=""><h5 className=" card-title fw-bold text-center">Hotel Booking</h5></span>
                             </div>
                         </div>
                     </Carousel.Item>
@@ -55,7 +55,7 @@ const AdditionalService = () => {
                         <div className="card">
                             <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={AditionalServiceOne} alt='' />
                             <div className="card-body">
-                                <Link className='text-decoration-none' to="">   <h5 className="card-title fw-bold text-center">Money Transfer</h5></Link>
+                                <span className='text-decoration-none' to="">   <h5 className=" card-title fw-bold text-center">Money Transfer</h5></span>
                             </div>
                         </div>
                     </Carousel.Item>
@@ -64,7 +64,7 @@ const AdditionalService = () => {
                         <div className="card">
                             <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={AditionalServiceTwo} alt='' />
                             <div className="card-body">
-                                <Link className=' text-decoration-none' to="">   <h5 className="card-title fw-bold text-center">Ship Rental</h5></Link>
+                                <span className=' text-decoration-none' to="">   <h5 className=" card-title fw-bold text-center">Ship Rental</h5></span>
                             </div>
                         </div>
                     </Carousel.Item>
@@ -73,7 +73,7 @@ const AdditionalService = () => {
                         <div className="card">
                             <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={AditionalServiceThree} alt='' />
                             <div className="card-body">
-                                <Link className=' text-decoration-none' to=""> <h5 className="card-title fw-bold text-center">Car Rental</h5></Link>
+                                <span className=' text-decoration-none' to=""> <h5 className="   card-title fw-bold text-center">Car Rental</h5></span>
                             </div>
                         </div>
                     </Carousel.Item>
@@ -82,7 +82,7 @@ const AdditionalService = () => {
                         <div className="card">
                             <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={AditionalServiceFour} alt='' />
                             <div className="card-body">
-                                <Link className=' text-decoration-none' to=""><h5 className="card-title fw-bold text-center">Hotel Booking</h5></Link>
+                                <span className=' text-decoration-none' to=""><h5 className=" card-title fw-bold text-center">Hotel Booking</h5></span>
                             </div>
                         </div>
                     </Carousel.Item>

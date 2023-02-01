@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaCalendarCheck, FaCannabis, FaPeopleArrows, FaPlaneArrival, FaPlaneDeparture } from 'react-icons/fa';
+import { FaCalendarCheck, FaCannabis, FaPeopleArrows, FaPlane, FaPlaneArrival, FaPlaneDeparture, FaSpa } from 'react-icons/fa';
 import './Banner.css'
 
 const Banner = () => {
@@ -65,7 +65,7 @@ const Banner = () => {
                                 </div>
                                 <div className="form-outline  col-lg-3 mx-1">
                                     <label className="form-label float-start fw-bold" htmlFor="password">
-                                        < FaCannabis />
+                                        <FaSpa />
                                         <span className=''>  Cabin Class </span>
 
                                     </label>
@@ -80,7 +80,7 @@ const Banner = () => {
                                 <div className="form-outline  col-lg-3 mx-1">
                                     <label className="form-label float-start fw-bold" htmlFor="password">
 
-                                        < FaPeopleArrows />
+                                        < FaPlane />
                                         <span className=''>Travellers</span>
                                     </label>
                                     <select className="form-select select-bordered  ">

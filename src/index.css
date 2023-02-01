@@ -72,6 +72,23 @@ custom_link:hover {
   border-radius: 8px;
 }
 
+.custom_icon {
+  color: #EF3A24;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 0 5px;
+  border-radius: 25px;
+  border: 0;
+  font-weight: bold;
+}
+
+.custom_icon:hover {
+  color: white;
+  background-color: #EF3A24;
+  /* padding: 7px;
+  border-radius: 25px; */
+}
+
 
 /* .custom_btn:active {
   background: rgb(13, 170, 78);

@@ -35,9 +35,9 @@ const PopularLocations = () => {
             <h2 className='text-center fw-bold pt-lg-2  animate_left location_heading mb-lg-3'> Domestic Flights</h2>
             <div className=' col-lg-10 mx-auto'>
                 <div className="animate_left" >
-                    <Carousel cols={4} rows={1} gap={5} loop={true} autoplay={3000} >
+                    <Carousel cols={4} rows={1} gap={2} loop={true} autoplay={3000} >
                         <Carousel.Item>
-                            <div className="card" style={{ width: "16rem" }}>
+                            <div className="card" style={{ width: "15rem" }}>
                                 <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={DomesticOne} alt='' />
                                 <div className="card-body">
                                     <h5 className="card-title fw-bold">Barishal</h5>
@@ -49,7 +49,7 @@ const PopularLocations = () => {
                             </div>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <div className="card" style={{ width: "16rem" }}>
+                            <div className="card" style={{ width: "15rem" }}>
                                 <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={DomesticTwo} alt='' />
                                 <div className="card-body">
                                     <h5 className="card-title fw-bold">Chattogram</h5>
@@ -61,7 +61,7 @@ const PopularLocations = () => {
                             </div>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <div className="card" style={{ width: "16rem" }}>
+                            <div className="card" style={{ width: "15rem" }}>
                                 <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={DomesticThree} alt='' />
                                 <div className="card-body">
                                     <h5 className="card-title fw-bold">Jessore</h5>
@@ -73,7 +73,7 @@ const PopularLocations = () => {
                             </div>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <div className="card" style={{ width: "16rem" }}>
+                            <div className="card" style={{ width: "15rem" }}>
                                 <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={DomesticFour} alt='' />
                                 <div className="card-body">
                                     <h5 className="card-title fw-bold">Saidpur</h5>
@@ -85,7 +85,7 @@ const PopularLocations = () => {
                             </div>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <div className="card" style={{ width: "16rem" }}>
+                            <div className="card" style={{ width: "15rem" }}>
                                 <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={DomesticFive} alt='' />
                                 <div className="card-body">
                                     <h5 className="card-title fw-bold">Cox's Bazar</h5>
@@ -97,7 +97,7 @@ const PopularLocations = () => {
                             </div>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <div className="card" style={{ width: "16rem" }}>
+                            <div className="card" style={{ width: "15rem" }}>
                                 <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={DomesticSix} alt='' />
                                 <div className="card-body">
                                     <h5 className="card-title fw-bold">Sylhet</h5>
@@ -109,7 +109,7 @@ const PopularLocations = () => {
                             </div>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <div className="card" style={{ width: "16rem" }}>
+                            <div className="card" style={{ width: "15rem" }}>
                                 <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={DomesticSeven} alt='' />
                                 <div className="card-body">
                                     <h5 className="card-title fw-bold">Thakurgaon</h5>
@@ -121,7 +121,7 @@ const PopularLocations = () => {
                             </div>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <div className="card" style={{ width: "16rem" }}>
+                            <div className="card" style={{ width: "15rem" }}>
                                 <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={DomesticEight} alt='' />
                                 <div className="card-body">
                                     <h5 className="card-title fw-bold">Barishal</h5>
@@ -133,7 +133,7 @@ const PopularLocations = () => {
                             </div>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <div className="card" style={{ width: "16rem" }}>
+                            <div className="card" style={{ width: "15rem" }}>
                                 <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={DomesticNine} alt='' />
                                 <div className="card-body">
                                     <h5 className="card-title fw-bold">Jessore</h5>
@@ -145,7 +145,7 @@ const PopularLocations = () => {
                             </div>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <div className="card" style={{ width: "16rem" }}>
+                            <div className="card" style={{ width: "15rem" }}>
                                 <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={DomesticTen} alt='' />
                                 <div className="card-body">
                                     <h5 className="card-title fw-bold">Saidpur</h5>
@@ -158,7 +158,7 @@ const PopularLocations = () => {
                         </Carousel.Item>
 
                         <Carousel.Item>
-                            <div className="card" style={{ width: "16rem" }}>
+                            <div className="card" style={{ width: "15rem" }}>
                                 <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={DomesticSix} alt='' />
                                 <div className="card-body">
                                     <h5 className="card-title fw-bold">Sylhet</h5>
@@ -170,7 +170,7 @@ const PopularLocations = () => {
                             </div>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <div className="card" style={{ width: "16rem" }}>
+                            <div className="card" style={{ width: "15rem" }}>
                                 <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={DomesticSeven} alt='' />
                                 <div className="card-body">
                                     <h5 className="card-title fw-bold">Thakurgaon</h5>
@@ -192,7 +192,7 @@ const PopularLocations = () => {
                 <div className="animate_right" >
                     <Carousel cols={4} rows={1} gap={5} loop={true} autoplay={3000} className="animate_right">
                         <Carousel.Item>
-                            <div className="card" style={{ width: "16rem" }}>
+                            <div className="card" style={{ width: "15rem" }}>
                                 <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={InternationalOne} alt='' />
                                 <div className="card-body">
                                     <h5 className="card-title fw-bold">Singapore</h5>
@@ -204,7 +204,7 @@ const PopularLocations = () => {
                             </div>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <div className="card" style={{ width: "16rem" }}>
+                            <div className="card" style={{ width: "15rem" }}>
                                 <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={InternationalTwo} alt='' />
                                 <div className="card-body">
                                     <h5 className="card-title fw-bold">Beijing</h5>
@@ -216,7 +216,7 @@ const PopularLocations = () => {
                             </div>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <div className="card" style={{ width: "16rem" }}>
+                            <div className="card" style={{ width: "15rem" }}>
                                 <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={InternationalThree} alt='' />
                                 <div className="card-body">
                                     <h5 className="card-title fw-bold">Delhi</h5>
@@ -228,7 +228,7 @@ const PopularLocations = () => {
                             </div>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <div className="card" style={{ width: "16rem" }}>
+                            <div className="card" style={{ width: "15rem" }}>
                                 <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={InternationalFour} alt='' />
                                 <div className="card-body">
                                     <h5 className="card-title fw-bold">Hong Kong</h5>
@@ -240,7 +240,7 @@ const PopularLocations = () => {
                             </div>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <div className="card" style={{ width: "16rem" }}>
+                            <div className="card" style={{ width: "15rem" }}>
                                 <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={InternationalFive} alt='' />
                                 <div className="card-body">
                                     <h5 className="card-title fw-bold">Mumbai</h5>
@@ -252,7 +252,7 @@ const PopularLocations = () => {
                             </div>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <div className="card" style={{ width: "16rem" }}>
+                            <div className="card" style={{ width: "15rem" }}>
                                 <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={InternationalSix} alt='' />
                                 <div className="card-body">
                                     <h5 className="card-title fw-bold">Jeddah</h5>
@@ -264,7 +264,7 @@ const PopularLocations = () => {
                             </div>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <div className="card" style={{ width: "16rem" }}>
+                            <div className="card" style={{ width: "15rem" }}>
                                 <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={InternationalSeven} alt='' />
                                 <div className="card-body">
                                     <h5 className="card-title fw-bold">Shanghai</h5>
@@ -276,7 +276,7 @@ const PopularLocations = () => {
                             </div>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <div className="card" style={{ width: "16rem" }}>
+                            <div className="card" style={{ width: "15rem" }}>
                                 <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={InternationalEight} alt='' />
                                 <div className="card-body">
                                     <h5 className="card-title fw-bold">Dubai</h5>
@@ -288,7 +288,7 @@ const PopularLocations = () => {
                             </div>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <div className="card" style={{ width: "16rem" }}>
+                            <div className="card" style={{ width: "15rem" }}>
                                 <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={InternationalNine} alt='' />
                                 <div className="card-body">
                                     <h5 className="card-title fw-bold">Doha</h5>
@@ -300,7 +300,7 @@ const PopularLocations = () => {
                             </div>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <div className="card" style={{ width: "16rem" }}>
+                            <div className="card" style={{ width: "15rem" }}>
                                 <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={InternationalTen} alt='' />
                                 <div className="card-body">
                                     <h5 className="card-title fw-bold">Bangalore</h5>
@@ -313,7 +313,7 @@ const PopularLocations = () => {
                         </Carousel.Item>
 
                         <Carousel.Item>
-                            <div className="card" style={{ width: "16rem" }}>
+                            <div className="card" style={{ width: "15rem" }}>
                                 <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={InternationalSix} alt='' />
                                 <div className="card-body">
                                     <h5 className="card-title fw-bold">Jeddah</h5>
@@ -325,7 +325,7 @@ const PopularLocations = () => {
                             </div>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <div className="card" style={{ width: "16rem" }}>
+                            <div className="card" style={{ width: "15rem" }}>
                                 <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={InternationalSeven} alt='' />
                                 <div className="card-body">
                                     <h5 className="card-title fw-bold">Shanghai</h5>

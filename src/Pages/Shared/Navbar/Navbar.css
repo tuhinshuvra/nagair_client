@@ -24,9 +24,22 @@
 .nav_btn:hover {
     color: white;
     background-color: #EF3A24;
-    padding: 8px;
     border-radius: 8px;
 }
+
+.nest_nav_btn {
+    color: #EF3A24;
+    text-decoration: none;
+    padding: 4px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 0;
+    font-weight: bold;
+}
+.nest_nav_btn:hover{
+    color: black;
+}
+
 
 .footer_bg {
     background-color: #0e3e1e27;

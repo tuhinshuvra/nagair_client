@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../../assets/logo/nag-air-logo.png';
-import './Navbar.css';
 import { FaSearch } from 'react-icons/fa';
+import './Navbar.css';
 
 const Navbar = () => {
     return (
@@ -64,27 +64,27 @@ const Navbar = () => {
                                     {/* <li><Link className="dropdown-item fw-bold nav_btn" to="#">Passenger</Link></li> */}
                                     {/* <li><Link className="dropdown-item fw-bold nav_btn" to="#">Admin</Link></li> */}
                                     <li>
-                                        <Link className="dropdown-item fw-bold nav_btn" to="#">Passenger &raquo; </Link>
+                                        <Link className="nest_nav_btn fw-bold" to="#">Passenger &raquo; </Link>
                                         <ul className="dropdown-menu dropdown-submenu dropdown-submenu-left">
                                             <li>
-                                                <Link className="  fw-bold nav_btn my-1" to="/passengerEntry">Passenger Entry</Link>
+                                                <Link className="  fw-bold nest_nav_btn" to="/passengerEntry">Passenger Entry</Link>
                                             </li>
                                             <li>
-                                                <Link className="fw-bold nav_btn my-1" to="/passengerList">Passenger List</Link>
+                                                <Link className="fw-bold nest_nav_btn" to="/passengerList">Passenger List</Link>
                                             </li>
                                             <li>
-                                                <Link className="fw-bold nav_btn my-1" to="/passengerProfile">Passenger Profile</Link>
+                                                <Link className="fw-bold nest_nav_btn" to="/passengerProfile">Passenger Profile</Link>
                                             </li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <Link className="dropdown-item fw-bold nav_btn" to="#">Admin &raquo; </Link>
+                                        <Link className="nest_nav_btn fw-bold" to="#">Admin &raquo; </Link>
                                         <ul className="dropdown-menu dropdown-submenu dropdown-submenu-left">
                                             <li>
-                                                <Link className=" ropdown-item fw-bold nav_btn my-1" to="/adminEntry">Admin Entry</Link>
+                                                <Link className=" ropdown-item fw-bold nest_nav_btn" to="/adminEntry">Admin Entry</Link>
                                             </li>
                                             <li>
-                                                <Link className="  fw-bold nav_btn my-1" to="/adminList">Admin List</Link>
+                                                <Link className="fw-bold nest_nav_btn" to="/adminList">Admin List</Link>
                                             </li>
                                         </ul>
                                     </li>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from '../../assets/logo/nag-air-logo.png';
-import { FaBeer, FaFacebook, FaGithub, FaGoogle, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaGithub, FaGoogle, FaTwitter } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import './Login.css';
 
@@ -17,17 +17,11 @@ const Login = () => {
                                         <div className="px-3 py-lg-4 p-md-5  mx-auto">
                                             <img className='logo' src={Logo} alt="" />
                                         </div>
-                                        {/* <h6 className=" mb-lg-4 text-white text-center">Providing reliable air travel service</h6> */}
                                     </div>
                                     <div className="col-lg-7">
-                                        <div className="card-body login-form p-5" style={{ backgroundColor: "#EEF1F6" }}>
-                                            {/* <div className="text-center">
-                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
-                                                    style={{ width: " 185px" }} alt="logo" />
-                                                <h4 className="mt-1 mb-5 pb-1">We are The Lotus Team</h4>
-                                            </div> */}
+                                        <div className="form_area">
 
-                                            <form className=' rounded rounded-2 bg-sm login_form p-5'>
+                                            <form className=' rounded rounded-2 bg-sm login_form'>
                                                 <div className=''>
                                                     <h5 className=' mb-4'>Please login to your account</h5>
 
@@ -42,37 +36,33 @@ const Login = () => {
                                                         <input type="password" id="password" className="form-control" placeholder='Enter password' />
                                                     </div>
 
-                                                    <div className="text-center pt-1 mb-5 pb-1">
-                                                        <button className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button">
-                                                            Sign In
+                                                    <div className="text-center pt-1 mb-md-5 pb-1">
+                                                        <button className=" custom_btn fa-lg gradient-custom-2 mb-3" type="button">
+                                                            Log In
                                                         </button>
                                                         <a className="text-muted m-2 " href="#!">Forgot password?</a>
                                                     </div>
 
-                                                    <div className="d-flex align-items-center justify-content-center pb-4">
+                                                    <div className="create_new ">
                                                         <p className="mb-0 me-2">Don't have an account?</p>
-                                                        <Link to="/register"><button type="button" className="btn btn-outline-primary">Create new</button></Link>
+                                                        <Link to="/register"><button type="button" className="custom_btn">Create new</button></Link>
                                                     </div>
 
                                                     <div className="text-center">
                                                         <p>or sign up with:</p>
-                                                        <button type="button" className="btn btn-link btn-floating mx-1">
-                                                            {/* <i className="fab fa-facebook-f"></i> */}
+                                                        <button type="button" className="custom_icon mx-2">
                                                             <FaFacebook />
                                                         </button>
 
-                                                        <button type="button" className="btn btn-link btn-floating mx-1">
-                                                            {/* <i className="fab fa-google"></i> */}
+                                                        <button type="button" className="custom_icon mx-2">
                                                             <FaGoogle />
                                                         </button>
 
-                                                        <button type="button" className="btn btn-link btn-floating mx-1">
-                                                            {/* <i className="fab fa-twitter"></i> */}
+                                                        <button type="button" className="custom_icon mx-2">
                                                             <FaTwitter />
                                                         </button>
 
-                                                        <button type="button" className="btn btn-link btn-floating mx-1">
-                                                            {/* <i className="fab fa-github"></i> */}
+                                                        <button type="button" className="custom_icon mx-2">
                                                             <FaGithub />
                                                         </button>
                                                     </div>

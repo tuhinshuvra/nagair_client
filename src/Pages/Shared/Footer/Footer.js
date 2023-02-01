@@ -16,43 +16,47 @@ const Footer = () => {
                     </div>
                     <div className="col-6 col-md-2 mb-3">
                         <div className=''>
-                            <h5 className='fw-bold justify-content-center'>Services</h5>
+
+                            <div className=''>
+                                <h5 className='fw-bold text-center'>Services</h5>
+                            </div>
+
                             <ul className="nav flex-column ">
-                                <li className="nav-item mb-2"><Link to="/" className="  footer_btn fw-bold text-center">Home</Link></li>
-                                <li className="nav-item mb-2"><Link to="/products" className="  footer_btn fw-bold text-center">Product</Link></li>
-                                <li className="nav-item mb-2"><Link to="/services" className="  footer_btn fw-bold text-center">Sevices</Link></li>
-                                <li className="nav-item mb-2"><Link to="/about" className="  footer_btn fw-bold text-center">About</Link></li>
+                                <li className="mb-2 text-center"><Link to="/" className="  footer_btn fw-bold">Home</Link></li>
+                                <li className="mb-2 text-center"><Link to="/products" className="  footer_btn fw-bold">Product</Link></li>
+                                <li className="mb-2 text-center"><Link to="/services" className="  footer_btn fw-bold">Sevices</Link></li>
+                                <li className="mb-2 text-center"><Link to="/about" className="  footer_btn fw-bold">About</Link></li>
                             </ul>
                         </div>
                     </div>
 
                     <div className="col-6 col-md-2 mb-3">
-                        <h5 className='fw-bold  '>Hot Link</h5>
+                        <h5 className='fw-bold text-center '>Hot Link</h5>
                         <ul className="nav flex-column">
-                            <li className="nav-item mb-2"><Link to="/" className="  footer_btn fw-bold text-center">Home</Link></li>
-                            <li className="nav-item mb-2"><Link to="/products" className="  footer_btn fw-bold text-center">Product</Link></li>
-                            <li className="nav-item mb-2"><Link to="/services" className="  footer_btn fw-bold text-center">Sevices</Link></li>
-                            <li className="nav-item mb-2"><Link to="/about" className="  footer_btn fw-bold text-center">About</Link></li>
+                            <li className="mb-2 text-center"><Link to="/" className="  footer_btn fw-bold">Home</Link></li>
+                            <li className="mb-2 text-center"><Link to="/products" className="  footer_btn fw-bold">Product</Link></li>
+                            <li className="mb-2 text-center"><Link to="/services" className="  footer_btn fw-bold">Sevices</Link></li>
+                            <li className="mb-2 text-center"><Link to="/about" className="  footer_btn fw-bold">About</Link></li>
                         </ul>
                     </div>
 
                     <div className="col-6 col-md-2 mb-3">
-                        <h5 className=' fw-bold'>Legal</h5>
+                        <h5 className=' fw-bold text-center'>Legal</h5>
                         <ul className="nav flex-column">
-                            <li className="nav-item mb-2"><Link to="/" className="  footer_btn fw-bold text-center">Home</Link></li>
-                            <li className="nav-item mb-2"><Link to="/products" className="  footer_btn fw-bold text-center">Product</Link></li>
-                            <li className="nav-item mb-2"><Link to="/services" className="  footer_btn fw-bold text-center">Sevices</Link></li>
-                            <li className="nav-item mb-2"><Link to="/about" className="  footer_btn fw-bold text-center">About</Link></li>
+                            <li className="mb-2 text-center"><Link to="/" className="  footer_btn fw-bold">Home</Link></li>
+                            <li className="mb-2 text-center"><Link to="/products" className="  footer_btn fw-bold">Product</Link></li>
+                            <li className="mb-2 text-center"><Link to="/services" className="  footer_btn fw-bold">Sevices</Link></li>
+                            <li className="mb-2 text-center"><Link to="/about" className="  footer_btn fw-bold">About</Link></li>
                         </ul>
                     </div>
 
                     <div className="col-6 col-md-2 mb-3">
-                        <h5 className=' fw-bold'>Legal</h5>
+                        <h5 className=' fw-bold text-center'>Legal</h5>
                         <ul className="nav flex-column">
-                            <li className="nav-item mb-2"><Link to="/" className="  footer_btn fw-bold text-center">Home</Link></li>
-                            <li className="nav-item mb-2"><Link to="/products" className="  footer_btn fw-bold text-center">Product</Link></li>
-                            <li className="nav-item mb-2"><Link to="/services" className="  footer_btn fw-bold text-center">Sevices</Link></li>
-                            <li className="nav-item mb-2"><Link to="/about" className="  footer_btn fw-bold text-center">About</Link></li>
+                            <li className="mb-2 text-center"><Link to="/" className="  footer_btn fw-bold">Home</Link></li>
+                            <li className="mb-2 text-center"><Link to="/products" className="  footer_btn fw-bold">Product</Link></li>
+                            <li className="mb-2 text-center"><Link to="/services" className="  footer_btn fw-bold">Sevices</Link></li>
+                            <li className="mb-2 text-center"><Link to="/about" className="  footer_btn fw-bold">About</Link></li>
                         </ul>
                     </div>
                 </div>

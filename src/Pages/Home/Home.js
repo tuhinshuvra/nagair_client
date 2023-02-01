@@ -4,8 +4,8 @@ import Offer from '../Offer/Offer';
 import PopularLocations from '../PopularLocations/PopularLocations';
 import Banner from '../Banner/Banner';
 import Subscription from '../Subscription/Subscription';
-import GridCarousol from '../GridCarousol';
 import './NagAirAnimation.css';
+// import GridCarousol from '../GridCarousol/GridCarousol';
 
 const Home = () => {
     return (

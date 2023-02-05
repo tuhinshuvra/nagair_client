@@ -2,8 +2,8 @@ import React from 'react';
 import Offer1 from '../../assets/image/offer/offer1.png';
 import Offer2 from '../../assets/image/offer/offer2.png';
 import Offer3 from '../../assets/image/offer/offer3.png';
-import Offer4 from '../../assets/image/offer/offer1.png';
-import Offer5 from '../../assets/image/offer/offer2.png';
+import Offer4 from '../../assets/image/offer/offer4.png';
+import Offer5 from '../../assets/image/offer/offer1.png';
 
 const Offer = () => {
     return (

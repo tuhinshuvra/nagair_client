@@ -1,0 +1,49 @@
+.bgDownloadApp{
+    background-color: rgba(194, 246, 194, 0.267);
+}
+.appImage{
+    width: 280px;
+}
+
+.appTextHead{
+    font-size: 60px;
+}
+
+.AndroidStore{
+    width: 200px;
+}
+
+
+
+
+
+@media (min-width: 1440px) {
+     
+  }
+  
+  @media (min-width: 1024px) and (max-width: 1439px) {
+           
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023.98px) {
+     
+  }
+  
+  @media (min-width: 320px) and (max-width: 767.98px) {
+    .bgDownloadApp{
+        background-color: rgba(194, 246, 194, 0.267);
+    }
+    .appImage{
+        width: 185px;
+    }
+    
+    .appTextHead {
+        font-size: 40px;
+    }
+    
+    .AndroidStore{
+        width: 200px;
+    }
+     
+  }
+  

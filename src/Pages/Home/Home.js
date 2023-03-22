@@ -5,6 +5,7 @@ import PopularLocations from '../PopularLocations/PopularLocations';
 import Banner from '../Banner/Banner';
 import Subscription from '../Subscription/Subscription';
 import './NagAirAnimation.css';
+import DownloadApp from '../DownloadApp/DownloadApp';
 // import GridCarousol from '../GridCarousol/GridCarousol';
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
         <div>
             {/* <GridCarousol></GridCarousol> */}
             <Banner></Banner>
+            <DownloadApp></DownloadApp>
             <Offer></Offer>
             <PopularLocations></PopularLocations>
             <AdditionalService></AdditionalService>

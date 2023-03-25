@@ -2,11 +2,12 @@
     background-color: rgba(194, 246, 194, 0.267);
 }
 .appImage{
-    width: 280px;
+    width: 230px;
 }
 
 .appTextHead{
     font-size: 60px;
+    line-height: 63px;
 }
 
 .AndroidStore{
@@ -26,19 +27,14 @@
   }
   
   @media (min-width: 768px) and (max-width: 1023.98px) {
-     
-  }
-  
-  @media (min-width: 320px) and (max-width: 767.98px) {
-    .bgDownloadApp{
-        background-color: rgba(194, 246, 194, 0.267);
-    }
+    
     .appImage{
         width: 185px;
     }
     
     .appTextHead {
         font-size: 40px;
+        line-height: 43px;
     }
     
     .AndroidStore{
@@ -47,3 +43,27 @@
      
   }
   
+  
+  @media (min-width: 320px) and (max-width: 767.98px) {
+   
+    .appImage{
+        width: 142px;
+    }
+    
+    .appTextHead {
+        font-size: 33px;
+        line-height: 36px;
+    }    
+    
+     
+  }
+  @media (min-width: 320px) and (max-width: 424.98px) { 
+    
+    .AndroidStore{
+        width: 116px;
+    }
+    .appTextHead {
+        font-size: 22px;
+        line-height: 27px;
+}
+}

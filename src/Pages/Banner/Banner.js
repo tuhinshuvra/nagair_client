@@ -1,18 +1,26 @@
 import React from 'react';
 import { FaCalendarCheck, FaCannabis, FaPeopleArrows, FaPlane, FaPlaneArrival, FaPlaneDeparture, FaSpa } from 'react-icons/fa';
+import PlaneImage from '../../assets/image/nagair_plane.png';
 import './Banner.css'
 
 const Banner = () => {
     return (
         <div className=' my-0 py-0'>
-            <div className="text-center banner d-flex flex-column justify-content-end">
-                <h1 className="display-5 fw-bold text-text-black nag_heading animate_bottom">Life Is Short, Or It's, Big<br /> Let's Explore It</h1>
+            <div className="banner   d-flex flex-column justify-content-end text-center">
+                <div className=' text-center'>
+                <img className='planeImage d-none d-md-block mx-auto' src={PlaneImage} alt="" />
+
+                </div>
+                <h1 className="bannerTitle fw-bold nag_heading animate_bottom">Life Is Short, Or It's, Big<br /> Let's Explore It</h1>
                 {/* <div className="col-lg-6 mx-auto ">
 
                 </div> */}
-                <form className='col-lg-10 mx-auto rounded rounded-2 p-2 m-3 flight-search mb-3'>
-                    <div className=''>
-                        <div className='col-lg-4'>
+                <form className='bannerForm   rounded rounded-2 p-2 m-md-3'>
+                    
+                    <div className='tinyText col-xl-11  mx-auto flight-search mt-3'>                        
+                        {/* form top section */}
+                       
+                        <div className=' col-md-10 col-12 mx-auto '>
                             <div className="form-check form-check-inline">
                                 <input className="form-check-input" type="radio" name="return" id="return" value="return" />
                                 <label className="form-check-label fw-bold" htmlFor="return">Return</label>
@@ -29,47 +37,51 @@ const Banner = () => {
                             </div>
                         </div>
 
-                        <div className='row col-lg-12'>
-                            <div className=' col-lg-5 d-lg-flex'>
-                                <div className="form-outline  col-lg-6 mx-1">
+                         
+                         {/* form bottomsection */}
+
+                        <div className='row col-xl-12 col-md-10 col-12 mx-auto'>
+                            <div className='col-xl-5 col-md-12 d-md-flex'>
+                                <div className="form-outline  col-lg-6 mx-1 my-2">
                                     <label className="form-label float-start fw-bold" htmlFor="journey-from">
                                         <FaPlaneDeparture />
                                         <span className=''>   From</span>
                                     </label>
-                                    <input type="text" id="journey-from" className="form-control" placeholder="Enter journety to" />
+                                    <input type="text" id="journey-from" className="form-control" placeholder="Enter journety from" />
                                 </div>
 
-                                <div className="form-outline  col-lg-6 mx-1">
+                                <div className="form-outline  col-lg-6 mx-1 my-2">
                                     <label className="form-label float-start fw-bold " htmlFor="journey-to">
                                         <FaPlaneArrival />
                                         <span className=''>  To </span>
                                     </label>
                                     <input type="text" id="journey-to" className="form-control" placeholder='Enter journey to' />
                                 </div>
-
                             </div>
-                            <div className=' col-lg-7 d-lg-flex'>
-                                <div className="form-outline  col-lg-3 mx-1">
-                                    <label className="form-label float-start fw-bold" htmlFor="password">
+
+                            <div className=' col-xl-7 d-md-flex'>                                
+                                <div className="form-outline  col-lg-3   mx-1 my-2">
+                                    <label className="tinyLogoText form-label float-start fw-bold" htmlFor="password">
                                         < FaCalendarCheck />
                                         <span className=''>Depart</span>
                                     </label>
                                     <input type="date" id="from-date" className="form-control" />
                                 </div>
-                                <div className="form-outline  col-lg-3 mx-1">
-                                    <label className="form-label float-start fw-bold" htmlFor="password">
+                                <div className="form-outline  col-lg-3 mx-1 my-2">
+                                    <label className="tinyLogoText form-label float-start fw-bold" htmlFor="password">
                                         < FaCalendarCheck />
                                         <span className=''> Return</span>
                                     </label>
                                     <input type="date" id="to-date" className="form-control" />
                                 </div>
-                                <div className="form-outline  col-lg-3 mx-1">
-                                    <label className="form-label float-start fw-bold" htmlFor="password">
+                                
+                                <div className="form-outline  col-lg-3 mx-1 my-2">
+                                    <label className="tinyLogoText form-label float-start fw-bold" htmlFor="password">
                                         <FaSpa />
                                         <span className=''>  Cabin Class </span>
 
                                     </label>
-                                    <select className="form-select select-bordered  ">
+                                    <select className="tinyLogoText form-select select-bordered  ">
                                         <option disabled defaultValue>Select</option>
                                         <option value={0}>Economy</option>
                                         <option value={1}>Preminum Economy</option>
@@ -77,9 +89,8 @@ const Banner = () => {
                                         <option value={3}>First Class</option>
                                     </select>
                                 </div>
-                                <div className="form-outline  col-lg-3 mx-1">
-                                    <label className="form-label float-start fw-bold" htmlFor="password">
-
+                                <div className="form-outline  col-xl-2 mx-1 my-2">
+                                    <label className="tinyLogoText form-label float-start fw-bold" htmlFor="password">
                                         < FaPlane />
                                         <span className=''>Travellers</span>
                                     </label>

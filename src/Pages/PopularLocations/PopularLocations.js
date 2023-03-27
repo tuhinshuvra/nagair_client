@@ -33,7 +33,7 @@ const PopularLocations = () => {
 
             <h1 className=' text-center fw-bold pt-lg-5 animate_bottom location_heading '> Popular Locations </h1>
             <h2 className='text-center fw-bold pt-lg-2  animate_left location_heading mb-lg-3'> Domestic Flights</h2>
-            <div id="domesticGridCarousol" className="carousel  carousel-dark slide">
+            <div id="domesticGridCarousol" className="carousel slide carousel-dark" data-bs-ride="carousel" >
                 <div className="carousel-inner">
                     <div className="carousel-item active" data-bs-interval="2000">
                         <GridCarousolItem
@@ -55,7 +55,7 @@ const PopularLocations = () => {
 
                         ></GridCarousolItem>
                     </div>
-                    <div className="carousel-item" data-bs-interval="2000">
+                    <div className="carousel-item" data-bs-interval="3000">
                         <GridCarousolItem
                             imgOne={Saidpur}
                             locationOne="Saidpur"
@@ -74,7 +74,7 @@ const PopularLocations = () => {
                             fareFour="10995"
                         ></GridCarousolItem>
                     </div>
-                    <div className="carousel-item" data-bs-interval="2000">
+                    <div className="carousel-item" data-bs-interval="3000">
                         <GridCarousolItem
                             imgOne={Saidpur}
                             locationOne="Saidpur"
@@ -108,9 +108,9 @@ const PopularLocations = () => {
 
             {/* ########################## internationl locations flights ################################ */}
             <h2 className='text-center fw-bold pt-lg-5 nag_heading animate_right location_heading mb-lg-3'> International Flights</h2>
-            <div id="internationalGridCarousol" className="carousel  carousel-dark slide">
+            <div id="internationalGridCarousol" className="carousel  carousel-dark slide" data-bs-ride="carousel" >
                 <div className="carousel-inner">
-                    <div className="carousel-item active" data-bs-interval="1000">
+                    <div className="carousel-item active" data-bs-interval="2000">
                         <GridCarousolItem
                             imgOne={Singapore}
                             locationOne="Singapore"
@@ -130,7 +130,7 @@ const PopularLocations = () => {
 
                         ></GridCarousolItem>
                     </div>
-                    <div className="carousel-item" data-bs-interval="1000">
+                    <div className="carousel-item" data-bs-interval="3000">
                         <GridCarousolItem
                             imgOne={Mumbai}
                             locationOne="Mumbai"
@@ -149,7 +149,7 @@ const PopularLocations = () => {
                             fareFour="80995"
                         ></GridCarousolItem>
                     </div>
-                    <div className="carousel-item" data-bs-interval="1000">
+                    <div className="carousel-item" data-bs-interval="3000">
                         <GridCarousolItem
                             imgOne={Dubai}
                             locationOne="Dubai"

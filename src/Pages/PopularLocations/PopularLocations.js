@@ -1,347 +1,185 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Carousel from 'react-grid-carousel';
-import './MulitImageSlider.css';
 
-import DomesticOne from '../../assets/image/flights/domestic/Barisal.png';
-import DomesticTwo from '../../assets/image/flights/domestic/Chittagong.png';
-import DomesticThree from '../../assets/image/flights/domestic/Jessore.png';
-import DomesticFour from '../../assets/image/flights/domestic/Rajshahi.png';
-import DomesticFive from '../../assets/image/flights/domestic/Saidpur.png';
-import DomesticSix from '../../assets/image/flights/domestic/Sylhet.png';
-import DomesticSeven from '../../assets/image/flights/domestic/Thakurgaon.png';
-import DomesticEight from '../../assets/image/flights/domestic/Barisal.png';
-import DomesticNine from '../../assets/image/flights/domestic/Jessore.png';
-import DomesticTen from '../../assets/image/flights/domestic/Saidpur.png';
+import Barisal from '../../assets/image/flights/domestic/Barisal.png';
+import Chattogram from '../../assets/image/flights/domestic/Chittagong.png';
+import Jessore from '../../assets/image/flights/domestic/Jessore.png';
+import Rajshahi from '../../assets/image/flights/domestic/Rajshahi.png';
+
+import Saidpur from '../../assets/image/flights/domestic/Saidpur.png';
+import Sylhet from '../../assets/image/flights/domestic/Sylhet.png';
+import Thakurgaon from '../../assets/image/flights/domestic/Thakurgaon.png';
 
 
-import InternationalOne from '../../assets/image/flights/international/singapore.png';
-import InternationalTwo from '../../assets/image/flights/international/Beijing.png';
-import InternationalThree from '../../assets/image/flights/international/Delhi.png';
-import InternationalFour from '../../assets/image/flights/international/Hong Kong.png';
-import InternationalFive from '../../assets/image/flights/international/mumbai.png';
-import InternationalSix from '../../assets/image/flights/international/jeddah.png';
-import InternationalSeven from '../../assets/image/flights/international/Shanghai.png';
-import InternationalEight from '../../assets/image/flights/international/Dubai.png';
-import InternationalNine from '../../assets/image/flights/international/doha.png';
-import InternationalTen from '../../assets/image/flights/international/Bangalore.png';
+import Singapore from '../../assets/image/flights/international/singapore.png';
+import Beijing from '../../assets/image/flights/international/Beijing.png';
+import Delhi from '../../assets/image/flights/international/Delhi.png';
+import HongKong from '../../assets/image/flights/international/HongKong.png';
 
+import Mumbai from '../../assets/image/flights/international/mumbai.png';
+import Jeddah from '../../assets/image/flights/international/jeddah.png';
+import Shanghai from '../../assets/image/flights/international/Shanghai.png';
+import Dubai from '../../assets/image/flights/international/Dubai.png';
+
+import Doha from '../../assets/image/flights/international/doha.png';
+import Bangalore from '../../assets/image/flights/international/Bangalore.png';
+
+import GridCarousolItem from '../GridCarousol/GridCarousolItem';
+import './MulitImageSlider.css'
 
 const PopularLocations = () => {
-
     return (
-        <div className='popular-location location-bg my-0 py-lg-5 '>
+        <div className=' col-md-11 mx-auto py-md-5'>
+            {/* ########################## domestic locations flights ################################ */}
+
             <h1 className=' text-center fw-bold pt-lg-5 animate_bottom location_heading '> Popular Locations </h1>
             <h2 className='text-center fw-bold pt-lg-2  animate_left location_heading mb-lg-3'> Domestic Flights</h2>
-            <div className=' col-lg-10 mx-auto'>
-                <div className="animate_left" >
-                    <Carousel cols={4} rows={1} gap={2} loop={true} autoplay={3000} >
-                        <Carousel.Item>
-                            <div className="card" style={{ width: "15rem" }}>
-                                <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={DomesticOne} alt='' />
-                                <div className="card-body">
-                                    <h5 className="card-title fw-bold">Barishal</h5>
-                                </div>
+            <div id="domesticGridCarousol" className="carousel  carousel-dark slide">
+                <div className="carousel-inner">
+                    <div className="carousel-item active" data-bs-interval="2000">
+                        <GridCarousolItem
+                            imgOne={Barisal}
+                            locationOne="Barishal"
+                            fareOne="11995"
 
-                                <div className="card-body">
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className="card" style={{ width: "15rem" }}>
-                                <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={DomesticTwo} alt='' />
-                                <div className="card-body">
-                                    <h5 className="card-title fw-bold">Chattogram</h5>
-                                </div>
+                            imgTwo={Chattogram}
+                            locationTwo="Chattogram"
+                            fareTwo="9995"
 
-                                <div className="card-body">
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className="card" style={{ width: "15rem" }}>
-                                <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={DomesticThree} alt='' />
-                                <div className="card-body">
-                                    <h5 className="card-title fw-bold">Jessore</h5>
-                                </div>
+                            imgThree={Jessore}
+                            locationThree="Jessore"
+                            fareThree="10995"
 
-                                <div className="card-body">
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className="card" style={{ width: "15rem" }}>
-                                <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={DomesticFour} alt='' />
-                                <div className="card-body">
-                                    <h5 className="card-title fw-bold">Saidpur</h5>
-                                </div>
+                            imgFour={Rajshahi}
+                            locationFour="Rajshahi"
+                            fareFour="10995"
 
-                                <div className="card-body">
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className="card" style={{ width: "15rem" }}>
-                                <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={DomesticFive} alt='' />
-                                <div className="card-body">
-                                    <h5 className="card-title fw-bold">Cox's Bazar</h5>
-                                </div>
+                        ></GridCarousolItem>
+                    </div>
+                    <div className="carousel-item" data-bs-interval="2000">
+                        <GridCarousolItem
+                            imgOne={Saidpur}
+                            locationOne="Saidpur"
+                            fareOne="11995"
 
-                                <div className="card-body">
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className="card" style={{ width: "15rem" }}>
-                                <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={DomesticSix} alt='' />
-                                <div className="card-body">
-                                    <h5 className="card-title fw-bold">Sylhet</h5>
-                                </div>
+                            imgTwo={Sylhet}
+                            locationTwo="Sylhet"
+                            fareTwo="9995"
 
-                                <div className="card-body">
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className="card" style={{ width: "15rem" }}>
-                                <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={DomesticSeven} alt='' />
-                                <div className="card-body">
-                                    <h5 className="card-title fw-bold">Thakurgaon</h5>
-                                </div>
+                            imgThree={Thakurgaon}
+                            locationThree="Thakurgaon"
+                            fareThree="10995"
 
-                                <div className="card-body">
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className="card" style={{ width: "15rem" }}>
-                                <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={DomesticEight} alt='' />
-                                <div className="card-body">
-                                    <h5 className="card-title fw-bold">Barishal</h5>
-                                </div>
+                            imgFour={Jessore}
+                            locationFour="Jessore"
+                            fareFour="10995"
+                        ></GridCarousolItem>
+                    </div>
+                    <div className="carousel-item" data-bs-interval="2000">
+                        <GridCarousolItem
+                            imgOne={Saidpur}
+                            locationOne="Saidpur"
+                            fareOne="11995"
 
-                                <div className="card-body">
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold  ">From BDT 11894 &#10148;</Link>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className="card" style={{ width: "15rem" }}>
-                                <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={DomesticNine} alt='' />
-                                <div className="card-body">
-                                    <h5 className="card-title fw-bold">Jessore</h5>
-                                </div>
+                            imgTwo={Chattogram}
+                            locationTwo="Chattogram"
+                            fareTwo="9995"
 
-                                <div className="card-body">
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className="card" style={{ width: "15rem" }}>
-                                <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={DomesticTen} alt='' />
-                                <div className="card-body">
-                                    <h5 className="card-title fw-bold">Saidpur</h5>
-                                </div>
+                            imgThree={Rajshahi}
+                            locationThree="Rajshahi"
+                            fareThree="10995"
 
-                                <div className="card-body">
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
-                                </div>
-                            </div>
-                        </Carousel.Item>
+                            imgFour={Jessore}
+                            locationFour="Jessore"
+                            fareFour="10995"
+                        ></GridCarousolItem>
+                    </div>
 
-                        <Carousel.Item>
-                            <div className="card" style={{ width: "15rem" }}>
-                                <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={DomesticSix} alt='' />
-                                <div className="card-body">
-                                    <h5 className="card-title fw-bold">Sylhet</h5>
-                                </div>
-
-                                <div className="card-body">
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className="card" style={{ width: "15rem" }}>
-                                <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={DomesticSeven} alt='' />
-                                <div className="card-body">
-                                    <h5 className="card-title fw-bold">Thakurgaon</h5>
-                                </div>
-
-                                <div className="card-body">
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-                    </Carousel>
                 </div>
+                <button className="carousel-control-prev" type="button" data-bs-target="#domesticGridCarousol" data-bs-slide="prev">
+                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Previous</span>
+                </button>
+                <button className="carousel-control-next" type="button" data-bs-target="#domesticGridCarousol" data-bs-slide="next">
+                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Next</span>
+                </button>
             </div>
 
 
-            <div className=' col-lg-10 mx-auto'>
-                <h2 className='text-center fw-bold pt-lg-5 nag_heading animate_right location_heading mb-lg-3'> International Flights</h2>
+            {/* ########################## internationl locations flights ################################ */}
+            <h2 className='text-center fw-bold pt-lg-5 nag_heading animate_right location_heading mb-lg-3'> International Flights</h2>
+            <div id="internationalGridCarousol" className="carousel  carousel-dark slide">
+                <div className="carousel-inner">
+                    <div className="carousel-item active" data-bs-interval="1000">
+                        <GridCarousolItem
+                            imgOne={Singapore}
+                            locationOne="Singapore"
+                            fareOne="101995"
 
-                <div className="animate_right" >
-                    <Carousel cols={4} rows={1} gap={5} loop={true} autoplay={3000} className="animate_right">
-                        <Carousel.Item>
-                            <div className="card" style={{ width: "15rem" }}>
-                                <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={InternationalOne} alt='' />
-                                <div className="card-body">
-                                    <h5 className="card-title fw-bold">Singapore</h5>
-                                </div>
+                            imgTwo={Beijing}
+                            locationTwo="Beijing"
+                            fareTwo="99995"
 
-                                <div className="card-body">
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className="card" style={{ width: "15rem" }}>
-                                <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={InternationalTwo} alt='' />
-                                <div className="card-body">
-                                    <h5 className="card-title fw-bold">Beijing</h5>
-                                </div>
+                            imgThree={Delhi}
+                            locationThree="Delhi"
+                            fareThree="110995"
 
-                                <div className="card-body">
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className="card" style={{ width: "15rem" }}>
-                                <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={InternationalThree} alt='' />
-                                <div className="card-body">
-                                    <h5 className="card-title fw-bold">Delhi</h5>
-                                </div>
+                            imgFour={HongKong}
+                            locationFour="HongKong"
+                            fareFour="100995"
 
-                                <div className="card-body">
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className="card" style={{ width: "15rem" }}>
-                                <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={InternationalFour} alt='' />
-                                <div className="card-body">
-                                    <h5 className="card-title fw-bold">Hong Kong</h5>
-                                </div>
+                        ></GridCarousolItem>
+                    </div>
+                    <div className="carousel-item" data-bs-interval="1000">
+                        <GridCarousolItem
+                            imgOne={Mumbai}
+                            locationOne="Mumbai"
+                            fareOne="20995"
 
-                                <div className="card-body">
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className="card" style={{ width: "15rem" }}>
-                                <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={InternationalFive} alt='' />
-                                <div className="card-body">
-                                    <h5 className="card-title fw-bold">Mumbai</h5>
-                                </div>
+                            imgTwo={Singapore}
+                            locationTwo="Singapore"
+                            fareTwo="45995"
 
-                                <div className="card-body">
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className="card" style={{ width: "15rem" }}>
-                                <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={InternationalSix} alt='' />
-                                <div className="card-body">
-                                    <h5 className="card-title fw-bold">Jeddah</h5>
-                                </div>
+                            imgThree={Jeddah}
+                            locationThree="Jeddah"
+                            fareThree="70995"
 
-                                <div className="card-body">
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className="card" style={{ width: "15rem" }}>
-                                <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={InternationalSeven} alt='' />
-                                <div className="card-body">
-                                    <h5 className="card-title fw-bold">Shanghai</h5>
-                                </div>
+                            imgFour={Shanghai}
+                            locationFour="Shanghai"
+                            fareFour="80995"
+                        ></GridCarousolItem>
+                    </div>
+                    <div className="carousel-item" data-bs-interval="1000">
+                        <GridCarousolItem
+                            imgOne={Dubai}
+                            locationOne="Dubai"
+                            fareOne="60995"
 
-                                <div className="card-body">
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className="card" style={{ width: "15rem" }}>
-                                <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={InternationalEight} alt='' />
-                                <div className="card-body">
-                                    <h5 className="card-title fw-bold">Dubai</h5>
-                                </div>
+                            imgTwo={Doha}
+                            locationTwo="Doha"
+                            fareTwo="50095"
 
-                                <div className="card-body">
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className="card" style={{ width: "15rem" }}>
-                                <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={InternationalNine} alt='' />
-                                <div className="card-body">
-                                    <h5 className="card-title fw-bold">Doha</h5>
-                                </div>
+                            imgThree={Bangalore}
+                            locationThree="Bangalore"
+                            fareThree="18995"
 
-                                <div className="card-body">
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className="card" style={{ width: "15rem" }}>
-                                <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={InternationalTen} alt='' />
-                                <div className="card-body">
-                                    <h5 className="card-title fw-bold">Bangalore</h5>
-                                </div>
+                            imgFour={Jeddah}
+                            locationFour="Jeddah"
+                            fareFour="75995"
+                        ></GridCarousolItem>
+                    </div>
 
-                                <div className="card-body">
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-
-                        <Carousel.Item>
-                            <div className="card" style={{ width: "15rem" }}>
-                                <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={InternationalSix} alt='' />
-                                <div className="card-body">
-                                    <h5 className="card-title fw-bold">Jeddah</h5>
-                                </div>
-
-                                <div className="card-body">
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className="card" style={{ width: "15rem" }}>
-                                <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={InternationalSeven} alt='' />
-                                <div className="card-body">
-                                    <h5 className="card-title fw-bold">Shanghai</h5>
-                                </div>
-
-                                <div className="card-body">
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold ">From BDT 11894 &#10148;</Link>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-
-                    </Carousel>
                 </div>
+                <button className="carousel-control-prev" type="button" data-bs-target="#internationalGridCarousol" data-bs-slide="prev">
+                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Previous</span>
+                </button>
+                <button className="carousel-control-next" type="button" data-bs-target="#internationalGridCarousol" data-bs-slide="next">
+                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Next</span>
+                </button>
             </div>
-
-        </div >
+        </div>
     );
 };
 

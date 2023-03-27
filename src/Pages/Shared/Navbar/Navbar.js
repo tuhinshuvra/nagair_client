@@ -13,7 +13,7 @@ const Navbar = () => {
                         <img className='nav_img' src={Logo} alt="" />
                     </Link>
 
-                    {/* <p><i class="fa fa-spinner w3-spin" style="font-size:64px"></i></p> */}
+                    {/* <p><i className="fa fa-spinner w3-spin" style="font-size:64px"></i></p> */}
 
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>

@@ -40,8 +40,8 @@ const Banner = () => {
                          
                          {/* form bottomsection */}
 
-                        <div className='row col-xl-12 col-md-10 col-12 mx-auto'>
-                            <div className='col-xl-5 col-md-12 d-md-flex'>
+                        <div className='row  col-12 mx-auto'>
+                            <div className='col-xl-5 col-lg-11 col-md-12 d-md-flex justify-content-between mx-lg-auto'>
                                 <div className="form-outline  col-lg-6 mx-1 my-2">
                                     <label className="form-label float-start fw-bold" htmlFor="journey-from">
                                         <FaPlaneDeparture />

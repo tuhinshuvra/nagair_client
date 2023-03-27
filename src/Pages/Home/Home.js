@@ -14,7 +14,7 @@ const Home = () => {
             <DownloadApp></DownloadApp>
             <Offer></Offer>
             <PopularLocations></PopularLocations>
-            {/* <AdditionalService></AdditionalService> */}
+            <AdditionalService></AdditionalService>
             <Subscription></Subscription>
         </div>
     );

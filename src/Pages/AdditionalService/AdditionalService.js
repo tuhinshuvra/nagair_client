@@ -1,92 +1,86 @@
 import React from 'react';
-import { span } from 'react-router-dom';
-import Carousel from 'react-grid-carousel';
-import './AdditionalService.css';
 
-import AditionalServiceOne from '../../assets/image/aditional_service/Money_exchange.png';
-import AditionalServiceTwo from '../../assets/image/aditional_service/Ship_rental.png';
-import AditionalServiceThree from '../../assets/image/aditional_service/Car_rental.png';
-import AditionalServiceFour from '../../assets/image/aditional_service/Hotel_booking.png';
+import MoneyExchange from '../../assets/image/aditional_service/Money_exchange.png';
+import ShipRental from '../../assets/image/aditional_service/Ship_rental.png';
+import CarRental from '../../assets/image/aditional_service/Car_rental.png';
+import HotelBooking from '../../assets/image/aditional_service/Hotel_booking.png';
+import GridCarousolItem from '../GridCarousol/GridCarousolItem';
+import './AdditionalService.css';
 
 const AdditionalService = () => {
 
     return (
-        <div className='ad-service'>
-            <h1 className='text-center fw-bold location_heading '> Our Aditional Sevice </h1>
-            <div className='col-lg-10 mx-auto'>
-                <Carousel cols={4} rows={1} gap={5} loop={true} autoplay={3000} >
-                    <Carousel.Item>
-                        <div className="card">
-                            <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={AditionalServiceOne} alt='' />
-                            <div className="card-body">
-                                <span className='text-decoration-none' to="">   <h5 className=" card-title fw-bold text-center">Money Transfer</h5></span>
-                            </div>
-                        </div>
-                    </Carousel.Item>
+        <div className='service'>
+            <div className=' col-11 mx-auto'>
+                <h1 className='text-center fw-bold location_heading '> Our Aditional Sevice </h1>
+                <div id="domesticGridCarousol" className="carousel slide carousel-dark" data-bs-ride="carousel" >
+                    <div className="carousel-inner">
+                        <div className="carousel-item active" data-bs-interval="2000">
+                            <GridCarousolItem
+                                imgOne={MoneyExchange}
+                                imgTwo={ShipRental}
+                                imgThree={CarRental}
+                                imgFour={HotelBooking}
 
-                    <Carousel.Item>
-                        <div className="card">
-                            <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={AditionalServiceTwo} alt='' />
-                            <div className="card-body">
-                                <span className=' text-decoration-none' to="">   <h5 className=" card-title fw-bold text-center">Ship Rental</h5></span>
-                            </div>
+                                locationOne="Money Exchange"
+                                locationTwo="Ship Rental"
+                                locationThree="Car Rental"
+                                locationFour="Hotel Booking"
+                            ></GridCarousolItem>
                         </div>
-                    </Carousel.Item>
 
-                    <Carousel.Item>
-                        <div className="card">
-                            <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={AditionalServiceThree} alt='' />
-                            <div className="card-body">
-                                <span className=' text-decoration-none' to=""> <h5 className=" card-title fw-bold text-center">Car Rental</h5></span>
-                            </div>
-                        </div>
-                    </Carousel.Item>
+                        <div className="carousel-item" data-bs-interval="3000">
+                            <GridCarousolItem
+                                imgOne={ShipRental}
+                                imgTwo={MoneyExchange}
+                                imgThree={CarRental}
+                                imgFour={HotelBooking}
 
-                    <Carousel.Item>
-                        <div className="card">
-                            <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={AditionalServiceFour} alt='' />
-                            <div className="card-body">
-                                <span className=' text-decoration-none' to=""><h5 className=" card-title fw-bold text-center">Hotel Booking</h5></span>
-                            </div>
+                                locationOne="Ship Rental"
+                                locationTwo="Money Exchange"
+                                locationThree="Car Rental"
+                                locationFour="Hotel Booking"
+                            ></GridCarousolItem>
                         </div>
-                    </Carousel.Item>
 
-                    <Carousel.Item>
-                        <div className="card">
-                            <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={AditionalServiceOne} alt='' />
-                            <div className="card-body">
-                                <span className='text-decoration-none' to="">   <h5 className=" card-title fw-bold text-center">Money Transfer</h5></span>
-                            </div>
-                        </div>
-                    </Carousel.Item>
+                        <div className="carousel-item" data-bs-interval="3000">
+                            <GridCarousolItem
+                                imgOne={CarRental}
+                                imgTwo={ShipRental}
+                                imgThree={MoneyExchange}
+                                imgFour={HotelBooking}
 
-                    <Carousel.Item>
-                        <div className="card">
-                            <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={AditionalServiceTwo} alt='' />
-                            <div className="card-body">
-                                <span className=' text-decoration-none' to="">   <h5 className=" card-title fw-bold text-center">Ship Rental</h5></span>
-                            </div>
+                                locationOne="Car Rental"
+                                locationTwo="Ship Rental"
+                                locationThree="Money Exchange"
+                                locationFour="Hotel Booking"
+                            ></GridCarousolItem>
                         </div>
-                    </Carousel.Item>
 
-                    <Carousel.Item>
-                        <div className="card">
-                            <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={AditionalServiceThree} alt='' />
-                            <div className="card-body">
-                                <span className=' text-decoration-none' to=""> <h5 className="   card-title fw-bold text-center">Car Rental</h5></span>
-                            </div>
-                        </div>
-                    </Carousel.Item>
+                        <div className="carousel-item" data-bs-interval="3000">
+                            <GridCarousolItem
+                                imgOne={HotelBooking}
+                                imgTwo={ShipRental}
+                                imgThree={CarRental}
+                                imgFour={MoneyExchange}
 
-                    <Carousel.Item>
-                        <div className="card">
-                            <img className="card-img-top img-fluid p-2 rounded-4" style={{ height: "12rem" }} src={AditionalServiceFour} alt='' />
-                            <div className="card-body">
-                                <span className=' text-decoration-none' to=""><h5 className=" card-title fw-bold text-center">Hotel Booking</h5></span>
-                            </div>
+                                locationOne="Hotel Booking"
+                                locationTwo="Ship Rental"
+                                locationThree="Car Rental"
+                                locationFour="Money Exchange"
+                            ></GridCarousolItem>
                         </div>
-                    </Carousel.Item>
-                </Carousel>
+
+                    </div>
+                    <button className="carousel-control-prev" type="button" data-bs-target="#domesticGridCarousol" data-bs-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Previous</span>
+                    </button>
+                    <button className="carousel-control-next" type="button" data-bs-target="#domesticGridCarousol" data-bs-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Next</span>
+                    </button>
+                </div>
             </div>
         </div>
     );

@@ -29,9 +29,9 @@ const Navbar = () => {
                             {/* <li className="nav-item mb-2">
                                 <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/trip">Trip</Link>
                             </li> */}
-                            <li className="nav-item mb-2">
+                            {/* <li className="nav-item mb-2">
                                 <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/info">FlightInfo</Link>
-                            </li>
+                            </li> */}
                             <li className="nav-item mb-2">
                                 <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/services">Services</Link>
                             </li>
@@ -47,7 +47,7 @@ const Navbar = () => {
                             <li className=' mav-item mb-2'>
                                 <form className=" " role="search">
                                     {/* <FaSearch></FaSearch> */}
-                                    <input className=" align-items-center form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                                    <input className=" align-items-center form-control search-area " type="search" placeholder="Search" aria-label="Search" />
                                 </form>
                             </li>
 

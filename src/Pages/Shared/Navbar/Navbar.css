@@ -1,3 +1,7 @@
+.nav_img {
+    width: 260px;
+}
+
 .spin_logo {
     animation: w3-spin 2s infinite
 }
@@ -52,9 +56,6 @@
 
 
 
-.nav_img {
-    width: 260px;
-}
 
 .lan_btn {
     width: 10px;
@@ -94,7 +95,20 @@
 
 /* end dropdown menu list */
 
-@media (min-width: 320px) and (max-width: 768px) {
+
+@media (min-width: 1024px) and (max-width: 1439.98px) {
+    .search-area {
+        width: 165px !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .nav_img {
+        width: 160px;
+    }
+}
+
+@media (min-width: 319.98px) and (max-width: 767.98px) {
     .nav-margin {
         margin: 10px 0;
     }

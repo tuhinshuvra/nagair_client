@@ -1,0 +1,43 @@
+.about_us {
+
+    background-image: url('../../../assets/image/bgColor/bg_additional_services.png');
+    background-size: 100vw;
+}
+
+.aboutUsHeading {
+    color: #EF3A24;
+}
+
+.aboutImage {
+    /* width: 500px; */
+}
+
+@media (min-width: 1024px) and (max-width: 1439.98px) {}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .about_us {
+        background-image: none;
+        background-color: rgb(246, 244, 244);
+
+    }
+
+    .aboutImage {
+        margin: -54px 0px 0px 0px;
+    }
+}
+
+@media (min-width: 319.98px) and (max-width: 767.98px) {
+    .about_us {
+        background-image: none;
+        background-color: rgb(246, 244, 244);
+
+    }
+
+    .aboutImage {
+        margin: -54px 0px 0px 0px;
+    }
+
+    .aboutUsHeading {
+        /* text-align: center; */
+    }
+}

@@ -1,0 +1,37 @@
+.footer_btn {
+    color: #EF3A24;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 10px;
+    border: 0;
+    font-weight: bold;
+}
+
+.footer_btn:hover {
+    color: white;
+    background-color: #EF3A24;
+    padding: 6px;
+    border-radius: 8px;
+}
+
+.footer_bg {
+    background-color: #C0B6C1;
+}
+
+.copyright_text {
+    color: #ed250a;
+}
+
+
+@media (min-width: 768px) and (max-width: 768px) {
+    .footer_logo {
+        width: 200px;
+    }
+}
+
+
+@media (min-width: 320px) and (max-width: 992px) {
+    .center-xm {
+        justify-content: center;
+    }
+}

@@ -15,6 +15,7 @@ import Contact from '../views/pages/Contact/Contact';
 import About from '../views/pages/About/About';
 import AdminList from '../views/pages/Profile/Admin/AdminList';
 import AdminForm from '../views/pages/Profile/Admin/AdminForm';
+import UserList from '../views/pages/Profile/Admin/UserList/UserList';
 
 
 const router = createBrowserRouter([
@@ -71,12 +72,16 @@ const router = createBrowserRouter([
                 element: <Contact></Contact>
             },
             {
+                path: "/register",
+                element: <Register></Register>
+            },
+            {
                 path: "/login",
                 element: <Login></Login>
             },
             {
-                path: "/register",
-                element: <Register></Register>
+                path: "/userList",
+                element: <UserList></UserList>
             },
             {
                 path: "*",

@@ -1,10 +1,76 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from '../../../assets/logo/nag-air-logo.png';
 import { FaFacebook, FaGithub, FaGoogle, FaTwitter } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 import './Login.css';
+import axios from 'axios';
+import { authenticate, isAuth } from '../../../utilities/helper';
+import { toast } from 'react-hot-toast';
 
 const Login = () => {
+    const { user, setUser, isLoading, setIsLoading, setAuthError, authError } = useAuth();
+    const [errorMessage, setErrorMessage] = useState("");
+    const [passwordAllert, setPasswordAllert] = useState("");
+    const [loginData, setLoginData] = useState({});
+
+    const [loginError, setLoginError] = useState("");
+
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    console.log('Login User Data :', user.email);
+
+
+    const handleOnBlur = (event) => {
+        const field = event.target.name;
+        const value = event.target.value;
+
+        const newLoginData = { ...loginData }
+        newLoginData[field] = value;
+        setLoginData(newLoginData);
+    }
+
+    const handleLoginSubmit = event => {
+        event.preventDefault();
+
+        const { email, password } = loginData;
+
+        //password validation by some condition
+        if (password === undefined || email === undefined) {
+            setErrorMessage("please fill the form");
+        } else if (password.length < 8) {
+            setPasswordAllert("Password must be minimum 8 characters");
+        } else if (password.length > 8) {
+            setPasswordAllert("");
+        }
+
+        axios({
+            method: "POST",
+            url: `http://localhost:5001/api/signin`,
+            data: { email, password },
+        })
+            .then((response) => {
+                console.log("Signin Access: ", response);
+                // const destination = location?.state?.from || "/";
+                navigate(location?.state?.from || "/", { replace: true });
+                setErrorMessage("");
+                authenticate(response.data, () => {
+                    setUser(isAuth());
+                    if (user.email) {
+                        toast.success('The User Successfully Logged In')
+                    }
+                    setIsLoading(false);
+                    navigate("/", { replace: true });
+                    console.log("cookie local save ", isAuth());
+                });
+            })
+            .catch((error) => {
+                setErrorMessage(error.response.data.error);
+                console.log("SIGN IN ERROR", error.response.data);
+            });
+    }
+
     return (
         <div>
             <section className="gradient-form">
@@ -21,25 +87,43 @@ const Login = () => {
                                     <div className="col-lg-7">
                                         <div className="form_area">
 
-                                            <form className=' rounded rounded-2 bg-sm login_form'>
+                                            <form
+                                                onSubmit={handleLoginSubmit}
+                                                className=' rounded rounded-2 bg-sm login_form'
+                                                autoComplete='off'
+                                            >
                                                 <div className=''>
                                                     <h5 className=' mb-4'>Please login to your account</h5>
-
+                                                    <input
+                                                        className="d-none"
+                                                        autoComplete="off"
+                                                        name="hidden"
+                                                        type="text"
+                                                    ></input>
                                                     <div className="form-outline mb-4">
-                                                        <label className="form-label" htmlFor="username">Username</label>
-                                                        <input type="text" id="username" className="form-control"
-                                                            placeholder="Enter Name" />
+                                                        <label className="form-label" htmlFor="username">User Id</label>
+                                                        <input
+                                                            onBlur={handleOnBlur}
+                                                            name="email"
+                                                            type="email"
+                                                            id="email"
+                                                            className="form-control"
+                                                            placeholder="Enter Phone No or Email address" />
                                                     </div>
 
                                                     <div className="form-outline mb-4">
                                                         <label className="form-label" htmlFor="password">Password</label>
-                                                        <input type="password" id="password" className="form-control" placeholder='Enter password' />
+                                                        <input
+                                                            onBlur={handleOnBlur}
+                                                            name='password'
+                                                            type="password"
+                                                            id="password"
+                                                            className="form-control"
+                                                            placeholder='Enter password' />
                                                     </div>
 
                                                     <div className="text-center pt-1 mb-md-5 pb-1">
-                                                        <button className=" custom_btn fa-lg gradient-custom-2 mb-3" type="button">
-                                                            Log In
-                                                        </button>
+                                                        <button type="submit" className=" custom_btn fa-lg gradient-custom-2 mb-3" >Log In</button>
                                                         <a className="text-muted m-2 " href="#!">Forgot password?</a>
                                                     </div>
 

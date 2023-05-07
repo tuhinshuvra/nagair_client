@@ -1,15 +1,33 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../../../../assets/logo/nag-air-logo.png';
 import './Navbar.css';
+import useAuth from '../../../../hooks/useAuth';
+import { signout } from '../../../../utilities/helper';
+import { toast } from 'react-hot-toast';
 
 const Navbar = () => {
+    const navigate = useNavigate();
+    const { user, setUser, } = useAuth();
+
+
+    const logout = () => {
+        signout(() => {
+            setUser("");
+            toast.success('User Logout Successfully')
+            navigate("/login")
+        })
+    }
+
+
+
+
     return (
         <div>
             <nav className="navbar nav_bg navbar-expand-lg">
                 <div className="container-fluid">
                     <Link to="/" className="navbar-brand spin_logo">
-                        <img className='nav_img' src={Logo} alt="" />
+                        <img className='logoImg' src={Logo} alt="" />
                     </Link>
 
                     {/* <p><i className="fa fa-spinner w3-spin" style="font-size:64px"></i></p> */}
@@ -25,12 +43,7 @@ const Navbar = () => {
                             <li className="nav-item mb-2">
                                 <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/booking">Booking</Link>
                             </li>
-                            {/* <li className="nav-item mb-2">
-                                <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/trip">Trip</Link>
-                            </li> */}
-                            {/* <li className="nav-item mb-2">
-                                <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/info">FlightInfo</Link>
-                            </li> */}
+
                             <li className="nav-item mb-2">
                                 <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/services">Services</Link>
                             </li>
@@ -83,16 +96,30 @@ const Navbar = () => {
                                                 <Link className=" ropdown-item fw-bold nest_nav_btn" to="/adminEntry">Admin Entry</Link>
                                             </li>
                                             <li>
+                                                <Link className="fw-bold nest_nav_btn" to="/userList">All User</Link>
+                                            </li>
+                                            <li>
                                                 <Link className="fw-bold nest_nav_btn" to="/adminList">Admin List</Link>
                                             </li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
-
-                            <li className="nav-item mb-2">
-                                <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/login">Login</Link>
-                            </li>
+                            {
+                                user?._id
+                                    ?
+                                    <>
+                                        <li className="nav-item mb-2">
+                                            <Link onClick={logout} className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/">Log Out</Link>
+                                        </li>
+                                    </>
+                                    :
+                                    <>
+                                        <li className="nav-item mb-2">
+                                            <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/login">Login</Link>
+                                        </li>
+                                    </>
+                            }
                         </ul>
                     </div>
                 </div>

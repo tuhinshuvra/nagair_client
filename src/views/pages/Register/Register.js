@@ -1,10 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from '../../../assets/logo/nag-air-logo.png';
 import { FaFacebook, FaGithub, FaGoogle, FaTwitter } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../Login/Login.css';
+import { toast } from 'react-hot-toast';
 
 const Register = () => {
+    const [errorMessage, setErrorMessage] = useState("")
+    const navigate = useNavigate();
+
+    const handleOnSubmit = (event) => {
+        event.preventDefault();
+        const form = event.target;
+
+        const fullName = form.fullName.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        const userData = {
+            name: fullName,
+            email: email,
+            password: password,
+            role: 'passenger',
+        }
+        console.log("userData : ", userData);
+        fetch('http://localhost:5001/api/signup', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Registerd User Data : ', data);
+                if (data.message) {
+                    toast.success('User Registered Successfully.')
+                    // console.log('User Registered Successfully.');
+                    form.reset()
+                }
+                navigate('/login', { replace: true })
+
+            })
+            .catch(error => {
+                console.log("Error Occured: ", error.response.data)
+                setErrorMessage(error.response.data.error)
+            })
+
+
+    }
+
     return (
         <div>
             <section className="gradient-form">
@@ -21,29 +66,28 @@ const Register = () => {
                                     <div className="col-lg-7">
                                         <div className="form_area">
 
-                                            <form className=' rounded rounded-2 bg-sm login_form'>
+                                            <p className=' text-center text-warning'>{errorMessage}</p>
+                                            <form onSubmit={handleOnSubmit} className=' rounded rounded-2 bg-sm login_form'>
                                                 <div className=''>
                                                     <h5 className=' mb-4'>Please login to your account</h5>
 
                                                     <div className="form-outline mb-4">
-                                                        <label className="form-label" htmlFor="username">Username</label>
-                                                        <input type="text" id="username" className="form-control"
-                                                            placeholder="Enter Name" />
+                                                        <label className="form-label" htmlFor="fullName">Full Name</label>
+                                                        <input type="text" name='fullName' id="fullName" className="form-control" placeholder="Enter Name" />
                                                     </div>
 
                                                     <div className="form-outline mb-4">
-                                                        <label className="form-label" htmlFor="username">Email</label>
-                                                        <input type="email" id="email" className="form-control"
-                                                            placeholder="Enter email" required />
+                                                        <label className="form-label" htmlFor="email">Email</label>
+                                                        <input type="email" name='email' id="email" className="form-control" placeholder="Enter email" required />
                                                     </div>
 
                                                     <div className="form-outline mb-4">
                                                         <label className="form-label" htmlFor="password">Password</label>
-                                                        <input type="password" id="password" className="form-control" placeholder='Enter password' />
+                                                        <input type="password" name="password" id="password" className="form-control" placeholder='Enter password' />
                                                     </div>
 
                                                     <div className="text-center pt-1 mb-md-5 pb-1">
-                                                        <button className=" custom_btn fa-lg gradient-custom-2 mb-3" type="button">
+                                                        <button className=" custom_btn fa-lg gradient-custom-2 mb-3" type="submit">
                                                             Register
                                                         </button>
                                                     </div>

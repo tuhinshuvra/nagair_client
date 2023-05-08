@@ -6,6 +6,7 @@ export const AllContext = createContext();
 
 const ContextProvider = ({ children }) => {
     const [user, setUser] = useState(isAuth());
+    const [userDetails, setUserDetails] = useState(isAuth());
     const [isLoading, setIsLoading] = useState(false);
     const [upgrageMembershipPlan, setUpgrageMembershipPlan] = useState([]);
     const [membershipPaymentData, setMembershipPaymentData] = useState([]);
@@ -28,6 +29,8 @@ const ContextProvider = ({ children }) => {
     const contextInfo = {
         user,
         setUser,
+        userDetails,
+        setUserDetails,
         selectedChat,
         setSelectedChat,
         chats,

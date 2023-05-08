@@ -19,9 +19,6 @@ const Navbar = () => {
         })
     }
 
-
-
-
     return (
         <div>
             <nav className="navbar nav_bg navbar-expand-lg">
@@ -70,56 +67,85 @@ const Navbar = () => {
                                 </div>
                             </li> */}
 
-                            <li className="nav-item dropdown mb-2">
-                                <Link className="  dropdown-toggle fw-bold nav_btn" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</Link>
-                                <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkRight">
-                                    {/* <li><Link className="dropdown-item fw-bold nav_btn" to="#">Passenger</Link></li> */}
-                                    {/* <li><Link className="dropdown-item fw-bold nav_btn" to="#">Admin</Link></li> */}
-                                    <li>
-                                        <Link className="nest_nav_btn fw-bold" to="#">Passenger &raquo; </Link>
-                                        <ul className="dropdown-menu dropdown-submenu dropdown-submenu-left">
-                                            <li>
-                                                <Link className="  fw-bold nest_nav_btn" to="/passengerEntry">Passenger Entry</Link>
-                                            </li>
-                                            <li>
-                                                <Link className="fw-bold nest_nav_btn" to="/passengerList">Passenger List</Link>
-                                            </li>
-                                            <li>
-                                                <Link className="fw-bold nest_nav_btn" to="/passengerProfile">Passenger Profile</Link>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <Link className="nest_nav_btn fw-bold" to="#">Admin &raquo; </Link>
-                                        <ul className="dropdown-menu dropdown-submenu dropdown-submenu-left">
-                                            <li>
-                                                <Link className=" ropdown-item fw-bold nest_nav_btn" to="/adminEntry">Admin Entry</Link>
-                                            </li>
-                                            <li>
-                                                <Link className="fw-bold nest_nav_btn" to="/userList">All User</Link>
-                                            </li>
-                                            <li>
-                                                <Link className="fw-bold nest_nav_btn" to="/adminList">Admin List</Link>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            {
-                                user?._id
-                                    ?
-                                    <>
-                                        <li className="nav-item mb-2">
-                                            <Link onClick={logout} className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/">Log Out</Link>
+                            {user?._id ? <>
+                                <li className="nav-item dropdown mb-2">
+                                    <Link className="  dropdown-toggle fw-bold nav_btn" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> {user?.name} Profile</Link>
+                                    <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkRight">
+                                        {/* <li><Link className="dropdown-item fw-bold nav_btn" to="#">Passenger</Link></li> */}
+                                        {/* <li><Link className="dropdown-item fw-bold nav_btn" to="#">Admin</Link></li> */}
+                                        <li>
+                                            <Link className="nest_nav_btn fw-bold" to="#">Passenger &raquo; </Link>
+                                            <ul className="dropdown-menu dropdown-submenu dropdown-submenu-left">
+                                                <li>
+                                                    <Link className="  fw-bold nest_nav_btn" to="/passengerEntry">Passenger Entry</Link>
+                                                </li>
+                                                <li>
+                                                    <Link className="fw-bold nest_nav_btn" to="/passengerList">Passenger List</Link>
+                                                </li>
+                                                <li>
+                                                    <Link className="fw-bold nest_nav_btn" to="/passengerProfile">Passenger Profile</Link>
+                                                </li>
+                                            </ul>
                                         </li>
-                                    </>
-                                    :
-                                    <>
-                                        <li className="nav-item mb-2">
-                                            <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/login">Login</Link>
+                                        <li>
+                                            <Link className="nest_nav_btn fw-bold" to="#">Admin &raquo; </Link>
+                                            <ul className="dropdown-menu dropdown-submenu dropdown-submenu-left">
+                                                <li>
+                                                    <Link className=" ropdown-item fw-bold nest_nav_btn" to="/adminEntry">Admin Entry</Link>
+                                                </li>
+
+                                                {user?._id
+                                                    &&
+                                                    <>
+                                                        <li>
+                                                            <Link className="fw-bold nest_nav_btn" to="/userList">All User</Link>
+                                                        </li>
+                                                        {/* <li>
+                                                    <Link className="fw-bold nest_nav_btn" to="/adminList">Admin List</Link>
+                                                </li> */}
+                                                    </>}
+                                            </ul>
                                         </li>
-                                    </>
+                                        <li>
+                                            <Link className="nest_nav_btn fw-bold" to="#">Add Flight &raquo; </Link>
+                                            <ul className="dropdown-menu dropdown-submenu dropdown-submenu-left">
+
+                                                <li>
+                                                    <Link className=" ropdown-item fw-bold nest_nav_btn" to="/domesticFlightAdd">Add Domestic Flight</Link>
+                                                </li>
+
+                                                <li>
+                                                    <Link className=" ropdown-item fw-bold nest_nav_btn" to="/domesticFlightList">Domestic Flight List</Link>
+                                                </li>
+
+                                                <li>
+                                                    <Link className=" ropdown-item fw-bold nest_nav_btn" to="/internationalFlightAdd">Add International Flight</Link>
+                                                </li>
+                                                <li>
+                                                    <Link className=" ropdown-item fw-bold nest_nav_btn" to="/internationalFlightList">International Flight List</Link>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            {user?._id &&
+                                                // <li className="nav-item mb-2">
+                                                <Link onClick={logout} className="fw-bold nest_nav_btn " aria-current="page" to="/">LogOut</Link>
+                                                // </li>
+                                            }
+                                        </li>
+                                    </ul>
+                                </li>
+                            </>
+                                :
+                                <>
+                                    <li className="nav-item mb-2">
+                                        <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/login">Login</Link>
+                                    </li>
+                                </>
+
                             }
+
                         </ul>
                     </div>
                 </div>

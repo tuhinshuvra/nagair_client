@@ -21,6 +21,17 @@ import AddDomesticFlights from '../views/pages/Flights/DomesticFlights/AddDomest
 import DomesticFlightsList from '../views/pages/Flights/DomesticFlights/DomesticFlightsList';
 import InternationalFlightsList from '../views/pages/Flights/InternationalFlights/InternationalFlightsList';
 import AddInternationalFlights from '../views/pages/Flights/InternationalFlights/AddInternationalFlights';
+import AddPackage from '../views/pages/Package/AddPackage';
+import PackageList from '../views/pages/Package/PackageList';
+import PackageUpdate from '../views/pages/Package/PackageUpdate';
+import InternationalFlightsUpdate from '../views/pages/Flights/InternationalFlights/InternationalFlightsUpdate';
+import DomesticFlightUpdate from '../views/pages/Flights/DomesticFlights/DomesticFlightUpdate';
+import PilotInformation from '../views/pages/PilotInformation/PilotInformation';
+import PilotList from '../views/pages/PilotInformation/PilotList';
+import CabinCrueInformationEntry from '../views/pages/CabinCrueInformation/CabinCrueInformationEntry';
+import CabinCrueList from '../views/pages/CabinCrueInformation/CabinCrueList';
+import FlightsInformationEntry from '../views/pages/FlightsInformation/FlightsInformationEntry';
+import FlightsInformationList from '../views/pages/FlightsInformation/FlightsInformationList';
 
 
 const router = createBrowserRouter([
@@ -32,10 +43,12 @@ const router = createBrowserRouter([
                 path: "/",
                 element: <Home></Home>,
             },
+
             {
                 path: "/services",
                 element: <HomePageAdditionalService></HomePageAdditionalService>
             },
+
             {
                 path: "/info",
                 element: <HomePagePopularLocations></HomePagePopularLocations>
@@ -44,6 +57,7 @@ const router = createBrowserRouter([
                 path: "/trip",
                 element: <Banner></Banner>
             },
+
             {
                 path: "/booking",
                 element: <Banner></Banner>
@@ -53,6 +67,7 @@ const router = createBrowserRouter([
                 path: "/domesticFlightAdd",
                 element: <AddDomesticFlights></AddDomesticFlights>
             },
+
             {
                 path: "/domesticFlightList",
                 element: <DomesticFlightsList></DomesticFlightsList>
@@ -62,14 +77,69 @@ const router = createBrowserRouter([
                 path: "/internationalFlightAdd",
                 element: <AddInternationalFlights></AddInternationalFlights>
             },
+
             {
                 path: "/internationalFlightList",
                 element: <InternationalFlightsList></InternationalFlightsList>
+            },
+            {
+                path: "/domesticFlightUpdate/:flightId",
+                element: <DomesticFlightUpdate></DomesticFlightUpdate>
+            },
+
+            {
+                path: "/internationalFlightUpdate/:flightId",
+                element: <InternationalFlightsUpdate></InternationalFlightsUpdate>
+            },
+
+            {
+                path: "/packageAdd",
+                element: <AddPackage></AddPackage>
+            },
+
+            {
+                path: "/packageList",
+                element: <PackageList></PackageList>
+            },
+
+            {
+                path: "/packageUpdate/:packageId",
+                element: <PackageUpdate></PackageUpdate>
             },
 
             {
                 path: "/passengerEntry",
                 element: <PassengerForm></PassengerForm>
+            },
+
+            {
+                path: "/pilotEntry",
+                element: <PilotInformation></PilotInformation>
+            },
+            {
+                path: "/pilotEntry",
+                element: <PilotInformation></PilotInformation>
+            },
+            {
+                path: "/pilotList",
+                element: <PilotList></PilotList>
+            },
+
+            {
+                path: "/cabinCrueEntry",
+                element: <CabinCrueInformationEntry></CabinCrueInformationEntry>
+            },
+            {
+                path: "/cabinCrueList",
+                element: <CabinCrueList></CabinCrueList>
+            },
+            {
+                path: "/flightInformationEntry",
+                element: <FlightsInformationEntry></FlightsInformationEntry>
+            },
+            {
+                path: "/flightInformationList",
+                element: <FlightsInformationList></FlightsInformationList>
             },
 
             {
@@ -80,18 +150,22 @@ const router = createBrowserRouter([
                 path: "/passengerProfile",
                 element: <PassengerProfile></PassengerProfile>
             },
+
             {
                 path: "/adminEntry",
                 element: <AdminForm></AdminForm>
             },
+
             {
                 path: "/adminList",
                 element: <AdminList></AdminList>
             },
+
             {
                 path: "/about",
                 element: <About></About>
             },
+
             {
                 path: "/contact",
                 element: <Contact></Contact>
@@ -100,10 +174,12 @@ const router = createBrowserRouter([
                 path: "/register",
                 element: <Register></Register>
             },
+
             {
                 path: "/login",
                 element: <Login></Login>
             },
+
             {
                 path: "/userList",
                 element: <UserList></UserList>
@@ -118,6 +194,7 @@ const router = createBrowserRouter([
                 element: <UserDetails></UserDetails>,
                 // loader: async ({ params }) => await fetch(`http://localhost:5001/api/user-details?id=${params.userId}`)
             },
+
             {
                 path: "*",
                 element: <WrongRoute></WrongRoute>

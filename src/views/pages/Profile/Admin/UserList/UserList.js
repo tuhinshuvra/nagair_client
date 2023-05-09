@@ -37,7 +37,7 @@ const UserList = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>User Type</th>
-                            <th>Action</th>
+                            {/* <th>Action</th> */}
                         </tr>
                     </thead>
                     <tbody>
@@ -71,7 +71,7 @@ const UserList = () => {
                                         </>
                                     }
                                 </td>
-                                <td>
+                                {/* <td>
                                     <Link to={`/dashboard/userUpdate/${user._id}`}>
                                         <button
                                             className=" fw-bold btn-sm btn btn-primary mx-1"
@@ -89,7 +89,7 @@ const UserList = () => {
                                     >
                                         Delete
                                     </button>
-                                </td>
+                                </td> */}
                             </tr>
                         ))}
                     </tbody>

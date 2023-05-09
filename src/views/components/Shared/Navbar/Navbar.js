@@ -10,7 +10,6 @@ const Navbar = () => {
     const navigate = useNavigate();
     const { user, setUser, } = useAuth();
 
-
     const logout = () => {
         signout(() => {
             setUser("");
@@ -107,22 +106,89 @@ const Navbar = () => {
                                             </ul>
                                         </li>
                                         <li>
-                                            <Link className="nest_nav_btn fw-bold" to="#">Add Flight &raquo; </Link>
+                                            <Link className="nest_nav_btn fw-bold" to="#">Flights &raquo; </Link>
                                             <ul className="dropdown-menu dropdown-submenu dropdown-submenu-left">
 
                                                 <li>
-                                                    <Link className=" ropdown-item fw-bold nest_nav_btn" to="/domesticFlightAdd">Add Domestic Flight</Link>
+                                                    <Link className=" ropdown-item fw-bold nest_nav_btn">Domestic Flight &raquo;</Link>
+                                                    <ul className="dropdown-menu dropdown-submenu dropdown-submenu-left">
+                                                        <li>
+                                                            <Link className=" ropdown-item fw-bold nest_nav_btn" to="/domesticFlightAdd">Add Flight</Link>
+                                                        </li>
+
+                                                        <li>
+                                                            <Link className=" ropdown-item fw-bold nest_nav_btn" to="/domesticFlightList">Flight List</Link>
+                                                        </li>
+                                                    </ul>
                                                 </li>
 
                                                 <li>
-                                                    <Link className=" ropdown-item fw-bold nest_nav_btn" to="/domesticFlightList">Domestic Flight List</Link>
+                                                    <Link className=" ropdown-item fw-bold nest_nav_btn">International Flight</Link>
+                                                    <ul className="dropdown-menu dropdown-submenu dropdown-submenu-left">
+                                                        <li>
+                                                            <Link className=" ropdown-item fw-bold nest_nav_btn" to="/internationalFlightAdd">Add Flight</Link>
+                                                        </li>
+                                                        <li>
+                                                            <Link className=" ropdown-item fw-bold nest_nav_btn" to="/internationalFlightList">Flight List</Link>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <Link className="nest_nav_btn fw-bold" to="#">Package &raquo; </Link>
+                                            <ul className="dropdown-menu dropdown-submenu dropdown-submenu-left">
+
+                                                <li>
+                                                    <Link className=" ropdown-item fw-bold nest_nav_btn" to="/packageAdd">Add Package</Link>
                                                 </li>
 
                                                 <li>
-                                                    <Link className=" ropdown-item fw-bold nest_nav_btn" to="/internationalFlightAdd">Add International Flight</Link>
+                                                    <Link className=" ropdown-item fw-bold nest_nav_btn" to="/packageList">Package List</Link>
                                                 </li>
+
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <Link className="nest_nav_btn fw-bold" to="#">Pilot &raquo; </Link>
+                                            <ul className="dropdown-menu dropdown-submenu dropdown-submenu-left">
+
                                                 <li>
-                                                    <Link className=" ropdown-item fw-bold nest_nav_btn" to="/internationalFlightList">International Flight List</Link>
+                                                    <Link className=" ropdown-item fw-bold nest_nav_btn" to="/pilotEntry">Add Pilot</Link>
+                                                </li>
+
+                                                <li>
+                                                    <Link className=" ropdown-item fw-bold nest_nav_btn" to="/packageList">Pilot List</Link>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <Link className="nest_nav_btn fw-bold" to="#">Cabin Crue &raquo; </Link>
+                                            <ul className="dropdown-menu dropdown-submenu dropdown-submenu-left">
+
+                                                <li>
+                                                    <Link className=" ropdown-item fw-bold nest_nav_btn" to="/cabinCrueEntry">Add CabinCrue</Link>
+                                                </li>
+
+                                                <li>
+                                                    <Link className=" ropdown-item fw-bold nest_nav_btn" to="/cabinCrueList">CabinCrue List</Link>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <Link className="nest_nav_btn fw-bold" to="#">Flight Information &raquo; </Link>
+                                            <ul className="dropdown-menu dropdown-submenu dropdown-submenu-left">
+
+                                                <li>
+                                                    <Link className=" ropdown-item fw-bold nest_nav_btn" to="/flightInformationEntry"> Information Entry</Link>
+                                                </li>
+
+                                                <li>
+                                                    <Link className=" ropdown-item fw-bold nest_nav_btn" to="/flightInformationList"> Informatin List</Link>
                                                 </li>
 
                                             </ul>

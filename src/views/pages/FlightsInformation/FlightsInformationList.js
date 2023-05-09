@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
-import '../DomesticFlights/DomesticFlightsList.css'
-import useAuth from "../../../../hooks/useAuth";
-import { getCookie } from "../../../../utilities/helper";
-import ConfirmatinModal from "../../../components/Shared/ConfirmationModal/ConfirmationModal";
+import useAuth from "../../../hooks/useAuth";
+import { getCookie } from "../../../utilities/helper";
+import ConfirmatinModal from "../../components/Shared/ConfirmationModal/ConfirmationModal";
 
-const InternationalFlightsList = () => {
+const FlightsInformationList = () => {
     const [deletingFlights, setDeleletingFlights] = useState(null)
+    // const [flightId, setFlightId] = useState('');
     const { isLoading, setIsLoading } = useAuth();
-    const [flights, setFlights] = useState([]);
+    const [domesticFlights, setDomesticFlights] = useState([]);
 
     const navigate = useNavigate();
 
@@ -17,13 +17,15 @@ const InternationalFlightsList = () => {
         setDeleletingFlights(null);
     };
 
-    // console.log("userListData : ", flights);
+    const remainingFligts = domesticFlights.filter(flight => flight._id !== deletingFlights);
+    // console.log("remainingFligts : ", remainingFligts);
 
-    const remainingFligts = flights.filter(flight => flight._id !== deletingFlights);
 
+
+    // console.log("deletingFlights : ", deletingFlights);
 
     useEffect(() => {
-        fetch(`http://localhost:5001/api/show-international-flight`, {
+        fetch(`http://localhost:5001/api/show-domestic-flight`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
@@ -31,13 +33,12 @@ const InternationalFlightsList = () => {
         })
             .then((response) => response.json())
             .then((data) => {
-                setFlights(data);
+                setDomesticFlights(data);
             });
     }, []);
 
     const handleDelete = () => {
-        console.log("deletingFlights", deletingFlights);
-        fetch(`http://localhost:5001/api/delete-international-flight?id=${deletingFlights}`, {
+        fetch(`http://localhost:5001/api/delete-domestic-flight?id=${deletingFlights}`, {
             method: "DELETE",
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
@@ -49,17 +50,19 @@ const InternationalFlightsList = () => {
                 if (response.status === 200) {
                     toast.success("Flights Deleted Successfully.");
                 }
-                setFlights(remainingFligts);
+                setDomesticFlights(remainingFligts);
+
             })
             .then((data) => {
-
+                // console.log("Deleted data : ", data);
             });
         // console.log(user._id);
     };
 
+
     return (
         <div>
-            <h2 className="text-center  fw-bold  my-4">International Flight List</h2>
+            <h2 className="text-center  fw-bold  my-4">Domestic Flight List</h2>
             <div className="overflow-x-auto">
                 <table className="table text-center align-middle table-hover  table-bordered">
                     <thead>
@@ -73,11 +76,11 @@ const InternationalFlightsList = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {flights.map((flight, index) => (
+                        {domesticFlights.map((flight, index) => (
                             <tr key={flight._id}>
                                 <td>{index + 1}</td>
                                 <td > <img className="locationImage" src={flight.locationImage} alt="" /> </td>
-                                <td className="">
+                                <td>
                                     <p className="my-0"> {flight.flightLocationName}</p>
                                     {/* <Link onClick={() => setUserDetails(flight._id)} to={`/userDetails/${flight?._id}`} className="btn btn-sm btn-primary my-0">Show Details</Link> */}
                                 </td>
@@ -87,10 +90,10 @@ const InternationalFlightsList = () => {
                                     <p className="my-0"> {new Date(flight.updatedAt).toLocaleDateString()}</p>
                                 </td>
                                 <td>
-                                    <Link to={`/internationalFlightUpdate/${flight._id}`}>
+                                    <Link to={`/domesticFlightUpdate/${flight._id}`}>
                                         <button
                                             className=" fw-bold btn-sm btn btn-primary mx-1"
-                                        // onClick={() => handlePackageUpdate(package._id)}
+                                        // onClick={() => handleUserUpdate(user._id)}
                                         >
                                             Update
                                         </button>
@@ -124,4 +127,4 @@ const InternationalFlightsList = () => {
     );
 };
 
-export default InternationalFlightsList;
+export default FlightsInformationList;

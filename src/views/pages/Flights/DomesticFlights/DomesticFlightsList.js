@@ -18,7 +18,12 @@ const DomesticFlightsList = () => {
         setDeleletingFlights(null);
     };
 
-    console.log("deletingFlights : ", deletingFlights);
+    const remainingFligts = domesticFlights.filter(flight => flight._id !== deletingFlights);
+    // console.log("remainingFligts : ", remainingFligts);
+
+
+
+    // console.log("deletingFlights : ", deletingFlights);
 
     useEffect(() => {
         fetch(`http://localhost:5001/api/show-domestic-flight`, {
@@ -41,14 +46,16 @@ const DomesticFlightsList = () => {
             },
         })
             .then((response) => {
-                console.log("response", response);
+                // console.log("response", response);
                 response.json();
                 if (response.status === 200) {
                     toast.success("Flights Deleted Successfully.");
                 }
+                setDomesticFlights(remainingFligts);
+
             })
             .then((data) => {
-                console.log("Deleted data : ", data);
+                // console.log("Deleted data : ", data);
             });
         // console.log(user._id);
     };
@@ -58,7 +65,7 @@ const DomesticFlightsList = () => {
         <div>
             <h2 className="text-center  fw-bold  my-4">Domestic Flight List</h2>
             <div className="overflow-x-auto">
-                <table className="table text-center table-hover  table-bordered">
+                <table className="table text-center align-middle table-hover  table-bordered">
                     <thead>
                         <tr className="  table-secondary">
                             <th>SL</th>
@@ -84,7 +91,7 @@ const DomesticFlightsList = () => {
                                     <p className="my-0"> {new Date(flight.updatedAt).toLocaleDateString()}</p>
                                 </td>
                                 <td>
-                                    <Link to={`/userUpdate/${flight._id}`}>
+                                    <Link to={`/domesticFlightUpdate/${flight._id}`}>
                                         <button
                                             className=" fw-bold btn-sm btn btn-primary mx-1"
                                         // onClick={() => handleUserUpdate(user._id)}

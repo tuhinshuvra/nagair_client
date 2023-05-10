@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import axios from 'axios';
@@ -7,20 +7,71 @@ import { getCookie } from '../../../utilities/helper';
 
 
 const FlightsInformationEntry = () => {
+    const [allCabinCrue, setAllCabinCrue] = useState([]);
+    const [allPilot, setAllPilot] = useState([]);
     // const [errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate();
+
+
+    // console.log("allPilot :", allPilot);
+    // console.log("allCabinCrue :", allCabinCrue);
+
+    // show all cabin crue
+    useEffect(() => {
+        fetch(`http://localhost:5001/api/show-cabin-crew-list`, {
+            method: 'GET',
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                setAllCabinCrue(data);
+            });
+    }, []);
+
+
+    // show all pilot 
+    useEffect(() => {
+        fetch(`http://localhost:5001/api/show-pilot-list`, {
+            method: 'GET',
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                setAllPilot(data);
+            });
+    }, []);
 
 
     const handleOnSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
 
-        const flightLocationName = form.flightLocationName.value;
-        const tickitPrice = form.tickitPrice.value;
+        const pilotsOfPlaneId = form.pilotsOfPlaneId.value;
+        const cabinCrewId = form.cabinCrewId.value;
+        const planeNumber = form.planeNumber.value;
+        const flightNumber = form.flightNumber.value;
+        const flightFromCurrentLocation = form.flightFromCurrentLocation.value.toLowerCase();
+        const flightToDestinationLocation = form.flightToDestinationLocation.value.toLowerCase();
+        const flightDepartingDate = form.flightDepartingDate.value;
+        const flightDepartingTime = form.flightDepartingTime.value;
+        const flightArrivalDate = form.flightArrivalDate.value;
+        const flightArrivalTime = form.flightArrivalTime.value;
 
         const flightInfo = {
-            flightLocationName: flightLocationName,
-            tickitPrice: tickitPrice,
+            pilotsOfPlaneId: pilotsOfPlaneId,
+            planeNumber: planeNumber,
+            cabinCrewId: cabinCrewId,
+            flightNumber: flightNumber,
+            flightFromCurrentLocation: flightFromCurrentLocation,
+            flightToDestinationLocation: flightToDestinationLocation,
+            flightDepartingDate: flightDepartingDate,
+            flightDepartingTime: flightDepartingTime,
+            flightArrivalDate: flightArrivalDate,
+            flightArrivalTime: flightArrivalTime,
         }
         console.log("flightInfo : ", flightInfo);
 
@@ -34,12 +85,11 @@ const FlightsInformationEntry = () => {
                 console.log("flight-information: ", response);
                 if (response.data.data) {
                     toast.success('Successfully added new flight information')
-                    navigate('/domesticFlightList')
+                    navigate('/flightInformationList')
                 }
                 // const destination = location?.state?.from || "/";
                 // navigate(location?.state?.from || "/", { replace: true });
             })
-
 
     }
 
@@ -52,17 +102,43 @@ const FlightsInformationEntry = () => {
 
                     <div className='row'>
                         <div className='col-md-6 my-lg-0 margin-sm'>
-                            <label className="label">
-                                <span className="label-text text-md  fw-bold ">Pilots Name</span>
+                            <label className="label" htmlFor="pilotsOfPlaneId">
+                                <span className="label-text fw-bold">Pilots Name</span>{" "}
                             </label>
-                            <input type="text" name='pilotsOfPlaneId' id='pilotsOfPlaneId' placeholder="Enter Pilots Name " className="input form-control" required />
+                            <select
+                                id="pilotsOfPlaneId"
+                                name="pilotsOfPlaneId"
+                                type="text"
+                                className="form-select"
+                            >
+                                <option>Select Pilot</option>
+                                {allPilot &&
+                                    allPilot.map((pilot, index) => (
+                                        <option key={index} value={pilot._id}>
+                                            {pilot.pilotName}
+                                        </option>
+                                    ))}
+                            </select>
                         </div>
 
                         <div className='col-md-6 my-lg-0 margin-sm'>
                             <label className="label">
                                 <span className="label-text text-md  fw-bold ">CabinCrew Name</span>
                             </label>
-                            <input type="text" name='cabinCrewId' id='cabinCrewId' placeholder="Enter Cabin Crew Name " className="input form-control" required />
+                            <select
+                                id="cabinCrewId"
+                                name="cabinCrewId"
+                                type="text"
+                                className="form-select"
+                            >
+                                <option>Select CabinCrue</option>
+                                {allCabinCrue &&
+                                    allCabinCrue.map((crue, index) => (
+                                        <option key={index} value={crue._id}>
+                                            {crue.cabinCrewName}
+                                        </option>
+                                    ))}
+                            </select>
                         </div>
                     </div>
 
@@ -85,7 +161,7 @@ const FlightsInformationEntry = () => {
                     <div className='row'>
                         <div className='col-md-6   my-3'>
                             <label className="label">
-                                <span className="label-text fw-bold">Flight From Current Location</span>
+                                <span className="label-text fw-bold text-capitalize">Flight From Current Location</span>
                             </label>
                             <input type="text" name='flightFromCurrentLocation' id='flightFromCurrentLocation' placeholder="Enter flight From Curren Location" className="input form-control" required />
                         </div>
@@ -111,7 +187,7 @@ const FlightsInformationEntry = () => {
                             <label className="label">
                                 <span className="label-text fw-bold"> Flight Departing Time</span>
                             </label>
-                            <input type="date" name='flightDepartingTime' id='flightDepartingTime' placeholder="Enter flight departing Time" className="input form-control" required />
+                            <input type="time" name='flightDepartingTime' id='flightDepartingTime' placeholder="Enter flight departing Time" className="input form-control" required />
                         </div>
                     </div>
 
@@ -120,14 +196,14 @@ const FlightsInformationEntry = () => {
                             <label className="label">
                                 <span className="label-text fw-bold">Flight Arrival Date</span>
                             </label>
-                            <input type="date" name='flightDepartingDate' id='flightDepartingDate' placeholder="Enter flight Departing Date" className="input form-control" required />
+                            <input type="date" name='flightArrivalDate' id='flightArrivalDate' placeholder="Enter flight Departing Date" className="input form-control" required />
                         </div>
 
                         <div className='col-md-6   my-3'>
                             <label className="label">
                                 <span className="label-text fw-bold"> Flight  Arrival Time</span>
                             </label>
-                            <input type="date" name='flightArrivalTime' id='flightArrivalTime' placeholder="Enter flight Arrival  Time" className="input form-control" required />
+                            <input type="time" name='flightArrivalTime' id='flightArrivalTime' placeholder="Enter flight Arrival  Time" className="input form-control" required />
                         </div>
                     </div>
 

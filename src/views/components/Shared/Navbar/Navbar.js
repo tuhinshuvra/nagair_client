@@ -159,7 +159,7 @@ const Navbar = () => {
                                                 </li>
 
                                                 <li>
-                                                    <Link className=" ropdown-item fw-bold nest_nav_btn" to="/packageList">Pilot List</Link>
+                                                    <Link className=" ropdown-item fw-bold nest_nav_btn" to="/pilotList">Pilot List</Link>
                                                 </li>
 
                                             </ul>

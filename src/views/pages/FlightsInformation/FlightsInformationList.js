@@ -4,20 +4,23 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import { getCookie } from "../../../utilities/helper";
 import ConfirmatinModal from "../../components/Shared/ConfirmationModal/ConfirmationModal";
+import './FlightsInformationList.css'
 
 const FlightsInformationList = () => {
-    const [deletingFlights, setDeleletingFlights] = useState(null)
+    const [deletingFlightInfo, setDeletingFlightInfo] = useState(null)
     // const [flightId, setFlightId] = useState('');
     const { isLoading, setIsLoading } = useAuth();
-    const [domesticFlights, setDomesticFlights] = useState([]);
+    const [allFlightInfo, setAllFlightInfo] = useState([]);
+
+    console.log("allFlightInfo : ", allFlightInfo);
 
     const navigate = useNavigate();
 
     const closeModal = () => {
-        setDeleletingFlights(null);
+        setDeletingFlightInfo(null);
     };
 
-    const remainingFligts = domesticFlights.filter(flight => flight._id !== deletingFlights);
+    const remainingFligtInfo = allFlightInfo.filter(flight => flight._id !== deletingFlightInfo);
     // console.log("remainingFligts : ", remainingFligts);
 
 
@@ -25,7 +28,7 @@ const FlightsInformationList = () => {
     // console.log("deletingFlights : ", deletingFlights);
 
     useEffect(() => {
-        fetch(`http://localhost:5001/api/show-domestic-flight`, {
+        fetch(`http://localhost:5001/api/show-flight-information-list`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
@@ -33,12 +36,12 @@ const FlightsInformationList = () => {
         })
             .then((response) => response.json())
             .then((data) => {
-                setDomesticFlights(data);
+                setAllFlightInfo(data);
             });
     }, []);
 
     const handleDelete = () => {
-        fetch(`http://localhost:5001/api/delete-domestic-flight?id=${deletingFlights}`, {
+        fetch(`http://localhost:5001/api/delete-flight-information?id=${deletingFlightInfo}`, {
             method: "DELETE",
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
@@ -48,9 +51,9 @@ const FlightsInformationList = () => {
                 // console.log("response", response);
                 response.json();
                 if (response.status === 200) {
-                    toast.success("Flights Deleted Successfully.");
+                    toast.success("FlightInfo Deleted Successfully.");
                 }
-                setDomesticFlights(remainingFligts);
+                setAllFlightInfo(remainingFligtInfo);
 
             })
             .then((data) => {
@@ -62,45 +65,59 @@ const FlightsInformationList = () => {
 
     return (
         <div>
-            <h2 className="text-center  fw-bold  my-4">Domestic Flight List</h2>
+            <h1 className="text-center  fw-bold  mt-5">Flight Information List</h1>
+            <div className=" d-flex  justify-content-end">
+                <Link to="/flightInformationEntry" className="fs-4 text-info text-center text-decoration-none    fw-bold  my-0  ">Add Flight's Information</Link>
+            </div>
             <div className="overflow-x-auto">
                 <table className="table text-center align-middle table-hover  table-bordered">
                     <thead>
-                        <tr className="  table-secondary">
+                        <tr className="  table-secondary flightInfoTxt">
                             <th>SL</th>
-                            <th>Location</th>
-                            <th>Name</th>
-                            <th>Tickit Price</th>
+                            <th>Plane Number</th>
+                            <th>Flight Number</th>
+                            <th>Pilot Name</th>
+                            <th>CabinCrew Name</th>
+                            <th>Arrival Date</th>
+                            <th>Arrival Time</th>
+                            <th>Departing Date</th>
+                            <th>Departing Time</th>
+                            <th>From</th>
+                            <th>To</th>
                             <th>Created & Updated</th>
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {domesticFlights.map((flight, index) => (
-                            <tr key={flight._id}>
+                    <tbody className=" small">
+                        {allFlightInfo.map((flight, index) => (
+                            <tr key={flight._id} className="flightInfoTxt">
                                 <td>{index + 1}</td>
-                                <td > <img className="locationImage" src={flight.locationImage} alt="" /> </td>
+                                <td>  {flight.planeNumber}</td>
+                                <td>  {flight.flightNumber}</td>
+                                <td className="text-capitalize"> {flight.pilotsOfPlaneId.pilotName}</td>
+                                <td> {flight.cabinCrewId.cabinCrewName}</td>
+                                <td> {new Date(flight.flightArrivalDate).toLocaleDateString()}</td>
+                                <td> {flight.flightArrivalTime}</td>
+                                <td> {new Date(flight.flightDepartingDate).toLocaleDateString()}</td>
+                                <td> {flight.flightDepartingTime}</td>
+                                <td className="text-capitalize">  {flight.flightFromCurrentLocation}</td>
+                                <td className="text-capitalize">  {flight.flightToDestinationLocation}</td>
                                 <td>
-                                    <p className="my-0"> {flight.flightLocationName}</p>
-                                    {/* <Link onClick={() => setUserDetails(flight._id)} to={`/userDetails/${flight?._id}`} className="btn btn-sm btn-primary my-0">Show Details</Link> */}
+                                    {new Date(flight.createdAt).toLocaleDateString()}
+                                    {new Date(flight.updatedAt).toLocaleDateString()}
                                 </td>
-                                <td><p className="my-0">  ৳{flight.tickitPrice}</p></td>
-                                <td>
-                                    <p className="my-0"> {new Date(flight.createdAt).toLocaleDateString()}</p>
-                                    <p className="my-0"> {new Date(flight.updatedAt).toLocaleDateString()}</p>
-                                </td>
-                                <td>
-                                    <Link to={`/domesticFlightUpdate/${flight._id}`}>
+                                <td className="flightInfoTxt">
+                                    <Link to={`/flightInformationUpdate/${flight._id}`}>
                                         <button
                                             className=" fw-bold btn-sm btn btn-primary mx-1"
-                                        // onClick={() => handleUserUpdate(user._id)}
+                                        // onClick={() => handleflightInfoUpdate(user._id)}
                                         >
                                             Update
                                         </button>
                                     </Link>
 
                                     <button
-                                        onClick={() => setDeleletingFlights(flight._id)}
+                                        onClick={() => setDeletingFlightInfo(flight._id)}
                                         data-bs-toggle="modal"
                                         data-bs-target="#confirmationModal"
                                         className=" btn btn-sm  btn-outline-danger"
@@ -112,14 +129,14 @@ const FlightsInformationList = () => {
                         ))}
                     </tbody>
                 </table>
-                {deletingFlights && (
+                {deletingFlightInfo && (
                     <ConfirmatinModal
                         title={"Are you sure you want to delete the flight?"}
-                        message={`If you once delete the flight ${deletingFlights.flightLocationName} it's can't be recovered.`}
+                        message={`If you once delete the flight ${deletingFlightInfo.flightLocationName} it's can't be recovered.`}
                         closeModal={closeModal}
                         successAction={handleDelete}
                         successButtonName="Delete"
-                        modalData={deletingFlights}
+                        modalData={deletingFlightInfo}
                     ></ConfirmatinModal>
                 )}
             </div>

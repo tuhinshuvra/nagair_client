@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import axios from 'axios';
 import { getCookie } from '../../../utilities/helper';
@@ -54,6 +54,9 @@ const AddPackage = () => {
     return (
         <div className=' col-lg-6 col-md-8 col-10  mx-auto'>
             <h2 className='fw-bold text-center mt-5 mb-3'>Add New Package</h2>
+            <div className=" d-flex  justify-content-end">
+                <Link to="/packageList" className="fs-4 text-info text-center text-decoration-none    fw-bold  my-0  ">Package List</Link>
+            </div>
 
             <form onSubmit={handleOnSubmit}>
                 <div className="row ">

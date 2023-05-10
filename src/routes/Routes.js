@@ -32,6 +32,7 @@ import CabinCrueInformationEntry from '../views/pages/CabinCrueInformation/Cabin
 import CabinCrueList from '../views/pages/CabinCrueInformation/CabinCrueList';
 import FlightsInformationEntry from '../views/pages/FlightsInformation/FlightsInformationEntry';
 import FlightsInformationList from '../views/pages/FlightsInformation/FlightsInformationList';
+import FlightInformationUpdate from '../views/pages/FlightsInformation/FlightInformationUpdate';
 
 
 const router = createBrowserRouter([
@@ -140,6 +141,10 @@ const router = createBrowserRouter([
             {
                 path: "/flightInformationList",
                 element: <FlightsInformationList></FlightsInformationList>
+            },
+            {
+                path: "/flightInformationUpdate/:id",
+                element: <FlightInformationUpdate></FlightInformationUpdate>
             },
 
             {

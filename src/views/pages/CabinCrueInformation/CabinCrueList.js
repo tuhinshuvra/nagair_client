@@ -6,26 +6,22 @@ import { getCookie } from "../../../utilities/helper";
 import ConfirmatinModal from "../../components/Shared/ConfirmationModal/ConfirmationModal";
 
 const CabinCrueList = () => {
-    const [deletingPackage, setDeleletingPackage] = useState(null)
+    const [deletingCabinCrue, setDeleletingCabinCrue] = useState(null)
     // const [flightId, setFlightId] = useState('');
     const { isLoading, setIsLoading } = useAuth();
-    const [allPackage, setAllPackage] = useState([]);
+    const [allCabinCrue, setAllCabinCrue] = useState([]);
 
     const navigate = useNavigate();
 
     const closeModal = () => {
-        setDeleletingPackage(null);
+        setDeleletingCabinCrue(null);
     };
 
-    const remainingFligts = allPackage.filter(pack => pack._id !== deletingPackage);
-    // console.log("remainingFligts : ", remainingFligts);
+    const remainingFligts = allCabinCrue.filter(pack => pack._id !== deletingCabinCrue);
 
-
-
-    // console.log("deletingFlights : ", deletingFlights);
 
     useEffect(() => {
-        fetch(`http://localhost:5001/api/packages-data-show`, {
+        fetch(`http://localhost:5001/api/show-cabin-crew-list`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
@@ -33,12 +29,12 @@ const CabinCrueList = () => {
         })
             .then((response) => response.json())
             .then((data) => {
-                setAllPackage(data);
+                setAllCabinCrue(data);
             });
     }, []);
 
     const handleDelete = () => {
-        fetch(`http://localhost:5001/api/packages-data-delete?id=${deletingPackage}`, {
+        fetch(`http://localhost:5001/api/delete-cabin-crewby-id?id=${deletingCabinCrue}`, {
             method: "DELETE",
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
@@ -50,7 +46,7 @@ const CabinCrueList = () => {
                 if (response.status === 200) {
                     toast.success("Package Deleted Successfully.");
                 }
-                setAllPackage(remainingFligts);
+                setAllCabinCrue(remainingFligts);
 
             })
             .then((data) => {
@@ -61,32 +57,27 @@ const CabinCrueList = () => {
 
 
     return (
-        <div>
-            <h1 className="text-center  fw-bold  my-5">Cabun Crue List is comming soon</h1>
-            <h2 className="text-center  fw-bold  my-4">Dummy List</h2>
+        <div className=" col-md-8 mx-auto">
+            <h2 className="text-center  fw-bold  mt-5">Cabin Crue List</h2>
+            <div className=" d-flex  justify-content-end">
+                <Link to="/cabinCrueEntry" className="fs-4 text-info text-center text-decoration-none   fw-bold  my-0  ">Add Cabin Crue</Link>
+            </div>
             <div className="overflow-x-auto">
                 <table className="table text-center align-middle table-hover  table-bordered">
                     <thead>
                         <tr className="  table-secondary">
                             <th>SL</th>
-                            <th>Package Name</th>
-                            <th>Bag Weight</th>
-                            <th>Packages Price</th>
-                            <th>Facility One</th>
-                            <th>Facility Two</th>
+                            <th>Cabin Crew Name</th>
                             <th>Created & Updated</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {allPackage.map((pack, index) => (
+                        {allCabinCrue.map((pack, index) => (
                             <tr key={pack._id}>
                                 <td>{index + 1}</td>
-                                <td><p className="my-0"> {pack.packageName}</p></td>
-                                <td><p className="my-0"> {pack.bagWeight} KG</p></td>
-                                <td><p className="my-0">  ৳{pack.packagesPrice}</p></td>
-                                <td><p className="my-0">  {pack.packageFacility1}</p></td>
-                                <td><p className="my-0">  {pack.packageFacility2}</p></td>
+                                <td><p className="my-0"> {pack.cabinCrewName}</p></td>
+
                                 <td>
                                     <p className="my-0"> {new Date(pack.createdAt).toLocaleDateString()}</p>
                                     <p className="my-0"> {new Date(pack.updatedAt).toLocaleDateString()}</p>
@@ -95,14 +86,14 @@ const CabinCrueList = () => {
                                     <Link to={`/packageUpdate/${pack._id}`}>
                                         <button
                                             className=" fw-bold btn-sm btn btn-primary mx-1"
-                                        // onClick={() => handleUserUpdate(user._id)}
+                                        // onClick={() => handleCabinCrueUpdate(user._id)}
                                         >
                                             Update
                                         </button>
                                     </Link>
 
                                     <button
-                                        onClick={() => setDeleletingPackage(pack._id)}
+                                        onClick={() => setDeleletingCabinCrue(pack._id)}
                                         data-bs-toggle="modal"
                                         data-bs-target="#confirmationModal"
                                         className=" btn btn-sm  btn-outline-danger"
@@ -114,14 +105,14 @@ const CabinCrueList = () => {
                         ))}
                     </tbody>
                 </table>
-                {deletingPackage && (
+                {deletingCabinCrue && (
                     <ConfirmatinModal
                         title={"Are you sure you want to delete the package?"}
-                        message={`If you once delete the package ${deletingPackage.packageName} it's can't be recovered.`}
+                        message={`If you once delete the package ${deletingCabinCrue.packageName} it's can't be recovered.`}
                         closeModal={closeModal}
                         successAction={handleDelete}
                         successButtonName="Delete"
-                        modalData={deletingPackage}
+                        modalData={deletingCabinCrue}
                     ></ConfirmatinModal>
                 )}
             </div>

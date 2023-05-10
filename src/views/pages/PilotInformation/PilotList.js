@@ -6,18 +6,17 @@ import { getCookie } from "../../../utilities/helper";
 import ConfirmatinModal from "../../components/Shared/ConfirmationModal/ConfirmationModal";
 
 const PilotList = () => {
-    const [deletingPackage, setDeleletingPackage] = useState(null)
-    // const [flightId, setFlightId] = useState('');
+    const [deletingPilot, setDeleletingPilot] = useState(null)
     const { isLoading, setIsLoading } = useAuth();
-    const [allPackage, setAllPackage] = useState([]);
+    const [allPilot, setAllPilot] = useState([]);
 
     const navigate = useNavigate();
 
     const closeModal = () => {
-        setDeleletingPackage(null);
+        setDeleletingPilot(null);
     };
 
-    const remainingFligts = allPackage.filter(pack => pack._id !== deletingPackage);
+    const remainingFligts = allPilot.filter(pack => pack._id !== deletingPilot);
     // console.log("remainingFligts : ", remainingFligts);
 
 
@@ -25,7 +24,7 @@ const PilotList = () => {
     // console.log("deletingFlights : ", deletingFlights);
 
     useEffect(() => {
-        fetch(`http://localhost:5001/api/packages-data-show`, {
+        fetch(`http://localhost:5001/api/show-pilot-list`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
@@ -33,12 +32,12 @@ const PilotList = () => {
         })
             .then((response) => response.json())
             .then((data) => {
-                setAllPackage(data);
+                setAllPilot(data);
             });
     }, []);
 
     const handleDelete = () => {
-        fetch(`http://localhost:5001/api/packages-data-delete?id=${deletingPackage}`, {
+        fetch(`http://localhost:5001/api/delete-pilot-by-id?id=${deletingPilot}`, {
             method: "DELETE",
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
@@ -48,9 +47,9 @@ const PilotList = () => {
                 // console.log("response", response);
                 response.json();
                 if (response.status === 200) {
-                    toast.success("Package Deleted Successfully.");
+                    toast.success("Pilot Deleted Successfully.");
                 }
-                setAllPackage(remainingFligts);
+                setAllPilot(remainingFligts);
 
             })
             .then((data) => {
@@ -61,48 +60,43 @@ const PilotList = () => {
 
 
     return (
-        <div>
-            <h1 className="text-center  fw-bold  my-5">Pilot List is comming soon</h1>
-            <h2 className="text-center  fw-bold  my-4">Dummy List</h2>
+        <div className=" col-md-8 mx-auto">
+            <h2 className="text-center  fw-bold  my-5">Pilot List</h2>
+            <div className=" d-flex  justify-content-end">
+                <Link to="/pilotEntry" className="fs-4 text-info text-center text-decoration-none    fw-bold  my-0  ">Add Pilot</Link>
+            </div>
             <div className="overflow-x-auto">
                 <table className="table text-center align-middle table-hover  table-bordered">
                     <thead>
                         <tr className="  table-secondary">
                             <th>SL</th>
-                            <th>Package Name</th>
-                            <th>Bag Weight</th>
-                            <th>Packages Price</th>
-                            <th>Facility One</th>
-                            <th>Facility Two</th>
+                            <th>Pilot Name</th>
                             <th>Created & Updated</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {allPackage.map((pack, index) => (
+                        {allPilot.map((pack, index) => (
                             <tr key={pack._id}>
                                 <td>{index + 1}</td>
-                                <td><p className="my-0"> {pack.packageName}</p></td>
-                                <td><p className="my-0"> {pack.bagWeight} KG</p></td>
-                                <td><p className="my-0">  ৳{pack.packagesPrice}</p></td>
-                                <td><p className="my-0">  {pack.packageFacility1}</p></td>
-                                <td><p className="my-0">  {pack.packageFacility2}</p></td>
+                                <td><p className="my-0"> {pack.pilotName}</p></td>
+
                                 <td>
                                     <p className="my-0"> {new Date(pack.createdAt).toLocaleDateString()}</p>
                                     <p className="my-0"> {new Date(pack.updatedAt).toLocaleDateString()}</p>
                                 </td>
                                 <td>
-                                    <Link to={`/packageUpdate/${pack._id}`}>
+                                    <Link to={`/pilotUpdate/${pack._id}`}>
                                         <button
                                             className=" fw-bold btn-sm btn btn-primary mx-1"
-                                        // onClick={() => handleUserUpdate(user._id)}
+                                        // onClick={() => handlePilotUpdate(user._id)}
                                         >
                                             Update
                                         </button>
                                     </Link>
 
                                     <button
-                                        onClick={() => setDeleletingPackage(pack._id)}
+                                        onClick={() => setDeleletingPilot(pack._id)}
                                         data-bs-toggle="modal"
                                         data-bs-target="#confirmationModal"
                                         className=" btn btn-sm  btn-outline-danger"
@@ -114,14 +108,14 @@ const PilotList = () => {
                         ))}
                     </tbody>
                 </table>
-                {deletingPackage && (
+                {deletingPilot && (
                     <ConfirmatinModal
                         title={"Are you sure you want to delete the package?"}
-                        message={`If you once delete the package ${deletingPackage.packageName} it's can't be recovered.`}
+                        message={`If you once delete the package ${deletingPilot.packageName} it's can't be recovered.`}
                         closeModal={closeModal}
                         successAction={handleDelete}
                         successButtonName="Delete"
-                        modalData={deletingPackage}
+                        modalData={deletingPilot}
                     ></ConfirmatinModal>
                 )}
             </div>

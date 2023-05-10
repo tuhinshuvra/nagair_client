@@ -64,6 +64,9 @@ const PackageList = () => {
     return (
         <div>
             <h2 className="text-center  fw-bold  my-4">Package List</h2>
+            <div className=" d-flex  justify-content-end">
+                <Link to="/packageAdd" className="fs-4 text-info text-center text-decoration-none    fw-bold  my-0  ">Add Package</Link>
+            </div>
             <div className="overflow-x-auto">
                 <table className="table text-center align-middle table-hover  table-bordered">
                     <thead>
@@ -125,7 +128,7 @@ const PackageList = () => {
                     ></ConfirmatinModal>
                 )}
             </div>
-        </div>
+        </div >
     );
 };
 

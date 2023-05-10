@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaCalendarCheck, FaPlane, FaPlaneArrival, FaPlaneDeparture, FaSpa } from 'react-icons/fa';
 import PlaneImage from '../../../assets/image/nagair_plane.png';
 import './Banner.css'
+import useAuth from '../../../hooks/useAuth';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
+    const { travelType, setTravelType, searchData, setSearchData, serachFromLocation, setSearchFormLocation,
+        serachToLocation, setSearchToLocation, serachDepart, setSearchDepart, serachReturn, setSearchReturn,
+        serachCabinClass, setSearchCabinClass, serachTravellers, setSearchTravellers } = useAuth();
+
+    // travelType, flightFromCurrentLocation, flightToDestinationLocation, flightDepartingDate, flightReturningDate
+    // const [searchData, setSearchData] = useState({});
+
+    const getSearchTravelData = (event) => {
+        const field = event.target.name;
+        const value = event.target.value;
+        const newData = { ...searchData };
+        newData[field] = value;
+        setSearchData(newData);
+    };
+
+    console.log("searchData", searchData);
+
     return (
         <div className=' my-0 py-0'>
             <div className="banner   d-flex flex-column justify-content-end text-center">
@@ -12,50 +31,63 @@ const Banner = () => {
 
                 </div>
                 <h1 className="bannerTitle fw-bold nag_heading animate_bottom">Life Is Short, Or It's, Big<br /> Let's Explore It</h1>
-                {/* <div className="col-lg-6 mx-auto ">
 
-                </div> */}
+
+                {/* flight search */}
                 <form className='bannerForm   rounded rounded-2 p-2 m-md-3'>
 
                     <div className='tinyText col-xl-11  mx-auto flight-search mt-3'>
+
                         {/* form top section */}
-
-                        <div className=' col-md-10 col-12 mx-auto '>
-                            <div className="form-check form-check-inline">
-                                <input className="form-check-input" type="radio" name="return" id="return" value="return" />
-                                <label className="form-check-label fw-bold" htmlFor="return">Return</label>
-                            </div>
+                        <div
+                            onChange={getSearchTravelData}
+                            className=' col-md-10 col-12 mx-auto '>
 
                             <div className="form-check form-check-inline">
-                                <input className="form-check-input" type="radio" name="one-way" id="one-way" value="one-way" />
+                                <input className="form-check-input" type="radio" name="travelType" id="oneWay" value="oneWay" />
                                 <label className="form-check-label fw-bold" htmlFor="one-way">One Way</label>
                             </div>
 
                             <div className="form-check form-check-inline">
-                                <input className="form-check-input" type="radio" name="multi-way" id="multi-way" value="multi-way" />
+                                <input className="form-check-input" type="radio" name="travelType" id="roundTrip" value="roundTrip" />
+                                <label className="form-check-label fw-bold" htmlFor="return">Round Trip</label>
+                            </div>
+
+                            <div className="form-check form-check-inline">
+                                <input className="form-check-input" type="radio" name="travelType" id="multiWay" value="multiWay" />
                                 <label className="form-check-label fw-bold" htmlFor="multi-way">Multi-city</label>
                             </div>
                         </div>
 
-
                         {/* form bottomsection */}
-
                         <div className='row  col-12 mx-auto'>
                             <div className='col-xl-5 col-lg-11 col-md-12 d-md-flex justify-content-between mx-lg-auto'>
                                 <div className="form-outline  col-lg-6 mx-1 my-2">
-                                    <label className="form-label float-start fw-bold" htmlFor="journey-from">
+                                    <label className="form-label float-start fw-bold" htmlFor="journeyFrom">
                                         <FaPlaneDeparture />
                                         <span className=''>   From</span>
                                     </label>
-                                    <input type="text" id="journey-from" className="form-control" placeholder="Enter journety from" />
+                                    <input
+                                        onChange={getSearchTravelData}
+                                        type="text"
+                                        name="flightFromCurrentLocation"
+                                        id="flightFromCurrentLocation"
+                                        className="form-control"
+                                        placeholder="Enter Journey from" />
                                 </div>
 
                                 <div className="form-outline  col-lg-6 mx-1 my-2">
-                                    <label className="form-label float-start fw-bold " htmlFor="journey-to">
+                                    <label className="form-label float-start fw-bold " htmlFor="journeyTo">
                                         <FaPlaneArrival />
                                         <span className=''>  To </span>
                                     </label>
-                                    <input type="text" id="journey-to" className="form-control" placeholder='Enter journey to' />
+                                    <input
+                                        onChange={getSearchTravelData}
+                                        type="text"
+                                        name="flightToDestinationLocation"
+                                        id="flightToDestinationLocation"
+                                        className="form-control"
+                                        placeholder='Enter journey destination' />
                                 </div>
                             </div>
 
@@ -65,14 +97,24 @@ const Banner = () => {
                                         < FaCalendarCheck />
                                         <span className=''>Depart</span>
                                     </label>
-                                    <input type="date" id="from-date" className="form-control" />
+                                    <input
+                                        onChange={getSearchTravelData}
+                                        type="date"
+                                        name="flightDepartingDate"
+                                        id="flightDepartingDate"
+                                        className="form-control" />
                                 </div>
                                 <div className="form-outline  col-lg-3 mx-1 my-2">
                                     <label className="tinyLogoText form-label float-start fw-bold" htmlFor="password">
                                         < FaCalendarCheck />
                                         <span className=''> Return</span>
                                     </label>
-                                    <input type="date" id="to-date" className="form-control" />
+                                    <input
+                                        onChange={getSearchTravelData}
+                                        type="date"
+                                        name="flightReturningDate"
+                                        id="flightReturningDate"
+                                        className="form-control" />
                                 </div>
 
                                 <div className="form-outline  col-lg-3 mx-1 my-2">
@@ -82,6 +124,7 @@ const Banner = () => {
 
                                     </label>
                                     <select className="tinyLogoText form-select select-bordered  ">
+
                                         <option disabled defaultValue>Select</option>
                                         <option value={0}>Economy</option>
                                         <option value={1}>Preminum Economy</option>
@@ -109,11 +152,16 @@ const Banner = () => {
                             </div>
                         </div>
 
+                        {/* <Link
+                            to={`/searchHomeResult/${searchData.jobTitle}/${searchLocationtionData.location}/${searchOrganizationData.orgaType}`}
+                            className=" text-decoration-none custom_btn ms-2"
+                        >Search
+                        </Link> */}
 
                         <div className="text-center pt-3 pb-3">
-                            <button className="custom_btn" type="button">
+                            <Link to={`/flightSearchResult?travelType=${searchData.travelType}&flightFromCurrentLocation=${searchData.flightFromCurrentLocation}&flightToDestinationLocation=${searchData.flightToDestinationLocation}&flightDepartingDate=${searchData.flightDepartingDate}&flightReturningDate=${searchData.flightReturningDate}`} className="custom_btn text-decoration-none" type="button">
                                 Search Flights &#10148;
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </form>

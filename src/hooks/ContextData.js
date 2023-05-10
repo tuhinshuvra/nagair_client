@@ -25,6 +25,15 @@ const ContextProvider = ({ children }) => {
     const [selectedChat, setSelectedChat] = useState();
     const [subjectAreaPostData, setSubjectAreaPostData] = useState({ disputeResolutionList: [], featuredList: [], });
 
+    const [searchData, setSearchData] = useState({})
+    const [travelType, setTravelType] = useState("")
+    const [serachFromLocation, setSearchFormLocation] = useState("")
+    const [serachToLocation, setSearchToLocation] = useState("")
+    const [serachDepart, setSearchDepart] = useState("")
+    const [serachReturn, setSearchReturn] = useState("")
+    const [serachCabinClass, setSearchCabinClass] = useState("")
+    const [serachTravellers, setSearchTravellers] = useState("")
+
 
     const contextInfo = {
         user,
@@ -68,6 +77,23 @@ const ContextProvider = ({ children }) => {
         setSearchResult,
         subjectAreaPostData,
         setSubjectAreaPostData,
+
+        travelType,
+        setTravelType,
+        searchData,
+        setSearchData,
+        serachFromLocation,
+        setSearchFormLocation,
+        serachToLocation,
+        setSearchToLocation,
+        serachDepart,
+        setSearchDepart,
+        serachReturn,
+        setSearchReturn,
+        serachCabinClass,
+        setSearchCabinClass,
+        serachTravellers,
+        setSearchTravellers
     };
 
     return (

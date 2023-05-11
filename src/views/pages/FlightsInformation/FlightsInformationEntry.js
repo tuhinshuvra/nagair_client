@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import axios from 'axios';
 import './FlightsInformationEntry.css'
@@ -96,6 +96,9 @@ const FlightsInformationEntry = () => {
     return (
         <div className=' col-lg-6 col-md-8 col-10  mx-auto'>
             <h2 className='fw-bold text-center mt-4 mb-3'>Add Flight Information</h2>
+            <div className=" d-flex  justify-content-end">
+                <Link to="/flightInformationList" className="fs-4 text-info text-center text-decoration-none    fw-bold  my-0  ">Flight Info List</Link>
+            </div>
 
             <form onSubmit={handleOnSubmit}>
                 <div className="row ">

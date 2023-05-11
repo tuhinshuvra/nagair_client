@@ -65,7 +65,7 @@ const FlightsInformationList = () => {
 
     return (
         <div>
-            <h1 className="text-center  fw-bold  mt-5">Flight Information List</h1>
+            <h2 className="text-center  fw-bold  mt-5">Flight Information List</h2>
             <div className=" d-flex  justify-content-end">
                 <Link to="/flightInformationEntry" className="fs-4 text-info text-center text-decoration-none    fw-bold  my-0  ">Add Flight's Information</Link>
             </div>
@@ -74,16 +74,16 @@ const FlightsInformationList = () => {
                     <thead>
                         <tr className="  table-secondary flightInfoTxt">
                             <th>SL</th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Departing Date</th>
+                            <th>Departing Time</th>
+                            <th>Arrival Date</th>
+                            <th>Arrival Time</th>
                             <th>Plane Number</th>
                             <th>Flight Number</th>
                             <th>Pilot Name</th>
                             <th>CabinCrew Name</th>
-                            <th>Arrival Date</th>
-                            <th>Arrival Time</th>
-                            <th>Departing Date</th>
-                            <th>Departing Time</th>
-                            <th>From</th>
-                            <th>To</th>
                             <th>Created & Updated</th>
                             <th>Action</th>
                         </tr>
@@ -92,18 +92,18 @@ const FlightsInformationList = () => {
                         {allFlightInfo.map((flight, index) => (
                             <tr key={flight._id} className="flightInfoTxt">
                                 <td>{index + 1}</td>
+                                <td className="text-capitalize">  {flight.flightFromCurrentLocation}</td>
+                                <td className="text-capitalize">  {flight.flightToDestinationLocation}</td>
+                                <td> {new Date(flight.flightDepartingDate).toLocaleDateString()}</td>
+                                <td> {flight.flightDepartingTime}</td>
+                                <td> {new Date(flight.flightArrivalDate).toLocaleDateString()}</td>
+                                <td> {flight.flightArrivalTime}</td>
                                 <td>  {flight.planeNumber}</td>
                                 <td>  {flight.flightNumber}</td>
                                 <td className="text-capitalize"> {flight.pilotsOfPlaneId.pilotName}</td>
                                 <td> {flight.cabinCrewId.cabinCrewName}</td>
-                                <td> {new Date(flight.flightArrivalDate).toLocaleDateString()}</td>
-                                <td> {flight.flightArrivalTime}</td>
-                                <td> {new Date(flight.flightDepartingDate).toLocaleDateString()}</td>
-                                <td> {flight.flightDepartingTime}</td>
-                                <td className="text-capitalize">  {flight.flightFromCurrentLocation}</td>
-                                <td className="text-capitalize">  {flight.flightToDestinationLocation}</td>
                                 <td>
-                                    {new Date(flight.createdAt).toLocaleDateString()}
+                                    {new Date(flight.createdAt).toLocaleDateString()},
                                     {new Date(flight.updatedAt).toLocaleDateString()}
                                 </td>
                                 <td className="flightInfoTxt">

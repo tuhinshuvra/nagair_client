@@ -4,7 +4,6 @@ import MainLayout from '../layout/MainLayout';
 import Home from '../views/pages/Home/Home';
 import HomePageAdditionalService from '../views/pages/Home/HomePageAdditionalService/HomePageAdditionalService';
 import HomePagePopularLocations from '../views/pages/Home/HomePagePopularLocations/HomePagePopularLocations';
-import Banner from '../views/pages/Banner/Banner';
 import PassengerForm from '../views/pages/Profile/Passenger/PassengerForm';
 import PassengerList from '../views/pages/Profile/Passenger/PassengerList';
 import PassengerProfile from '../views/pages/Profile/Passenger/PassengerProfile';
@@ -34,6 +33,7 @@ import FlightsInformationEntry from '../views/pages/FlightsInformation/FlightsIn
 import FlightsInformationList from '../views/pages/FlightsInformation/FlightsInformationList';
 import FlightInformationUpdate from '../views/pages/FlightsInformation/FlightInformationUpdate';
 import FlightSearchResultPage from '../views/pages/FlightSearchResultPage/FlightSearchResultPage';
+import HomeFlightSearch from '../views/pages/Home/HomeFlightSearch/HomeFlightSearch';
 
 
 const router = createBrowserRouter([
@@ -57,12 +57,12 @@ const router = createBrowserRouter([
             },
             {
                 path: "/trip",
-                element: <Banner></Banner>
+                element: <HomeFlightSearch></HomeFlightSearch>
             },
 
             {
                 path: "/booking",
-                element: <Banner></Banner>
+                element: <HomeFlightSearch></HomeFlightSearch>
             },
 
             {

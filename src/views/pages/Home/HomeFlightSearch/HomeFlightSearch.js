@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
 import { FaCalendarCheck, FaPlane, FaPlaneArrival, FaPlaneDeparture, FaSpa } from 'react-icons/fa';
-import PlaneImage from '../../../assets/image/nagair_plane.png';
-import './Banner.css'
-import useAuth from '../../../hooks/useAuth';
+import PlaneImage from '../../../../assets/image/nagair_plane.png';
+import useAuth from '../../../../hooks/useAuth';
 import { Link } from 'react-router-dom';
+import './HomeFlightSearch.css'
 
-const Banner = () => {
-    const { travelType, setTravelType, searchData, setSearchData, serachFromLocation, setSearchFormLocation,
-        serachToLocation, setSearchToLocation, serachDepart, setSearchDepart, serachReturn, setSearchReturn,
-        serachCabinClass, setSearchCabinClass, serachTravellers, setSearchTravellers } = useAuth();
+const HomeFlightSearch = () => {
+    const { searchData, setSearchData } = useAuth();
 
-    // travelType, flightFromCurrentLocation, flightToDestinationLocation, flightDepartingDate, flightReturningDate
-    // const [searchData, setSearchData] = useState({});
 
     const getSearchTravelData = (event) => {
         const field = event.target.name;
@@ -22,6 +18,7 @@ const Banner = () => {
     };
 
     console.log("searchData", searchData);
+    // travelType, flightFromCurrentLocation, flightToDestinationLocation, flightDepartingDate, flightReturningDate
 
     return (
         <div className=' my-0 py-0'>
@@ -107,7 +104,7 @@ const Banner = () => {
                                 <div className="form-outline  col-lg-3 mx-1 my-2">
                                     <label className="tinyLogoText form-label float-start fw-bold" htmlFor="password">
                                         < FaCalendarCheck />
-                                        <span className=''> Return</span>
+                                        <span className=''>Return</span>
                                     </label>
                                     <input
                                         onChange={getSearchTravelData}
@@ -120,7 +117,7 @@ const Banner = () => {
                                 <div className="form-outline  col-lg-3 mx-1 my-2">
                                     <label className="tinyLogoText form-label float-start fw-bold" htmlFor="password">
                                         <FaSpa />
-                                        <span className=''>  Cabin Class </span>
+                                        <span className=''>Cabin Class</span>
 
                                     </label>
                                     <select className="tinyLogoText form-select select-bordered  ">
@@ -152,14 +149,9 @@ const Banner = () => {
                             </div>
                         </div>
 
-                        {/* <Link
-                            to={`/searchHomeResult/${searchData.jobTitle}/${searchLocationtionData.location}/${searchOrganizationData.orgaType}`}
-                            className=" text-decoration-none custom_btn ms-2"
-                        >Search
-                        </Link> */}
-
                         <div className="text-center pt-3 pb-3">
-                            <Link to={`/flightSearchResult?travelType=${searchData.travelType}&flightFromCurrentLocation=${searchData.flightFromCurrentLocation}&flightToDestinationLocation=${searchData.flightToDestinationLocation}&flightDepartingDate=${searchData.flightDepartingDate}&flightReturningDate=${searchData.flightReturningDate}`} className="custom_btn text-decoration-none" type="button">
+                            {/* <Link to={`/flightSearchResult?travelType=${searchData.travelType}&flightFromCurrentLocation=${searchData.flightFromCurrentLocation}&flightToDestinationLocation=${searchData.flightToDestinationLocation}&flightDepartingDate=${searchData.flightDepartingDate}&flightReturningDate=${searchData.flightReturningDate}`} className="custom_btn text-decoration-none" type="button"> */}
+                            <Link to={`/flightSearchResult`} className="custom_btn text-decoration-none" type="button">
                                 Search Flights &#10148;
                             </Link>
                         </div>
@@ -170,4 +162,4 @@ const Banner = () => {
     );
 };
 
-export default Banner;
+export default HomeFlightSearch;

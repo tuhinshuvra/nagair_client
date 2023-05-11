@@ -95,6 +95,130 @@ const FlightSearchResultPage = () => {
                     ))}
                 </tbody>
             </table>
+
+            <div className=''>
+                <div className=' row'>
+                    <div className=' col-md-8 bg-info'>
+                        <h4>Trip Summary</h4>
+                        <div className=' d-flex justify-content-between'>
+                            <div className=''>
+                                {flights.map(flight =>
+
+                                    <div className=" ">
+                                        <div className=' '>
+                                            <p className='mb-0'>{(flight.flightFromCurrentLocation).toUpperCase()} -{(flight.flightToDestinationLocation).toUpperCase()}</p>
+
+                                        </div>
+
+
+                                        <div>
+                                            <div className=' d-flex'>
+                                                <span className=' fw-bold'>Departure: </span>   <span className='mb-0 ms-1'>{new Date(flight.flightDepartingDate).toDateString()}, {flight.flightDepartingTime}</span>
+                                            </div>
+                                            <div className=' d-flex'>
+                                                <span className=' fw-bold'>Arrival: </span>   <span className='mt-0 ms-1'>{new Date(flight.flightArrivalDate).toDateString()},{flight.flightArrivalTime}</span>
+                                            </div>
+                                        </div>
+                                        <span><b> Amount:</b>  5000TK</span>
+                                    </div>
+                                )}
+                                <div>
+                                    <p className=' small'>Refundable with fee
+
+                                        Up to 24 hours before the flight : 1,200 BDT
+                                        Starting 24 hours until flight 1,500 BDT
+                                        After the flight : 2,000 BDT</p>
+                                </div>
+
+                            </div>
+
+                            <div>
+                                <div>
+                                    {flights.map(flight =>
+                                        <div>
+
+                                            <div className=" ">
+                                                <div>
+                                                    <p className='mb-0'><span className='mb-0 ms-1'>{(flight.flightFromCurrentLocation).toUpperCase()} {new Date(flight.flightDepartingDate).toDateString()}, {flight.flightDepartingTime}</span> </p>
+
+                                                </div>
+
+
+
+                                                <div>
+                                                    <p className='mb-0'>{(flight.flightToDestinationLocation).toUpperCase()} {new Date(flight.flightArrivalDate).toDateString()},{flight.flightArrivalTime}</p>
+                                                </div>
+                                            </div>
+                                            <p><span className=' fw-bold mt-0'>Equipment:</span>{flight.planeNumber}</p>
+                                        </div>
+                                    )}
+                                </div>
+                                <div>
+                                    Exchange with fee (for all passengers)
+
+                                    Up to 24 hours before the flight : 1,200 BDT
+                                    Starting 24 hours until flight 1,800 BDT
+                                    After the flight : 2,000 BDT
+                                </div>
+
+                            </div>
+                            <div>
+                                <p>Direct</p>
+                                <p>
+                                    <span> Checked-in luggage</span>
+
+                                    <span> Adult(s) : 20 Kg</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div>
+
+
+                        </div>
+                    </div>
+                    <div className=' col-md-3 bg-info ms-3 '>
+                        <h4>Your Selection</h4>
+                        <p className=' bg-primary'>Your Trip</p>
+                        <div className=''>
+                            {flights.map(flight =>
+
+                                <div className=" ">
+                                    <div className=' '>
+                                        <p className='mb-0'>{(flight.flightFromCurrentLocation).toUpperCase()} -{(flight.flightToDestinationLocation).toUpperCase()}</p>
+
+                                    </div>
+
+
+                                    <div>
+                                        <div className=' d-flex'>
+                                            <span className=''>{new Date(flight.flightDepartingDate).toLocaleDateString()}, {flight.flightDepartingTime}- {new Date(flight.flightArrivalDate).toLocaleDateString()},{flight.flightArrivalTime}</span>
+                                        </div>
+                                        <div className=' d-flex'>
+                                        </div>
+                                    </div>
+                                    <div className='d-flex justify-content-between'>
+                                        <p>1 Adults</p>
+                                        <p>5000 BDT Total</p>
+
+                                    </div>
+
+                                    <div className=' bg-secondary text-center'>
+                                        <p className=' fs-4 mb-0'> Booking Total Amount</p>
+
+                                        <p className=' fs-3 fw-bold mt-0'>5000 BDT </p>
+
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                        <div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

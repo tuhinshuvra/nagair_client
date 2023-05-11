@@ -76,10 +76,8 @@ const FlightsInformationList = () => {
                             <th>SL</th>
                             <th>From</th>
                             <th>To</th>
-                            <th>Departing Date</th>
-                            <th>Departing Time</th>
-                            <th>Arrival Date</th>
-                            <th>Arrival Time</th>
+                            <th>Departing </th>
+                            <th>Arrival</th>
                             <th>Plane Number</th>
                             <th>Flight Number</th>
                             <th>Pilot Name</th>
@@ -94,10 +92,8 @@ const FlightsInformationList = () => {
                                 <td>{index + 1}</td>
                                 <td className="text-capitalize">  {flight.flightFromCurrentLocation}</td>
                                 <td className="text-capitalize">  {flight.flightToDestinationLocation}</td>
-                                <td> {new Date(flight.flightDepartingDate).toLocaleDateString()}</td>
-                                <td> {flight.flightDepartingTime}</td>
-                                <td> {new Date(flight.flightArrivalDate).toLocaleDateString()}</td>
-                                <td> {flight.flightArrivalTime}</td>
+                                <td> {new Date(flight.flightDepartingDate).toLocaleDateString()} {flight.flightDepartingTime}</td>
+                                <td> {new Date(flight.flightArrivalDate).toLocaleDateString()}  {flight.flightArrivalTime}</td>
                                 <td>  {flight.planeNumber}</td>
                                 <td>  {flight.flightNumber}</td>
                                 <td className="text-capitalize"> {flight.pilotsOfPlaneId.pilotName}</td>

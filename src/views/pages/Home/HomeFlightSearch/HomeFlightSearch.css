@@ -6,12 +6,39 @@
     background-repeat: no-repeat;
 }
 
+.searchBtn {
+    background-color: white;
+    color: #EF3A24;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 10px;
+    border: 2px solid red;
+    font-weight: bold;
+}
+
+.searchBtn:hover {
+    color: white;
+    background-color: #EF3A24;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+
 .tinyText {
     font-size: 16px;
 }
 
-.bannerForm {
-    /* margin-top: 100px;     */
+.flight-search {
+    border-radius: 20px;
+}
+
+.addRemoveBtn {
+    background-color: #217b05;
+    width: 95px;
+    height: 34px;
+    color: white;
+    border-radius: 7px;
+    border: none;
 }
 
 .bannerTitle {

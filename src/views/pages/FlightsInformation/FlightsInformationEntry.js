@@ -56,6 +56,8 @@ const FlightsInformationEntry = () => {
         const flightNumber = form.flightNumber.value;
         const flightFromCurrentLocation = form.flightFromCurrentLocation.value.toLowerCase();
         const flightToDestinationLocation = form.flightToDestinationLocation.value.toLowerCase();
+        // const flightFromCurrentLocation = form.flightFromCurrentLocation.value;
+        // const flightToDestinationLocation = form.flightToDestinationLocation.value;
         const flightDepartingDate = form.flightDepartingDate.value;
         const flightDepartingTime = form.flightDepartingTime.value;
         const flightArrivalDate = form.flightArrivalDate.value;

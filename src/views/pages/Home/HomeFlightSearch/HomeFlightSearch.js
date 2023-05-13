@@ -6,12 +6,16 @@ import { Link } from 'react-router-dom';
 import './HomeFlightSearch.css'
 
 const HomeFlightSearch = () => {
-    const { searchData, setSearchData } = useAuth();
+    const { searchData, setSearchData, searchMultipleCities, setSearchMultipleCities, searchMultipleDays, setSearchMultipleDays, } = useAuth();
     const [showMultiCityField, setShowMultiCityField] = useState(false);
     const [showReturnField, setShowReturnField] = useState(true);
-    const [inputList, setInputList] = useState([{ 'flightFromCurrentLocation': '', 'flightToDestinationLocation': '', 'flightDepartingDate': '' }]);
 
-    console.log("inputList :", inputList);
+    const showHideFilds = { 'flightFromCurrentLocation': '', 'flightToDestinationLocation': '', 'flightDepartingDate': '' }
+    const [inputList, setInputList] = useState([showHideFilds]);
+
+    // console.log("inputList :", inputList);
+
+    console.log("searchMultipleCities", searchMultipleCities);
 
     const getSearchTravelData = (event) => {
         const field = event.target.name;
@@ -21,9 +25,22 @@ const HomeFlightSearch = () => {
         setSearchData(newData);
     };
 
+    const getSearchMultipleCitiesData = (event) => {
+        const value = event.target.value;
+        if (!searchMultipleCities.includes(value)) {
+            setSearchMultipleCities([...searchMultipleCities, value]);
+        }
+    };
+
+    const getSearchMultipleDaysData = (event) => {
+        const value = event.target.value;
+        if (!searchMultipleDays.includes(value)) {
+            setSearchMultipleDays([...searchMultipleDays, value]);
+        }
+    };
+
     const handleAddMore = () => {
-        // console.log('I am ckicked');
-        setInputList([...inputList, { 'flightFromCurrentLocation': '', 'flightToDestinationLocation': '', 'flightDepartingDate': '' }]);
+        setInputList([...inputList, showHideFilds]);
     }
 
     const handleRemove = (index) => {
@@ -55,11 +72,11 @@ const HomeFlightSearch = () => {
                 {/* flight search */}
                 {/* <form className='    px-md-3 my-md-4 m-md-3'> */}
 
-                <div className='tinyText col-xl-11  mx-auto flight-search'>
+                <div className='tinyText col-xl-11  mx-auto my-4 flight-search'>
                     {/* form top section */}
                     <div
                         onChange={getSearchTravelData}
-                        className=' col-md-10 col-12 mx-auto '>
+                        className=' col-md-10 col-12 mx-auto  mt-2'>
 
                         <div
                             onClick={() => setShowReturnField(false)}
@@ -97,11 +114,15 @@ const HomeFlightSearch = () => {
                                 </label>
                                 <input
                                     onChange={getSearchTravelData}
+                                    // onChange={() => { getSearchTravelData(); getSearchMultipleCitiesData(); }}
                                     type="text"
                                     name="flightFromCurrentLocation"
                                     id="flightFromCurrentLocation"
                                     className="form-control"
-                                    placeholder="Enter Journey from" />
+                                    placeholder="Enter Journey from"
+                                    onBlur={getSearchMultipleCitiesData}
+                                />
+
                             </div>
 
                             <div className="form-outline   mx-1 my-2">
@@ -115,7 +136,9 @@ const HomeFlightSearch = () => {
                                     name="flightToDestinationLocation"
                                     id="flightToDestinationLocation"
                                     className="form-control"
-                                    placeholder='Enter journey destination' />
+                                    placeholder='Enter journey destination'
+                                    onBlur={getSearchMultipleCitiesData}
+                                />
                             </div>
 
                             <div className="form-outline   mx-1 my-2">
@@ -125,10 +148,14 @@ const HomeFlightSearch = () => {
                                 </label>
                                 <input
                                     onChange={getSearchTravelData}
+                                    // onChange={() => { getSearchTravelData(); getSearchMultipleDaysData(); }}
                                     type="date"
                                     name="flightDepartingDate"
                                     id="flightDepartingDate"
-                                    className="form-control" />
+                                    className="form-control"
+                                    onBlur={getSearchMultipleDaysData}
+
+                                />
                             </div>
 
                             {showReturnField &&
@@ -139,10 +166,13 @@ const HomeFlightSearch = () => {
                                     </label>
                                     <input
                                         onChange={getSearchTravelData}
+                                        // onChange={() => { getSearchTravelData(); getSearchMultipleDaysData(); }}
                                         type="date"
                                         name="flightReturningDate"
                                         id="flightReturningDate"
-                                        className="form-control" />
+                                        className="form-control"
+                                        onBlur={getSearchMultipleDaysData}
+                                    />
                                 </div>
 
                             }
@@ -162,6 +192,7 @@ const HomeFlightSearch = () => {
                                         <option value={3}>First Class</option>
                                     </select>
                                 </div> */}
+
                             <div className="form-outline mx-1 my-2">
                                 <label className="tinyLogoText form-label float-start fw-bold" htmlFor="password">
                                     < FaPlane />
@@ -190,42 +221,44 @@ const HomeFlightSearch = () => {
                     {showMultiCityField &&
                         <>
                             {
-                                inputList.map((x, i) => {
+                                inputList.map((x, index) => {
                                     return (
 
-                                        <div className='row  col-12 mx-auto'>
-                                            <div className=' col-lg-8 col-md-12 d-flex justify-content-evenly mx-auto'>
+                                        <div key={index} className='row  col-12 mx-auto'>
+                                            <div className=' col-lg-11 col-md-12 d-flex justify-content-evenly align-items-baseline mx-auto'>
 
                                                 <div className="form-outline  my-2">
                                                     <label className="form-label float-start fw-bold" htmlFor="journeyFrom">
                                                         <FaPlaneDeparture />
-                                                        <span className=''>   From</span>
+                                                        <span className=''>From</span>
                                                     </label>
                                                     <input
-                                                        onChange={getSearchTravelData}
+                                                        onChange={getSearchMultipleCitiesData}
+                                                        // onChange={() => { getSearchTravelData(); getSearchMultipleCitiesData(); }}
                                                         type="text"
                                                         name="flightFromCurrentLocation"
                                                         id="flightFromCurrentLocation"
                                                         className="form-control"
                                                         placeholder="Enter Journey from"
 
-                                                        onBlur={e => handleInputChange(e, i)}
+                                                        onBlur={event => handleInputChange(event, index)}
                                                     />
                                                 </div>
 
                                                 <div className="form-outline  my-2">
                                                     <label className="form-label float-start fw-bold " htmlFor="journeyTo">
                                                         <FaPlaneArrival />
-                                                        <span className=''>  To </span>
+                                                        <span className=''>To</span>
                                                     </label>
                                                     <input
-                                                        onChange={getSearchTravelData}
+                                                        onChange={getSearchMultipleCitiesData}
+                                                        // onChange={() => { getSearchTravelData(); getSearchMultipleCitiesData(); }}
                                                         type="text"
                                                         name="flightToDestinationLocation"
                                                         id="flightToDestinationLocation"
                                                         className="form-control"
                                                         placeholder='Enter journey destination'
-                                                        onBlur={e => handleInputChange(e, i)}
+                                                        onBlur={event => handleInputChange(event, index)}
                                                     />
                                                 </div>
                                                 <div className="form-outline mx-1 my-2">
@@ -234,22 +267,26 @@ const HomeFlightSearch = () => {
                                                         <span className=''>Depart</span>
                                                     </label>
                                                     <input
-                                                        onChange={getSearchTravelData}
+                                                        onChange={getSearchMultipleDaysData}
+                                                        // onChange={() => { getSearchTravelData(); getSearchMultipleDaysData(); }}
                                                         type="date"
                                                         name="flightDepartingDate"
                                                         id="flightDepartingDate"
                                                         className="form-control"
-                                                        onBlur={e => handleInputChange(e, i)}
+                                                        onBlur={event => handleInputChange(event, index)}
                                                     />
                                                 </div>
-                                                <div className='d-flex align-items-end'>
+                                                <div className='d-flex'>
                                                     {
-                                                        (inputList.length - 1 === i) && (inputList.length < 3) &&
+                                                        // (inputList.length - 1 === i) && (inputList.length < 3) &&
+                                                        (inputList.length < 3) &&
                                                         <button onClick={handleAddMore} className='addRemoveBtn  ms-2'>Add More</button>
                                                     }
+
                                                     {
-                                                        inputList.length !== 1 &&
-                                                        <button onClick={() => handleRemove(i)} className='addRemoveBtn  ms-2'>Remove</button>
+                                                        // inputList.length !== 1 &&
+                                                        (inputList.length > 1) &&
+                                                        <button onClick={() => handleRemove(index)} className='addRemoveBtn  ms-2'>Remove</button>
                                                     }
                                                 </div>
                                             </div>

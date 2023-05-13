@@ -26,6 +26,8 @@ const ContextProvider = ({ children }) => {
     const [subjectAreaPostData, setSubjectAreaPostData] = useState({ disputeResolutionList: [], featuredList: [], });
 
     const [searchData, setSearchData] = useState({})
+    const [searchMultipleCities, setSearchMultipleCities] = useState([])
+    const [searchMultipleDays, setSearchMultipleDays] = useState([])
 
 
 
@@ -74,6 +76,10 @@ const ContextProvider = ({ children }) => {
 
         searchData,
         setSearchData,
+        searchMultipleCities,
+        setSearchMultipleCities,
+        searchMultipleDays,
+        setSearchMultipleDays,
     };
 
     return (

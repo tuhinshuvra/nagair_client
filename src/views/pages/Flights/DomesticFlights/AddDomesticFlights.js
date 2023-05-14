@@ -54,7 +54,7 @@ const AddDomesticFlights = () => {
         console.log("flightInfo : ", flightInfo);
 
         axios({
-            url: `http://localhost:5001/api/upload-domestic-flight`,
+            url: `https://nag-air-server.vercel.app/api/upload-domestic-flight`,
             method: "POST",
             headers: { 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`, },
             data: flightInfo,

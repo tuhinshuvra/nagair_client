@@ -2,20 +2,23 @@ import React, { useState } from 'react';
 import { FaCalendarCheck, FaPlane, FaPlaneArrival, FaPlaneDeparture, FaSpa } from 'react-icons/fa';
 import PlaneImage from '../../../../assets/image/nagair_plane.png';
 import useAuth from '../../../../hooks/useAuth';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './HomeFlightSearch.css'
+import { getCookie } from '../../../../utilities/helper';
+import axios from 'axios';
 
 const HomeFlightSearch = () => {
-    const { searchData, setSearchData, searchMultipleCities, setSearchMultipleCities, searchMultipleDays, setSearchMultipleDays, } = useAuth();
+    const { searchData, setSearchData, searchMultipleDays, setSearchMultipleDays, trips, setTrips, flights, setFlights } = useAuth();
     const [showMultiCityField, setShowMultiCityField] = useState(false);
     const [showReturnField, setShowReturnField] = useState(true);
 
+    console.log("trips", trips);
+
+
+    const navigate = useNavigate();
+
     const showHideFilds = { 'flightFromCurrentLocation': '', 'flightToDestinationLocation': '', 'flightDepartingDate': '' }
     const [inputList, setInputList] = useState([showHideFilds]);
-
-    // console.log("inputList :", inputList);
-
-    console.log("searchMultipleCities", searchMultipleCities);
 
     const getSearchTravelData = (event) => {
         const field = event.target.name;
@@ -26,38 +29,57 @@ const HomeFlightSearch = () => {
     };
 
     const getSearchMultipleCitiesData = (event) => {
-        const value = event.target.value;
-        if (!searchMultipleCities.includes(value)) {
-            setSearchMultipleCities([...searchMultipleCities, value]);
-        }
     };
+
+
+    const handleAddTrip = () => {
+        setTrips(prevState => ({
+            ...prevState,
+            [`trip${Object.keys(prevState).length + 1}`]: [{ flightFromCurrentLocation: '', flightToDestinationLocation: '', flightDepartingDate: '' }]
+        }));
+    };
+
+    const handleInput = (e, tripName, dataIndex) => {
+        const name = e.target.name;
+        const value = e.target.value;
+
+        setTrips(prevState => {
+            const newState = { ...prevState };
+            newState[tripName][dataIndex][name] = value;
+            return newState;
+        });
+    };
+
+    console.log("trips", trips);
 
     const getSearchMultipleDaysData = (event) => {
         const value = event.target.value;
-        if (!searchMultipleDays.includes(value)) {
-            setSearchMultipleDays([...searchMultipleDays, value]);
-        }
+        setSearchMultipleDays([...searchMultipleDays, value]);
     };
 
-    const handleAddMore = () => {
-        setInputList([...inputList, showHideFilds]);
+
+
+
+    const submitMultiCity = (e) => {
+        axios({
+            url: "https://nag-air-server.vercel.app/api/show-multi-city-flight-result",
+            method: "POST",
+            headers: { 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`, },
+            data: trips,
+        })
+            .then((response) => {
+                // console.log("flight-information: ", response.data);
+                if (response?.data) {
+                    // console.log("Search Result Data", response?.data)
+                    setFlights(response.data);
+                    navigate('/flightSearchResult');
+                }
+            })
+
+        // console.log("JSON.stringify(trips) : ", trips);
     }
 
-    const handleRemove = (index) => {
-        const list = [...inputList];
-        list.splice(index, 1);
-        setInputList(list);
-    }
 
-    const handleInputChange = (e, index) => {
-        const { name, value } = e.target;
-        const list = [...inputList];
-        list[index][name] = value;
-        setInputList(list)
-    }
-
-    // console.log("searchData", searchData);
-    // travelType, flightFromCurrentLocation, flightToDestinationLocation, flightDepartingDate, flightReturningDate
 
     return (
         <div className=' my-0 py-0'>
@@ -68,9 +90,6 @@ const HomeFlightSearch = () => {
                 </div>
                 <h1 className="bannerTitle fw-bold nag_heading animate_bottom">Life Is Short, Or It's, Big<br /> Let's Explore It</h1>
 
-
-                {/* flight search */}
-                {/* <form className='    px-md-3 my-md-4 m-md-3'> */}
 
                 <div className='tinyText col-xl-11  mx-auto my-4 flight-search'>
                     {/* form top section */}
@@ -104,209 +123,169 @@ const HomeFlightSearch = () => {
                     </div>
 
                     {/* form bottomsection */}
-
-                    <div className='row  col-12 mx-auto'>
-                        <div className='col-lg-11 col-md-12 d-md-flex justify-content-evenly mx-auto'>
-                            <div className="form-outline   mx-1 my-2">
-                                <label className="form-label float-start fw-bold" htmlFor="journeyFrom">
-                                    <FaPlaneDeparture />
-                                    <span className=''>   From</span>
-                                </label>
-                                <input
-                                    onChange={getSearchTravelData}
-                                    // onChange={() => { getSearchTravelData(); getSearchMultipleCitiesData(); }}
-                                    type="text"
-                                    name="flightFromCurrentLocation"
-                                    id="flightFromCurrentLocation"
-                                    className="form-control"
-                                    placeholder="Enter Journey from"
-                                    onBlur={getSearchMultipleCitiesData}
-                                />
-
-                            </div>
-
-                            <div className="form-outline   mx-1 my-2">
-                                <label className="form-label float-start fw-bold " htmlFor="journeyTo">
-                                    <FaPlaneArrival />
-                                    <span className=''>  To </span>
-                                </label>
-                                <input
-                                    onChange={getSearchTravelData}
-                                    type="text"
-                                    name="flightToDestinationLocation"
-                                    id="flightToDestinationLocation"
-                                    className="form-control"
-                                    placeholder='Enter journey destination'
-                                    onBlur={getSearchMultipleCitiesData}
-                                />
-                            </div>
-
-                            <div className="form-outline   mx-1 my-2">
-                                <label className="tinyLogoText form-label float-start fw-bold" htmlFor="password">
-                                    < FaCalendarCheck />
-                                    <span className=''>Depart</span>
-                                </label>
-                                <input
-                                    onChange={getSearchTravelData}
-                                    // onChange={() => { getSearchTravelData(); getSearchMultipleDaysData(); }}
-                                    type="date"
-                                    name="flightDepartingDate"
-                                    id="flightDepartingDate"
-                                    className="form-control"
-                                    onBlur={getSearchMultipleDaysData}
-
-                                />
-                            </div>
-
-                            {showReturnField &&
-                                <div className="form-outline   mx-1 my-2">
-                                    <label className="tinyLogoText form-label float-start fw-bold" htmlFor="password">
-                                        < FaCalendarCheck />
-                                        <span className=''>Return</span>
-                                    </label>
-                                    <input
-                                        onChange={getSearchTravelData}
-                                        // onChange={() => { getSearchTravelData(); getSearchMultipleDaysData(); }}
-                                        type="date"
-                                        name="flightReturningDate"
-                                        id="flightReturningDate"
-                                        className="form-control"
-                                        onBlur={getSearchMultipleDaysData}
-                                    />
-                                </div>
-
-                            }
-
-                            {/* <div className="form-outline  col-lg-3 mx-1 my-2">
-                                    <label className="tinyLogoText form-label float-start fw-bold" htmlFor="password">
-                                        <FaSpa />
-                                        <span className=''>Cabin Class</span>
-
-                                    </label>
-                                    <select className="tinyLogoText form-select select-bordered  ">
-
-                                        <option disabled defaultValue>Select</option>
-                                        <option value={0}>Economy</option>
-                                        <option value={1}>Preminum Economy</option>
-                                        <option value={2}>Business</option>
-                                        <option value={3}>First Class</option>
-                                    </select>
-                                </div> */}
-
-                            <div className="form-outline mx-1 my-2">
-                                <label className="tinyLogoText form-label float-start fw-bold" htmlFor="password">
-                                    < FaPlane />
-                                    <span className=''>Travellers</span>
-                                </label>
-                                <select className="form-select select-bordered  ">
-                                    <option disabled defaultValue>Select</option>
-                                    <option value={0}>One</option>
-                                    <option value={1}>Two</option>
-                                    <option value={2}>Three</option>
-                                    <option value={3}>Four</option>
-                                    <option value={4}>Five</option>
-                                    <option value={5}>Six</option>
-                                    <option value={6}>Seven</option>
-                                    <option value={7}>Eight</option>
-                                </select>
-                            </div>
-
-                        </div>
-                    </div>
-
-
-
-                    {/* for multi city flight search */}
-
-                    {showMultiCityField &&
+                    {!showMultiCityField &&
                         <>
-                            {
-                                inputList.map((x, index) => {
-                                    return (
+                            <div className='row  col-12 mx-auto'>
+                                <div className='col-lg-11 col-md-12 d-md-flex justify-content-evenly mx-auto'>
+                                    <div className="form-outline   mx-1 my-2">
+                                        <label className="form-label float-start fw-bold" htmlFor="journeyFrom">
+                                            <FaPlaneDeparture />
+                                            <span className=''>From</span>
+                                        </label>
+                                        <input
+                                            onChange={getSearchTravelData}
+                                            type="text"
+                                            name="flightFromCurrentLocation"
+                                            id="flightFromCurrentLocation"
+                                            className="form-control"
+                                            placeholder="Enter Journey from"
+                                            onBlur={getSearchMultipleCitiesData}
+                                        />
 
-                                        <div key={index} className='row  col-12 mx-auto'>
-                                            <div className=' col-lg-11 col-md-12 d-flex justify-content-evenly align-items-baseline mx-auto'>
+                                    </div>
 
-                                                <div className="form-outline  my-2">
-                                                    <label className="form-label float-start fw-bold" htmlFor="journeyFrom">
-                                                        <FaPlaneDeparture />
-                                                        <span className=''>From</span>
-                                                    </label>
-                                                    <input
-                                                        onChange={getSearchMultipleCitiesData}
-                                                        // onChange={() => { getSearchTravelData(); getSearchMultipleCitiesData(); }}
-                                                        type="text"
-                                                        name="flightFromCurrentLocation"
-                                                        id="flightFromCurrentLocation"
-                                                        className="form-control"
-                                                        placeholder="Enter Journey from"
+                                    <div className="form-outline   mx-1 my-2">
+                                        <label className="form-label float-start fw-bold " htmlFor="journeyTo">
+                                            <FaPlaneArrival />
+                                            <span className=''>To</span>
+                                        </label>
+                                        <input
+                                            onChange={getSearchTravelData}
+                                            type="text"
+                                            name="flightToDestinationLocation"
+                                            id="flightToDestinationLocation"
+                                            className="form-control"
+                                            placeholder='Enter journey destination'
+                                            onBlur={getSearchMultipleCitiesData}
+                                        />
+                                    </div>
+                                    <div className=' '></div>
+                                    <div className="form-outline mx-1 my-2">
+                                        <label className="tinyLogoText form-label float-start fw-bold" htmlFor="password">
+                                            < FaCalendarCheck />
+                                            <span className=''>Depart</span>
+                                        </label>
+                                        <input
+                                            onChange={getSearchTravelData}
+                                            type="date"
 
-                                                        onBlur={event => handleInputChange(event, index)}
-                                                    />
-                                                </div>
+                                            name="flightDepartingDate"
+                                            id="flightDepartingDate"
+                                            className="form-control"
+                                            onBlur={getSearchMultipleDaysData}
 
-                                                <div className="form-outline  my-2">
-                                                    <label className="form-label float-start fw-bold " htmlFor="journeyTo">
-                                                        <FaPlaneArrival />
-                                                        <span className=''>To</span>
-                                                    </label>
-                                                    <input
-                                                        onChange={getSearchMultipleCitiesData}
-                                                        // onChange={() => { getSearchTravelData(); getSearchMultipleCitiesData(); }}
-                                                        type="text"
-                                                        name="flightToDestinationLocation"
-                                                        id="flightToDestinationLocation"
-                                                        className="form-control"
-                                                        placeholder='Enter journey destination'
-                                                        onBlur={event => handleInputChange(event, index)}
-                                                    />
-                                                </div>
-                                                <div className="form-outline mx-1 my-2">
-                                                    <label className="tinyLogoText form-label float-start fw-bold" htmlFor="password">
-                                                        < FaCalendarCheck />
-                                                        <span className=''>Depart</span>
-                                                    </label>
-                                                    <input
-                                                        onChange={getSearchMultipleDaysData}
-                                                        // onChange={() => { getSearchTravelData(); getSearchMultipleDaysData(); }}
-                                                        type="date"
-                                                        name="flightDepartingDate"
-                                                        id="flightDepartingDate"
-                                                        className="form-control"
-                                                        onBlur={event => handleInputChange(event, index)}
-                                                    />
-                                                </div>
-                                                <div className='d-flex'>
-                                                    {
-                                                        // (inputList.length - 1 === i) && (inputList.length < 3) &&
-                                                        (inputList.length < 3) &&
-                                                        <button onClick={handleAddMore} className='addRemoveBtn  ms-2'>Add More</button>
-                                                    }
+                                        />
+                                    </div>
 
-                                                    {
-                                                        // inputList.length !== 1 &&
-                                                        (inputList.length > 1) &&
-                                                        <button onClick={() => handleRemove(index)} className='addRemoveBtn  ms-2'>Remove</button>
-                                                    }
-                                                </div>
-                                            </div>
+                                    {showReturnField &&
+                                        <div className="form-outline   mx-1 my-2">
+                                            <label className="tinyLogoText form-label float-start fw-bold" htmlFor="password">
+                                                < FaCalendarCheck />
+                                                <span className=''>Return</span>
+                                            </label>
+                                            <input
+                                                onChange={getSearchTravelData}
+                                                type="date"
+
+                                                name="flightReturningDate"
+                                                id="flightReturningDate"
+                                                className="form-control"
+                                                onBlur={getSearchMultipleDaysData}
+                                            />
                                         </div>
-                                    );
-                                })}
 
+                                    }
+
+                                    <div className="form-outline mx-1 my-2">
+                                        <label className="tinyLogoText form-label float-start fw-bold" htmlFor="password">
+                                            < FaPlane />
+                                            <span className=''>Travellers</span>
+                                        </label>
+                                        <select className="form-select select-bordered  ">
+                                            <option disabled defaultValue>Select</option>
+                                            <option value={0}>One</option>
+                                            <option value={1}>Two</option>
+                                            <option value={2}>Three</option>
+                                            <option value={3}>Four</option>
+                                            <option value={4}>Five</option>
+                                            <option value={5}>Six</option>
+                                            <option value={6}>Seven</option>
+                                            <option value={7}>Eight</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
                         </>
                     }
 
 
+                    {!showMultiCityField &&
+                        <div className="text-center pt-3 pb-3">
+                            <Link to={`/flightSearchResult`} className="searchBtn text-decoration-none" type="button">
+                                Search Flights &#10148;
+                            </Link>
+                        </div>
 
-                    <div className="text-center pt-3 pb-3">
-                        {/* <Link to={`/flightSearchResult?travelType=${searchData.travelType}&flightFromCurrentLocation=${searchData.flightFromCurrentLocation}&flightToDestinationLocation=${searchData.flightToDestinationLocation}&flightDepartingDate=${searchData.flightDepartingDate}&flightReturningDate=${searchData.flightReturningDate}`} className="custom_btn text-decoration-none" type="button"> */}
-                        <Link to={`/flightSearchResult`} className="searchBtn text-decoration-none" type="button">
-                            Search Flights &#10148;
-                        </Link>
-                    </div>
+
+                    }
+                    {showMultiCityField &&
+                        <div className=' col-xl-7 col-lg-9 mx-auto my-2'>
+                            <div className=' '>
+                                <div>
+                                    {/* {!trips.trip3 ? <button className=' btn btn-primary btn-sm fw-bolder my-1 ' onClick={handleAddTrip}>Add Trip</button> : <></>} */}
+
+
+                                    {
+                                        Object.entries(trips).map(([tripName, tripData]) => (
+                                            <div key={tripName} className=' d-flex my-1 '>
+                                                {/* <h4>{tripName.toUpperCase()}-</h4> */}
+                                                {
+                                                    tripData.map((tripDataItem, dataIndex) =>
+                                                    (
+                                                        <div key={`${tripName}_${dataIndex}`} className=' d-lg-flex'>
+                                                            <div>
+                                                                <label className="form-label float-start fw-bold" htmlFor="journeyFrom">
+                                                                    <FaPlaneDeparture />
+                                                                    <span className=''>From</span>
+                                                                </label>
+                                                                <input className="form-control" type="text" name="flightFromCurrentLocation" placeholder='Enter journey from' value={tripDataItem.flightFromCurrentLocation} onChange={(e) => handleInput(e, tripName, dataIndex)} />
+                                                            </div>
+                                                            <div className='mx-1'>
+                                                                <label className="form-label float-start fw-bold " htmlFor="journeyTo">
+                                                                    <FaPlaneArrival />
+                                                                    <span className=''>  To </span>
+                                                                </label>
+                                                                <input className="form-control" type="text" name="flightToDestinationLocation" placeholder='Enter journey destination' value={tripDataItem.flightToDestinationLocation} onChange={(e) => handleInput(e, tripName, dataIndex)} />
+
+                                                            </div>
+                                                            <div>
+                                                                <label className="tinyLogoText form-label float-start fw-bold" htmlFor="password">
+                                                                    < FaCalendarCheck />
+                                                                    <span className=''>Depart</span>
+                                                                </label>
+                                                                <input className="form-control" type="date" name="flightDepartingDate" value={tripDataItem.flightDepartingDate} onChange={(e) => handleInput(e, tripName, dataIndex)} />
+                                                            </div>
+
+                                                        </div>
+                                                    ))
+                                                }
+
+                                            </div>
+                                        ))
+                                    }
+                                </div>
+                                {!trips.trip3 ? <button className=' btn btn-primary  fw-bolder my-1  w-25 ' onClick={handleAddTrip}>Add Trip</button> : <></>}
+                            </div>
+
+                            <button onClick={() => submitMultiCity()} className="searchBtn text-decoration-none my-1" type="submit">
+                                Search Flights &#10148;
+                            </button>
+
+
+                        </div>}
+
                 </div>
-                {/* </form> */}
             </div>
         </div>
     );

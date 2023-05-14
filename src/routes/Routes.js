@@ -203,7 +203,7 @@ const router = createBrowserRouter([
             {
                 path: "/userDetails/:userId",
                 element: <UserDetails></UserDetails>,
-                // loader: async ({ params }) => await fetch(`http://localhost:5001/api/user-details?id=${params.userId}`)
+                // loader: async ({ params }) => await fetch(`https://nag-air-server.vercel.app/api/user-details?id=${params.userId}`)
             },
 
             {

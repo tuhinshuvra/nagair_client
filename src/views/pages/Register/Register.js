@@ -24,7 +24,7 @@ const Register = () => {
             role: 'passenger',
         }
         console.log("userData : ", userData);
-        fetch('http://localhost:5001/api/signup', {
+        fetch('https://nag-air-server.vercel.app/api/signup', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

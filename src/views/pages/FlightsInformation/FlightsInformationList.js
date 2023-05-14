@@ -28,7 +28,7 @@ const FlightsInformationList = () => {
     // console.log("deletingFlights : ", deletingFlights);
 
     useEffect(() => {
-        fetch(`http://localhost:5001/api/show-flight-information-list`, {
+        fetch(`https://nag-air-server.vercel.app/api/show-flight-information-list`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
@@ -41,7 +41,7 @@ const FlightsInformationList = () => {
     }, []);
 
     const handleDelete = () => {
-        fetch(`http://localhost:5001/api/delete-flight-information?id=${deletingFlightInfo}`, {
+        fetch(`https://nag-air-server.vercel.app/api/delete-flight-information?id=${deletingFlightInfo}`, {
             method: "DELETE",
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
@@ -67,7 +67,7 @@ const FlightsInformationList = () => {
         <div>
             <h2 className="text-center  fw-bold  mt-5">Flight Information List</h2>
             <div className=" d-flex  justify-content-end">
-                <Link to="/flightInformationEntry" className="fs-4 text-info text-center text-decoration-none    fw-bold  my-0  ">Add Flight's Information</Link>
+                <Link to="/flightInformationEntry" className="fs-4  text-center text-decoration-none btn btn-outline-primary btn-sm   fw-bold  mt-0 mb-1  ">Add Flight's Information</Link>
             </div>
             <div className="overflow-x-auto">
                 <table className="table text-center align-middle table-hover  table-bordered">

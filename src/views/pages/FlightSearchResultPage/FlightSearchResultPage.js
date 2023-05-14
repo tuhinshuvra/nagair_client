@@ -5,20 +5,17 @@ import { getCookie } from '../../../utilities/helper';
 import { Link } from 'react-router-dom';
 
 const FlightSearchResultPage = () => {
-    const { searchData, searchMultipleCities, searchMultipleDays, } = useAuth();
-    const [flights, setFlights] = useState([]);
-    const [travelType, setTravelType] = useState('');
+    const { searchData, trips, flights, setFlights } = useAuth();
 
 
-    // console.log("SearchData : ", travelType, serachFromLocation, serachToLocation, serachDepart, serachReturn);
-    // console.log("Search input Data :", travelType, serachFromLocation, serachToLocation, serachDepart, serachReturn);
-    console.log("Search input Data :", searchData.travelType);
-    console.log("Multi City Search Input Data :", searchMultipleCities, searchMultipleDays);
+    // console.log("dependency", props.dependency);
+
+    console.log("myflights", flights)
 
 
 
     useEffect(() => {
-        fetch(`http://localhost:5001/api/show-search-flight-result?travelType=${searchData.travelType}&flightFromCurrentLocation=${searchData.flightFromCurrentLocation}&flightToDestinationLocation=${searchData.flightToDestinationLocation}&flightDepartingDate=${searchData.flightDepartingDate}&flightReturningDate=${searchData.flightReturningDate}`, {
+        fetch(`https://nag-air-server.vercel.app/api/show-search-flight-result?travelType=${searchData.travelType}&flightFromCurrentLocation=${searchData.flightFromCurrentLocation}&flightToDestinationLocation=${searchData.flightToDestinationLocation}&flightDepartingDate=${searchData.flightDepartingDate}&flightReturningDate=${searchData.flightReturningDate}`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
@@ -30,20 +27,6 @@ const FlightSearchResultPage = () => {
                 setFlights(data);
             })
     }, [])
-
-    useEffect(() => {
-        fetch(`http://localhost:5001/api/show-multi-city-flight-result?cities=${searchMultipleCities}&date=${searchMultipleDays}`, {
-            method: 'GET',
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
-            },
-        })
-            .then(response => response.json())
-            .then(data => {
-                // console.log("Search Result Data", data)
-                setFlights(data);
-            })
-    }, [searchData?.travelType === 'multiWay'])
 
 
     return (
@@ -59,16 +42,12 @@ const FlightSearchResultPage = () => {
                             <tr className=" text-center  table-secondary flightInfoTxt">
                                 <th>SL</th>
                                 <th>Flight Info</th>
-
-
-                                {/* <th>Plane Number</th> */}
-                                {/* <th>Flight Number</th> */}
                                 <th>Package List</th>
                             </tr>
                         </thead>
                         <tbody className=" ">
 
-                            {flights.map((flight, index) => (
+                            {flights?.map((flight, index) => (
                                 <tr key={flight._id} className=" ">
                                     <td>{index + 1}</td>
                                     <td>
@@ -95,9 +74,6 @@ const FlightSearchResultPage = () => {
                                         </div>
 
                                     </td>
-                                    {/* <td> </td> */}
-                                    {/* <td>  {flight.planeNumber}</td> */}
-                                    {/* <td>  {flight.flightNumber}</td> */}
                                     <td>
                                         <div className=' d-flex'>
                                             {
@@ -243,9 +219,10 @@ const FlightSearchResultPage = () => {
                 </>
                 :
                 <div className=' my-5'>
-                    <div className=' fs-1 text-center fw-bolder mb-0 '>No Flights Found</div>
+                    <div className=' fs-3 text-center fw-bolder '>No Flights Found According to Your Search Data</div>
+                    <p className=' fs-3 text-info text-center fw-bold my-5'>Please Search again with different data</p>
                     <div className="text-center ">
-                        <Link to="/" className="fs-4   text-center text-decoration-none mt-0  fw-bold btn btn-primary    ">Please Search Again</Link>
+                        <Link to="/" className="fs-4   text-center text-decoration-none  my-3  fw-bold btn  btn btn-outline-primary btn-sm    ">Go to Search</Link>
                     </div>
 
                 </div>

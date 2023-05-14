@@ -55,7 +55,7 @@ const AddInternationalFlights = () => {
         console.log("flightInfo : ", flightInfo);
 
         axios({
-            url: `http://localhost:5001/api/upload-international-flight`,
+            url: `https://nag-air-server.vercel.app/api/upload-international-flight`,
             method: "POST",
             headers: { 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`, },
             data: flightInfo,

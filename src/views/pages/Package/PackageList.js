@@ -26,7 +26,7 @@ const PackageList = () => {
     // console.log("deletingFlights : ", deletingFlights);
 
     useEffect(() => {
-        fetch(`http://localhost:5001/api/packages-data-show`, {
+        fetch(`https://nag-air-server.vercel.app/api/packages-data-show`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
@@ -39,7 +39,7 @@ const PackageList = () => {
     }, []);
 
     const handleDelete = () => {
-        fetch(`http://localhost:5001/api/packages-data-delete?id=${deletingPackage}`, {
+        fetch(`https://nag-air-server.vercel.app/api/packages-data-delete?id=${deletingPackage}`, {
             method: "DELETE",
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,

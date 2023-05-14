@@ -23,7 +23,7 @@ const InternationalFlightsList = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5001/api/show-international-flight`, {
+        fetch(`https://nag-air-server.vercel.app/api/show-international-flight`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
@@ -37,7 +37,7 @@ const InternationalFlightsList = () => {
 
     const handleDelete = () => {
         console.log("deletingFlights", deletingFlights);
-        fetch(`http://localhost:5001/api/delete-international-flight?id=${deletingFlights}`, {
+        fetch(`https://nag-air-server.vercel.app/api/delete-international-flight?id=${deletingFlights}`, {
             method: "DELETE",
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,

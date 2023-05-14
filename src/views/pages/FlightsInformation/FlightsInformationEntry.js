@@ -18,7 +18,7 @@ const FlightsInformationEntry = () => {
 
     // show all cabin crue
     useEffect(() => {
-        fetch(`http://localhost:5001/api/show-cabin-crew-list`, {
+        fetch(`https://nag-air-server.vercel.app/api/show-cabin-crew-list`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
@@ -33,7 +33,7 @@ const FlightsInformationEntry = () => {
 
     // show all pilot 
     useEffect(() => {
-        fetch(`http://localhost:5001/api/show-pilot-list`, {
+        fetch(`https://nag-air-server.vercel.app/api/show-pilot-list`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
@@ -78,7 +78,7 @@ const FlightsInformationEntry = () => {
         console.log("flightInfo : ", flightInfo);
 
         axios({
-            url: `http://localhost:5001/api/upload-flight-information`,
+            url: `https://nag-air-server.vercel.app/api/upload-flight-information`,
             method: "POST",
             headers: { 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`, },
             data: flightInfo,
@@ -99,7 +99,7 @@ const FlightsInformationEntry = () => {
         <div className=' col-lg-6 col-md-8 col-10  mx-auto'>
             <h2 className='fw-bold text-center mt-4 mb-3'>Add Flight Information</h2>
             <div className=" d-flex  justify-content-end">
-                <Link to="/flightInformationList" className="fs-4 text-info text-center text-decoration-none    fw-bold  my-0  ">Flight Info List</Link>
+                <Link to="/flightInformationList" className="fs-4   text-center text-decoration-none btn btn-outline-primary btn-sm   fw-bold  mt-0 mb-1    fw-bold  my-0  ">Flight Info List</Link>
             </div>
 
             <form onSubmit={handleOnSubmit}>

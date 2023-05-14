@@ -47,7 +47,7 @@ const Login = () => {
 
         axios({
             method: "POST",
-            url: `http://localhost:5001/api/signin`,
+            url: `https://nag-air-server.vercel.app/api/signin`,
             data: { email, password },
         })
             .then((response) => {

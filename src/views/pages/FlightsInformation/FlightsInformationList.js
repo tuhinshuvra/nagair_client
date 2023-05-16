@@ -37,6 +37,7 @@ const FlightsInformationList = () => {
             .then((response) => response.json())
             .then((data) => {
                 setAllFlightInfo(data);
+                console.log("Flight Information List :", data);
             });
     }, []);
 
@@ -76,6 +77,15 @@ const FlightsInformationList = () => {
                             <th>SL</th>
                             <th>From</th>
                             <th>To</th>
+                            <th rowSpan={2}>Fare
+                                <tr colSpan={3}>
+                                    <td >Fare</td>
+                                    <td >Fare</td>
+                                    <td >Fare</td>
+
+                                </tr>
+
+                            </th>
                             <th>Departing </th>
                             <th>Arrival</th>
                             <th>Plane Number</th>
@@ -92,12 +102,13 @@ const FlightsInformationList = () => {
                                 <td>{index + 1}</td>
                                 <td className="text-capitalize">  {flight.flightFromCurrentLocation}</td>
                                 <td className="text-capitalize">  {flight.flightToDestinationLocation}</td>
+                                <td className="text-capitalize">  {flight.packagesPrice} TK</td>
                                 <td> {new Date(flight.flightDepartingDate).toLocaleDateString()} {flight.flightDepartingTime}</td>
                                 <td> {new Date(flight.flightArrivalDate).toLocaleDateString()}  {flight.flightArrivalTime}</td>
                                 <td>  {flight.planeNumber}</td>
                                 <td>  {flight.flightNumber}</td>
-                                <td className="text-capitalize"> {flight.pilotsOfPlaneId.pilotName}</td>
-                                <td> {flight.cabinCrewId.cabinCrewName}</td>
+                                <td className="text-capitalize"> {flight?.pilotsOfPlaneId?.pilotName}</td>
+                                <td> {flight?.cabinCrewId?.cabinCrewName}</td>
                                 <td>
                                     {new Date(flight.createdAt).toLocaleDateString()},
                                     {new Date(flight.updatedAt).toLocaleDateString()}

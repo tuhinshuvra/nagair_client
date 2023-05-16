@@ -9,12 +9,11 @@ import { getCookie } from '../../../utilities/helper';
 const FlightsInformationEntry = () => {
     const [allCabinCrue, setAllCabinCrue] = useState([]);
     const [allPilot, setAllPilot] = useState([]);
+    const [flightInfo, setFlightInfo] = useState({});
     // const [errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate();
 
-
-    // console.log("allPilot :", allPilot);
-    // console.log("allCabinCrue :", allCabinCrue);
+    // console.log("flightInfo", flightInfo);
 
     // show all cabin crue
     useEffect(() => {
@@ -45,37 +44,18 @@ const FlightsInformationEntry = () => {
             });
     }, []);
 
+    const handleOnChange = (event) => {
+        const field = event.target.name;
+        const value = event.target.value;
+        const newData = { ...flightInfo };
+        newData[field] = value;
+        setFlightInfo(newData)
+    }
 
     const handleOnSubmit = (event) => {
         event.preventDefault();
-        const form = event.target;
 
-        const pilotsOfPlaneId = form.pilotsOfPlaneId.value;
-        const cabinCrewId = form.cabinCrewId.value;
-        const planeNumber = form.planeNumber.value;
-        const flightNumber = form.flightNumber.value;
-        const flightFromCurrentLocation = form.flightFromCurrentLocation.value.toLowerCase();
-        const flightToDestinationLocation = form.flightToDestinationLocation.value.toLowerCase();
-        // const flightFromCurrentLocation = form.flightFromCurrentLocation.value;
-        // const flightToDestinationLocation = form.flightToDestinationLocation.value;
-        const flightDepartingDate = form.flightDepartingDate.value;
-        const flightDepartingTime = form.flightDepartingTime.value;
-        const flightArrivalDate = form.flightArrivalDate.value;
-        const flightArrivalTime = form.flightArrivalTime.value;
-
-        const flightInfo = {
-            pilotsOfPlaneId: pilotsOfPlaneId,
-            planeNumber: planeNumber,
-            cabinCrewId: cabinCrewId,
-            flightNumber: flightNumber,
-            flightFromCurrentLocation: flightFromCurrentLocation,
-            flightToDestinationLocation: flightToDestinationLocation,
-            flightDepartingDate: flightDepartingDate,
-            flightDepartingTime: flightDepartingTime,
-            flightArrivalDate: flightArrivalDate,
-            flightArrivalTime: flightArrivalTime,
-        }
-        console.log("flightInfo : ", flightInfo);
+        // console.log('I am clicked,', flightInfo);
 
         axios({
             url: `https://nag-air-server.vercel.app/api/upload-flight-information`,
@@ -87,7 +67,7 @@ const FlightsInformationEntry = () => {
                 console.log("flight-information: ", response);
                 if (response.data.data) {
                     toast.success('Successfully added new flight information')
-                    navigate('/flightInformationList')
+                    navigate('/flightInformationList');
                 }
                 // const destination = location?.state?.from || "/";
                 // navigate(location?.state?.from || "/", { replace: true });
@@ -111,6 +91,7 @@ const FlightsInformationEntry = () => {
                                 <span className="label-text fw-bold">Pilots Name</span>{" "}
                             </label>
                             <select
+                                onChange={handleOnChange}
                                 id="pilotsOfPlaneId"
                                 name="pilotsOfPlaneId"
                                 type="text"
@@ -131,6 +112,7 @@ const FlightsInformationEntry = () => {
                                 <span className="label-text text-md  fw-bold ">CabinCrew Name</span>
                             </label>
                             <select
+                                onChange={handleOnChange}
                                 id="cabinCrewId"
                                 name="cabinCrewId"
                                 type="text"
@@ -152,30 +134,57 @@ const FlightsInformationEntry = () => {
                             <label className="label">
                                 <span className="label-text fw-bold">Plane Number</span>
                             </label>
-                            <input type="text" name='planeNumber' id='planeNumber' placeholder="Enter Plane Number" className="input form-control" required />
+                            <input
+                                onChange={handleOnChange}
+                                type="text" name='planeNumber' id='planeNumber' placeholder="Enter Plane Number" className="input form-control" required />
                         </div>
 
                         <div className='col-md-6   my-3'>
                             <label className="label">
                                 <span className="label-text fw-bold">Flight  Number</span>
                             </label>
-                            <input type="text" name='flightNumber' id='flightNumber' placeholder="Enter flight number" className="input form-control" required />
+                            <input
+                                onChange={handleOnChange}
+                                type="text" name='flightNumber' id='flightNumber' placeholder="Enter flight number" className="input form-control" required />
                         </div>
                     </div>
 
                     <div className='row'>
                         <div className='col-md-6   my-3'>
                             <label className="label">
-                                <span className="label-text fw-bold text-capitalize">Flight From Current Location</span>
+                                <span className="label-text fw-bold text-capitalize">Location From</span>
                             </label>
-                            <input type="text" name='flightFromCurrentLocation' id='flightFromCurrentLocation' placeholder="Enter flight From Curren Location" className="input form-control" required />
+                            <input onChange={handleOnChange} type="text" name='flightFromCurrentLocation' id='flightFromCurrentLocation' placeholder="Enter flight From Curren Location" className="input form-control" required />
                         </div>
 
                         <div className='col-md-6   my-3'>
                             <label className="label">
-                                <span className="label-text fw-bold">Flight to Destination Location</span>
+                                <span className="label-text fw-bold">Location To</span>
                             </label>
-                            <input type="text" name='flightToDestinationLocation' id='flightToDestinationLocation' placeholder="Enter flight to Destination Location" className="input form-control" required />
+                            <input onChange={handleOnChange} type="text" name='flightToDestinationLocation' id='flightToDestinationLocation' placeholder="Enter flight to Destination Location" className="input form-control" required />
+                        </div>
+
+                    </div>
+
+                    <div className='row'>
+                        <div className='col-md-4   my-3'>
+                            <label className="label">
+                                <span className="label-text fw-bold text-capitalize">Platinum package(৳)</span>
+                            </label>
+                            <input onChange={handleOnChange} type="text" name='platinumpackagesPrice' id='platinumpackagesPrice' placeholder="Enter platinum pkg fare" className="input form-control" required />
+                        </div>
+
+                        <div className='col-md-4   my-3'>
+                            <label className="label">
+                                <span className="label-text fw-bold">Gold Package(৳)</span>
+                            </label>
+                            <input onChange={handleOnChange} type="text" name='goldPackagesPrice' id='goldPackagesPrice' placeholder="Enter gold pkg fare" className="input form-control" required />
+                        </div>
+                        <div className='col-md-4   my-3'>
+                            <label className="label">
+                                <span className="label-text fw-bold">Silver Package(৳)</span>
+                            </label>
+                            <input onChange={handleOnChange} type="text" name='silverPackagesPrice' id='silverPackagesPrice' placeholder="Enter silver pkg fare" className="input form-control" required />
                         </div>
                     </div>
 
@@ -185,14 +194,14 @@ const FlightsInformationEntry = () => {
                             <label className="label">
                                 <span className="label-text fw-bold">Flight Departing Date</span>
                             </label>
-                            <input type="date" name='flightDepartingDate' id='flightDepartingDate' placeholder="Enter flight Departing Date" className="input form-control" required />
+                            <input onChange={handleOnChange} type="date" name='flightDepartingDate' id='flightDepartingDate' placeholder="Enter flight Departing Date" className="input form-control" required />
                         </div>
 
                         <div className='col-md-6   my-3'>
                             <label className="label">
                                 <span className="label-text fw-bold"> Flight Departing Time</span>
                             </label>
-                            <input type="time" name='flightDepartingTime' id='flightDepartingTime' placeholder="Enter flight departing Time" className="input form-control" required />
+                            <input onChange={handleOnChange} type="time" name='flightDepartingTime' id='flightDepartingTime' placeholder="Enter flight departing Time" className="input form-control" required />
                         </div>
                     </div>
 
@@ -201,14 +210,14 @@ const FlightsInformationEntry = () => {
                             <label className="label">
                                 <span className="label-text fw-bold">Flight Arrival Date</span>
                             </label>
-                            <input type="date" name='flightArrivalDate' id='flightArrivalDate' placeholder="Enter flight Departing Date" className="input form-control" required />
+                            <input onChange={handleOnChange} type="date" name='flightArrivalDate' id='flightArrivalDate' placeholder="Enter flight Departing Date" className="input form-control" required />
                         </div>
 
                         <div className='col-md-6   my-3'>
                             <label className="label">
                                 <span className="label-text fw-bold"> Flight  Arrival Time</span>
                             </label>
-                            <input type="time" name='flightArrivalTime' id='flightArrivalTime' placeholder="Enter flight Arrival  Time" className="input form-control" required />
+                            <input onChange={handleOnChange} type="time" name='flightArrivalTime' id='flightArrivalTime' placeholder="Enter flight Arrival  Time" className="input form-control" required />
                         </div>
                     </div>
 

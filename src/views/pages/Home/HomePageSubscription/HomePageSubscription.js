@@ -10,13 +10,13 @@ const HomePageSubscription = () => {
                     {/* <p className="col-lg-10 fs-4">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p> */}
                 </div>
 
-                <div className=" d-flex justify-content-center align-items-center animate_right">
-                    <form className=' d-flex'>
+                <div className=' col-lg-4 mx-auto'>
+                    <form className=' d-flex justify-content-between '>
                         <input type="email" className=' form-control' placeholder='Email address' />
-                        <button className='custom_btn ms-3'>Subscrive</button>
+                        <button className='searchBtn ms-3'>Subscrive</button>
                     </form>
                 </div>
-            </div>
+              </div>
         </div>
     );
 };

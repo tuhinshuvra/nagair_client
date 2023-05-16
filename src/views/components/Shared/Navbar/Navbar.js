@@ -52,12 +52,7 @@ const Navbar = () => {
                                 <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/contact">Contact</Link>
                             </li>
 
-                            <li className=' mav-item mb-2'>
-                                <form className=" " role="search">
-                                    {/* <FaSearch></FaSearch> */}
-                                    <input className=" align-items-center form-control search-area " type="search" placeholder="Search" aria-label="Search" />
-                                </form>
-                            </li>
+                             
 
                             {/* <li className=' d-flex mb-3'>
                                 <div className="btn-group" role="group" aria-label="Basic outlined example">
@@ -72,7 +67,7 @@ const Navbar = () => {
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkRight">
                                         {/* <li><Link className="dropdown-item fw-bold nav_btn" to="#">Passenger</Link></li> */}
                                         {/* <li><Link className="dropdown-item fw-bold nav_btn" to="#">Admin</Link></li> */}
-                                        <li>
+                                        {/* <li>
                                             <Link className="nest_nav_btn fw-bold" to="#">Passenger &raquo; </Link>
                                             <ul className="dropdown-menu dropdown-submenu dropdown-submenu-left">
                                                 <li>
@@ -85,13 +80,13 @@ const Navbar = () => {
                                                     <Link className="fw-bold nest_nav_btn" to="/passengerProfile">Passenger Profile</Link>
                                                 </li>
                                             </ul>
-                                        </li>
+                                        </li> */}
                                         <li>
                                             <Link className="nest_nav_btn fw-bold" to="#">Admin &raquo; </Link>
                                             <ul className="dropdown-menu dropdown-submenu dropdown-submenu-left">
-                                                <li>
+                                                {/* <li>
                                                     <Link className=" ropdown-item fw-bold nest_nav_btn" to="/adminEntry">Admin Entry</Link>
-                                                </li>
+                                                </li> */}
 
                                                 {user?._id
                                                     &&

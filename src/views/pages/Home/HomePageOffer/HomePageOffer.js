@@ -7,7 +7,7 @@ import Offer5 from '../../../../assets/image/offer/offer1.png';
 
 const HomePageOffer = () => {
     return (
-        <div className='my-0 py-0'>
+        <div className='my-0 py-0  '>
             <div id="nagAirCarouseleInterval" className="carousel slide carousel-dark" data-bs-ride="carousel">
                 <div className="carousel-inner">
                     <div className="carousel-item active" data-bs-interval="2000">

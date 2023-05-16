@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeFlightSearch from './HomeFlightSearch/HomeFlightSearch';
+import HomePageFlightSearch from './HomePageFlightSearch/HomePageFlightSearch';
 import HomePageAdditionalService from './HomePageAdditionalService/HomePageAdditionalService';
 import HomePageSubscription from './HomePageSubscription/HomePageSubscription';
 import HomePageOffer from './HomePageOffer/HomePageOffer';
@@ -10,7 +10,7 @@ import '../../components/Shared/NagAirAnimation.css';
 const Home = () => {
     return (
         <div>
-            <HomeFlightSearch></HomeFlightSearch>
+            <HomePageFlightSearch></HomePageFlightSearch>
             <HomePageDownloadApp></HomePageDownloadApp>
             <HomePageOffer></HomePageOffer>
             <HomePagePopularLocations></HomePagePopularLocations>

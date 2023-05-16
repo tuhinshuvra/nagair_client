@@ -3,7 +3,6 @@ import { createBrowserRouter } from 'react-router-dom';
 import MainLayout from '../layout/MainLayout';
 import Home from '../views/pages/Home/Home';
 import HomePageAdditionalService from '../views/pages/Home/HomePageAdditionalService/HomePageAdditionalService';
-import HomePagePopularLocations from '../views/pages/Home/HomePagePopularLocations/HomePagePopularLocations';
 import PassengerForm from '../views/pages/Profile/Passenger/PassengerForm';
 import PassengerList from '../views/pages/Profile/Passenger/PassengerList';
 import PassengerProfile from '../views/pages/Profile/Passenger/PassengerProfile';
@@ -33,7 +32,7 @@ import FlightsInformationEntry from '../views/pages/FlightsInformation/FlightsIn
 import FlightsInformationList from '../views/pages/FlightsInformation/FlightsInformationList';
 import FlightInformationUpdate from '../views/pages/FlightsInformation/FlightInformationUpdate';
 import FlightSearchResultPage from '../views/pages/FlightSearchResultPage/FlightSearchResultPage';
-import HomeFlightSearch from '../views/pages/Home/HomeFlightSearch/HomeFlightSearch';
+import HomePageFlightSearch from '../views/pages/Home/HomePageFlightSearch/HomePageFlightSearch';
 
 
 const router = createBrowserRouter([
@@ -52,17 +51,8 @@ const router = createBrowserRouter([
             },
 
             {
-                path: "/info",
-                element: <HomePagePopularLocations></HomePagePopularLocations>
-            },
-            {
-                path: "/trip",
-                element: <HomeFlightSearch></HomeFlightSearch>
-            },
-
-            {
                 path: "/booking",
-                element: <HomeFlightSearch></HomeFlightSearch>
+                element: <HomePageFlightSearch></HomePageFlightSearch>
             },
 
             {
@@ -195,15 +185,10 @@ const router = createBrowserRouter([
                 path: "/userList",
                 element: <UserList></UserList>
             },
-            // {
-            //     path: "/jobDetails/:jobId",
-            //     // element: <PostedJobDetails></PostedJobDetails>,
-            //     loader: async ({ params }) => await fetch(`${process.env.REACT_APP_CABD_server_address}/jobs/${params.jobId}`)
-            // },
+           
             {
                 path: "/userDetails/:userId",
                 element: <UserDetails></UserDetails>,
-                // loader: async ({ params }) => await fetch(`https://nag-air-server.vercel.app/api/user-details?id=${params.userId}`)
             },
 
             {

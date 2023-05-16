@@ -3,14 +3,15 @@ import { FaCalendarCheck, FaPlane, FaPlaneArrival, FaPlaneDeparture, FaSpa } fro
 import PlaneImage from '../../../../assets/image/nagair_plane.png';
 import useAuth from '../../../../hooks/useAuth';
 import { Link, useNavigate } from 'react-router-dom';
-import './HomeFlightSearch.css'
 import { getCookie } from '../../../../utilities/helper';
 import axios from 'axios';
+import './HomePageFlightSearch.css';
 
-const HomeFlightSearch = () => {
+const HomePageFlightSearch = () => {
     const { searchData, setSearchData, searchMultipleDays, setSearchMultipleDays, trips, setTrips, flights, setFlights } = useAuth();
     const [showMultiCityField, setShowMultiCityField] = useState(false);
     const [showReturnField, setShowReturnField] = useState(true);
+    const [enableSearch, setEnableSearch] = useState(false);
 
     console.log("trips", trips);
 
@@ -39,6 +40,19 @@ const HomeFlightSearch = () => {
         }));
     };
 
+    const handleRemoveTrip = () => {
+        console.log('I am handle remove trip')
+        setTrips(prevState => ({
+            ...prevState,
+            [`trip${Object.keys(prevState).length - 1}`]: [{ flightFromCurrentLocation: '', flightToDestinationLocation: '', flightDepartingDate: '' },
+
+            ]
+        }));
+        console.log("Function Trips", trips)
+    };
+
+    console.log("Trips", trips)
+
     const handleInput = (e, tripName, dataIndex) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -50,14 +64,28 @@ const HomeFlightSearch = () => {
         });
     };
 
-    console.log("trips", trips);
+    // console.log("trips", trips);
 
     const getSearchMultipleDaysData = (event) => {
         const value = event.target.value;
         setSearchMultipleDays([...searchMultipleDays, value]);
     };
 
-
+    const handleOneWayFlight = () => {
+        setShowReturnField(false);
+        setShowMultiCityField(false);
+        setEnableSearch(true);
+    }
+    const handleRoundTripFlight = () => {
+        setShowReturnField(true);
+        setShowMultiCityField(false);
+        setEnableSearch(true);
+    }
+    const handleMultiCityFlight = () => {
+        setShowReturnField(false);
+        setShowMultiCityField(true);
+        setEnableSearch(true);
+    }
 
 
     const submitMultiCity = (e) => {
@@ -97,27 +125,25 @@ const HomeFlightSearch = () => {
                         onChange={getSearchTravelData}
                         className=' col-md-10 col-12 mx-auto  mt-2'>
 
+
                         <div
-                            onClick={() => setShowReturnField(false)}
                             className="form-check form-check-inline"
                         >
-                            <input onClick={() => setShowMultiCityField(false)} className="form-check-input" type="radio" name="travelType" id="oneWay" value="oneWay" />
+                            <input onClick={() => handleOneWayFlight()} className="form-check-input" type="radio" name="travelType" id="oneWay" value="oneWay" />
                             <label className="form-check-label fw-bold" htmlFor="one-way">One Way</label>
                         </div>
 
                         <div
-                            onClick={() => setShowReturnField(true)}
                             className="form-check form-check-inline"
                         >
-                            <input onClick={() => setShowMultiCityField(false)} className="form-check-input" type="radio" name="travelType" id="roundTrip" value="roundTrip" />
+                            <input onClick={() => handleRoundTripFlight()} className="form-check-input" type="radio" name="travelType" id="roundTrip" value="roundTrip" />
                             <label className="form-check-label fw-bold" htmlFor="return">Round Trip</label>
                         </div>
 
                         <div
-                            onClick={() => setShowReturnField(false)}
                             className="form-check form-check-inline"
                         >
-                            <input onClick={() => setShowMultiCityField(true)} className="form-check-input" type="radio" name="travelType" id="multiWay" value="multiWay" />
+                            <input onClick={() => handleMultiCityFlight()} className="form-check-input" type="radio" name="travelType" id="multiWay" value="multiWay" />
                             <label className="form-check-label fw-bold" htmlFor="multi-way">Multi-city</label>
                         </div>
                     </div>
@@ -220,7 +246,7 @@ const HomeFlightSearch = () => {
                     }
 
 
-                    {!showMultiCityField &&
+                    {(!showMultiCityField && enableSearch) &&
                         <div className="text-center pt-3 pb-3">
                             <Link to={`/flightSearchResult`} className="searchBtn text-decoration-none" type="button">
                                 Search Flights &#10148;
@@ -276,12 +302,14 @@ const HomeFlightSearch = () => {
                                     }
                                 </div>
                                 {!trips.trip3 ? <button className=' btn btn-primary  fw-bolder my-1  w-25 ' onClick={handleAddTrip}>Add Trip</button> : <></>}
+                                {(trips.trip2 || trips.trip3) ? <button className=' btn btn-primary  fw-bolder my-1 ms-md-2  w-25 ' onClick={handleRemoveTrip}>Revove Trip</button> : <></>}
+
                             </div>
+
 
                             <button onClick={() => submitMultiCity()} className="searchBtn text-decoration-none my-1" type="submit">
                                 Search Flights &#10148;
                             </button>
-
 
                         </div>}
 
@@ -291,4 +319,4 @@ const HomeFlightSearch = () => {
     );
 };
 
-export default HomeFlightSearch;
+export default HomePageFlightSearch;

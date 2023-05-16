@@ -45,7 +45,7 @@ const Contact = () => {
                             placeholder='Message'
                             required
                         ></textarea>
-                        <input className='custom_btn my-lg-2 ' type="submit" value="Send Message" />
+                        <input className='searchBtn my-lg-2 ' type="submit" value="Send Message" />
                     </form>
                 </div>
             </div>

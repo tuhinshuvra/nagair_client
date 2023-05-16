@@ -1,10 +1,14 @@
-.banner {
+.flightSearchArea {
     background-image: url('../../../../assets/image/cloud.jpg');
     /* background-size: 100vw; */
     width: 100%;
     height: 630px;
     background-repeat: no-repeat;
 }
+
+/* .multiCitySearch .flightSearchArea {
+    height: 850px;
+} */
 
 .searchBtn {
     background-color: white;

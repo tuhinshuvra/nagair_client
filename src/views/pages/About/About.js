@@ -15,7 +15,7 @@ const About = () => {
                     <p className="lead">We come together each day to fulfill a promise of offering the single most comprehensive travel experience to users, through award-winning Mobile and Desktop solutions. With intuitive products that have the largest selection of flights and hotels, we keep customers at the center of everything we do.</p>
                     <p className='lead'>Our leadership team is an eclectic mix, that is driven by values important to us. Their constant endeavor is to keep innovating and provide a best-in-class customer experience.</p>
                     <div className="d-grid gap-2 d-md-flex justify-content-md-start justify-content-center">
-                        <Link to="/contact">  <button type="button" className="custom_btn  px-4  text-center">Contact US</button></Link>
+                        <Link to="/contact">  <button type="button" className="searchBtn  px-4  text-center">Contact US</button></Link>
                     </div>
                 </div>
             </div>

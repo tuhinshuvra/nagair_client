@@ -28,8 +28,8 @@ const UserDetails = () => {
     }, []);
 
     return (
-        <div className=' col-8 mx-auto text-light bg-secondary p-5 my-3'>
-            <h3 className=' fw-bold text-center my-4'>Details of {userData.name}</h3>
+        <div className=' col-8 mx-auto text-light bg-secondary p-5 my-3 rounded-4'>
+            <h2 className=' fw-bold text-center my-4'>Details of {userData.name}</h2>
             <p> Name : {userData.name}</p>
             <p> Role : {userData.role}</p>
             <p> Email : {userData.email}</p>

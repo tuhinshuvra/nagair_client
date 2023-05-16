@@ -23,7 +23,7 @@ const Footer = () => {
 
                             <ul className="nav flex-column ">
                                 <li className="mb-2 text-center"><Link to="/" className="  footer_btn fw-bold">Home</Link></li>
-                                <li className="mb-2 text-center"><Link to="/products" className="  footer_btn fw-bold">Product</Link></li>
+                                <li className="mb-2 text-center"><Link to="/booking" className="  footer_btn fw-bold">Booking</Link></li>
                                 <li className="mb-2 text-center"><Link to="/services" className="  footer_btn fw-bold">Sevices</Link></li>
                                 <li className="mb-2 text-center"><Link to="/about" className="  footer_btn fw-bold">About</Link></li>
                             </ul>
@@ -34,7 +34,7 @@ const Footer = () => {
                         <h5 className='fw-bold text-center '>Hot Link</h5>
                         <ul className="nav flex-column">
                             <li className="mb-2 text-center"><Link to="/" className="  footer_btn fw-bold">Home</Link></li>
-                            <li className="mb-2 text-center"><Link to="/products" className="  footer_btn fw-bold">Product</Link></li>
+                            <li className="mb-2 text-center"><Link to="/booking" className="  footer_btn fw-bold">Booking</Link></li>
                             <li className="mb-2 text-center"><Link to="/services" className="  footer_btn fw-bold">Sevices</Link></li>
                             <li className="mb-2 text-center"><Link to="/about" className="  footer_btn fw-bold">About</Link></li>
                         </ul>
@@ -44,7 +44,7 @@ const Footer = () => {
                         <h5 className=' fw-bold text-center'>Legal</h5>
                         <ul className="nav flex-column">
                             <li className="mb-2 text-center"><Link to="/" className="  footer_btn fw-bold">Home</Link></li>
-                            <li className="mb-2 text-center"><Link to="/products" className="  footer_btn fw-bold">Product</Link></li>
+                            <li className="mb-2 text-center"><Link to="/booking" className="  footer_btn fw-bold">Booking</Link></li>
                             <li className="mb-2 text-center"><Link to="/services" className="  footer_btn fw-bold">Sevices</Link></li>
                             <li className="mb-2 text-center"><Link to="/about" className="  footer_btn fw-bold">About</Link></li>
                         </ul>
@@ -54,7 +54,7 @@ const Footer = () => {
                         <h5 className=' fw-bold text-center'>Legal</h5>
                         <ul className="nav flex-column">
                             <li className="mb-2 text-center"><Link to="/" className="  footer_btn fw-bold">Home</Link></li>
-                            <li className="mb-2 text-center"><Link to="/products" className="  footer_btn fw-bold">Product</Link></li>
+                            <li className="mb-2 text-center"><Link to="/booking" className="  footer_btn fw-bold">Booking</Link></li>
                             <li className="mb-2 text-center"><Link to="/services" className="  footer_btn fw-bold">Sevices</Link></li>
                             <li className="mb-2 text-center"><Link to="/about" className="  footer_btn fw-bold">About</Link></li>
                         </ul>

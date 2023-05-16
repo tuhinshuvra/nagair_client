@@ -15,7 +15,7 @@ const HomePageAdditionalService = () => {
                 <h1 className='text-center fw-bold location_heading '> Our Aditional Sevice </h1>
                 <div id="domesticGridCarousol" className="carousel slide carousel-dark" data-bs-ride="carousel" >
                     <div className="carousel-inner">
-                        <div className="carousel-item active" data-bs-interval="2000">
+                        <div className="carousel-item active" data-bs-interval="8000">
                             <GridCarousolItem
                                 imgOne={MoneyExchange}
                                 imgTwo={ShipRental}
@@ -29,7 +29,7 @@ const HomePageAdditionalService = () => {
                             ></GridCarousolItem>
                         </div>
 
-                        <div className="carousel-item" data-bs-interval="3000">
+                        <div className="carousel-item" data-bs-interval="8000">
                             <GridCarousolItem
                                 imgOne={ShipRental}
                                 imgTwo={MoneyExchange}
@@ -43,7 +43,7 @@ const HomePageAdditionalService = () => {
                             ></GridCarousolItem>
                         </div>
 
-                        <div className="carousel-item" data-bs-interval="3000">
+                        <div className="carousel-item" data-bs-interval="8000">
                             <GridCarousolItem
                                 imgOne={CarRental}
                                 imgTwo={ShipRental}
@@ -57,7 +57,7 @@ const HomePageAdditionalService = () => {
                             ></GridCarousolItem>
                         </div>
 
-                        <div className="carousel-item" data-bs-interval="3000">
+                        <div className="carousel-item" data-bs-interval="8000">
                             <GridCarousolItem
                                 imgOne={HotelBooking}
                                 imgTwo={ShipRental}

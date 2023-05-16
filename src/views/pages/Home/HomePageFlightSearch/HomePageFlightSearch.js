@@ -13,7 +13,7 @@ const HomePageFlightSearch = () => {
     const [showReturnField, setShowReturnField] = useState(true);
     const [enableSearch, setEnableSearch] = useState(false);
 
-    console.log("trips", trips);
+    // console.log("trips", trips);
 
 
     const navigate = useNavigate();
@@ -41,17 +41,16 @@ const HomePageFlightSearch = () => {
     };
 
     const handleRemoveTrip = () => {
-        console.log('I am handle remove trip')
-        setTrips(prevState => ({
-            ...prevState,
-            [`trip${Object.keys(prevState).length - 1}`]: [{ flightFromCurrentLocation: '', flightToDestinationLocation: '', flightDepartingDate: '' },
-
-            ]
-        }));
-        console.log("Function Trips", trips)
+        setTrips(prevState => {
+            const updatedTrips = { ...prevState };
+            const lastKey = Object.keys(updatedTrips).pop();
+            delete updatedTrips[lastKey];
+            return updatedTrips;
+        });
+        // console.log("Function Trips", trips)
     };
 
-    console.log("Trips", trips)
+    // console.log("Trips", trips)
 
     const handleInput = (e, tripName, dataIndex) => {
         const name = e.target.name;
@@ -111,7 +110,7 @@ const HomePageFlightSearch = () => {
 
     return (
         <div className=' my-0 py-0'>
-            <div className="banner   d-flex flex-column justify-content-end text-center">
+            <div className="flightSearchArea   d-flex flex-column justify-content-end text-center">
                 <div className=' text-center'>
                     <img className='planeImage d-none d-md-block mx-auto' src={PlaneImage} alt="" />
 
@@ -256,7 +255,7 @@ const HomePageFlightSearch = () => {
 
                     }
                     {showMultiCityField &&
-                        <div className=' col-xl-7 col-lg-9 mx-auto my-2'>
+                        <div className='multiCitySearch col-xl-7 col-lg-9 mx-auto my-2'>
                             <div className=' '>
                                 <div>
                                     {/* {!trips.trip3 ? <button className=' btn btn-primary btn-sm fw-bolder my-1 ' onClick={handleAddTrip}>Add Trip</button> : <></>} */}
@@ -302,7 +301,7 @@ const HomePageFlightSearch = () => {
                                     }
                                 </div>
                                 {!trips.trip3 ? <button className=' btn btn-primary  fw-bolder my-1  w-25 ' onClick={handleAddTrip}>Add Trip</button> : <></>}
-                                {(trips.trip2 || trips.trip3) ? <button className=' btn btn-primary  fw-bolder my-1 ms-md-2  w-25 ' onClick={handleRemoveTrip}>Revove Trip</button> : <></>}
+                                {!(trips.trip2 || trips.trip3) ? <></> : <button className='btn btn-primary fw-bolder my-1 ms-md-2 w-25' onClick={handleRemoveTrip}>Remove Trip</button>}
 
                             </div>
 

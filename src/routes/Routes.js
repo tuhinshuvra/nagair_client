@@ -33,6 +33,7 @@ import FlightsInformationList from '../views/pages/FlightsInformation/FlightsInf
 import FlightInformationUpdate from '../views/pages/FlightsInformation/FlightInformationUpdate';
 import FlightSearchResultPage from '../views/pages/FlightSearchResultPage/FlightSearchResultPage';
 import HomePageFlightSearch from '../views/pages/Home/HomePageFlightSearch/HomePageFlightSearch';
+import UserProfile from '../views/pages/UserProfile/UserProfile';
 
 
 const router = createBrowserRouter([
@@ -182,10 +183,14 @@ const router = createBrowserRouter([
             },
 
             {
+                path: "/userProfile",
+                element: <UserProfile></UserProfile>
+            },
+            {
                 path: "/userList",
                 element: <UserList></UserList>
             },
-           
+
             {
                 path: "/userDetails/:userId",
                 element: <UserDetails></UserDetails>,

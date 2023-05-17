@@ -7,7 +7,7 @@ import './FlightSearchResultPage.css';
 const FlightSearchResultPage = () => {
     const { searchData, trips, flights, setFlights } = useAuth();
 
-    const [selectedPackage, setSelectedPackage] = useState({});
+    const [selectedPackage, setSelectedPackage] = useState('');
 
     console.log("selectedPackage : ", selectedPackage);
     console.log("Search Data :", searchData);
@@ -16,11 +16,24 @@ const FlightSearchResultPage = () => {
     // console.log("dependency", props.dependency);
 
     console.log("myflights", flights)
+    // let packageName;
+    // const handlePackageSelect = () => {
+    //     if (selectedPackage === 'silverPackagesPrice') {
+    //         packageName = 'Silver Package';
+    //     }
+    //     if (selectedPackage === 'goldPackagesPrice') {
+    //         packageName = 'Gold Package';
+    //     }
+    //     else {
+    //         packageName = 'Platinum Package';
+    //     }
+
+    // }
 
 
 
     useEffect(() => {
-        fetch(`https://nag-air-server.vercel.app/api/show-search-flight-result?travelType=${searchData.travelType}&flightFromCurrentLocation=${searchData.flightFromCurrentLocation}&flightToDestinationLocation=${searchData.flightToDestinationLocation}&flightDepartingDate=${searchData.flightDepartingDate}&flightReturningDate=${searchData.flightReturningDate}`, {
+        fetch(`https://nag-air-server.vercel.app/api/show-search-flight-result?travelType=${searchData.travelType}&flightFromCurrentLocation=${(searchData.flightFromCurrentLocation).toLowerCase()}&flightToDestinationLocation=${(searchData.flightToDestinationLocation).toLowerCase()}&flightDepartingDate=${searchData.flightDepartingDate}&flightReturningDate=${searchData.flightReturningDate}`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
@@ -55,18 +68,18 @@ const FlightSearchResultPage = () => {
                             {flights?.map((flight, index) => (
                                 <tr key={flight._id} className=" ">
                                     <td>{index + 1}</td>
-                                    <td>
-                                        <div className="d-flex justify-content-between">
+                                    <td className=' col-md-4'>
+                                        <div className="d-flex justify-content-evenly">
                                             <span>
-                                                <p className='mb-0'>{flight.flightFromCurrentLocation}</p>
-                                                <p className='mt-0'>{flight.flightDepartingTime}</p>
+                                                <p className='mb-0 fw-bold'>{flight.flightFromCurrentLocation.toUpperCase()}</p>
+                                                <p className='mt-0  '>{new Date(flight.flightDepartingDate).toLocaleDateString()}, {flight.flightDepartingTime}</p>
                                             </span>
 
                                             <span className=' fs-4 text-capitalize fw-bold'>TO</span>
 
                                             <span>
-                                                <p className='mb-0'>{flight.flightToDestinationLocation}</p>
-                                                <p className='mt-0'>{flight.flightArrivalTime}</p>
+                                                <p className='mb-0 fw-bold'>{flight.flightToDestinationLocation.toUpperCase()}</p>
+                                                <p className='mt-0'>{new Date(flight.flightArrivalDate).toLocaleDateString()}, {flight.flightArrivalTime}</p>
                                             </span>
                                         </div>
                                         <div>
@@ -79,18 +92,29 @@ const FlightSearchResultPage = () => {
                                         </div>
 
                                     </td>
-                                    <td>
-                                        <div className=' d-flex' >
-                                            {
-                                                flight.packageList.map(pak =>
-
-                                                    <div onClick={() => setSelectedPackage(pak)} className=' bg-info ms-1'>
-                                                        <p className=' text-center'><span className='fw-bold mb-1 bg-primary text-white'>{pak.packageName}</span> </p>
-                                                        <p><span className='fw-bold my-0'>Price:</span> {pak.packagesPrice}TK</p>
-                                                        <p><span className='fw-bold'>Weight:</span> Bag Weight Maximum {pak.bagWeight}KG</p>
-                                                        <p><span className='fw-bold my-0'>Facilities :</span> {pak.packageFacility1} <br /> and {pak.packageFacility2} </p>
-                                                    </div>
-                                                )}
+                                    <td className=' col-md-8'>
+                                        <div className=' d-flex justify-content-around' >
+                                            <div onClick={() => setSelectedPackage(flight.silverPackagesPrice)} className=' bg-info p-2'>
+                                                <p className=' text-center'><span className='fw-bold mb-1 bg-primary text-white'>Silver Package</span> </p>
+                                                <p><span className='fw-bold my-0'>Price:</span> {flight.silverPackagesPrice}TK</p>
+                                                <p className=' '><span className=' fw-bold' >Weight:</span> Bag Weight Maximum {flight.bagWeight}10 KG</p>
+                                                <p>Its a real silver package</p>
+                                                <p>Non smoking cabin</p>
+                                            </div>
+                                            <div onClick={() => setSelectedPackage(flight.goldPackagesPrice)} className=' bg-info mx-1 p-2'>
+                                                <p className=' text-center'><span className='fw-bold mb-1 bg-primary text-white'>Gold Package</span> </p>
+                                                <p><span className='fw-bold my-0'>Price:</span> {flight.goldPackagesPrice}TK</p>
+                                                <p className=' '><span className=' fw-bold' >Weight:</span> Bag Weight Maximum {flight.bagWeight}10 KG</p>
+                                                <p>Its a real Gold package</p>
+                                                <p>Non smoking cabin</p>
+                                            </div>
+                                            <div onClick={() => setSelectedPackage(flight.platinumpackagesPrice)} className=' bg-info p-2'>
+                                                <p className=' text-center'><span className='fw-bold mb-1 bg-primary text-white'>Platinum Package</span> </p>
+                                                <p><span className='fw-bold my-0'>Price:</span> {flight.platinumpackagesPrice}TK</p>
+                                                <p className=' '><span className=' fw-bold' >Weight:</span> Bag Weight Maximum {flight.bagWeight}10 KG</p>
+                                                <p>Its a real Platinum package</p>
+                                                <p>Non smoking cabin</p>
+                                            </div>
                                         </div>
                                     </td>
                                 </tr>
@@ -100,131 +124,96 @@ const FlightSearchResultPage = () => {
 
                     <div className=''>
                         <div className=' row'>
-                            <div className=' col-md-8 tripSummary '>
+                            <div className=' col-md-8   '>
                                 <h4>Trip Summary</h4>
-                                <div className=' d-flex justify-content-between '>
-                                    <div className=''>
-                                        {/* {flights.map(flight => */}
+                                <div className=' d-flex justify-content-between bg-info'>
+                                    <div>
+                                        <div className=' '>
+                                            <p className='mb-0'>{(searchData.flightFromCurrentLocation).toUpperCase()}-{(searchData.flightToDestinationLocation).toUpperCase()}</p>
 
-                                        {/* for Departure */}
-                                        <div className="bg-info ">
-                                            <h3 className=' text-center'>Departure</h3>
-                                            <div className=' '>
-                                                <p className='mb-0'>{(searchData.flightFromCurrentLocation)}-{(searchData.flightToDestinationLocation)}</p>
-
-                                            </div>
-
-
-                                            <div>
-                                                <div className=' d-flex'>
-                                                    <span className=' fw-bold'>Departure: </span>   <span className='mb-0 ms-1'>{new Date(searchData.flightDepartingDate).toDateString()}, {selectedPackage.flightReturningDate}</span>
-                                                </div>
-                                                { }
-                                                <div className=' d-flex'>
-                                                    <span className=' fw-bold'>Arrival: </span>   <span className='mt-0 ms-1'>{new Date(selectedPackage.packagesPrice).toDateString()},{selectedPackage.packagesPrice}</span>
-                                                </div>
-                                            </div>
-                                            <span><b> Amount:</b> {selectedPackage.packagesPrice}TK</span>
-
-                                            <p className=' small  bg-secondary'>
-                                                Refundable with fee
-
-                                                Up to 24 hours before the flight : 1,500 BDT
-                                                Starting 24 hours until flight 1,800 BDT
-                                                After the flight : 2,000 BDT
-                                                Exchange with fee (for all passengers)
-
-                                                Up to 24 hours before the flight : 1,000 BDT
-                                                Starting 24 hours until flight 1,500 BDT
-                                                After the flight : 1,800 BDT
-                                                Checked-in luggage
-
-                                                Adult(s) : 20 Kg
-                                            </p>
                                         </div>
+                                        <div>
+                                            <div className=' d-flex'>
+                                                <span className=' fw-bold'>Departure: </span>   <span className='mb-0 ms-1'>{new Date(searchData.flightDepartingDate).toDateString()}, <b> {searchData.flightDepartingTime}</b></span>
+                                            </div>
+                                            <div className=' d-flex'>
+                                                {/* <span className=' fw-bold'>Arrival: </span>   <span className='mt-0 ms-1'>{new Date(searchData.flightArrivalDate).toDateString()},{searchData.flightArrivalTime}</span> */}
+                                            </div>
 
-
-
-                                        {/* for return */}
-                                        {searchData?.flightReturningDate && <>
-                                            <div className=" bg-secondary my-1">
-                                                <h3 className=' text-center'>Return</h3>
-                                                <div className=' '>
-                                                    <p className='mb-0'>{(searchData.flightToDestinationLocation)}-{(searchData.flightFromCurrentLocation)}</p>
-
-                                                </div>
-
-
-                                                <div>
-                                                    <div className=' d-flex'>
-                                                        <span className=' fw-bold'>Departure: </span>   <span className='mb-0 ms-1'>{new Date(searchData.flightReturningDate).toDateString()}, {selectedPackage.flightReturningDate}</span>
-                                                    </div>
-                                                    { }
-                                                    <div className=' d-flex'>
-                                                        <span className=' fw-bold'>Arrival: </span>   <span className='mt-0 ms-1'>{new Date(selectedPackage.packagesPrice).toDateString()},{selectedPackage.packagesPrice}</span>
-                                                    </div>
-                                                </div>
-                                                <span><b> Amount:</b> {selectedPackage.packagesPrice}TK</span>
-
-                                                <p className=' small  bg-info'>
-                                                    Refundable with fee
+                                            {selectedPackage !== '' ?
+                                                <><b> Amount:</b> {selectedPackage}TK</> : <p className=' fw-bold text-danger'>You have not selected any package</p>
+                                            }
+                                            <div className=' d-flex justify-content-between mt-2'>
+                                                <p className=' col-md-4 small  '>
+                                                    <b>Refundable with fee</b> <br />
 
                                                     Up to 24 hours before the flight : 1,500 BDT
                                                     Starting 24 hours until flight 1,800 BDT
                                                     After the flight : 2,000 BDT
                                                     Exchange with fee (for all passengers)
+                                                </p>
 
-                                                    Up to 24 hours before the flight : 1,000 BDT
-                                                    Starting 24 hours until flight 1,500 BDT
-                                                    After the flight : 1,800 BDT
-                                                    Checked-in luggage
+                                                <p className='col-md-4 small   '>
+                                                    <b> Exchange with fee (for all passengers)</b><br />
 
+                                                    Up to 24 hours before the flight : 1,500 BDT
+                                                    Starting 24 hours until flight 1,800 BDT
+                                                    After the flight : 2,000 BDT
+                                                    Exchange with fee (for all passengers)
+                                                </p>
+                                                <p className='col-md-3 small  '>
+                                                    <b>Checked-in luggage</b> <br />
                                                     Adult(s) : 20 Kg
                                                 </p>
                                             </div>
 
-                                        </>}
-
-                                        {/* )} */}
-
-
+                                        </div>
                                     </div>
-
-
-                                </div>
-
-                                <div>
-
-
                                 </div>
                             </div>
 
-
-
-                            <div className=' col-md-4 bg-info '>
+                            <div className=' col-md-4 '>
                                 <h4>Your Selection</h4>
-                                <p className=' bg-primary'>Your Trip</p>
-                                <h3 className=' text-center'>Departure</h3>
-                                <p className='mb-0'>{(searchData.flightFromCurrentLocation)}-{(searchData.flightToDestinationLocation)}</p>
-                                {selectedPackage.packagesPrice}
+                                <div className=' bg-info'>
+                                    {/* <p className=' text-primary text-uppercase text-center text-white'>Your Trip</p> */}
+                                    {flights?.map((flight, index) => (
 
-                                {/* for return */}
-                                {searchData?.flightReturningDate && <>
+
+                                        <div className=' text-center text-uppercase'>
+                                            <p className='mb-0  fs-5'>{(flight.flightFromCurrentLocation)}-{flight.flightToDestinationLocation}</p>
+                                            <p className='mb-0 '>{new Date(flight.flightDepartingDate).toLocaleDateString()}-{new Date(flight.flightArrivalDate).toLocaleDateString()}</p>
+
+                                        </div>
+                                    ))}
+
+
+                                    {/* {searchData?.flightReturningDate && <>
                                     <h3 className=' text-center'>Return</h3>
                                     <div className=' '>
                                         <p className='mb-0'>{(searchData.flightToDestinationLocation)}-{(searchData.flightFromCurrentLocation)}</p>
                                         {selectedPackage.packagesPrice}
                                     </div>
                                 </>
-                                }
+                                } */}
+                                    <p className=' text-center'>1 Person
+                                        {selectedPackage !== '' ?
+                                            <><b> Amount:</b> {selectedPackage}TK</> : <span className=' fw-bold text-danger'> You have not selected any package</span>
+                                        }
+                                    </p>
+                                    <div className=' fs-2 text-center'>
+                                        Booking total amount  <br />
+                                        <span className=' fw-bold'> {selectedPackage} BDT</span>
+                                        {selectedPackage !== '' ?
+                                            <><b> Amount:</b> {selectedPackage}TK</> : <span className=' fw-bold text-danger'> 0 TK </span>
+                                        }
 
-                                <div>
-
+                                    </div>
                                 </div>
-
                             </div>
+
                         </div>
                     </div>
+
 
                 </>
                 :

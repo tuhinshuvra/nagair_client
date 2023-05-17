@@ -77,14 +77,13 @@ const FlightsInformationList = () => {
                             <th>SL</th>
                             <th>From</th>
                             <th>To</th>
-                            <th rowSpan={2}>Fare
-                                <tr colSpan={3}>
-                                    <td >Fare</td>
-                                    <td >Fare</td>
-                                    <td >Fare</td>
-
+                            <th colSpan={3} rowSpan={2}>
+                                <tr className=" d-flex justify-content-center">Package</tr>
+                                <tr className=" d-flex justify-content-between">
+                                    <td>Silver </td>
+                                    <td>Gold</td>
+                                    <td>Platinum</td>
                                 </tr>
-
                             </th>
                             <th>Departing </th>
                             <th>Arrival</th>
@@ -102,7 +101,11 @@ const FlightsInformationList = () => {
                                 <td>{index + 1}</td>
                                 <td className="text-capitalize">  {flight.flightFromCurrentLocation}</td>
                                 <td className="text-capitalize">  {flight.flightToDestinationLocation}</td>
-                                <td className="text-capitalize">  {flight.packagesPrice} TK</td>
+                                <td colSpan={3}>
+                                    <td className="text-capitalize">  {flight.silverPackagesPrice}TK</td>
+                                    <td className="text-capitalize">  {flight.goldPackagesPrice}TK</td>
+                                    <td className="text-capitalize">  {flight.platinumpackagesPrice}TK</td>
+                                </td>
                                 <td> {new Date(flight.flightDepartingDate).toLocaleDateString()} {flight.flightDepartingTime}</td>
                                 <td> {new Date(flight.flightArrivalDate).toLocaleDateString()}  {flight.flightArrivalTime}</td>
                                 <td>  {flight.planeNumber}</td>

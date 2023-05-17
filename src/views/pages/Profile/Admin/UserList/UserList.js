@@ -27,7 +27,7 @@ const UserList = () => {
 
 
     return (
-        <div>
+        <div className="col-md-8 mx-auto">
             <h2 className="text-center  fw-bold  my-4">All User</h2>
             <div className="overflow-x-auto">
                 <table className="table text-center table-hover  table-bordered">

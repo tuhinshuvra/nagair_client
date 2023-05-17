@@ -23,7 +23,7 @@ const HomePageFlightSearch = () => {
 
     const getSearchTravelData = (event) => {
         const field = event.target.name;
-        const value = event.target.value;
+        const value = (event.target.value).toLowerCase();
         const newData = { ...searchData };
         newData[field] = value;
         setSearchData(newData);
@@ -89,7 +89,7 @@ const HomePageFlightSearch = () => {
 
     const submitMultiCity = (e) => {
         axios({
-            url: "https://nag-air-server.vercel.app/api/show-multi-city-flight-result",
+            url: "http://localhost:5001/api/show-multi-city-flight-result",
             method: "POST",
             headers: { 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`, },
             data: trips,

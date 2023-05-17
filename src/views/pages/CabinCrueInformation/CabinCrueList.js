@@ -21,7 +21,7 @@ const CabinCrueList = () => {
 
 
     useEffect(() => {
-        fetch(`https://nag-air-server.vercel.app/api/show-cabin-crew-list`, {
+        fetch(`http://localhost:5001/api/show-cabin-crew-list`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
@@ -34,7 +34,7 @@ const CabinCrueList = () => {
     }, []);
 
     const handleDelete = () => {
-        fetch(`https://nag-air-server.vercel.app/api/delete-cabin-crewby-id?id=${deletingCabinCrue}`, {
+        fetch(`http://localhost:5001/api/delete-cabin-crewby-id?id=${deletingCabinCrue}`, {
             method: "DELETE",
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,

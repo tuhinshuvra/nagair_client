@@ -28,7 +28,7 @@ const FlightsInformationList = () => {
     // console.log("deletingFlights : ", deletingFlights);
 
     useEffect(() => {
-        fetch(`https://nag-air-server.vercel.app/api/show-flight-information-list`, {
+        fetch(`http://localhost:5001/api/show-flight-information-list`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
@@ -42,7 +42,7 @@ const FlightsInformationList = () => {
     }, []);
 
     const handleDelete = () => {
-        fetch(`https://nag-air-server.vercel.app/api/delete-flight-information?id=${deletingFlightInfo}`, {
+        fetch(`http://localhost:5001/api/delete-flight-information?id=${deletingFlightInfo}`, {
             method: "DELETE",
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,

@@ -12,6 +12,11 @@ const FlightSearchResultPage = () => {
     console.log("selectedPackage : ", selectedPackage);
     console.log("Search Data :", searchData);
 
+    let locationFrom = 'dhaka';
+    let locationTo = 'rajshahi';
+    locationFrom = (searchData?.flightFromCurrentLocation);
+    locationTo = (searchData?.flightToDestinationLocation);
+
 
     // console.log("dependency", props.dependency);
 
@@ -33,7 +38,7 @@ const FlightSearchResultPage = () => {
 
 
     useEffect(() => {
-        fetch(`https://nag-air-server.vercel.app/api/show-search-flight-result?travelType=${searchData.travelType}&flightFromCurrentLocation=${(searchData.flightFromCurrentLocation).toLowerCase()}&flightToDestinationLocation=${(searchData.flightToDestinationLocation).toLowerCase()}&flightDepartingDate=${searchData.flightDepartingDate}&flightReturningDate=${searchData.flightReturningDate}`, {
+        fetch(`http://localhost:5001/api/show-search-flight-result?travelType=${searchData.travelType}&flightFromCurrentLocation=${locationFrom}&flightToDestinationLocation=${locationTo}&flightDepartingDate=${searchData.flightDepartingDate}&flightReturningDate=${searchData.flightReturningDate}`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
@@ -126,7 +131,8 @@ const FlightSearchResultPage = () => {
                         <div className=' row'>
                             <div className=' col-md-8   '>
                                 <h4>Trip Summary</h4>
-                                <div className=' d-flex justify-content-between bg-info'>
+                                <div className=' d-flex justify-content-between bg-info px-2 py-4'>
+
                                     <div>
                                         <div className=' '>
                                             <p className='mb-0'>{(searchData.flightFromCurrentLocation).toUpperCase()}-{(searchData.flightToDestinationLocation).toUpperCase()}</p>
@@ -135,6 +141,7 @@ const FlightSearchResultPage = () => {
                                         <div>
                                             <div className=' d-flex'>
                                                 <span className=' fw-bold'>Departure: </span>   <span className='mb-0 ms-1'>{new Date(searchData.flightDepartingDate).toDateString()}, <b> {searchData.flightDepartingTime}</b></span>
+                                                {/* <span className=' fw-bold'>Arrival: </span>   <span className='mb-0 ms-1'>{new Date(searchData.flightArrivalDate).toDateString()}, <b> {searchData.flightDepartingTime}</b></span> */}
                                             </div>
                                             <div className=' d-flex'>
                                                 {/* <span className=' fw-bold'>Arrival: </span>   <span className='mt-0 ms-1'>{new Date(searchData.flightArrivalDate).toDateString()},{searchData.flightArrivalTime}</span> */}
@@ -174,14 +181,14 @@ const FlightSearchResultPage = () => {
 
                             <div className=' col-md-4 '>
                                 <h4>Your Selection</h4>
-                                <div className=' bg-info'>
+                                <div className=' bg-info px-1 py-2'>
                                     {/* <p className=' text-primary text-uppercase text-center text-white'>Your Trip</p> */}
                                     {flights?.map((flight, index) => (
 
 
                                         <div className=' text-center text-uppercase'>
-                                            <p className='mb-0  fs-5'>{(flight.flightFromCurrentLocation)}-{flight.flightToDestinationLocation}</p>
-                                            <p className='mb-0 '>{new Date(flight.flightDepartingDate).toLocaleDateString()}-{new Date(flight.flightArrivalDate).toLocaleDateString()}</p>
+                                            <p className='mb-0'>{(flight.flightFromCurrentLocation)}-{flight.flightToDestinationLocation}</p>
+                                            <p className='mb-0'>{new Date(flight.flightDepartingDate).toLocaleDateString()}-{new Date(flight.flightArrivalDate).toLocaleDateString()}</p>
 
                                         </div>
                                     ))}
@@ -200,11 +207,11 @@ const FlightSearchResultPage = () => {
                                             <><b> Amount:</b> {selectedPackage}TK</> : <span className=' fw-bold text-danger'> You have not selected any package</span>
                                         }
                                     </p>
-                                    <div className=' fs-2 text-center'>
-                                        Booking total amount  <br />
-                                        <span className=' fw-bold'> {selectedPackage} BDT</span>
+                                    <div className=' fs-3 text-center'>
+                                        <span className=' mb-0'>Booking total amount</span>  <br />
+
                                         {selectedPackage !== '' ?
-                                            <><b> Amount:</b> {selectedPackage}TK</> : <span className=' fw-bold text-danger'> 0 TK </span>
+                                            <b className=' mt-0'>{selectedPackage}TK</b> : <span className=' mt-0  text-danger'> 0 TK </span>
                                         }
 
                                     </div>

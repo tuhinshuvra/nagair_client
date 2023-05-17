@@ -17,7 +17,7 @@ const FlightsInformationEntry = () => {
 
     // show all cabin crue
     useEffect(() => {
-        fetch(`https://nag-air-server.vercel.app/api/show-cabin-crew-list`, {
+        fetch(`http://localhost:5001/api/show-cabin-crew-list`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
@@ -32,7 +32,7 @@ const FlightsInformationEntry = () => {
 
     // show all pilot 
     useEffect(() => {
-        fetch(`https://nag-air-server.vercel.app/api/show-pilot-list`, {
+        fetch(`http://localhost:5001/api/show-pilot-list`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
@@ -58,7 +58,7 @@ const FlightsInformationEntry = () => {
         // console.log('I am clicked,', flightInfo);
 
         axios({
-            url: `https://nag-air-server.vercel.app/api/upload-flight-information`,
+            url: `http://localhost:5001/api/upload-flight-information`,
             method: "POST",
             headers: { 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`, },
             data: flightInfo,

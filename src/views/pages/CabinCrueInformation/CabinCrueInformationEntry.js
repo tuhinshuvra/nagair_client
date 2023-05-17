@@ -21,7 +21,7 @@ const CabinCrueInformationEntry = () => {
         console.log("Info : ", info);
 
         axios({
-            url: `https://nag-air-server.vercel.app/api/upload-cabin-crew-information`,
+            url: `http://localhost:5001/api/upload-cabin-crew-information`,
             method: "POST",
             headers: { 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`, },
             data: info,

@@ -22,7 +22,7 @@ const PilotInformation = () => {
         console.log("Info : ", info);
 
         axios({
-            url: `https://nag-air-server.vercel.app/api/upload-pilot-information`,
+            url: `http://localhost:5001/api/upload-pilot-information`,
             method: "POST",
             headers: { 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`, },
             data: info,

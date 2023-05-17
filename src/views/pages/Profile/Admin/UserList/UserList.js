@@ -13,7 +13,7 @@ const UserList = () => {
 
 
     useEffect(() => {
-        fetch(`https://nag-air-server.vercel.app/api/user-list`, {
+        fetch(`http://localhost:5001/api/user-list`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,

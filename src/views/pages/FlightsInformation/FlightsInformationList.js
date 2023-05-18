@@ -28,7 +28,7 @@ const FlightsInformationList = () => {
     // console.log("deletingFlights : ", deletingFlights);
 
     useEffect(() => {
-        fetch(`http://localhost:5001/api/show-flight-information-list`, {
+        fetch(`${process.env.REACT_APP_NAGAIR}/api/show-flight-information-list`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
@@ -42,7 +42,7 @@ const FlightsInformationList = () => {
     }, []);
 
     const handleDelete = () => {
-        fetch(`http://localhost:5001/api/delete-flight-information?id=${deletingFlightInfo}`, {
+        fetch(`${process.env.REACT_APP_NAGAIR}/api/delete-flight-information?id=${deletingFlightInfo}`, {
             method: "DELETE",
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
@@ -99,8 +99,8 @@ const FlightsInformationList = () => {
                         {allFlightInfo.map((flight, index) => (
                             <tr key={flight._id} className="flightInfoTxt">
                                 <td>{index + 1}</td>
-                                <td className="text-capitalize">  {flight.flightFromCurrentLocation}</td>
-                                <td className="text-capitalize">  {flight.flightToDestinationLocation}</td>
+                                <td className=" ">  {flight.flightFromCurrentLocation}</td>
+                                <td className=" ">  {flight.flightToDestinationLocation}</td>
                                 <td colSpan={3}>
                                     <td className="text-capitalize">  {flight.silverPackagesPrice}TK</td>
                                     <td className="text-capitalize">  {flight.goldPackagesPrice}TK</td>

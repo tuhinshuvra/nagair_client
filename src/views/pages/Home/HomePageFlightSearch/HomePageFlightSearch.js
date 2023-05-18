@@ -14,7 +14,7 @@ const HomePageFlightSearch = () => {
     const [enableSearch, setEnableSearch] = useState(false);
 
     // console.log("trips", trips);
-
+    console.log("searchData :", searchData);
 
     const navigate = useNavigate();
 
@@ -29,8 +29,9 @@ const HomePageFlightSearch = () => {
         setSearchData(newData);
     };
 
-    const getSearchMultipleCitiesData = (event) => {
-    };
+    // const getSearchMultipleCitiesData = (event) => {
+    // };
+
 
 
     const handleAddTrip = () => {
@@ -86,10 +87,28 @@ const HomePageFlightSearch = () => {
         setEnableSearch(true);
     }
 
+    const handleSingeTripData = async () => {
+        await axios({
+            url: `${process.env.REACT_APP_NAGAIR}/api/show-search-flight-result?travelType=${searchData.travelType}&flightFromCurrentLocation=${searchData?.flightFromCurrentLocation}&flightToDestinationLocation=${searchData?.flightToDestinationLocation}&flightDepartingDate=${searchData.flightDepartingDate}&flightReturningDate=${searchData.flightReturningDate}`,
+            method: "GET",
+            headers: { 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`, },
+            data: trips,
+        })
+
+            .then(response => response.json())
+            .then(data => {
+
+                console.log("Search Result Data", data)
+                setFlights(data);
+                // setIsLoading(false)
+                navigate('/flightSearchResult');
+            })
+    }
+
 
     const submitMultiCity = (e) => {
         axios({
-            url: "http://localhost:5001/api/show-multi-city-flight-result",
+            url: `${process.env.REACT_APP_NAGAIR}/api/show-multi-city-flight-result`,
             method: "POST",
             headers: { 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`, },
             data: trips,
@@ -128,21 +147,42 @@ const HomePageFlightSearch = () => {
                         <div
                             className="form-check form-check-inline"
                         >
-                            <input onClick={() => handleOneWayFlight()} className="form-check-input" type="radio" name="travelType" id="oneWay" value="oneWay" />
+                            <input
+                                onClick={() => handleOneWayFlight()}
+                                className="form-check-input"
+                                type="radio"
+                                name="travelType"
+                                id="oneWay"
+                                value="oneWay"
+                            />
                             <label className="form-check-label fw-bold" htmlFor="one-way">One Way</label>
                         </div>
 
                         <div
                             className="form-check form-check-inline"
                         >
-                            <input onClick={() => handleRoundTripFlight()} className="form-check-input" type="radio" name="travelType" id="roundTrip" value="roundTrip" />
+                            <input
+                                onClick={() => handleRoundTripFlight()}
+                                className="form-check-input"
+                                type="radio"
+                                name="travelType"
+                                id="roundTrip"
+                                value="roundTrip"
+                            />
                             <label className="form-check-label fw-bold" htmlFor="return">Round Trip</label>
                         </div>
 
                         <div
                             className="form-check form-check-inline"
                         >
-                            <input onClick={() => handleMultiCityFlight()} className="form-check-input" type="radio" name="travelType" id="multiWay" value="multiWay" />
+                            <input
+                                onClick={() => handleMultiCityFlight()}
+                                className="form-check-input"
+                                type="radio"
+                                name="travelType"
+                                id="multiWay"
+                                value="multiWay"
+                            />
                             <label className="form-check-label fw-bold" htmlFor="multi-way">Multi-city</label>
                         </div>
                     </div>
@@ -164,7 +204,7 @@ const HomePageFlightSearch = () => {
                                             id="flightFromCurrentLocation"
                                             className="form-control"
                                             placeholder="Enter Journey from"
-                                            onBlur={getSearchMultipleCitiesData}
+                                        // onBlur={getSearchMultipleCitiesData}
                                         />
 
                                     </div>
@@ -181,7 +221,7 @@ const HomePageFlightSearch = () => {
                                             id="flightToDestinationLocation"
                                             className="form-control"
                                             placeholder='Enter journey destination'
-                                            onBlur={getSearchMultipleCitiesData}
+                                        // onBlur={getSearchMultipleCitiesData}
                                         />
                                     </div>
                                     <div className=' '></div>
@@ -197,7 +237,7 @@ const HomePageFlightSearch = () => {
                                             name="flightDepartingDate"
                                             id="flightDepartingDate"
                                             className="form-control"
-                                            onBlur={getSearchMultipleDaysData}
+                                        // onBlur={getSearchMultipleDaysData}
 
                                         />
                                     </div>
@@ -247,7 +287,7 @@ const HomePageFlightSearch = () => {
 
                     {(!showMultiCityField && enableSearch) &&
                         <div className="text-center pt-3 pb-3">
-                            <Link to={`/flightSearchResult`} className="searchBtn text-decoration-none" type="button">
+                            <Link onClick={() => handleSingeTripData()} className="searchBtn text-decoration-none" type="button">
                                 Search Flights &#10148;
                             </Link>
                         </div>
@@ -264,7 +304,7 @@ const HomePageFlightSearch = () => {
                                     {
                                         Object.entries(trips).map(([tripName, tripData]) => (
                                             <div key={tripName} className=' d-flex my-1 '>
-                                                {/* <h4>{tripName.toUpperCase()}-</h4> */}
+                                                {/* <h4>{tripName}-</h4> */}
                                                 {
                                                     tripData.map((tripDataItem, dataIndex) =>
                                                     (

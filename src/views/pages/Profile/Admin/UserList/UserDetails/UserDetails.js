@@ -15,7 +15,7 @@ const UserDetails = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5001/api/user-details?id=${userDetails}`, {
+        fetch(`${process.env.REACT_APP_NAGAIR}/api/user-details?id=${userDetails}`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,

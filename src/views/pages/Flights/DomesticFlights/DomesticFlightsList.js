@@ -26,7 +26,7 @@ const DomesticFlightsList = () => {
     // console.log("deletingFlights : ", deletingFlights);
 
     useEffect(() => {
-        fetch(`http://localhost:5001/api/show-domestic-flight`, {
+        fetch(`${process.env.REACT_APP_NAGAIR}/api/show-domestic-flight`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
@@ -39,7 +39,7 @@ const DomesticFlightsList = () => {
     }, []);
 
     const handleDelete = () => {
-        fetch(`http://localhost:5001/api/delete-domestic-flight?id=${deletingFlights}`, {
+        fetch(`${process.env.REACT_APP_NAGAIR}/api/delete-domestic-flight?id=${deletingFlights}`, {
             method: "DELETE",
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,

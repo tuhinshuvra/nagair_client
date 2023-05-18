@@ -1,61 +1,58 @@
 import React, { useEffect, useState } from 'react';
-import useAuth from '../../../hooks/useAuth';
 import { getCookie } from '../../../utilities/helper';
 import { Link } from 'react-router-dom';
 import './FlightSearchResultPage.css';
+import Loader from '../../components/Shared/Loader/Loader';
+import useAuth from '../../../hooks/useAuth';
 
 const FlightSearchResultPage = () => {
-    const { searchData, trips, flights, setFlights } = useAuth();
+    const { searchData, trips, flights, setFlights, isLoading, setIsLoading } = useAuth();
 
     const [selectedPackage, setSelectedPackage] = useState('');
 
-    console.log("selectedPackage : ", selectedPackage);
-    console.log("Search Data :", searchData);
+    // console.log("selectedPackage : ", selectedPackage);
+    // console.log("Search Data :", searchData);
 
-    let locationFrom = 'dhaka';
-    let locationTo = 'rajshahi';
-    locationFrom = (searchData?.flightFromCurrentLocation);
-    locationTo = (searchData?.flightToDestinationLocation);
+    // let locationFrom = 'dhaka';
+    // let locationTo = 'rajshahi';
+    // let locationFrom = (searchData?.flightFromCurrentLocation);
+    // let locationTo = (searchData?.flightToDestinationLocation);
 
 
     // console.log("dependency", props.dependency);
 
-    console.log("myflights", flights)
-    // let packageName;
-    // const handlePackageSelect = () => {
-    //     if (selectedPackage === 'silverPackagesPrice') {
-    //         packageName = 'Silver Package';
-    //     }
-    //     if (selectedPackage === 'goldPackagesPrice') {
-    //         packageName = 'Gold Package';
-    //     }
-    //     else {
-    //         packageName = 'Platinum Package';
-    //     }
-
-    // }
+    console.log("Flights searched result", flights)
+    if (flights.length === 0) {
+        setIsLoading(true)
+    } else {
+        setIsLoading(false)
+    }
 
 
+    // useEffect(() => {
+    //     fetch(`${process.env.REACT_APP_NAGAIR}/api/show-search-flight-result?travelType=${searchData.travelType}&flightFromCurrentLocation=${searchData?.flightFromCurrentLocation}&flightToDestinationLocation=${searchData?.flightToDestinationLocation}&flightDepartingDate=${searchData.flightDepartingDate}&flightReturningDate=${searchData.flightReturningDate}`, {
+    //         method: 'GET',
+    //         headers: {
+    //             'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
+    //         },
+    //     })
+    //         .then(response => response.json())
+    //         .then(data => {
 
-    useEffect(() => {
-        fetch(`http://localhost:5001/api/show-search-flight-result?travelType=${searchData.travelType}&flightFromCurrentLocation=${locationFrom}&flightToDestinationLocation=${locationTo}&flightDepartingDate=${searchData.flightDepartingDate}&flightReturningDate=${searchData.flightReturningDate}`, {
-            method: 'GET',
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
-            },
-        })
-            .then(response => response.json())
-            .then(data => {
-                // console.log("Search Result Data", data)
-                setFlights(data);
-            })
-    }, [])
+    //             console.log("Search Result Data", data)
+    //             setFlights(data);
+    //             setIsLoading(false)
+    //         })
+    // }, [])
 
 
     return (
         <div>
+            {isLoading &&
+                <Loader></Loader>
+            }
             {flights.length > 0 ?
-                <>
+                <div>
                     <h2 className="text-center  fw-bold  mt-3">Available Flights</h2>
                     <div className=" d-flex  justify-content-end">
                         <Link to="/" className="fs-4 text-info text-center text-decoration-none    fw-bold  my-0  ">Search Again</Link>
@@ -76,47 +73,47 @@ const FlightSearchResultPage = () => {
                                     <td className=' col-md-4'>
                                         <div className="d-flex justify-content-evenly">
                                             <span>
-                                                <p className='mb-0 fw-bold'>{flight.flightFromCurrentLocation.toUpperCase()}</p>
-                                                <p className='mt-0  '>{new Date(flight.flightDepartingDate).toLocaleDateString()}, {flight.flightDepartingTime}</p>
+                                                <p className='mb-0 fw-bold'>{flight?.flightFromCurrentLocation?.toUpperCase()}</p>
+                                                <p className='mt-0  '>{new Date(flight?.flightDepartingDate).toLocaleDateString()}, {flight.flightDepartingTime}</p>
                                             </span>
 
                                             <span className=' fs-4 text-capitalize fw-bold'>TO</span>
 
                                             <span>
-                                                <p className='mb-0 fw-bold'>{flight.flightToDestinationLocation.toUpperCase()}</p>
-                                                <p className='mt-0'>{new Date(flight.flightArrivalDate).toLocaleDateString()}, {flight.flightArrivalTime}</p>
+                                                <p className='mb-0 fw-bold'>{flight?.flightToDestinationLocation}</p>
+                                                <p className='mt-0'>{new Date(flight?.flightArrivalDate).toLocaleDateString()}, {flight.flightArrivalTime}</p>
                                             </span>
                                         </div>
                                         <div>
                                             <h5 className=' fw-bold text-center mt-2'>Flight Details</h5>
-                                            <p className=' text-center small'>{flight.planeNumber}</p>
+                                            <p className=' text-center small'>{flight?.planeNumber}</p>
 
-                                            <p className='mb-0 small'>  {(flight.flightFromCurrentLocation).toUpperCase()}, {new Date(flight.flightDepartingDate).toDateString()}, {flight.flightDepartingTime}</p>
+                                            <p className='mb-0 small'>  {(flight?.flightFromCurrentLocation)}, {new Date(flight.flightDepartingDate).toDateString()}, {flight.flightDepartingTime}</p>
 
-                                            <p className=' mt-0 small'>  {(flight.flightToDestinationLocation).toUpperCase()}, {new Date(flight.flightArrivalDate).toDateString()},{flight.flightArrivalTime}</p>
+                                            <p className=' mt-0 small'>  {(flight?.flightToDestinationLocation)}, {new Date(flight.flightArrivalDate).toDateString()},{flight.flightArrivalTime}</p>
                                         </div>
 
                                     </td>
                                     <td className=' col-md-8'>
                                         <div className=' d-flex justify-content-around' >
-                                            <div onClick={() => setSelectedPackage(flight.silverPackagesPrice)} className=' bg-info p-2'>
+                                            <div onClick={() => setSelectedPackage(flight?.silverPackagesPrice)} className=' bg-info p-2'>
                                                 <p className=' text-center'><span className='fw-bold mb-1 bg-primary text-white'>Silver Package</span> </p>
                                                 <p><span className='fw-bold my-0'>Price:</span> {flight.silverPackagesPrice}TK</p>
                                                 <p className=' '><span className=' fw-bold' >Weight:</span> Bag Weight Maximum {flight.bagWeight}10 KG</p>
                                                 <p>Its a real silver package</p>
                                                 <p>Non smoking cabin</p>
                                             </div>
-                                            <div onClick={() => setSelectedPackage(flight.goldPackagesPrice)} className=' bg-info mx-1 p-2'>
+                                            <div onClick={() => setSelectedPackage(flight?.goldPackagesPrice)} className=' bg-info mx-1 p-2'>
                                                 <p className=' text-center'><span className='fw-bold mb-1 bg-primary text-white'>Gold Package</span> </p>
                                                 <p><span className='fw-bold my-0'>Price:</span> {flight.goldPackagesPrice}TK</p>
-                                                <p className=' '><span className=' fw-bold' >Weight:</span> Bag Weight Maximum {flight.bagWeight}10 KG</p>
+                                                <p className=' '><span className=' fw-bold' >Weight:</span> Bag Weight Maximum {flight?.bagWeight}10 KG</p>
                                                 <p>Its a real Gold package</p>
                                                 <p>Non smoking cabin</p>
                                             </div>
-                                            <div onClick={() => setSelectedPackage(flight.platinumpackagesPrice)} className=' bg-info p-2'>
+                                            <div onClick={() => setSelectedPackage(flight?.platinumpackagesPrice)} className=' bg-info p-2'>
                                                 <p className=' text-center'><span className='fw-bold mb-1 bg-primary text-white'>Platinum Package</span> </p>
-                                                <p><span className='fw-bold my-0'>Price:</span> {flight.platinumpackagesPrice}TK</p>
-                                                <p className=' '><span className=' fw-bold' >Weight:</span> Bag Weight Maximum {flight.bagWeight}10 KG</p>
+                                                <p><span className='fw-bold my-0'>Price:</span> {flight?.platinumpackagesPrice}TK</p>
+                                                <p className=' '><span className=' fw-bold' >Weight:</span> Bag Weight Maximum {flight?.bagWeight}10 KG</p>
                                                 <p>Its a real Platinum package</p>
                                                 <p>Non smoking cabin</p>
                                             </div>
@@ -135,7 +132,7 @@ const FlightSearchResultPage = () => {
 
                                     <div>
                                         <div className=' '>
-                                            <p className='mb-0'>{(searchData.flightFromCurrentLocation).toUpperCase()}-{(searchData.flightToDestinationLocation).toUpperCase()}</p>
+                                            <p className='mb-0'>{searchData?.flightFromCurrentLocation}-{(searchData?.flightToDestinationLocation)}</p>
 
                                         </div>
                                         <div>
@@ -222,7 +219,7 @@ const FlightSearchResultPage = () => {
                     </div>
 
 
-                </>
+                </div>
                 :
                 <div className=' my-5'>
                     <div className=' fs-3 text-center fw-bolder'>No Flights Found According to Your Search Data</div>

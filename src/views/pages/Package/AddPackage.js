@@ -33,7 +33,7 @@ const AddPackage = () => {
         console.log("packageInfo : ", packageInfo);
 
         axios({
-            url: `http://localhost:5001/api/packages-data-upload`,
+            url: `${process.env.REACT_APP_NAGAIR}/api/packages-data-upload`,
             method: "POST",
             headers: { 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`, },
             data: packageInfo,

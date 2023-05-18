@@ -20,7 +20,7 @@ const FlightSearchResultPage = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5001/api/show-search-flight-result?travelType=${searchData.travelType}&flightFromCurrentLocation=${searchData.flightFromCurrentLocation}&flightToDestinationLocation=${searchData.flightToDestinationLocation}&flightDepartingDate=${searchData.flightDepartingDate}&flightReturningDate=${searchData.flightReturningDate}`, {
+        fetch(`${process.env.REACT_APP_NAGAIR}/api/show-search-flight-result?travelType=${searchData.travelType}&flightFromCurrentLocation=${searchData.flightFromCurrentLocation}&flightToDestinationLocation=${searchData.flightToDestinationLocation}&flightDepartingDate=${searchData.flightDepartingDate}&flightReturningDate=${searchData.flightReturningDate}`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
@@ -73,9 +73,9 @@ const FlightSearchResultPage = () => {
                                             <h5 className=' fw-bold text-center mt-2'>Flight Details</h5>
                                             <p className=' text-center small'>{flight.planeNumber}</p>
 
-                                            <p className='mb-0 small'>  {(flight.flightFromCurrentLocation).toUpperCase()}, {new Date(flight.flightDepartingDate).toDateString()}, {flight.flightDepartingTime}</p>
+                                            <p className='mb-0 small'>  {(flight.flightFromCurrentLocation)}, {new Date(flight.flightDepartingDate).toDateString()}, {flight.flightDepartingTime}</p>
 
-                                            <p className=' mt-0 small'>  {(flight.flightToDestinationLocation).toUpperCase()}, {new Date(flight.flightArrivalDate).toDateString()},{flight.flightArrivalTime}</p>
+                                            <p className=' mt-0 small'>  {(flight.flightToDestinationLocation)}, {new Date(flight.flightArrivalDate).toDateString()},{flight.flightArrivalTime}</p>
                                         </div>
 
                                     </td>

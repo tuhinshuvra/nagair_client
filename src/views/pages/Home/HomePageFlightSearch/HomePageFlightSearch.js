@@ -1,10 +1,10 @@
+import axios from 'axios';
 import React, { useState } from 'react';
-import { FaCalendarCheck, FaPlane, FaPlaneArrival, FaPlaneDeparture, FaSpa } from 'react-icons/fa';
+import { FaCalendarCheck, FaPlane, FaPlaneArrival, FaPlaneDeparture } from 'react-icons/fa';
+import { Link, useNavigate } from 'react-router-dom';
 import PlaneImage from '../../../../assets/image/nagair_plane.png';
 import useAuth from '../../../../hooks/useAuth';
-import { Link, useNavigate } from 'react-router-dom';
 import { getCookie } from '../../../../utilities/helper';
-import axios from 'axios';
 import './HomePageFlightSearch.css';
 
 const HomePageFlightSearch = () => {
@@ -23,10 +23,19 @@ const HomePageFlightSearch = () => {
 
     const getSearchTravelData = (event) => {
         const field = event.target.name;
-        const value = (event.target.value).toLowerCase();
-        const newData = { ...searchData };
-        newData[field] = value;
-        setSearchData(newData);
+        if (field === "flightToDestinationLocation" || field === "flightFromCurrentLocation") {
+            const value = (event.target.value).toLowerCase()
+            const newData = { ...searchData };
+            newData[field] = value;
+            setSearchData(newData);
+        } else {
+            const value = (event.target.value)
+            const newData = { ...searchData };
+            newData[field] = value;
+            setSearchData(newData);
+        }
+        
+
     };
 
     // const getSearchMultipleCitiesData = (event) => {
@@ -53,15 +62,26 @@ const HomePageFlightSearch = () => {
 
     // console.log("Trips", trips)
 
-    const handleInput = (e, tripName, dataIndex) => {
-        const name = e.target.name;
-        const value = e.target.value;
-
-        setTrips(prevState => {
-            const newState = { ...prevState };
-            newState[tripName][dataIndex][name] = value;
-            return newState;
-        });
+    const handleInput = (event, tripName, dataIndex) => {
+        const field = event.target.name;
+        if (field === "flightToDestinationLocation" || field === "flightFromCurrentLocation") {
+            const value = event.target.value.toLowerCase();
+            setTrips(prevState => {
+                const newState = { ...prevState };
+                newState[tripName][dataIndex][field] = value;
+                return newState;
+            });
+          
+        } else {
+            const value = event.target.value;
+            setTrips(prevState => {
+                const newState = { ...prevState };
+                newState[tripName][dataIndex][field] = value;
+                return newState;
+            });
+        }
+       
+      
     };
 
     // console.log("trips", trips);
@@ -89,20 +109,27 @@ const HomePageFlightSearch = () => {
 
     const handleSingeTripData = async () => {
         await axios({
-            url: `${process.env.REACT_APP_NAGAIR}/api/show-search-flight-result?travelType=${searchData.travelType}&flightFromCurrentLocation=${searchData?.flightFromCurrentLocation}&flightToDestinationLocation=${searchData?.flightToDestinationLocation}&flightDepartingDate=${searchData.flightDepartingDate}&flightReturningDate=${searchData.flightReturningDate}`,
+            url: `https://nag-air-server.vercel.app/api/show-search-flight-result?travelType=${searchData.travelType}&flightFromCurrentLocation=${searchData?.flightFromCurrentLocation}&flightToDestinationLocation=${searchData?.flightToDestinationLocation}&flightDepartingDate=${searchData.flightDepartingDate}&flightReturningDate=${searchData.flightReturningDate}`,
             method: "GET",
             headers: { 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`, },
-            data: trips,
+            
+        }).then((response) => {
+            // console.log("flight-information: ", response.data);
+            if (response?.data) {
+                // console.log("Search Result Data", response?.data)
+                setFlights(response.data);
+                navigate('/flightSearchResult');
+            }
         })
 
-            .then(response => response.json())
+            /* .then(response => response.json())
             .then(data => {
 
                 console.log("Search Result Data", data)
                 setFlights(data);
                 // setIsLoading(false)
                 navigate('/flightSearchResult');
-            })
+            }) */
     }
 
 

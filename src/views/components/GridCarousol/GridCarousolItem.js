@@ -5,7 +5,7 @@ import './GridCarousolItem.css';
 const GridCarousolItem = ({ imgOne, imgTwo, imgThree, imgFour, locationOne, locationTwo, locationThree, locationFour, fareOne, fareTwo, fareThree, fareFour }) => {
     return (
         <div className="row">
-            <div className="col-lg-3 col-md-4  col-sm-6">
+            <div className="col-lg-3 col-md-4  col-sm-6" data-aos="flip-left">
                 <div className="card mb-2 mx-md-0 mx-2">
                     <img className="card-img-top" src={imgOne} alt="Card_image_cap" />
 
@@ -29,7 +29,7 @@ const GridCarousolItem = ({ imgOne, imgTwo, imgThree, imgFour, locationOne, loca
                 </div>
             </div>
 
-            <div className="col-lg-3  col-md-4  clearfix d-none d-md-block">
+            <div className="col-lg-3  col-md-4  clearfix d-none d-md-block" data-aos="flip-right">
                 <div className="card mb-2 mx-md-0 mx-3">
                     <img className="card-img-top" src={imgTwo} alt="Card_image_cap" />
 
@@ -50,7 +50,7 @@ const GridCarousolItem = ({ imgOne, imgTwo, imgThree, imgFour, locationOne, loca
                 </div>
             </div>
 
-            <div className="col-lg-3 col-md-4  clearfix d-none d-md-block">
+            <div className="col-lg-3 col-md-4  clearfix d-none d-md-block" data-aos="flip-left">
                 <div className="card mb-2 mx-md-0 mx-3">
                     <img className="card-img-top" src={imgThree} alt="Card_image_cap" />
 
@@ -71,7 +71,7 @@ const GridCarousolItem = ({ imgOne, imgTwo, imgThree, imgFour, locationOne, loca
                 </div>
             </div>
 
-            <div className="col-lg-3 col-md-4  clearfix d-none d-lg-block">
+            <div className="col-lg-3 col-md-4  clearfix d-none d-lg-block" data-aos="flip-right">
                 <div className="card mb-2 mx-md-0 mx-3">
                     <img className="card-img-top" src={imgFour} alt="Card_image_cap" />
 

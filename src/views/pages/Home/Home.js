@@ -5,7 +5,6 @@ import HomePageSubscription from './HomePageSubscription/HomePageSubscription';
 import HomePageOffer from './HomePageOffer/HomePageOffer';
 import HomePagePopularLocations from './HomePagePopularLocations/HomePagePopularLocations';
 import HomePageDownloadApp from './HomePageDownloadApp/HomePageDownloadApp';
-import '../../components/Shared/NagAirAnimation.css';
 
 const Home = () => {
     return (

@@ -12,7 +12,7 @@ const HomePageAdditionalService = () => {
     return (
         <div className='service'>
             <div className=' col-11 mx-auto'>
-                <h1 className='text-center fw-bold location_heading '> Our Aditional Sevice </h1>
+                <h1 className='text-center fw-bold location_heading ' data-aos="fade-up-bottom"> Our Aditional Sevice </h1>
                 <div id="domesticGridCarousol" className="carousel slide carousel-dark" data-bs-ride="carousel" >
                     <div className="carousel-inner">
                         <div className="carousel-item active" data-bs-interval="8000">

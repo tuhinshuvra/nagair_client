@@ -9,11 +9,11 @@ const HomePageDownloadApp = () => {
     <div className="px-4 bgDownloadApp py-4">
       <div className="col-md-10 mx-auto row flex-lg-row-reverse align-items-center">
 
-        <div className="col-lg-4 d-flex justify-content-center">
+        <div className="col-lg-4 d-flex justify-content-center" data-aos="fade-up-left">
           <img src={AppImgOne} className="appImage" alt="Mobile_App_Img" loading="lazy" />
         </div>
 
-        <div className="col-lg-8 mt-md-0 mt-sm-5">
+        <div className="col-lg-8 mt-md-0 mt-sm-5" data-aos="fade-up-right">
           <div className=''>
 
             <h1 className="fw-bold   my-4 text-black appTextHead text-md-start text-center">Download the app to to get special offers!</h1>

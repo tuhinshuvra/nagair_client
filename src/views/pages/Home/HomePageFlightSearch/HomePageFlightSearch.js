@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaCalendarCheck, FaPlane, FaPlaneArrival, FaPlaneDeparture } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import PlaneImage from '../../../../assets/image/nagair_plane.png';
@@ -7,11 +7,25 @@ import useAuth from '../../../../hooks/useAuth';
 import { getCookie } from '../../../../utilities/helper';
 import './HomePageFlightSearch.css';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 const HomePageFlightSearch = () => {
     const { searchData, setSearchData, searchMultipleDays, setSearchMultipleDays, trips, setTrips, flights, setFlights } = useAuth();
     const [showMultiCityField, setShowMultiCityField] = useState(false);
     const [showReturnField, setShowReturnField] = useState(true);
     const [enableSearch, setEnableSearch] = useState(false);
+
+    useEffect(() => {
+        AOS.init({
+            // offset: 200,
+            duration: 2000,
+            delay: 200,
+            // mirror: true,
+            // once: false
+        });
+    }, [])
+
 
     // console.log("trips", trips);
     console.log("searchData :", searchData);
@@ -34,7 +48,7 @@ const HomePageFlightSearch = () => {
             newData[field] = value;
             setSearchData(newData);
         }
-        
+
 
     };
 
@@ -71,7 +85,7 @@ const HomePageFlightSearch = () => {
                 newState[tripName][dataIndex][field] = value;
                 return newState;
             });
-          
+
         } else {
             const value = event.target.value;
             setTrips(prevState => {
@@ -80,8 +94,8 @@ const HomePageFlightSearch = () => {
                 return newState;
             });
         }
-       
-      
+
+
     };
 
     // console.log("trips", trips);
@@ -112,7 +126,7 @@ const HomePageFlightSearch = () => {
             url: `https://nag-air-server.vercel.app/api/show-search-flight-result?travelType=${searchData.travelType}&flightFromCurrentLocation=${searchData?.flightFromCurrentLocation}&flightToDestinationLocation=${searchData?.flightToDestinationLocation}&flightDepartingDate=${searchData.flightDepartingDate}&flightReturningDate=${searchData.flightReturningDate}`,
             method: "GET",
             headers: { 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`, },
-            
+
         }).then((response) => {
             // console.log("flight-information: ", response.data);
             if (response?.data) {
@@ -122,14 +136,14 @@ const HomePageFlightSearch = () => {
             }
         })
 
-            /* .then(response => response.json())
-            .then(data => {
+        /* .then(response => response.json())
+        .then(data => {
 
-                console.log("Search Result Data", data)
-                setFlights(data);
-                // setIsLoading(false)
-                navigate('/flightSearchResult');
-            }) */
+            console.log("Search Result Data", data)
+            setFlights(data);
+            // setIsLoading(false)
+            navigate('/flightSearchResult');
+        }) */
     }
 
 
@@ -157,19 +171,19 @@ const HomePageFlightSearch = () => {
     return (
         <div className=' my-0 py-0'>
             <div className="flightSearchArea   d-flex flex-column justify-content-end text-center">
-                <div className=' text-center'>
-                    <img className='planeImage d-none d-md-block mx-auto' src={PlaneImage} alt="" />
+                <div className=' text-center' data-aos="fade-up-right">
+                    {/* <img className='planeImage d-none d-md-block mx-auto' src={PlaneImage} alt="" /> */}
+                    <img className='planeImage mx-auto' src={PlaneImage} alt="" />
 
                 </div>
-                <h1 className="bannerTitle fw-bold nag_heading animate_bottom">Life Is Short, Or It's, Big<br /> Let's Explore It</h1>
+                <h1 className="bannerTitle fw-bold nag_heading" data-aos="fade-up-bottom">Life Is Short, Or It's, Big<br /> Let's Explore It</h1>
 
 
-                <div className='tinyText col-xl-11  mx-auto my-4 flight-search'>
+                <div className='tinyText   col-md-11  mx-auto my-4  flight-search'>
                     {/* form top section */}
                     <div
                         onChange={getSearchTravelData}
                         className=' col-md-10 col-12 mx-auto  mt-2'>
-
 
                         <div
                             className="form-check form-check-inline"
@@ -322,28 +336,26 @@ const HomePageFlightSearch = () => {
 
                     }
                     {showMultiCityField &&
-                        <div className='multiCitySearch col-xl-7 col-lg-9 mx-auto my-2'>
+                        <div className='multiCitySearch col-xl-7 col-lg-9 col-md-10 mx-auto my-2'>
                             <div className=' '>
                                 <div>
-                                    {/* {!trips.trip3 ? <button className=' btn btn-primary btn-sm fw-bolder my-1 ' onClick={handleAddTrip}>Add Trip</button> : <></>} */}
-
-
                                     {
                                         Object.entries(trips).map(([tripName, tripData]) => (
-                                            <div key={tripName} className=' d-flex my-1 '>
-                                                {/* <h4>{tripName}-</h4> */}
+                                            <div key={tripName} className=' d-flex my-1  '>
                                                 {
                                                     tripData.map((tripDataItem, dataIndex) =>
                                                     (
-                                                        <div key={`${tripName}_${dataIndex}`} className=' d-lg-flex'>
-                                                            <div>
+                                                        <div key={`${tripName}_${dataIndex}`} className=' d-flex '>
+
+                                                            <div className=' col-4  '>
                                                                 <label className="form-label float-start fw-bold" htmlFor="journeyFrom">
                                                                     <FaPlaneDeparture />
                                                                     <span className=''>From</span>
                                                                 </label>
                                                                 <input className="form-control" type="text" name="flightFromCurrentLocation" placeholder='Enter journey from' value={tripDataItem.flightFromCurrentLocation} onChange={(e) => handleInput(e, tripName, dataIndex)} />
                                                             </div>
-                                                            <div className='mx-1'>
+
+                                                            <div className='  col-4 mx-md-1 '>
                                                                 <label className="form-label float-start fw-bold " htmlFor="journeyTo">
                                                                     <FaPlaneArrival />
                                                                     <span className=''>  To </span>
@@ -351,7 +363,8 @@ const HomePageFlightSearch = () => {
                                                                 <input className="form-control" type="text" name="flightToDestinationLocation" placeholder='Enter journey destination' value={tripDataItem.flightToDestinationLocation} onChange={(e) => handleInput(e, tripName, dataIndex)} />
 
                                                             </div>
-                                                            <div>
+
+                                                            <div className=' col-4      '>
                                                                 <label className="tinyLogoText form-label float-start fw-bold" htmlFor="password">
                                                                     < FaCalendarCheck />
                                                                     <span className=''>Depart</span>
@@ -367,8 +380,8 @@ const HomePageFlightSearch = () => {
                                         ))
                                     }
                                 </div>
-                                {!trips.trip3 ? <button className=' btn btn-primary  fw-bolder my-1  w-25 ' onClick={handleAddTrip}>Add Trip</button> : <></>}
-                                {!(trips.trip2 || trips.trip3) ? <></> : <button className='btn btn-primary fw-bolder my-1 ms-md-2 w-25' onClick={handleRemoveTrip}>Remove Trip</button>}
+                                {!trips.trip3 ? <button className=' btn btn-primary  fw-bolder my-1' onClick={handleAddTrip}>Add Trip</button> : <></>}
+                                {!(trips.trip2 || trips.trip3) ? <></> : <button className='btn btn-primary fw-bolder my-1 ms-1 ' onClick={handleRemoveTrip}>Remove Trip</button>}
 
                             </div>
 

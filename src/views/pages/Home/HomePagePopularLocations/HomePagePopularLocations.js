@@ -30,8 +30,8 @@ const HomePagePopularLocations = () => {
         <div className=' col-md-11 mx-auto py-md-5 py-4'>
             {/* ########################## domestic locations flights ################################ */}
 
-            <h1 className='  text-center fw-bold pt-lg-5 animate_bottom location_heading '> Popular Locations </h1>
-            <h2 className='text-center fw-bold pt-lg-2  animate_left location_heading2 mb-lg-3'> Domestic Flights</h2>
+            <h1 className='  text-center fw-bold pt-lg-5  location_heading ' data-aos="fade-up-right"> Popular Locations </h1>
+            <h2 className='text-center fw-bold pt-lg-2   location_heading2 mb-lg-3' data-aos="fade-up-left"> Domestic Flights</h2>
             <div id="domesticGridCarousol" className="carousel slide carousel-dark" data-bs-ride="carousel" >
                 <div className="carousel-inner">
                     <div className="carousel-item active" data-bs-interval="10000">
@@ -106,7 +106,7 @@ const HomePagePopularLocations = () => {
 
 
             {/* ########################## internationl locations flights ################################ */}
-            <h2 className='text-center fw-bold pt-lg-5 nag_heading animate_right location_heading2 mb-lg-3'> International Flights</h2>
+            <h2 className='text-center fw-bold pt-lg-5 nag_heading  location_heading2 mb-lg-3'> International Flights</h2>
             <div id="internationalGridCarousol" className="carousel  carousel-dark slide" data-bs-ride="carousel" >
                 <div className="carousel-inner">
                     <div className="carousel-item active" data-bs-interval="10000">

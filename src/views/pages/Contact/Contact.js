@@ -6,8 +6,8 @@ const Contact = () => {
         <div className="contact_bg col-lg-12 px-lg-4 py-lg-5 py-4">
             <div className="row align-items-center g-lg-5 py-lg-5 col-lg-10 mx-auto p-sm-0">
 
-                <div className="col-md-8 col-xl-6 mx-auto animate_right">
-                    <h1 className="text-3xl font-bold mb-2  animate_bottom location_heading text-center">Get in Touch!</h1>
+                <div className="col-md-8 col-xl-6 mx-auto ">
+                    <h1 className="text-3xl font-bold mb-2   location_heading text-center">Get in Touch!</h1>
                     <form
                         className='d-flex flex-column'
                         action="https://formspree.io/f/mbjelnwv"

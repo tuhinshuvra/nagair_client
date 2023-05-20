@@ -29,23 +29,6 @@ const FlightSearchResultPage = () => {
     }
 
 
-    // useEffect(() => {
-    //     fetch(`${process.env.REACT_APP_NAGAIR}/api/show-search-flight-result?travelType=${searchData.travelType}&flightFromCurrentLocation=${searchData?.flightFromCurrentLocation}&flightToDestinationLocation=${searchData?.flightToDestinationLocation}&flightDepartingDate=${searchData.flightDepartingDate}&flightReturningDate=${searchData.flightReturningDate}`, {
-    //         method: 'GET',
-    //         headers: {
-    //             'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,
-    //         },
-    //     })
-    //         .then(response => response.json())
-    //         .then(data => {
-
-    //             console.log("Search Result Data", data)
-    //             setFlights(data);
-    //             setIsLoading(false)
-    //         })
-    // }, [])
-
-
     return (
         <div>
             {isLoading &&
@@ -80,7 +63,7 @@ const FlightSearchResultPage = () => {
                                             <span className=' fs-4 text-capitalize fw-bold'>TO</span>
 
                                             <span>
-                                                <p className='mb-0 fw-bold'>{flight?.flightToDestinationLocation}</p>
+                                                <p className='mb-0 fw-bold'>{flight?.flightToDestinationLocation.toUpperCase()}</p>
                                                 <p className='mt-0'>{new Date(flight?.flightArrivalDate).toLocaleDateString()}, {flight.flightArrivalTime}</p>
                                             </span>
                                         </div>

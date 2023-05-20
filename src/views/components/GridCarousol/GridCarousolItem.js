@@ -15,7 +15,7 @@ const GridCarousolItem = ({ imgOne, imgTwo, imgThree, imgFour, locationOne, loca
                                 ?
                                 <>
                                     <h5 className="card-title fw-bold">{locationOne}</h5>
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold">From BDT {fareOne} &#10148;</Link>
+                                    <Link to="#" className="text_heading3 text-decoration-none float-end fw-bold">From BDT {fareOne} &#10148;</Link>
                                 </>
                                 :
                                 <>
@@ -39,7 +39,7 @@ const GridCarousolItem = ({ imgOne, imgTwo, imgThree, imgFour, locationOne, loca
                                 ?
                                 <>
                                     <h5 className="card-title fw-bold">{locationTwo}</h5>
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold">From BDT {fareTwo} &#10148;</Link>
+                                    <Link to="#" className="text_heading3 text-decoration-none float-end fw-bold">From BDT {fareTwo} &#10148;</Link>
                                 </>
                                 :
                                 <>
@@ -60,7 +60,7 @@ const GridCarousolItem = ({ imgOne, imgTwo, imgThree, imgFour, locationOne, loca
                                 ?
                                 <>
                                     <h5 className="card-title fw-bold">{locationThree}</h5>
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold">From BDT {fareThree} &#10148;</Link>
+                                    <Link to="#" className="text_heading3 text-decoration-none float-end fw-bold">From BDT {fareThree} &#10148;</Link>
                                 </>
                                 :
                                 <>
@@ -81,7 +81,8 @@ const GridCarousolItem = ({ imgOne, imgTwo, imgThree, imgFour, locationOne, loca
                                 ?
                                 <>
                                     <h5 className="card-title fw-bold">{locationFour}</h5>
-                                    <Link to="#" className="location_heading text-decoration-none float-end fw-bold">From BDT {fareFour} &#10148;</Link>
+                                    <Link to="#" className="text_heading3 text-decoration-none float-end fw-bold">From BDT {fareFour} &#10148;</Link>
+
                                 </>
                                 :
                                 <>

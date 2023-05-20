@@ -8,7 +8,7 @@ import ConfirmatinModal from "../../components/Shared/ConfirmationModal/Confirma
 const PilotList = () => {
     const [deletingPilot, setDeleletingPilot] = useState(null)
     const { isLoading, setIsLoading } = useAuth();
-    const [allPilot, setAllPilot] = useState([]);
+    const [allPilot, setAllPilot] = useState(['']);
 
     const navigate = useNavigate();
 
@@ -76,36 +76,39 @@ const PilotList = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {allPilot.map((pack, index) => (
-                            <tr key={pack._id}>
-                                <td>{index + 1}</td>
-                                <td><p className="my-0"> {pack.pilotName}</p></td>
+                        {allPilot.length > 0 && <>
+                            {allPilot.map((pack, index) => (
+                                <tr key={pack._id}>
+                                    <td>{index + 1}</td>
+                                    <td><p className="my-0"> {pack.pilotName}</p></td>
 
-                                <td>
-                                    <p className="my-0"> {new Date(pack.createdAt).toLocaleDateString()}</p>
-                                    <p className="my-0"> {new Date(pack.updatedAt).toLocaleDateString()}</p>
-                                </td>
-                                <td>
-                                    <Link to={`/pilotUpdate/${pack._id}`}>
+                                    <td>
+                                        <p className="my-0"> {new Date(pack.createdAt).toLocaleDateString()}</p>
+                                        <p className="my-0"> {new Date(pack.updatedAt).toLocaleDateString()}</p>
+                                    </td>
+                                    <td>
+                                        <Link to={`/pilotUpdate/${pack._id}`}>
+                                            <button
+                                                className=" fw-bold btn-sm btn btn-primary mx-1"
+                                            // onClick={() => handlePilotUpdate(user._id)}
+                                            >
+                                                Update
+                                            </button>
+                                        </Link>
+
                                         <button
-                                            className=" fw-bold btn-sm btn btn-primary mx-1"
-                                        // onClick={() => handlePilotUpdate(user._id)}
+                                            onClick={() => setDeleletingPilot(pack._id)}
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#confirmationModal"
+                                            className=" btn btn-sm  btn-outline-danger"
                                         >
-                                            Update
+                                            Delete
                                         </button>
-                                    </Link>
+                                    </td>
+                                </tr>
+                            ))}
 
-                                    <button
-                                        onClick={() => setDeleletingPilot(pack._id)}
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#confirmationModal"
-                                        className=" btn btn-sm  btn-outline-danger"
-                                    >
-                                        Delete
-                                    </button>
-                                </td>
-                            </tr>
-                        ))}
+                        </>}
                     </tbody>
                 </table>
                 {deletingPilot && (

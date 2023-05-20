@@ -1,3 +1,83 @@
 .offerBg {
     background-color: #ecf1ed;
 }
+
+
+.carouNextIcon,
+.carouPrevIcon {
+    display: inline-block !important;
+    width: 2rem !important;
+    height: 2rem !important;
+    background-repeat: no-repeat !important;
+    background-position: 50% !important;
+    background-size: 100% 100% !important;
+    background-color: #746346 !important;
+    /* padding: 10px !important; */
+    border-radius: 25px !important;
+    margin: 230px 23px 0px 23px;
+}
+
+@media (min-width: 1440px) and (max-width: 2559.98px) {
+
+    /* .carouNextIcon,
+  .carouPrevIcon {
+    margin: 170px 15px 0px 15px;
+  } */
+
+}
+
+@media (min-width: 1200px) and (max-width: 1439.98px) {
+
+    .carouNextIcon,
+    .carouPrevIcon {
+        margin: 205px 15px 0px 15px;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1199.98px) {
+
+    .carouNextIcon,
+    .carouPrevIcon {
+        margin: 170px 15px 0px 15px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1023.98px) {
+
+    .carouNextIcon,
+    .carouPrevIcon {
+        margin: 170px 15px 0px 15px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+    .carouNextIcon,
+    .carouPrevIcon {
+        margin: 115px 10px 0px 10px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+    .carouNextIcon,
+    .carouPrevIcon {
+        margin: 85px 5px 0px 5px;
+    }
+}
+
+@media (min-width: 425px) and (max-width: 575.98px) {
+
+    .carouNextIcon,
+    .carouPrevIcon {
+        margin: 63px 5px 0px 5px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 424.98px) {
+
+    .carouNextIcon,
+    .carouPrevIcon {
+        margin: 63px 5px 0px 5px;
+    }
+}

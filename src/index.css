@@ -17,14 +17,21 @@ code {
     monospace;
 }
 
-h1,
-h2 {
-  /* font-family: 'ArthausBold'; */
-  /* color: white; */
+.location_heading {
+  color: #EF3A24;
+  font-size: 45px;
 }
 
-h5,
-h6,
+.location_heading2 {
+  color: #EF3A24;
+  font-size: 35px;
+}
+
+.text_heading3 {
+  color: #EF3A24;
+  font-size: 18px;
+}
+
 p {
   /* font-family: 'ArthausBold'; */
   font-size: 18px;
@@ -97,3 +104,111 @@ custom_link:hover {
 .custom_btn:focus {
   background: rgb(34, 0, 255);
 } */
+
+@media (min-width: 1440px) and (max-width: 2559.98px) {
+  .location_heading {
+    font-size: 45px;
+  }
+
+  .location_heading2 {
+    font-size: 35px;
+  }
+
+  .text_heading3 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1199.98px) {
+  .location_heading {
+    font-size: 45px;
+  }
+
+  .location_heading2 {
+    font-size: 35px;
+  }
+
+  .text_heading3 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1023.98px) {
+  .location_heading {
+    font-size: 45px;
+  }
+
+  .location_heading2 {
+    font-size: 35px;
+  }
+
+  .text_heading3 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .location_heading {
+    font-size: 45px;
+  }
+
+  .location_heading2 {
+    font-size: 35px;
+  }
+
+  .text_heading3 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 767.98px) {
+  .location_heading {
+    font-size: 27px;
+  }
+
+  .location_heading2 {
+    font-size: 23px;
+  }
+
+  .text_heading3 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 424.98px) {
+  .location_heading {
+    font-size: 27px;
+  }
+
+  .location_heading2 {
+    font-size: 23px;
+  }
+
+  .text_heading3 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+}

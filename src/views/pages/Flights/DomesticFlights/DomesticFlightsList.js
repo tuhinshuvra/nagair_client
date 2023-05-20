@@ -10,7 +10,7 @@ const DomesticFlightsList = () => {
     const [deletingFlights, setDeleletingFlights] = useState(null)
     // const [flightId, setFlightId] = useState('');
     const { isLoading, setIsLoading } = useAuth();
-    const [domesticFlights, setDomesticFlights] = useState([]);
+    const [domesticFlights, setDomesticFlights] = useState(['']);
 
     const navigate = useNavigate();
 
@@ -77,40 +77,43 @@ const DomesticFlightsList = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {domesticFlights.map((flight, index) => (
-                            <tr key={flight._id}>
-                                <td>{index + 1}</td>
-                                <td > <img className="locationImage" src={flight.locationImage} alt="" /> </td>
-                                <td>
-                                    <p className="my-0"> {flight.flightLocationName}</p>
-                                    {/* <Link onClick={() => setUserDetails(flight._id)} to={`/userDetails/${flight?._id}`} className="btn btn-sm btn-primary my-0">Show Details</Link> */}
-                                </td>
-                                <td><p className="my-0">  ৳{flight.tickitPrice}</p></td>
-                                <td>
-                                    <p className="my-0"> {new Date(flight.createdAt).toLocaleDateString()}</p>
-                                    <p className="my-0"> {new Date(flight.updatedAt).toLocaleDateString()}</p>
-                                </td>
-                                <td>
-                                    <Link to={`/domesticFlightUpdate/${flight._id}`}>
-                                        <button
-                                            className=" fw-bold btn-sm btn btn-primary mx-1"
-                                        // onClick={() => handleUserUpdate(user._id)}
-                                        >
-                                            Update
-                                        </button>
-                                    </Link>
+                        {domesticFlights.length > 0 && <>
+                            {domesticFlights.map((flight, index) => (
+                                <tr key={flight._id}>
+                                    <td>{index + 1}</td>
+                                    <td > <img className="locationImage" src={flight.locationImage} alt="" /> </td>
+                                    <td>
+                                        <p className="my-0"> {flight.flightLocationName}</p>
+                                        {/* <Link onClick={() => setUserDetails(flight._id)} to={`/userDetails/${flight?._id}`} className="btn btn-sm btn-primary my-0">Show Details</Link> */}
+                                    </td>
+                                    <td><p className="my-0">  ৳{flight.tickitPrice}</p></td>
+                                    <td>
+                                        <p className="my-0"> {new Date(flight.createdAt).toLocaleDateString()}</p>
+                                        <p className="my-0"> {new Date(flight.updatedAt).toLocaleDateString()}</p>
+                                    </td>
+                                    <td>
+                                        <Link to={`/domesticFlightUpdate/${flight._id}`}>
+                                            <button
+                                                className=" fw-bold btn-sm btn btn-primary mx-1"
+                                            // onClick={() => handleUserUpdate(user._id)}
+                                            >
+                                                Update
+                                            </button>
+                                        </Link>
 
-                                    <button
-                                        onClick={() => setDeleletingFlights(flight._id)}
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#confirmationModal"
-                                        className=" btn btn-sm  btn-outline-danger"
-                                    >
-                                        Delete
-                                    </button>
-                                </td>
-                            </tr>
-                        ))}
+                                        <button
+                                            onClick={() => setDeleletingFlights(flight._id)}
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#confirmationModal"
+                                            className=" btn btn-sm  btn-outline-danger"
+                                        >
+                                            Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+
+                        </>}
                     </tbody>
                 </table>
                 {deletingFlights && (

@@ -27,11 +27,11 @@ import './MulitImageSlider.css'
 
 const HomePagePopularLocations = () => {
     return (
-        <div className=' col-md-11 mx-auto py-md-5'>
+        <div className=' col-md-11 mx-auto py-md-5 py-4'>
             {/* ########################## domestic locations flights ################################ */}
 
-            <h1 className=' text-center fw-bold pt-lg-5 animate_bottom location_heading '> Popular Locations </h1>
-            <h2 className='text-center fw-bold pt-lg-2  animate_left location_heading mb-lg-3'> Domestic Flights</h2>
+            <h1 className='  text-center fw-bold pt-lg-5 animate_bottom location_heading '> Popular Locations </h1>
+            <h2 className='text-center fw-bold pt-lg-2  animate_left location_heading2 mb-lg-3'> Domestic Flights</h2>
             <div id="domesticGridCarousol" className="carousel slide carousel-dark" data-bs-ride="carousel" >
                 <div className="carousel-inner">
                     <div className="carousel-item active" data-bs-interval="10000">
@@ -94,11 +94,11 @@ const HomePagePopularLocations = () => {
                     </div>
 
                 </div>
-                <button className="carousel-control-prev" type="button" data-bs-target="#domesticGridCarousol" data-bs-slide="prev">
+                <button className="carousel-control-prev  sliderPrevIcon" type="button" data-bs-target="#domesticGridCarousol" data-bs-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Previous</span>
                 </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#domesticGridCarousol" data-bs-slide="next">
+                <button className="carousel-control-next sliderNextIcon" type="button" data-bs-target="#domesticGridCarousol" data-bs-slide="next">
                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Next</span>
                 </button>
@@ -106,7 +106,7 @@ const HomePagePopularLocations = () => {
 
 
             {/* ########################## internationl locations flights ################################ */}
-            <h2 className='text-center fw-bold pt-lg-5 nag_heading animate_right location_heading mb-lg-3'> International Flights</h2>
+            <h2 className='text-center fw-bold pt-lg-5 nag_heading animate_right location_heading2 mb-lg-3'> International Flights</h2>
             <div id="internationalGridCarousol" className="carousel  carousel-dark slide" data-bs-ride="carousel" >
                 <div className="carousel-inner">
                     <div className="carousel-item active" data-bs-interval="10000">
@@ -169,11 +169,11 @@ const HomePagePopularLocations = () => {
                     </div>
 
                 </div>
-                <button className="carousel-control-prev" type="button" data-bs-target="#internationalGridCarousol" data-bs-slide="prev">
+                <button className="carousel-control-prev sliderPrevIcon" type="button" data-bs-target="#internationalGridCarousol" data-bs-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Previous</span>
                 </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#internationalGridCarousol" data-bs-slide="next">
+                <button className="carousel-control-next sliderNextIcon" type="button" data-bs-target="#internationalGridCarousol" data-bs-slide="next">
                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Next</span>
                 </button>

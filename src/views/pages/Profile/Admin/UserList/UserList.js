@@ -6,7 +6,7 @@ import useAuth from "../../../../../hooks/useAuth";
 
 const UserList = () => {
     const { setUserDetails, isLoading, setIsLoading } = useAuth();
-    const [allUser, setAllUser] = useState([]);
+    const [allUser, setAllUser] = useState(['']);
     const navigate = useNavigate();
 
     console.log("userListData : ", allUser);
@@ -41,37 +41,38 @@ const UserList = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {allUser.map((user, index) => (
-                            <tr key={user._id}>
-                                <td>{index + 1}</td>
-                                <td>
-                                    <p className="my-0"> {user.name}</p>
+                        {allUser.length > 0 && <>
+                            {allUser.map((user, index) => (
+                                <tr key={user._id}>
+                                    <td>{index + 1}</td>
+                                    <td>
+                                        <p className="my-0"> {user.name}</p>
 
 
-                                    {/* onClick={() => handleMakeAdmin(user._id)} */}
+                                        {/* onClick={() => handleMakeAdmin(user._id)} */}
 
-                                    <Link onClick={() => setUserDetails(user._id)} to={`/userDetails/${user?._id}`} className="btn btn-sm btn-primary my-0">Show Details</Link>
+                                        <Link onClick={() => setUserDetails(user._id)} to={`/userDetails/${user?._id}`} className="btn btn-sm btn-primary my-0">Show Details</Link>
 
-                                </td>
-                                <td>{user.email}</td>
-                                {/* <td>{user.userType}</td> */}
-                                <td>
-                                    {user?.role === "admin"
-                                        ?
-                                        <p className=" fw-bolder text-success">Admin</p>
-                                        :
-                                        <>
-                                            <p className="text-info my-0">Passenger</p>
-                                            <button
-                                                className=" btn btn-sm btn-info my-0"
-                                            // onClick={() => handleMakeAdmin(user.email)}
-                                            >
-                                                Make Admin
-                                            </button>
-                                        </>
-                                    }
-                                </td>
-                                {/* <td>
+                                    </td>
+                                    <td>{user.email}</td>
+                                    {/* <td>{user.userType}</td> */}
+                                    <td>
+                                        {user?.role === "admin"
+                                            ?
+                                            <p className=" fw-bolder text-success">Admin</p>
+                                            :
+                                            <>
+                                                <p className="text-info my-0">Passenger</p>
+                                                <button
+                                                    className=" btn btn-sm btn-info my-0"
+                                                // onClick={() => handleMakeAdmin(user.email)}
+                                                >
+                                                    Make Admin
+                                                </button>
+                                            </>
+                                        }
+                                    </td>
+                                    {/* <td>
                                     <Link to={`/dashboard/userUpdate/${user._id}`}>
                                         <button
                                             className=" fw-bold btn-sm btn btn-primary mx-1"
@@ -90,8 +91,11 @@ const UserList = () => {
                                         Delete
                                     </button>
                                 </td> */}
-                            </tr>
-                        ))}
+                                </tr>
+                            ))}
+
+                        </>}
+
                     </tbody>
                 </table>
                 {/* {deletingUser && (

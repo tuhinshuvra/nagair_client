@@ -10,7 +10,7 @@ const PackageList = () => {
     const [deletingPackage, setDeleletingPackage] = useState(null)
     // const [flightId, setFlightId] = useState('');
     const { isLoading, setIsLoading } = useAuth();
-    const [allPackage, setAllPackage] = useState([]);
+    const [allPackage, setAllPackage] = useState(['']);
 
     const navigate = useNavigate();
 
@@ -82,39 +82,42 @@ const PackageList = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {allPackage.map((pack, index) => (
-                            <tr key={pack._id}>
-                                <td>{index + 1}</td>
-                                <td><p className="my-0"> {pack.packageName}</p></td>
-                                <td><p className="my-0"> {pack.bagWeight} KG</p></td>
-                                <td><p className="my-0">  ৳{pack.packagesPrice}</p></td>
-                                <td><p className="my-0">  {pack.packageFacility1}</p></td>
-                                <td><p className="my-0">  {pack.packageFacility2}</p></td>
-                                <td>
-                                    <p className="my-0"> {new Date(pack.createdAt).toLocaleDateString()}</p>
-                                    <p className="my-0"> {new Date(pack.updatedAt).toLocaleDateString()}</p>
-                                </td>
-                                <td>
-                                    <Link to={`/packageUpdate/${pack._id}`}>
-                                        <button
-                                            className=" fw-bold btn-sm btn btn-primary mx-1"
-                                        // onClick={() => handleUserUpdate(user._id)}
-                                        >
-                                            Update
-                                        </button>
-                                    </Link>
+                        {allPackage.length > 0 && <>
+                            {allPackage.map((pack, index) => (
+                                <tr key={pack._id}>
+                                    <td>{index + 1}</td>
+                                    <td><p className="my-0"> {pack.packageName}</p></td>
+                                    <td><p className="my-0"> {pack.bagWeight} KG</p></td>
+                                    <td><p className="my-0">  ৳{pack.packagesPrice}</p></td>
+                                    <td><p className="my-0">  {pack.packageFacility1}</p></td>
+                                    <td><p className="my-0">  {pack.packageFacility2}</p></td>
+                                    <td>
+                                        <p className="my-0"> {new Date(pack.createdAt).toLocaleDateString()}</p>
+                                        <p className="my-0"> {new Date(pack.updatedAt).toLocaleDateString()}</p>
+                                    </td>
+                                    <td>
+                                        <Link to={`/packageUpdate/${pack._id}`}>
+                                            <button
+                                                className=" fw-bold btn-sm btn btn-primary mx-1"
+                                            // onClick={() => handleUserUpdate(user._id)}
+                                            >
+                                                Update
+                                            </button>
+                                        </Link>
 
-                                    <button
-                                        onClick={() => setDeleletingPackage(pack._id)}
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#confirmationModal"
-                                        className=" btn btn-sm  btn-outline-danger"
-                                    >
-                                        Delete
-                                    </button>
-                                </td>
-                            </tr>
-                        ))}
+                                        <button
+                                            onClick={() => setDeleletingPackage(pack._id)}
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#confirmationModal"
+                                            className=" btn btn-sm  btn-outline-danger"
+                                        >
+                                            Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+
+                        </>}
                     </tbody>
                 </table>
                 {deletingPackage && (

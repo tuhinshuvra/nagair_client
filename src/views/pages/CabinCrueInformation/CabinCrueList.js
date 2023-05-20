@@ -9,7 +9,7 @@ const CabinCrueList = () => {
     const [deletingCabinCrue, setDeleletingCabinCrue] = useState(null)
     // const [flightId, setFlightId] = useState('');
     const { isLoading, setIsLoading } = useAuth();
-    const [allCabinCrue, setAllCabinCrue] = useState([]);
+    const [allCabinCrue, setAllCabinCrue] = useState(['']);
 
     const navigate = useNavigate();
 
@@ -73,36 +73,39 @@ const CabinCrueList = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {allCabinCrue.map((pack, index) => (
-                            <tr key={pack._id}>
-                                <td>{index + 1}</td>
-                                <td><p className="my-0"> {pack.cabinCrewName}</p></td>
+                        {allCabinCrue.length > 0 && <>
+                            {allCabinCrue.map((pack, index) => (
+                                <tr key={pack._id}>
+                                    <td>{index + 1}</td>
+                                    <td><p className="my-0"> {pack.cabinCrewName}</p></td>
 
-                                <td>
-                                    <p className="my-0"> {new Date(pack.createdAt).toLocaleDateString()}</p>
-                                    <p className="my-0"> {new Date(pack.updatedAt).toLocaleDateString()}</p>
-                                </td>
-                                <td>
-                                    <Link to={`/packageUpdate/${pack._id}`}>
+                                    <td>
+                                        <p className="my-0"> {new Date(pack.createdAt).toLocaleDateString()}</p>
+                                        <p className="my-0"> {new Date(pack.updatedAt).toLocaleDateString()}</p>
+                                    </td>
+                                    <td>
+                                        <Link to={`/packageUpdate/${pack._id}`}>
+                                            <button
+                                                className=" fw-bold btn-sm btn btn-primary mx-1"
+                                            // onClick={() => handleCabinCrueUpdate(user._id)}
+                                            >
+                                                Update
+                                            </button>
+                                        </Link>
+
                                         <button
-                                            className=" fw-bold btn-sm btn btn-primary mx-1"
-                                        // onClick={() => handleCabinCrueUpdate(user._id)}
+                                            onClick={() => setDeleletingCabinCrue(pack._id)}
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#confirmationModal"
+                                            className=" btn btn-sm  btn-outline-danger"
                                         >
-                                            Update
+                                            Delete
                                         </button>
-                                    </Link>
+                                    </td>
+                                </tr>
+                            ))}
 
-                                    <button
-                                        onClick={() => setDeleletingCabinCrue(pack._id)}
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#confirmationModal"
-                                        className=" btn btn-sm  btn-outline-danger"
-                                    >
-                                        Delete
-                                    </button>
-                                </td>
-                            </tr>
-                        ))}
+                        </>}
                     </tbody>
                 </table>
                 {deletingCabinCrue && (

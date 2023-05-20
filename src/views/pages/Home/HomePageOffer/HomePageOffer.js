@@ -9,7 +9,7 @@ import './HomePageOffer.css';
 const HomePageOffer = () => {
     return (
         <div className='offerBg'>
-            <div className='col-11 my-0 py-0 mx-auto'>
+            <div className=' my-0 py-0'>
 
                 <div id="nagAirCarouseleInterval" className="carousel slide carousel-dark" data-bs-ride="carousel">
                     <div className="carousel-inner">
@@ -29,11 +29,11 @@ const HomePageOffer = () => {
                             <img src={Offer5} className="d-block w-100 rounded-3 " alt="..." />
                         </div>
                     </div>
-                    <button className="carousel-control-prev" type="button" data-bs-target="#nagAirCarouseleInterval" data-bs-slide="prev">
+                    <button className="carousel-control-prev carouNextIcon" type="button" data-bs-target="#nagAirCarouseleInterval" data-bs-slide="prev">
                         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span className="visually-hidden">Previous</span>
                     </button>
-                    <button className="carousel-control-next" type="button" data-bs-target="#nagAirCarouseleInterval" data-bs-slide="next">
+                    <button className="carousel-control-next carouPrevIcon" type="button" data-bs-target="#nagAirCarouseleInterval" data-bs-slide="next">
                         <span className="carousel-control-next-icon" aria-hidden="true"></span>
                         <span className="visually-hidden">Next</span>
                     </button>

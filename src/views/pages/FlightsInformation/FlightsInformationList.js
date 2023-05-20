@@ -10,7 +10,7 @@ const FlightsInformationList = () => {
     const [deletingFlightInfo, setDeletingFlightInfo] = useState(null)
     // const [flightId, setFlightId] = useState('');
     const { isLoading, setIsLoading } = useAuth();
-    const [allFlightInfo, setAllFlightInfo] = useState([]);
+    const [allFlightInfo, setAllFlightInfo] = useState(['']);
 
     console.log("allFlightInfo : ", allFlightInfo);
 
@@ -96,47 +96,50 @@ const FlightsInformationList = () => {
                         </tr>
                     </thead>
                     <tbody className=" small">
-                        {allFlightInfo.map((flight, index) => (
-                            <tr key={flight._id} className="flightInfoTxt">
-                                <td>{index + 1}</td>
-                                <td className=" ">  {flight.flightFromCurrentLocation}</td>
-                                <td className=" ">  {flight.flightToDestinationLocation}</td>
-                                <td colSpan={3}>
-                                    <td className="text-capitalize">  {flight.silverPackagesPrice}TK</td>
-                                    <td className="text-capitalize">  {flight.goldPackagesPrice}TK</td>
-                                    <td className="text-capitalize">  {flight.platinumpackagesPrice}TK</td>
-                                </td>
-                                <td> {new Date(flight.flightDepartingDate).toLocaleDateString()} {flight.flightDepartingTime}</td>
-                                <td> {new Date(flight.flightArrivalDate).toLocaleDateString()}  {flight.flightArrivalTime}</td>
-                                <td>  {flight.planeNumber}</td>
-                                <td>  {flight.flightNumber}</td>
-                                <td className="text-capitalize"> {flight?.pilotsOfPlaneId?.pilotName}</td>
-                                <td> {flight?.cabinCrewId?.cabinCrewName}</td>
-                                <td>
-                                    {new Date(flight.createdAt).toLocaleDateString()},
-                                    {new Date(flight.updatedAt).toLocaleDateString()}
-                                </td>
-                                <td className="flightInfoTxt">
-                                    <Link to={`/flightInformationUpdate/${flight._id}`}>
-                                        <button
-                                            className=" fw-bold btn-sm btn btn-primary mx-1"
-                                        // onClick={() => handleflightInfoUpdate(user._id)}
-                                        >
-                                            Update
-                                        </button>
-                                    </Link>
+                        {allFlightInfo.length > 0 && <>
+                            {allFlightInfo.map((flight, index) => (
+                                <tr key={flight._id} className="flightInfoTxt">
+                                    <td>{index + 1}</td>
+                                    <td className=" ">  {flight.flightFromCurrentLocation}</td>
+                                    <td className=" ">  {flight.flightToDestinationLocation}</td>
+                                    <td colSpan={3}>
+                                        <td className="text-capitalize">  {flight.silverPackagesPrice}TK</td>
+                                        <td className="text-capitalize">  {flight.goldPackagesPrice}TK</td>
+                                        <td className="text-capitalize">  {flight.platinumpackagesPrice}TK</td>
+                                    </td>
+                                    <td> {new Date(flight.flightDepartingDate).toLocaleDateString()} {flight.flightDepartingTime}</td>
+                                    <td> {new Date(flight.flightArrivalDate).toLocaleDateString()}  {flight.flightArrivalTime}</td>
+                                    <td>  {flight.planeNumber}</td>
+                                    <td>  {flight.flightNumber}</td>
+                                    <td className="text-capitalize"> {flight?.pilotsOfPlaneId?.pilotName}</td>
+                                    <td> {flight?.cabinCrewId?.cabinCrewName}</td>
+                                    <td>
+                                        {new Date(flight.createdAt).toLocaleDateString()},
+                                        {new Date(flight.updatedAt).toLocaleDateString()}
+                                    </td>
+                                    <td className="flightInfoTxt">
+                                        <Link to={`/flightInformationUpdate/${flight._id}`}>
+                                            <button
+                                                className=" fw-bold btn-sm btn btn-primary mx-1"
+                                            // onClick={() => handleflightInfoUpdate(user._id)}
+                                            >
+                                                Update
+                                            </button>
+                                        </Link>
 
-                                    <button
-                                        onClick={() => setDeletingFlightInfo(flight._id)}
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#confirmationModal"
-                                        className=" btn btn-sm  btn-outline-danger"
-                                    >
-                                        Delete
-                                    </button>
-                                </td>
-                            </tr>
-                        ))}
+                                        <button
+                                            onClick={() => setDeletingFlightInfo(flight._id)}
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#confirmationModal"
+                                            className=" btn btn-sm  btn-outline-danger"
+                                        >
+                                            Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </>}
+
                     </tbody>
                 </table>
                 {deletingFlightInfo && (

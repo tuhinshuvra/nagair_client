@@ -6,8 +6,6 @@ import PlaneImage from '../../../../assets/image/nagair_plane.png';
 import useAuth from '../../../../hooks/useAuth';
 import { getCookie } from '../../../../utilities/helper';
 import './HomePageFlightSearch.css';
-import AsyncSelect from 'react-select/async';
-
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Select from 'react-select'
@@ -19,20 +17,19 @@ const HomePageFlightSearch = () => {
     const [enableSearch, setEnableSearch] = useState(false);
     const [locationData, setLocationData] = useState([]);
 
-    const customStyles = {
-        control: (provided, state) => ({
-            ...provided,
-            background: "#fff",
-            borderColor: "#eaecf0",
-            boxShadow: state.isFocused ? null : null,
-            with: "200px",
+    // const customStyles = {
+    //     control: (provided, state) => ({
+    //         ...provided,
+    //         background: "#fff",
+    //         borderColor: "#eaecf0",
+    //         boxShadow: state.isFocused ? null : null,
+    //         with: "200px",
 
-            "&:hover": {
-                // Overwrittes the different states of border
-                borderColor: "#eaecf0",
-            },
-        }),
-    };
+    //         "&:hover": {
+    //             borderColor: "#eaecf0",
+    //         },
+    //     }),
+    // };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -54,16 +51,8 @@ const HomePageFlightSearch = () => {
         fetchData();
     }, []);
 
-    // useEffect(() => {
-    //     const myFunc = async () => {
-    //         const dataOne = await fetch(`http://localhost:5001/api/show-domestic-flight`)
-    //         const dataTwo = await fetch(`http://localhost:5001/api/show-international-flight`)
-    //         setLocationData([...dataOne.data, ...dataTwo.data])
-    //     }
-    //     myFunc()
-    // }, [])
 
-    console.log("locationData", locationData);
+    // console.log("locationData", locationData);
 
     const flightOptionFrom = locationData.map((data) => ({ value: data.flightLocationName, label: data.flightLocationName, name: "flightFromCurrentLocation" }))
     const flightOptionTo = locationData.map((data) => ({ value: data.flightLocationName, label: data.flightLocationName, name: "flightToDestinationLocation" }))
@@ -111,11 +100,6 @@ const HomePageFlightSearch = () => {
         newData[field] = value;
         setSearchData(newData);
     }
-
-    // const getSearchMultipleCitiesData = (event) => {
-    // };
-
-
 
     const handleAddTrip = () => {
         setTrips(prevState => ({
@@ -180,6 +164,11 @@ const HomePageFlightSearch = () => {
         setShowMultiCityField(true);
         setEnableSearch(true);
     }
+
+    useEffect(() => {
+        handleOneWayFlight();
+        setSearchData({ ...searchData, travelType: 'oneWay' })
+    }, [])
 
     const handleSingeTripData = async () => {
         await axios({
@@ -247,8 +236,9 @@ const HomePageFlightSearch = () => {
                                 name="travelType"
                                 id="oneWay"
                                 value="oneWay"
+                                checked
                             />
-                            <label className="form-check-label fw-bold" htmlFor="one-way">One Way</label>
+                            <label className="form-check-label fw-bold" htmlFor="one-way"  >One Way</label>
                         </div>
 
                         <div
@@ -295,7 +285,6 @@ const HomePageFlightSearch = () => {
                                             onChange={getSearchTravelSelectData}
                                             options={flightOptionFrom}
                                         // styles={customStyles}
-                                        // className=' w-100'
                                         />
                                     </div>
 
@@ -307,7 +296,7 @@ const HomePageFlightSearch = () => {
                                         <Select
                                             onChange={getSearchTravelSelectData}
                                             options={flightOptionTo}
-                                            styles={customStyles}
+                                        // styles={customStyles}
                                         />
                                     </div>
 
@@ -363,7 +352,6 @@ const HomePageFlightSearch = () => {
                                             <option value={7}>Eight</option>
                                         </select>
                                     </div>
-
                                 </div>
                             </div>
                         </>

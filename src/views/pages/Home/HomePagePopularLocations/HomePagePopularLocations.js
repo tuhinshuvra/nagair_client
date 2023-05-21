@@ -106,7 +106,7 @@ const HomePagePopularLocations = () => {
 
 
             {/* ########################## internationl locations flights ################################ */}
-            <h2 className='text-center fw-bold pt-lg-5 nag_heading  location_heading2 mb-lg-3'> International Flights</h2>
+            <h2 className='text-center fw-bold pt-lg-5 nag_heading  location_heading2 mb-lg-3' data-aos="fade-up"> International Flights</h2>
             <div id="internationalGridCarousol" className="carousel  carousel-dark slide" data-bs-ride="carousel" >
                 <div className="carousel-inner">
                     <div className="carousel-item active" data-bs-interval="10000">

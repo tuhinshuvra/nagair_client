@@ -6,15 +6,69 @@ import PlaneImage from '../../../../assets/image/nagair_plane.png';
 import useAuth from '../../../../hooks/useAuth';
 import { getCookie } from '../../../../utilities/helper';
 import './HomePageFlightSearch.css';
+import AsyncSelect from 'react-select/async';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Select from 'react-select'
 
 const HomePageFlightSearch = () => {
     const { searchData, setSearchData, searchMultipleDays, setSearchMultipleDays, trips, setTrips, flights, setFlights } = useAuth();
     const [showMultiCityField, setShowMultiCityField] = useState(false);
     const [showReturnField, setShowReturnField] = useState(true);
     const [enableSearch, setEnableSearch] = useState(false);
+    const [locationData, setLocationData] = useState([]);
+
+    const customStyles = {
+        control: (provided, state) => ({
+            ...provided,
+            background: "#fff",
+            borderColor: "#eaecf0",
+            boxShadow: state.isFocused ? null : null,
+            with: "200px",
+
+            "&:hover": {
+                // Overwrittes the different states of border
+                borderColor: "#eaecf0",
+            },
+        }),
+    };
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response1 = await axios.get('https://nag-air-server.vercel.app/api/show-domestic-flight');
+                const response2 = await axios.get('https://nag-air-server.vercel.app/api/show-international-flight');
+
+                const data1 = response1.data;
+                const data2 = response2.data;
+
+                const combinedData = [...data1, ...data2]; // Merge the data arrays
+
+                setLocationData(combinedData);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    // useEffect(() => {
+    //     const myFunc = async () => {
+    //         const dataOne = await fetch(`http://localhost:5001/api/show-domestic-flight`)
+    //         const dataTwo = await fetch(`http://localhost:5001/api/show-international-flight`)
+    //         setLocationData([...dataOne.data, ...dataTwo.data])
+    //     }
+    //     myFunc()
+    // }, [])
+
+    console.log("locationData", locationData);
+
+    const flightOptionFrom = locationData.map((data) => ({ value: data.flightLocationName, label: data.flightLocationName, name: "flightFromCurrentLocation" }))
+    const flightOptionTo = locationData.map((data) => ({ value: data.flightLocationName, label: data.flightLocationName, name: "flightToDestinationLocation" }))
+    // console.log("flightOptions", flightOptions);
+
 
     useEffect(() => {
         AOS.init({
@@ -35,22 +89,28 @@ const HomePageFlightSearch = () => {
     const showHideFilds = { 'flightFromCurrentLocation': '', 'flightToDestinationLocation': '', 'flightDepartingDate': '' }
     const [inputList, setInputList] = useState([showHideFilds]);
 
-    const getSearchTravelData = (event) => {
-        const field = event.target.name;
+    const getSearchTravelSelectData = (event) => {
+        const field = event.name;
         if (field === "flightToDestinationLocation" || field === "flightFromCurrentLocation") {
-            const value = (event.target.value).toLowerCase()
+            const value = (event.value).toLowerCase()
             const newData = { ...searchData };
             newData[field] = value;
             setSearchData(newData);
         } else {
-            const value = (event.target.value)
+            const value = (event.value)
             const newData = { ...searchData };
             newData[field] = value;
             setSearchData(newData);
         }
-
-
     };
+
+    const getSearchTravelData = (event) => {
+        const field = event.target.name;
+        const value = (event.target.value)
+        const newData = { ...searchData };
+        newData[field] = value;
+        setSearchData(newData);
+    }
 
     // const getSearchMultipleCitiesData = (event) => {
     // };
@@ -135,15 +195,6 @@ const HomePageFlightSearch = () => {
                 navigate('/flightSearchResult');
             }
         })
-
-        /* .then(response => response.json())
-        .then(data => {
-
-            console.log("Search Result Data", data)
-            setFlights(data);
-            // setIsLoading(false)
-            navigate('/flightSearchResult');
-        }) */
     }
 
 
@@ -176,14 +227,15 @@ const HomePageFlightSearch = () => {
                     <img className='planeImage mx-auto' src={PlaneImage} alt="" />
 
                 </div>
-                <h1 className="bannerTitle fw-bold nag_heading" data-aos="fade-up-bottom">Life Is Short, Or It's, Big<br /> Let's Explore It</h1>
+                <h1 className="bannerTitle fw-bold nag_heading" data-aos="fade-up">Life Is Short, Or It's, Big<br /> Let's Explore It</h1>
 
+                {/* <Select options={flightOptions} styles={customStyles} /> */}
 
-                <div className='tinyText   col-md-11  mx-auto my-4  flight-search'>
+                <div className='tinyText col-lg-9   col-11 mx-auto my-4  flight-search'>
                     {/* form top section */}
                     <div
                         onChange={getSearchTravelData}
-                        className=' col-md-10 col-12 mx-auto  mt-2'>
+                        className=' col-md-10   mx-auto  mt-2'>
 
                         <div
                             className="form-check form-check-inline"
@@ -232,42 +284,36 @@ const HomePageFlightSearch = () => {
                     {!showMultiCityField &&
                         <>
                             <div className='row  col-12 mx-auto'>
-                                <div className='col-lg-11 col-md-12 d-md-flex justify-content-evenly mx-auto'>
-                                    <div className="form-outline   mx-1 my-2">
+                                <div className='  col-md-12 d-md-flex justify-content-evenly mx-auto'>
+
+                                    <div className="col-md-3 col-12 d-flex flex-column   my-2   col-3  my-2">
                                         <label className="form-label float-start fw-bold" htmlFor="journeyFrom">
                                             <FaPlaneDeparture />
                                             <span className=''>From</span>
                                         </label>
-                                        <input
-                                            onChange={getSearchTravelData}
-                                            type="text"
-                                            name="flightFromCurrentLocation"
-                                            id="flightFromCurrentLocation"
-                                            className="form-control"
-                                            placeholder="Enter Journey from"
-                                        // onBlur={getSearchMultipleCitiesData}
+                                        <Select
+                                            onChange={getSearchTravelSelectData}
+                                            options={flightOptionFrom}
+                                        // styles={customStyles}
+                                        // className=' w-100'
                                         />
-
                                     </div>
 
-                                    <div className="form-outline   mx-1 my-2">
-                                        <label className="form-label float-start fw-bold " htmlFor="journeyTo">
+                                    <div className="   col-md-3 col-12 d-flex flex-column   my-2   col-3  my-2">
+                                        <label className="form-label float-start fw-bold" htmlFor="journeyTo">
                                             <FaPlaneArrival />
                                             <span className=''>To</span>
                                         </label>
-                                        <input
-                                            onChange={getSearchTravelData}
-                                            type="text"
-                                            name="flightToDestinationLocation"
-                                            id="flightToDestinationLocation"
-                                            className="form-control"
-                                            placeholder='Enter journey destination'
-                                        // onBlur={getSearchMultipleCitiesData}
+                                        <Select
+                                            onChange={getSearchTravelSelectData}
+                                            options={flightOptionTo}
+                                            styles={customStyles}
                                         />
                                     </div>
-                                    <div className=' '></div>
-                                    <div className="form-outline mx-1 my-2">
-                                        <label className="tinyLogoText form-label float-start fw-bold" htmlFor="password">
+
+
+                                    <div className="   col-md-2 form-outline mx-1 my-2">
+                                        <label className="tinyLogoText form-label   fw-bold" htmlFor="password">
                                             < FaCalendarCheck />
                                             <span className=''>Depart</span>
                                         </label>
@@ -278,14 +324,12 @@ const HomePageFlightSearch = () => {
                                             name="flightDepartingDate"
                                             id="flightDepartingDate"
                                             className="form-control"
-                                        // onBlur={getSearchMultipleDaysData}
-
                                         />
                                     </div>
 
                                     {showReturnField &&
-                                        <div className="form-outline   mx-1 my-2">
-                                            <label className="tinyLogoText form-label float-start fw-bold" htmlFor="password">
+                                        <div className="  col-md-2  form-outline   mx-1 my-2">
+                                            <label className="tinyLogoText form-label   fw-bold" htmlFor="password">
                                                 < FaCalendarCheck />
                                                 <span className=''>Return</span>
                                             </label>
@@ -303,9 +347,9 @@ const HomePageFlightSearch = () => {
                                     }
 
                                     <div className="form-outline mx-1 my-2">
-                                        <label className="tinyLogoText form-label float-start fw-bold" htmlFor="password">
+                                        <label className="tinyLogoText form-label   fw-bold" htmlFor="password">
                                             < FaPlane />
-                                            <span className=''>Travellers</span>
+                                            <span className=' small'>Traveller</span>
                                         </label>
                                         <select className="form-select select-bordered  ">
                                             <option disabled defaultValue>Select</option>
@@ -336,7 +380,7 @@ const HomePageFlightSearch = () => {
 
                     }
                     {showMultiCityField &&
-                        <div className='multiCitySearch col-xl-7 col-lg-9 col-md-10 mx-auto my-2'>
+                        <div className='multiCitySearch col-xl-7 col-lg-9 col-md-10 col-11 mx-auto my-2'>
                             <div className=' '>
                                 <div>
                                     {
@@ -347,25 +391,31 @@ const HomePageFlightSearch = () => {
                                                     (
                                                         <div key={`${tripName}_${dataIndex}`} className=' d-flex '>
 
-                                                            <div className=' col-4  '>
-                                                                <label className="form-label float-start fw-bold" htmlFor="journeyFrom">
+                                                            <div className="col-lg-7 col-md-6 col-4  ">
+                                                                <label className="form-label   fw-bold" htmlFor="journeyFrom">
                                                                     <FaPlaneDeparture />
                                                                     <span className=''>From</span>
                                                                 </label>
-                                                                <input className="form-control" type="text" name="flightFromCurrentLocation" placeholder='Enter journey from' value={tripDataItem.flightFromCurrentLocation} onChange={(e) => handleInput(e, tripName, dataIndex)} />
+                                                                <Select
+                                                                    onChange={getSearchTravelSelectData}
+                                                                    options={flightOptionFrom}
+                                                                />
                                                             </div>
 
-                                                            <div className='  col-4 mx-md-1 '>
-                                                                <label className="form-label float-start fw-bold " htmlFor="journeyTo">
+
+                                                            <div className=" col-lg-7 col-md-6 col-4 mx-md-1">
+                                                                <label className="form-label fw-bold" htmlFor="journeyTo">
                                                                     <FaPlaneArrival />
-                                                                    <span className=''>  To </span>
+                                                                    <span className=''>To</span>
                                                                 </label>
-                                                                <input className="form-control" type="text" name="flightToDestinationLocation" placeholder='Enter journey destination' value={tripDataItem.flightToDestinationLocation} onChange={(e) => handleInput(e, tripName, dataIndex)} />
-
+                                                                <Select
+                                                                    onChange={getSearchTravelSelectData}
+                                                                    options={flightOptionTo}
+                                                                />
                                                             </div>
 
-                                                            <div className=' col-4      '>
-                                                                <label className="tinyLogoText form-label float-start fw-bold" htmlFor="password">
+                                                            <div className=' col-md-5 col-4'>
+                                                                <label className="tinyLogoText form-label fw-bold" htmlFor="password">
                                                                     < FaCalendarCheck />
                                                                     <span className=''>Depart</span>
                                                                 </label>

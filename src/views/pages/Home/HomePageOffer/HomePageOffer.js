@@ -8,7 +8,7 @@ import './HomePageOffer.css';
 
 const HomePageOffer = () => {
     return (
-        <div className='offerBg' data-aos="fade-up-bottom">
+        <div className='offerBg' data-aos="fade-up">
             <div className=' my-0 py-0'>
 
                 <div id="nagAirCarouseleInterval" className="carousel slide carousel-dark" data-bs-ride="carousel">

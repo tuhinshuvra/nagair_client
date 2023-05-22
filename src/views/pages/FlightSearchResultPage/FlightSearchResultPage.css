@@ -1,3 +1,51 @@
+.flightInfo {
+    background-color: rgb(178, 221, 243);
+    border-radius: 15px;
+    margin: 6px;
+    padding: 21px 7px;
+}
+
+.packageBg {
+    background-color: rgb(178, 221, 243);
+    border-radius: 15px;
+    margin: 6px;
+}
+
+.packageHeading {
+    background-color: rgb(45, 135, 180);
+    border-radius: 15px;
+    padding: 3px 10px 3px 10px;
+    font-style: italic;
+}
+
 .tripSummary {
-    background-color: rgb(207, 207, 241);
+    background-color: rgb(178, 221, 243);
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.selectedFlight {
+    background-color: rgb(178, 221, 243);
+    border-radius: 15px;
+}
+
+.refundable {
+    background-color: white;
+    padding: 7px 5px;
+    border-radius: 15px;
+    font-style: italic;
+}
+
+.exchange {
+    background-color: white;
+    padding: 7px 5px;
+    border-radius: 15px;
+    font-style: italic;
+}
+
+.luggage {
+    background-color: white;
+    padding: 7px 5px;
+    border-radius: 15px;
+    font-style: italic;
 }

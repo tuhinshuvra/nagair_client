@@ -15,15 +15,9 @@ import AdminList from '../views/pages/Profile/Admin/AdminList';
 import AdminForm from '../views/pages/Profile/Admin/AdminForm';
 import UserList from '../views/pages/Profile/Admin/UserList/UserList';
 import UserDetails from '../views/pages/Profile/Admin/UserList/UserDetails/UserDetails';
-import AddDomesticFlights from '../views/pages/Flights/DomesticFlights/AddDomesticFlights';
-import DomesticFlightsList from '../views/pages/Flights/DomesticFlights/DomesticFlightsList';
-import InternationalFlightsList from '../views/pages/Flights/InternationalFlights/InternationalFlightsList';
-import AddInternationalFlights from '../views/pages/Flights/InternationalFlights/AddInternationalFlights';
 import AddPackage from '../views/pages/Package/AddPackage';
 import PackageList from '../views/pages/Package/PackageList';
 import PackageUpdate from '../views/pages/Package/PackageUpdate';
-import InternationalFlightsUpdate from '../views/pages/Flights/InternationalFlights/InternationalFlightsUpdate';
-import DomesticFlightUpdate from '../views/pages/Flights/DomesticFlights/DomesticFlightUpdate';
 import PilotInformation from '../views/pages/PilotInformation/PilotInformation';
 import PilotList from '../views/pages/PilotInformation/PilotList';
 import CabinCrueInformationEntry from '../views/pages/CabinCrueInformation/CabinCrueInformationEntry';
@@ -34,6 +28,12 @@ import FlightInformationUpdate from '../views/pages/FlightsInformation/FlightInf
 import FlightSearchResultPage from '../views/pages/FlightSearchResultPage/FlightSearchResultPage';
 import HomePageFlightSearch from '../views/pages/Home/HomePageFlightSearch/HomePageFlightSearch';
 import UserProfile from '../views/pages/UserProfile/UserProfile';
+import AddDomesticFlightsLocation from '../views/pages/FlightsLocation/DomesticFlightsLocation/AddDomesticFlightsLocation';
+import DomesticFlightsLocationList from '../views/pages/FlightsLocation/DomesticFlightsLocation/DomesticFlightsLocationList';
+import AddInternationalFlightsLocation from '../views/pages/FlightsLocation/InternationalFlightsLocation/AddInternationalFlightsLocation';
+import InternationalFlightsLocationList from '../views/pages/FlightsLocation/InternationalFlightsLocation/InternationalFlightsLocationList';
+import DomesticFlightsLocationUpdate from '../views/pages/FlightsLocation/DomesticFlightsLocation/DomesticFlightLocationUpdate';
+import InternationalFlightsLocationUpdate from '../views/pages/FlightsLocation/InternationalFlightsLocation/InternationalFlightsLocationUpdate';
 
 
 const router = createBrowserRouter([
@@ -63,31 +63,31 @@ const router = createBrowserRouter([
 
             {
                 path: "/domesticFlightAdd",
-                element: <AddDomesticFlights></AddDomesticFlights>
+                element: <AddDomesticFlightsLocation></AddDomesticFlightsLocation>
             },
 
             {
                 path: "/domesticFlightList",
-                element: <DomesticFlightsList></DomesticFlightsList>
+                element: <DomesticFlightsLocationList></DomesticFlightsLocationList>
             },
 
             {
                 path: "/internationalFlightAdd",
-                element: <AddInternationalFlights></AddInternationalFlights>
+                element: <AddInternationalFlightsLocation></AddInternationalFlightsLocation>
             },
 
             {
                 path: "/internationalFlightList",
-                element: <InternationalFlightsList></InternationalFlightsList>
+                element: <InternationalFlightsLocationList></InternationalFlightsLocationList>
             },
             {
                 path: "/domesticFlightUpdate/:flightId",
-                element: <DomesticFlightUpdate></DomesticFlightUpdate>
+                element: <DomesticFlightsLocationUpdate></DomesticFlightsLocationUpdate>
             },
 
             {
                 path: "/internationalFlightUpdate/:flightId",
-                element: <InternationalFlightsUpdate></InternationalFlightsUpdate>
+                element: <InternationalFlightsLocationUpdate></InternationalFlightsLocationUpdate>
             },
 
             {

@@ -17,6 +17,16 @@ const HomePageFlightSearch = () => {
     const [enableSearch, setEnableSearch] = useState(false);
     const [locationData, setLocationData] = useState([]);
 
+    useEffect(() => {
+        AOS.init({
+            // offset: 200,
+            duration: 3000,
+            delay: 200,
+            // mirror: true,
+            // once: false
+        });
+    }, [])
+
     // const customStyles = {
     //     control: (provided, state) => ({
     //         ...provided,
@@ -59,15 +69,7 @@ const HomePageFlightSearch = () => {
     // console.log("flightOptions", flightOptions);
 
 
-    useEffect(() => {
-        AOS.init({
-            // offset: 200,
-            duration: 2000,
-            delay: 200,
-            // mirror: true,
-            // once: false
-        });
-    }, [])
+
 
 
     // console.log("trips", trips);

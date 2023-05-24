@@ -125,7 +125,7 @@ const Login = () => {
 
                                                     <div className="text-center pt-1 mb-md-5 pb-1">
                                                         <button type="submit" className=" custom_btn fa-lg gradient-custom-2 mb-3" >Log In</button>
-                                                        <a className="text-muted m-2 text-decoration-none " href="#!">Forgot password?</a>
+                                                        <Link to="/changePasswordRequest" className="text-muted m-2 text-decoration-none" >Forgot password?</Link>
                                                     </div>
 
                                                     <div className="create_new ">

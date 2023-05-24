@@ -10,17 +10,6 @@ const FlightSearchResultPage = () => {
 
     const [selectedPackage, setSelectedPackage] = useState('');
 
-    // console.log("selectedPackage : ", selectedPackage);
-    // console.log("Search Data :", searchData);
-
-    // let locationFrom = 'dhaka';
-    // let locationTo = 'rajshahi';
-    // let locationFrom = (searchData?.flightFromCurrentLocation);
-    // let locationTo = (searchData?.flightToDestinationLocation);
-
-
-    // console.log("dependency", props.dependency);
-
     console.log("Flights searched result", flights)
     // if (flights.length === 0) {
     //     setIsLoading(true)

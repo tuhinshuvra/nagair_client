@@ -40,6 +40,7 @@ const AddDomesticFlightsLocation = () => {
 
 
     const handleOnSubmit = (event) => {
+
         event.preventDefault();
         const form = event.target;
 

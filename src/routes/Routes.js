@@ -34,6 +34,8 @@ import AddInternationalFlightsLocation from '../views/pages/FlightsLocation/Inte
 import InternationalFlightsLocationList from '../views/pages/FlightsLocation/InternationalFlightsLocation/InternationalFlightsLocationList';
 import DomesticFlightsLocationUpdate from '../views/pages/FlightsLocation/DomesticFlightsLocation/DomesticFlightLocationUpdate';
 import InternationalFlightsLocationUpdate from '../views/pages/FlightsLocation/InternationalFlightsLocation/InternationalFlightsLocationUpdate';
+import ChangePasswordRequest from '../views/pages/ChangePassword/ChangePasswordRequest';
+import ChangePasswordRespond from '../views/pages/ChangePassword/ChangePasswordRespond';
 
 
 const router = createBrowserRouter([
@@ -180,6 +182,14 @@ const router = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login></Login>
+            },
+            {
+                path: "/changePasswordRequest",
+                element: <ChangePasswordRequest></ChangePasswordRequest>
+            },
+            {
+                path: "/change-password",
+                element: <ChangePasswordRespond></ChangePasswordRespond>
             },
 
             {

@@ -196,9 +196,13 @@ const Navbar = () => {
                                     <li className="nav-item mb-2">
                                         <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/login">Login</Link>
                                     </li>
+
                                 </>
 
                             }
+                            {/* <li className="nav-item mb-2">
+                                <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/changePasswordRequest">Password Change</Link>
+                            </li> */}
 
                         </ul>
                     </div>

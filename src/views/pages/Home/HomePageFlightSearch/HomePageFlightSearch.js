@@ -66,10 +66,6 @@ const HomePageFlightSearch = () => {
 
     const flightOptionFrom = locationData.map((data) => ({ value: data.flightLocationName, label: data.flightLocationName, name: "flightFromCurrentLocation" }))
     const flightOptionTo = locationData.map((data) => ({ value: data.flightLocationName, label: data.flightLocationName, name: "flightToDestinationLocation" }))
-    // console.log("flightOptions", flightOptions);
-
-
-
 
 
     // console.log("trips", trips);
@@ -110,6 +106,7 @@ const HomePageFlightSearch = () => {
         }));
     };
 
+    // console.log("trips", trips);
     const handleRemoveTrip = () => {
         setTrips(prevState => {
             const updatedTrips = { ...prevState };
@@ -121,11 +118,20 @@ const HomePageFlightSearch = () => {
     };
 
     // console.log("Trips", trips)
+    const handleDate = (event, tripName, dataIndex) => {
+        const field = event.target.name;
+        const value = event.target.value;
+        setTrips(prevState => {
+            const newState = { ...prevState };
+            newState[tripName][dataIndex][field] = value;
+            return newState;
+        });
+    }
 
     const handleInput = (event, tripName, dataIndex) => {
-        const field = event.target.name;
+        const field = event.name;
         if (field === "flightToDestinationLocation" || field === "flightFromCurrentLocation") {
-            const value = event.target.value.toLowerCase();
+            const value = event.value.toLowerCase();
             setTrips(prevState => {
                 const newState = { ...prevState };
                 newState[tripName][dataIndex][field] = value;
@@ -133,15 +139,13 @@ const HomePageFlightSearch = () => {
             });
 
         } else {
-            const value = event.target.value;
+            const value = event.value;
             setTrips(prevState => {
                 const newState = { ...prevState };
                 newState[tripName][dataIndex][field] = value;
                 return newState;
             });
         }
-
-
     };
 
     // console.log("trips", trips);
@@ -228,48 +232,22 @@ const HomePageFlightSearch = () => {
                         onChange={getSearchTravelData}
                         className=' col-md-10   mx-auto  mt-2'>
 
-                        <div
-                            className="form-check form-check-inline"
-                        >
-                            <input
-                                onClick={() => handleOneWayFlight()}
-                                className="form-check-input"
-                                type="radio"
-                                name="travelType"
-                                id="oneWay"
-                                value="oneWay"
-                                checked
-                            />
-                            <label className="form-check-label fw-bold" htmlFor="one-way"  >One Way</label>
+                        <div class="form-check form-check-inline">
+                            <input onClick={() => handleOneWayFlight()} className="form-check-input " type="radio" name="travelType" id="oneWay" value="oneWay" defaultChecked />
+                            <label class="form-check-label fw-bold ms-0" for="oneWay">One Way</label>
                         </div>
 
-                        <div
-                            className="form-check form-check-inline"
-                        >
-                            <input
-                                onClick={() => handleRoundTripFlight()}
-                                className="form-check-input"
-                                type="radio"
-                                name="travelType"
-                                id="roundTrip"
-                                value="roundTrip"
-                            />
-                            <label className="form-check-label fw-bold" htmlFor="return">Round Trip</label>
+                        <div class="form-check form-check-inline">
+                            <input onClick={() => handleRoundTripFlight()} className="form-check-input" type="radio" name="travelType" id="roundTrip" value="roundTrip" />
+                            <label className="form-check-label fw-bold" htmlFor="roundTrip">Round Trip</label>
                         </div>
 
-                        <div
-                            className="form-check form-check-inline"
-                        >
-                            <input
-                                onClick={() => handleMultiCityFlight()}
-                                className="form-check-input"
-                                type="radio"
-                                name="travelType"
-                                id="multiWay"
-                                value="multiWay"
-                            />
-                            <label className="form-check-label fw-bold" htmlFor="multi-way">Multi-city</label>
+                        <div class="form-check form-check-inline">
+                            <input onClick={() => handleMultiCityFlight()} className="form-check-input" type="radio" name="travelType" id="multiWay" value="multiWay" />
+                            <label className="form-check-label fw-bold" htmlFor="multiWay">Multi-city</label>
                         </div>
+
+
                     </div>
 
                     {/* form bottomsection */}
@@ -387,7 +365,7 @@ const HomePageFlightSearch = () => {
                                                                     <span className=''>From</span>
                                                                 </label>
                                                                 <Select
-                                                                    onChange={getSearchTravelSelectData}
+                                                                    onChange={(e) => handleInput(e, tripName, dataIndex)}
                                                                     options={flightOptionFrom}
                                                                 />
                                                             </div>
@@ -399,7 +377,7 @@ const HomePageFlightSearch = () => {
                                                                     <span className=''>To</span>
                                                                 </label>
                                                                 <Select
-                                                                    onChange={getSearchTravelSelectData}
+                                                                    onChange={(e) => handleInput(e, tripName, dataIndex)}
                                                                     options={flightOptionTo}
                                                                 />
                                                             </div>
@@ -409,7 +387,7 @@ const HomePageFlightSearch = () => {
                                                                     < FaCalendarCheck />
                                                                     <span className=''>Depart</span>
                                                                 </label>
-                                                                <input className="form-control" type="date" name="flightDepartingDate" value={tripDataItem.flightDepartingDate} onChange={(e) => handleInput(e, tripName, dataIndex)} />
+                                                                <input onChange={(e) => handleDate(e, tripName, dataIndex)} className="form-control" type="date" name="flightDepartingDate" value={tripDataItem.flightDepartingDate} />
                                                             </div>
 
                                                         </div>

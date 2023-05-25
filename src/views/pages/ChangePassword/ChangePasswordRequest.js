@@ -44,7 +44,7 @@ const ChangePasswordRequest = () => {
 
             <form onSubmit={handleOnSubmit}>
                 <div className='my-3'>
-                    <label className="label"> <span className="label-text fw-bold">Email ID</span></label>
+                    <label className="label"> <span className="label-text fw-bold">User Email ID</span></label>
                     <input onChange={handleOnChange} className="input form-control" type="email"
                         name='email' id='email' placeholder="Enter a valid email id" required />
                 </div>

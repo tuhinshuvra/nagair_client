@@ -102,7 +102,7 @@ const Login = () => {
                                                         type="text"
                                                     ></input>
                                                     <div className="form-outline mb-4">
-                                                        <label className="form-label" htmlFor="username">User Id</label>
+                                                        <label className="form-label fw-bold" htmlFor="username">User Id</label>
                                                         <input
                                                             onBlur={handleOnBlur}
                                                             name="email"
@@ -113,7 +113,7 @@ const Login = () => {
                                                     </div>
 
                                                     <div className="form-outline mb-4">
-                                                        <label className="form-label" htmlFor="password">Password</label>
+                                                        <label className="form-label fw-bold" htmlFor="password">Password</label>
                                                         <input
                                                             onBlur={handleOnBlur}
                                                             name='password'
@@ -125,7 +125,7 @@ const Login = () => {
 
                                                     <div className="text-center pt-1 mb-md-5 pb-1">
                                                         <button type="submit" className=" custom_btn fa-lg gradient-custom-2 mb-3" >Log In</button>
-                                                        <Link to="/changePasswordRequest" className="text-muted m-2 text-decoration-none" >Forgot password?</Link>
+                                                        <Link to="/changePasswordRequest" className="text-muted m-2 text-decoration-none fw-bold" >Forgot password?</Link>
                                                     </div>
 
                                                     <div className="create_new ">

@@ -14,7 +14,6 @@ import About from '../views/pages/About/About';
 import AdminList from '../views/pages/Profile/Admin/AdminList';
 import AdminForm from '../views/pages/Profile/Admin/AdminForm';
 import UserList from '../views/pages/Profile/Admin/UserList/UserList';
-import UserDetails from '../views/pages/Profile/Admin/UserList/UserDetails/UserDetails';
 import AddPackage from '../views/pages/Package/AddPackage';
 import PackageList from '../views/pages/Package/PackageList';
 import PackageUpdate from '../views/pages/Package/PackageUpdate';
@@ -27,7 +26,6 @@ import FlightsInformationList from '../views/pages/FlightsInformation/FlightsInf
 import FlightInformationUpdate from '../views/pages/FlightsInformation/FlightInformationUpdate';
 import FlightSearchResultPage from '../views/pages/FlightSearchResultPage/FlightSearchResultPage';
 import HomePageFlightSearch from '../views/pages/Home/HomePageFlightSearch/HomePageFlightSearch';
-import UserProfile from '../views/pages/UserProfile/UserProfile';
 import AddDomesticFlightsLocation from '../views/pages/FlightsLocation/DomesticFlightsLocation/AddDomesticFlightsLocation';
 import DomesticFlightsLocationList from '../views/pages/FlightsLocation/DomesticFlightsLocation/DomesticFlightsLocationList';
 import AddInternationalFlightsLocation from '../views/pages/FlightsLocation/InternationalFlightsLocation/AddInternationalFlightsLocation';
@@ -36,7 +34,9 @@ import DomesticFlightsLocationUpdate from '../views/pages/FlightsLocation/Domest
 import InternationalFlightsLocationUpdate from '../views/pages/FlightsLocation/InternationalFlightsLocation/InternationalFlightsLocationUpdate';
 import ChangePasswordRequest from '../views/pages/ChangePassword/ChangePasswordRequest';
 import ChangePasswordRespond from '../views/pages/ChangePassword/ChangePasswordRespond';
-import UpdateProfile from '../views/pages/UserProfile/UpdateProfile';
+import UserDetails from '../views/pages/Profile/Admin/UserDetails/UserDetails';
+import UserProfile from '../views/pages/Profile/UserProfile/UserProfile';
+import UpdateProfile from '../views/pages/Profile/UserProfile/UpdateProfile';
 
 
 const router = createBrowserRouter([
@@ -199,7 +199,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/updateProfile",
-                element: <UpdateProfile></UpdateProfile>,
+                element: <UpdateProfile></UpdateProfile>
             },
             {
                 path: "/userList",
@@ -208,7 +208,7 @@ const router = createBrowserRouter([
 
             {
                 path: "/userDetails/:userId",
-                element: <UserDetails></UserDetails>,
+                element: <UserDetails></UserDetails>
             },
 
             {

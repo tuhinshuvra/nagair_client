@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './UserDetails.css';
 import { useLoaderData } from 'react-router-dom';
-import { getCookie } from '../../../../../../utilities/helper';
-import { AllContext } from '../../../../../../hooks/ContextData';
-import useAuth from '../../../../../../hooks/useAuth';
+import { getCookie } from '../../../../../utilities/helper';
+import { AllContext } from '../../../../../hooks/ContextData';
+import useAuth from '../../../../../hooks/useAuth';
 
 const UserDetails = () => {
     const { user, setUser, isLoading, setIsLoading } = useAuth();

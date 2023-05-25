@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { getCookie } from '../../../utilities/helper';
-import useAuth from '../../../hooks/useAuth';
+import { getCookie, updateUser } from '../../../../utilities/helper';
+import useAuth from '../../../../hooks/useAuth';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -77,6 +77,7 @@ const UpdateProfile = () => {
                 console.log("response", response);
                 if (response.data) {
                     toast.success('Successfully updated')
+                    updateUser();
                     // navigate('/')
                 }
             })

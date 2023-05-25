@@ -36,6 +36,7 @@ import DomesticFlightsLocationUpdate from '../views/pages/FlightsLocation/Domest
 import InternationalFlightsLocationUpdate from '../views/pages/FlightsLocation/InternationalFlightsLocation/InternationalFlightsLocationUpdate';
 import ChangePasswordRequest from '../views/pages/ChangePassword/ChangePasswordRequest';
 import ChangePasswordRespond from '../views/pages/ChangePassword/ChangePasswordRespond';
+import UpdateProfile from '../views/pages/UserProfile/UpdateProfile';
 
 
 const router = createBrowserRouter([
@@ -195,6 +196,10 @@ const router = createBrowserRouter([
             {
                 path: "/userProfile",
                 element: <UserProfile></UserProfile>
+            },
+            {
+                path: "/updateProfile",
+                element: <UpdateProfile></UpdateProfile>,
             },
             {
                 path: "/userList",

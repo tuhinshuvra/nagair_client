@@ -6,16 +6,15 @@ import { AllContext } from '../../../../../../hooks/ContextData';
 import useAuth from '../../../../../../hooks/useAuth';
 
 const UserDetails = () => {
-    const { user, setUser, userDetails, setUserDetails, isLoading, setIsLoading } = useAuth();
+    const { user, setUser, isLoading, setIsLoading } = useAuth();
 
     const [userData, setUserData] = useState([]);
 
-    // console.log("userDetails : ", userDetails);
-    console.log("userData :", userData);
+    // console.log("userData :", userData);
 
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_NAGAIR}/api/user-details?id=${userDetails}`, {
+        fetch(`${process.env.REACT_APP_NAGAIR}/api/user-details?id=${user?._id}`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`,

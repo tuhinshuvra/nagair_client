@@ -1,9 +1,14 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+<<<<<<< HEAD:src/views/pages/Profile/UserProfile/UpdateProfile.js
 import { getCookie, updateUser } from '../../../../utilities/helper';
 import useAuth from '../../../../hooks/useAuth';
+=======
+>>>>>>> 688cd2d1ae2aaa3e611a7626d620bbb390642200:src/views/pages/UserProfile/UpdateProfile.js
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import useAuth from '../../../hooks/useAuth';
+import { getCookie } from '../../../utilities/helper';
 
 
 function convertToBase64(file) {
@@ -21,7 +26,7 @@ function convertToBase64(file) {
 
 const UpdateProfile = () => {
     const { user, userDetails, setUserDetails, isLoading, setIsLoading } = useAuth();
-    const [storedData, setStoredData] = useState([]);
+    const [storedData, setStoredData] = useState({});
 
     console.log("storedData : ", storedData);
 
@@ -68,10 +73,10 @@ const UpdateProfile = () => {
     const handleOnSubmit = (event) => {
         event.preventDefault();
         axios({
-            url: `http://localhost:5001/api/user-update`,
+            url: `${process.env.REACT_APP_NAGAIR}/api/user-update`,
             method: "PATCH",
             headers: { 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`, },
-            data: storedData,
+            data: JSON.stringify(storedData),
         })
             .then((response) => {
                 console.log("response", response);

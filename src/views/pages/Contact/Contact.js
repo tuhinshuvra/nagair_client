@@ -45,7 +45,11 @@ const Contact = () => {
                             placeholder='Message'
                             required
                         ></textarea>
-                        <input className='searchBtn my-lg-2 ' type="submit" value="Send Message" />
+
+                        <div className='d-flex justify-content-between my-3'>
+                            <button type="reset" className="btn btn-warning" value="Reset">Reset</button>
+                            <button type='submit' name='submit' className="btn btn-success">Send Message</button>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -81,7 +81,7 @@ const UpdateProfile = () => {
             if (response.data) {
                 toast.success("Successfully updated");
 
-             
+
                 updateUser(response, () => {
                     navigate('/userProfile')
                 });
@@ -90,7 +90,7 @@ const UpdateProfile = () => {
     };
 
     return (
-        <div className=" col-md-6 mx-auto mt-5 mb-2 updateProfile">
+        <div className=" col-md-6 mx-auto   updateProfile px-5 py-3 my-5">
             <h2 className=" fw-bold text-center mb-3">Update Your Profile</h2>
             <div className=' d-flex justify-content-end'>
                 <Link to="/userProfile" className='btn btn-outline-primary btn-sm fw-bold text-decoration-none fs-4'>Show Profile</Link>
@@ -252,8 +252,8 @@ const UpdateProfile = () => {
                     </div>
                 </div>
 
-                <div className="d-flex justify-content-between my-5">
-                    <button className="btn btn-warning">Cancel</button>
+                <div className="d-flex justify-content-between mt-5">
+                    <button type="reset" className="btn btn-warning" value="Reset">Reset</button>
                     <button type="submit" name="submit" className="btn btn-primary">Save</button>
                 </div>
             </form>

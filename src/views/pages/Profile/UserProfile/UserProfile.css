@@ -4,6 +4,7 @@
 
 .updateProfile {
     background-color: rgb(234, 229, 238);
+    border-radius: 15px;
 }
 
 .profileImg {

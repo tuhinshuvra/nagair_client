@@ -220,13 +220,11 @@ const FlightsInformationEntry = () => {
                             <input onChange={handleOnChange} type="time" name='flightArrivalTime' id='flightArrivalTime' placeholder="Enter flight Arrival  Time" className="input form-control" required />
                         </div>
                     </div>
-
-
                 </div>
 
 
                 <div className='d-flex justify-content-between my-5'>
-                    <button className="btn btn-warning">Cancel</button>
+                    <button type="reset" className="btn btn-warning" value="Reset">Reset</button>
                     <button type='submit' name='submit' className="btn btn-primary">Save</button>
                 </div>
 

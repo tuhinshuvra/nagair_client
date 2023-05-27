@@ -1,10 +1,5 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-<<<<<<< HEAD:src/views/pages/Profile/UserProfile/UpdateProfile.js
-import { getCookie, updateUser } from '../../../../utilities/helper';
-import useAuth from '../../../../hooks/useAuth';
-=======
->>>>>>> 688cd2d1ae2aaa3e611a7626d620bbb390642200:src/views/pages/UserProfile/UpdateProfile.js
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';

@@ -76,8 +76,7 @@ export const signout = (next) => {
 export const updateUser = (response, next) => {
   if (typeof window !== "undefined") {
     let auth = JSON.parse(localStorage.getItem("user"));
-    console.log("User updated",auth)
-    console.log("User response",response)
+
     auth = { ...auth, name: response.data.name }; // Update the name property with the new value
 
     localStorage.setItem("user", JSON.stringify(auth));

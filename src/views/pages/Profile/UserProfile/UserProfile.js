@@ -28,7 +28,7 @@ const UserProfile = () => {
     return (
         <div className=' col-lg-6 mx-auto userProfile rounded-4 py-3 px-5 my-4'>
 
-            <h2 className='  text-center fw-bolder my-2'>{profileData.name} Profile</h2>
+            <h2 className='  text-center fw-bolder my-2'>{profileData.name}'s Profile</h2>
 
             <div className=' d-flex justify-content-end mt-4'>
                 <Link to="/updateProfile" className='btn btn-outline-primary btn-sm fw-bold text-decoration-none fs-4'>Update Profile</Link>

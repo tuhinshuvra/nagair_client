@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../../hooks/useAuth";
 import { getCookie } from "../../../../utilities/helper";
+import './UserProfile.css';
 
 function convertToBase64(file) {
     return new Promise((resolve, reject) => {
@@ -19,8 +20,7 @@ function convertToBase64(file) {
 }
 
 const UpdateProfile = () => {
-    const { user, userDetails, setUserDetails, isLoading, setIsLoading } =
-        useAuth();
+    const { user, userDetails, setUserDetails, isLoading, setIsLoading } = useAuth();
     const [storedData, setStoredData] = useState({});
 
     console.log("storedData : ", storedData);
@@ -81,14 +81,17 @@ const UpdateProfile = () => {
             if (response.data) {
                 toast.success("Successfully updated");
 
-                // navigate('/')
+                navigate('/userProfile')
             }
         });
     };
 
     return (
-        <div className=" col-md-6 mx-auto mt-5 mb-2">
+        <div className=" col-md-6 mx-auto mt-5 mb-2 updateProfile">
             <h2 className=" fw-bold text-center mb-3">Update Your Profile</h2>
+            <div className=' d-flex justify-content-end'>
+                <Link to="/userProfile" className='btn btn-outline-primary btn-sm fw-bold text-decoration-none fs-4'>Show Profile</Link>
+            </div>
 
             <form onSubmit={handleOnSubmit}>
                 <div className="">
@@ -248,9 +251,7 @@ const UpdateProfile = () => {
 
                 <div className="d-flex justify-content-between my-5">
                     <button className="btn btn-warning">Cancel</button>
-                    <button type="submit" name="submit" className="btn btn-primary">
-                        Save
-                    </button>
+                    <button type="submit" name="submit" className="btn btn-primary">Save</button>
                 </div>
             </form>
         </div>

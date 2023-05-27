@@ -63,24 +63,9 @@ const Navbar = () => {
 
                             {user?._id ? <>
                                 <li className="nav-item dropdown mb-2">
-                                    <Link className="  dropdown-toggle fw-bold nav_btn" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> {user?.name} Profile</Link>
+                                    <Link className="  dropdown-toggle fw-bold nav_btn" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> {user?.name}</Link>
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkRight">
-                                        {/* <li><Link className="dropdown-item fw-bold nav_btn" to="#">Passenger</Link></li> */}
-                                        {/* <li><Link className="dropdown-item fw-bold nav_btn" to="#">Admin</Link></li> */}
-                                        {/* <li>
-                                            <Link className="nest_nav_btn fw-bold" to="#">Passenger &raquo; </Link>
-                                            <ul className="dropdown-menu dropdown-submenu dropdown-submenu-left">
-                                                <li>
-                                                    <Link className="  fw-bold nest_nav_btn" to="/passengerEntry">Passenger Entry</Link>
-                                                </li>
-                                                <li>
-                                                    <Link className="fw-bold nest_nav_btn" to="/passengerList">Passenger List</Link>
-                                                </li>
-                                                <li>
-                                                    <Link className="fw-bold nest_nav_btn" to="/passengerProfile">Passenger Profile</Link>
-                                                </li>
-                                            </ul>
-                                        </li> */}
+
                                         <li><Link to="/userProfile" className="nest_nav_btn fw-bold">My Profile</Link></li>
 
                                         {user?.role === 'admin' &&
@@ -164,7 +149,7 @@ const Navbar = () => {
                                                 </li>
 
                                                 <li>
-                                                    <Link className="nest_nav_btn fw-bold" to="#">Flight Information &raquo; </Link>
+                                                    <Link className="nest_nav_btn fw-bold" to="#">Flight Information&raquo; </Link>
                                                     <ul className="dropdown-menu dropdown-submenu dropdown-submenu-left">
 
                                                         <li>
@@ -198,11 +183,8 @@ const Navbar = () => {
                                     </li>
 
                                 </>
-
                             }
-                            {/* <li className="nav-item mb-2">
-                                <Link className=" border-0  mx-lg-1  fw-bold nav_btn" aria-current="page" to="/changePasswordRequest">Password Change</Link>
-                            </li> */}
+
 
                         </ul>
                     </div>

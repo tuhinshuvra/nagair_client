@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import useAuth from '../../../../hooks/useAuth';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../../hooks/useAuth';
 import { getCookie } from '../../../../utilities/helper';
 import './UserProfile.css';
 
@@ -19,6 +19,7 @@ const UserProfile = () => {
             .then((response) => response.json())
             .then((data) => {
                 setProfileData(data)
+                setUser(data)
             });
     }, []);
 

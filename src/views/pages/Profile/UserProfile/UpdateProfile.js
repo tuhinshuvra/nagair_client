@@ -69,7 +69,7 @@ const UpdateProfile = () => {
         };
         event.preventDefault();
         axios({
-            url: `http://localhost:5001/api/user-update`,
+            url: `${process.env.REACT_APP_NAGAIR}/api/user-update`,
             method: "PATCH",
             headers: {
                 "Content-type": "application/json; charset=UTF-8",

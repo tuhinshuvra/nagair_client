@@ -4,19 +4,32 @@ import { Link } from 'react-router-dom';
 import './FlightSearchResultPage.css';
 import Loader from '../../components/Shared/Loader/Loader';
 import useAuth from '../../../hooks/useAuth';
+import { toast } from 'react-hot-toast';
 
 const FlightSearchResultPage = () => {
-    const { searchData, trips, flights, setFlights, isLoading, setIsLoading } = useAuth();
+    const { searchData, trips, flights, setFlights, isLoading, setIsLoading, travellers, totalFare, setTotalFare } = useAuth();
 
     const [selectedPackage, setSelectedPackage] = useState('');
 
-    console.log("Flights searched result", flights)
+    console.log("selectedPackage :", selectedPackage);
+
+
+    // console.log("Flights searched result", flights)
     // if (flights.length === 0) {
     //     setIsLoading(true)
     // } else {
     //     setIsLoading(false)
     // }
 
+    const handleTotalFare = () => {
+        let totalCost = 0;
+        totalCost = selectedPackage * travellers;
+        setTotalFare(totalCost);
+        return totalCost;
+    }
+
+
+    // console.log("travellers : ", travellers);
 
     return (
         <div>
@@ -106,7 +119,7 @@ const FlightSearchResultPage = () => {
 
                                     <div>
                                         <div className=' '>
-                                            <p className='mb-0'>{searchData?.flightFromCurrentLocation}-{(searchData?.flightToDestinationLocation)}</p>
+                                            <p className='mb-0 text-uppercase'>{searchData?.flightFromCurrentLocation}-{(searchData?.flightToDestinationLocation)}</p>
 
                                         </div>
                                         <div>
@@ -119,29 +132,18 @@ const FlightSearchResultPage = () => {
                                             </div>
 
                                             {selectedPackage !== '' ?
-                                                <><b> Amount:</b> {selectedPackage}TK</> : <p className=' fw-bold text-danger'>You have not selected any package</p>
+                                                <><b> Amount:</b> {handleTotalFare()}TK</> : <p className=' fw-bold text-danger'>You have not selected any package</p>
                                             }
                                             <div className=' d-flex justify-content-between mt-2'>
                                                 <p className=' col-md-4 small refundable '>
                                                     <b>Refundable with fee</b> <br />
-
-                                                    Up to 24 hours before the flight : 1,500 BDT
-                                                    Starting 24 hours until flight 1,800 BDT
-                                                    After the flight : 2,000 BDT
-                                                    Exchange with fee (for all passengers)
-                                                </p>
+                                                    Up to 24 hours before the flight : 1,500 BDT  Starting 24 hours until flight 1,800 BDT   After the flight : 2,000 BDT   Exchange with fee (for all passengers)</p>
 
                                                 <p className='col-md-4 small exchange'>
                                                     <b> Exchange with fee (for all passengers)</b><br />
-
-                                                    Up to 24 hours before the flight : 1,500 BDT
-                                                    Starting 24 hours until flight 1,800 BDT
-                                                    After the flight : 2,000 BDT
-                                                    Exchange with fee (for all passengers)
-                                                </p>
+                                                    Up to 24 hours before the flight : 1,500 BDT  Starting 24 hours until flight 1,800 BDT After the flight : 2,000 BDT Exchange with fee (for all passengers)</p>
                                                 <p className='col-md-3 small luggage '>
-                                                    <b>Checked-in luggage</b> <br />
-                                                    Adult(s) : 20 Kg
+                                                    <b>Checked-in luggage</b> <br /> Adult(s) : 20 Kg
                                                 </p>
                                             </div>
 
@@ -173,18 +175,22 @@ const FlightSearchResultPage = () => {
                                     </div>
                                 </>
                                 } */}
-                                    <p className=' text-center'>1 Person
+                                    <p className=' text-center'>{(travellers > 1) ? <>{travellers} Persons</> : <>{travellers} Person</>}
                                         {selectedPackage !== '' ?
-                                            <><b> Amount:</b> {selectedPackage}TK</> : <span className=' fw-bold text-danger'> You have not selected any package</span>
+                                            <><b> Amount:</b> {handleTotalFare()}TK</> : <span className=' fw-bold text-danger'> You have not selected any package</span>
                                         }
                                     </p>
                                     <div className=' fs-3 text-center'>
                                         <span className=' mb-0'>Booking total amount</span>  <br />
 
                                         {selectedPackage !== '' ?
-                                            <b className=' mt-0'>{selectedPackage}TK</b> : <span className=' mt-0  text-danger'> 0 TK </span>
+                                            <b className=' mt-0'>{handleTotalFare()}TK</b> : <span className=' mt-0  text-danger'> 0 TK </span>
                                         }
 
+                                    </div>
+
+                                    <div className=' text-center mt-4'>
+                                        <Link to="/ticketBooking" className=' btn btn-success w-50 fw-bold '>Confirm Book</Link>
                                     </div>
                                 </div>
                             </div>

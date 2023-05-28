@@ -37,6 +37,7 @@ import ChangePasswordRespond from '../views/pages/ChangePassword/ChangePasswordR
 import UserDetails from '../views/pages/Profile/Admin/UserDetails/UserDetails';
 import UserProfile from '../views/pages/Profile/UserProfile/UserProfile';
 import UpdateProfile from '../views/pages/Profile/UserProfile/UpdateProfile';
+import TicketBookingPage from '../views/pages/TicketBookingPage/TicketBookingPage';
 
 
 const router = createBrowserRouter([
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
             {
                 path: "/flightSearchResult",
                 element: <FlightSearchResultPage></FlightSearchResultPage>
+            },
+            {
+                path: "/ticketBooking",
+                element: <TicketBookingPage></TicketBookingPage>
             },
 
             {

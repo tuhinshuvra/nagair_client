@@ -11,11 +11,13 @@ import 'aos/dist/aos.css';
 import Select from 'react-select'
 
 const HomePageFlightSearch = () => {
-    const { searchData, setSearchData, searchMultipleDays, setSearchMultipleDays, trips, setTrips, flights, setFlights } = useAuth();
+    const { searchData, setSearchData, searchMultipleDays, setSearchMultipleDays, trips, setTrips, flights, setFlights, travellers, setTravellers } = useAuth();
     const [showMultiCityField, setShowMultiCityField] = useState(false);
     const [showReturnField, setShowReturnField] = useState(true);
     const [enableSearch, setEnableSearch] = useState(false);
     const [locationData, setLocationData] = useState([]);
+
+    // console.log("travellers :", travellers);
 
     useEffect(() => {
         AOS.init({
@@ -264,6 +266,7 @@ const HomePageFlightSearch = () => {
                                         <Select
                                             onChange={getSearchTravelSelectData}
                                             options={flightOptionFrom}
+                                            required
                                         // styles={customStyles}
                                         />
                                     </div>
@@ -276,6 +279,7 @@ const HomePageFlightSearch = () => {
                                         <Select
                                             onChange={getSearchTravelSelectData}
                                             options={flightOptionTo}
+                                            required
                                         // styles={customStyles}
                                         />
                                     </div>
@@ -293,6 +297,7 @@ const HomePageFlightSearch = () => {
                                             name="flightDepartingDate"
                                             id="flightDepartingDate"
                                             className="form-control"
+                                            required
                                         />
                                     </div>
 
@@ -310,6 +315,7 @@ const HomePageFlightSearch = () => {
                                                 id="flightReturningDate"
                                                 className="form-control"
                                                 onBlur={getSearchMultipleDaysData}
+                                                required
                                             />
                                         </div>
 
@@ -320,16 +326,21 @@ const HomePageFlightSearch = () => {
                                             < FaPlane />
                                             <span className=' small'>Traveller</span>
                                         </label>
-                                        <select className="form-select select-bordered  ">
+                                        <select
+                                            onChange={(e) => setTravellers(e.target.value)}
+                                            className="form-select select-bordered"
+                                            required
+                                        >
                                             <option disabled defaultValue>Select</option>
-                                            <option value={0}>One</option>
-                                            <option value={1}>Two</option>
-                                            <option value={2}>Three</option>
-                                            <option value={3}>Four</option>
-                                            <option value={4}>Five</option>
-                                            <option value={5}>Six</option>
-                                            <option value={6}>Seven</option>
-                                            <option value={7}>Eight</option>
+                                            <option value={1}>One</option>
+                                            <option value={2}>Two</option>
+                                            <option value={3}>Three</option>
+                                            <option value={4}>Four</option>
+                                            <option value={5}>Five</option>
+                                            <option value={6}>Six</option>
+                                            <option value={7}>Seven</option>
+                                            <option value={8}>Eight</option>
+                                            <option value={9}>Nine</option>
                                         </select>
                                     </div>
                                 </div>

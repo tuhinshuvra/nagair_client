@@ -28,6 +28,8 @@ const ContextProvider = ({ children }) => {
     const [searchData, setSearchData] = useState({})
     const [searchMultipleCities, setSearchMultipleCities] = useState([])
     const [searchMultipleDays, setSearchMultipleDays] = useState([])
+    const [travellers, setTravellers] = useState(1);
+    const [totalFare, setTotalFare] = useState(0);
     const [flights, setFlights] = useState([]);
     const [trips, setTrips] = useState({ trip1: [{ flightFromCurrentLocation: '', flightToDestinationLocation: '', flightDepartingDate: '' }] });
 
@@ -87,6 +89,10 @@ const ContextProvider = ({ children }) => {
         setFlights,
         trips,
         setTrips,
+        travellers,
+        setTravellers,
+        totalFare,
+        setTotalFare,
     };
 
     return (

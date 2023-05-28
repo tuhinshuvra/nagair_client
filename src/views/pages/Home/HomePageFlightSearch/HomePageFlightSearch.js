@@ -17,6 +17,7 @@ const HomePageFlightSearch = () => {
     const [enableSearch, setEnableSearch] = useState(false);
     const [locationData, setLocationData] = useState([]);
 
+
     // console.log("travellers :", travellers);
 
     useEffect(() => {
@@ -46,8 +47,8 @@ const HomePageFlightSearch = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response1 = await axios.get('https://nag-air-server.vercel.app/api/show-domestic-flight');
-                const response2 = await axios.get('https://nag-air-server.vercel.app/api/show-international-flight');
+                const response1 = await axios.get(`${process.env.REACT_APP_NAGAIR}/api/show-domestic-flight`);
+                const response2 = await axios.get(`${process.env.REACT_APP_NAGAIR}/api/show-international-flight`);
 
                 const data1 = response1.data;
                 const data2 = response2.data;
@@ -180,7 +181,7 @@ const HomePageFlightSearch = () => {
 
     const handleSingeTripData = async () => {
         await axios({
-            url: `https://nag-air-server.vercel.app/api/show-search-flight-result?travelType=${searchData.travelType}&flightFromCurrentLocation=${searchData?.flightFromCurrentLocation}&flightToDestinationLocation=${searchData?.flightToDestinationLocation}&flightDepartingDate=${searchData.flightDepartingDate}&flightReturningDate=${searchData.flightReturningDate}`,
+            url: `${process.env.REACT_APP_NAGAIR}/api/show-search-flight-result?travelType=${searchData.travelType}&flightFromCurrentLocation=${searchData?.flightFromCurrentLocation}&flightToDestinationLocation=${searchData?.flightToDestinationLocation}&flightDepartingDate=${searchData.flightDepartingDate}&flightReturningDate=${searchData.flightReturningDate}`,
             method: "GET",
             headers: { 'Content-type': 'application/json; charset=UTF-8', Authorization: `Bearer ${getCookie('token')}`, },
 

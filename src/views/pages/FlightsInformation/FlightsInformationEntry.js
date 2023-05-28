@@ -4,16 +4,20 @@ import { toast } from 'react-hot-toast';
 import axios from 'axios';
 import './FlightsInformationEntry.css'
 import { getCookie } from '../../../utilities/helper';
+import useAuth from '../../../hooks/useAuth';
+import Select from 'react-select';
 
 
 const FlightsInformationEntry = () => {
+    const { searchData, setSearchData, searchMultipleDays, setSearchMultipleDays, trips, setTrips, flights, setFlights, travellers, setTravellers } = useAuth();
     const [allCabinCrue, setAllCabinCrue] = useState([]);
     const [allPilot, setAllPilot] = useState([]);
     const [flightInfo, setFlightInfo] = useState({});
+    const [locationData, setLocationData] = useState([]);
     // const [errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate();
 
-    // console.log("flightInfo", flightInfo);
+    console.log("flightInfo", flightInfo);
 
     // show all cabin crue
     useEffect(() => {
@@ -51,6 +55,52 @@ const FlightsInformationEntry = () => {
         newData[field] = value;
         setFlightInfo(newData)
     }
+
+    const getSelectLocationData = (event) => {
+        const field = event.name;
+        if (field === "flightToDestinationLocation" || field === "flightFromCurrentLocation") {
+            const value = (event.value).toLowerCase()
+            const newData = { ...flightInfo };
+            newData[field] = value;
+            setFlightInfo(newData);
+        } else {
+            const value = (event.value)
+            const newData = { ...flightInfo };
+            newData[field] = value;
+            setFlightInfo(newData);
+        }
+    };
+
+
+
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response1 = await axios.get(`${process.env.REACT_APP_NAGAIR}/api/show-domestic-flight`);
+                const response2 = await axios.get(`${process.env.REACT_APP_NAGAIR}/api/show-international-flight`);
+
+                const data1 = response1.data;
+                const data2 = response2.data;
+
+                const combinedData = [...data1, ...data2]; // Merge the data arrays
+
+                setLocationData(combinedData);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+
+    const flightOptionFrom = locationData.map((data) => ({ value: data.flightLocationName, label: data.flightLocationName, name: "flightFromCurrentLocation" }))
+    const flightOptionTo = locationData.map((data) => ({ value: data.flightLocationName, label: data.flightLocationName, name: "flightToDestinationLocation" }))
+
+
+
 
     const handleOnSubmit = (event) => {
         event.preventDefault();
@@ -154,14 +204,28 @@ const FlightsInformationEntry = () => {
                             <label className="label">
                                 <span className="label-text fw-bold text-capitalize">Location From</span>
                             </label>
-                            <input onChange={handleOnChange} type="text" name='flightFromCurrentLocation' id='flightFromCurrentLocation' placeholder="Enter flight From Curren Location" className="input form-control" required />
+                            {/* <input onChange={handleOnChange} type="text" name='flightFromCurrentLocation' id='flightFromCurrentLocation' placeholder="Enter flight From Curren Location" className="input form-control" required /> */}
+                            <Select
+                                onChange={getSelectLocationData}
+                                // onChange={handleOnChange}
+                                options={flightOptionFrom}
+                                required
+                            // styles={customStyles}
+                            />
                         </div>
 
                         <div className='col-md-6   my-3'>
                             <label className="label">
                                 <span className="label-text fw-bold">Location To</span>
                             </label>
-                            <input onChange={handleOnChange} type="text" name='flightToDestinationLocation' id='flightToDestinationLocation' placeholder="Enter flight to Destination Location" className="input form-control" required />
+                            {/* <input onChange={handleOnChange} type="text" name='flightToDestinationLocation' id='flightToDestinationLocation' placeholder="Enter flight to Destination Location" className="input form-control" required /> */}
+                            <Select
+                                onChange={getSelectLocationData}
+                                // onChange={handleOnChange}
+                                options={flightOptionTo}
+                                required
+                            // styles={customStyles}
+                            />
                         </div>
 
                     </div>

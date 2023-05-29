@@ -19,14 +19,12 @@ const AddPackage = () => {
 
         const packageName = form.packageName.value;
         const bagWeight = form.bagWeight.value;
-        const packagesPrice = form.packagesPrice.value;
         const packageFacility1 = form.packageFacility1.value;
         const packageFacility2 = form.packageFacility2.value;
 
         const packageInfo = {
             packageName: packageName,
             bagWeight: bagWeight,
-            packagesPrice: packagesPrice,
             packageFacility1: packageFacility1,
             packageFacility2: packageFacility2,
         }
@@ -72,13 +70,6 @@ const AddPackage = () => {
                             <span className="label-text fw-bold">Bag Weight (Kg)</span>
                         </label>
                         <input type="text" name='bagWeight' id='bagWeight' placeholder="Enter bag weight in kg unit " className="input form-control" required />
-                    </div>
-
-                    <div className='my-2'>
-                        <label className="label">
-                            <span className="label-text fw-bold">Package's Price</span>
-                        </label>
-                        <input type="text" name='packagesPrice' id='packagesPrice' placeholder="Enter packages price" className="input form-control" required />
                     </div>
 
                     <div className='my-2'>

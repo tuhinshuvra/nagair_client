@@ -2,10 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './FlightSearchResultPage.css';
 import useAuth from '../../../hooks/useAuth';
-import { setLocalStorage } from '../../../utilities/helper';
+import { getLocalStorage, setLocalStorage } from '../../../utilities/helper';
+import RoundTripResult from './RoundTripResult';
+import OneWayResult from './OneWayResult';
+import MultiCityResult from './MultiCityResult';
 
 const FlightSearchResultPage = () => {
-    const { searchData, trips, flights, travellers, setTotalFare, selectedFlight, setSelectedFlight } = useAuth();
+    const { searchData, trips, flights, travellers, setTotalFare, departureBookingInfo, setDepartureBookingInfo,
+        returnBookingInfo, setReturnBookingInfo, multiCityBooking, setMultiCityBooking } = useAuth();
 
     const [selectedPackage, setSelectedPackage] = useState('');
 
@@ -13,7 +17,7 @@ const FlightSearchResultPage = () => {
     // console.log("selectedPackage :", selectedPackage);
     // console.log("selectedFlight :", selectedFlight);
 
-    console.log("flights : ", flights.departureResults);
+    console.log("flights : ", flights);
     // console.log("flights : ", flights.returnResults);
 
 
@@ -24,28 +28,10 @@ const FlightSearchResultPage = () => {
         return totalCost;
     }
 
-    const handleBookingFlights = (key, value, flightPrice) => {
-        const totalFlightBookingData = {
-            planeNumber: value.planeNumber,
-            flightNumber: value.flightNumber,
-
-            flightFromCurrentLocation: value.flightFromCurrentLocation,
-            flightToDestinationLocation: value.flightToDestinationLocation,
+    console.log("travellers : ", travellers);
 
 
-            flightDepartingDate: value.flightDepartingDate,
-            flightDepartingTime: value.flightDepartingTime,
-
-            flightArrivalDate: value.flightArrivalDate,
-            flightArrivalTime: value.flightArrivalTime,
-            flightPrice,
-
-
-        }
-
-        setLocalStorage(key, value)
-
-    }
+    console.log("bookingInfo : ", departureBookingInfo);
 
 
     return (
@@ -56,237 +42,251 @@ const FlightSearchResultPage = () => {
                     <div className=" d-flex  justify-content-end">
                         <Link to="/" className="fs-4 text-info text-center text-decoration-none  fw-bold  my-0">Search Again</Link>
                     </div>
-
-                    <tr> <h3>Departuring Flights</h3></tr>
-                    <table className="table align-middle table-hover table-bordered">
-                        <thead>
-                            <tr className="text-center  table-secondary flightInfoTxt">
-                                <th>SL</th>
-                                <th className=' fs-5'>Flight Info</th>
-                                <th className=' fs-5'>Package List</th>
-                            </tr>
-                        </thead>
-                        <tbody className=" ">
-                            {flights?.departureResults?.map((flight, index) => (
-                                <tr key={flight._id} className=" ">
-                                    <td>{index + 1}</td>
-                                    <td className=' col-md-4 '>
-
-                                        <div className='flightInfo'>
-                                            <div>
-                                                <div className="d-flex justify-content-evenly">
-
-                                                    <span>
-                                                        <p className='mb-0 fw-bold'>{flight?.flightFromCurrentLocation?.toUpperCase()}</p>
-                                                        <p className='mt-0  '>{new Date(flight?.flightDepartingDate).toLocaleDateString()}, {flight.flightDepartingTime}</p>
-                                                    </span>
-
-                                                    <span className=' fs-4 text-capitalize fw-bold'>TO</span>
-
-                                                    <span>
-                                                        <p className='mb-0 fw-bold'>{flight?.flightToDestinationLocation.toUpperCase()}</p>
-                                                        <p className='mt-0'>{new Date(flight?.flightArrivalDate).toLocaleDateString()}, {flight.flightArrivalTime}</p>
-                                                    </span>
-                                                </div>
-                                                <div>
-                                                    <h5 className=' fw-bold text-center mt-2'>Flight Details</h5>
-                                                    <p className=' text-center small'>{flight?.planeNumber}</p>
-
-                                                    <p className='mb-0 small'>  {(flight?.flightFromCurrentLocation)}, {new Date(flight.flightDepartingDate).toDateString()}, {flight.flightDepartingTime}</p>
-
-                                                    <p className=' mt-0 small'>  {(flight?.flightToDestinationLocation)}, {new Date(flight.flightArrivalDate).toDateString()},{flight.flightArrivalTime}</p>
-                                                </div>
-
-                                                {/* <div className=' text-center'>
-                                                    <button onClick={() => handleBookingFlights("departure", flight)} className='btn btn-info btn-sm'>Select Flight</button>
-                                                </div> */}
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td className=' col-md-8'>
-                                        <div className=' d-flex justify-content-around' >
+                    {searchData.travelType === 'roundTrip'
+                        ? <RoundTripResult></RoundTripResult>
+                        : searchData.travelType === 'oneWay'
+                            ? <OneWayResult></OneWayResult> : <MultiCityResult></MultiCityResult>
+                    }
 
 
-                                            {flight.packageList.map((pack) => (
-                                                <div className='packageBg p-2'>
-                                                    <p className=' text-center'><span className='fw-bold mb-1 packageHeading text-white'>{pack.packageName}</span> </p>
-                                                    <p><span className='fw-bold my-0'>Price:</span> {flight.silverPackagesPrice}TK</p>
-                                                    <p className=' '><span className=' fw-bold' >Weight:</span> Bag Weight Maximum {pack.bagWeight}KG</p>
-                                                    <p>{pack.packageFacility1}</p>
-                                                    <p>{pack.packageFacility2}</p>
-                                                    <div className=' text-center'>
-                                                        <button onClick={() => handleBookingFlights("return", flight,)} className='btn btn-info btn-sm'>Select Flight</button>
-                                                    </div>
-                                                </div>
-
-                                            ))}
 
 
-                                        </div>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                    <tr> <h3>Returning Flights</h3></tr>
-                    <table className="table align-middle table-hover table-bordered">
-                        <thead>
-                            <tr className="text-center  table-secondary flightInfoTxt">
-                                <th>SL</th>
-                                <th className=' fs-5'>Flight Info</th>
-                                <th className=' fs-5'>Package List</th>
-                            </tr>
-                        </thead>
-                        <tbody className=" ">
-                            {flights?.returnResults?.map((flight, index) => (
-                                <tr key={flight._id} className=" ">
-                                    <td>{index + 1}</td>
-                                    <td className=' col-md-4 '>
 
-                                        <div className='flightInfo'>
-                                            <div>
-                                                <div className="d-flex justify-content-evenly">
 
-                                                    <span>
-                                                        <p className='mb-0 fw-bold'>{flight?.flightFromCurrentLocation?.toUpperCase()}</p>
-                                                        <p className='mt-0  '>{new Date(flight?.flightDepartingDate).toLocaleDateString()}, {flight.flightDepartingTime}</p>
-                                                    </span>
-
-                                                    <span className=' fs-4 text-capitalize fw-bold'>TO</span>
-
-                                                    <span>
-                                                        <p className='mb-0 fw-bold'>{flight?.flightToDestinationLocation.toUpperCase()}</p>
-                                                        <p className='mt-0'>{new Date(flight?.flightArrivalDate).toLocaleDateString()}, {flight.flightArrivalTime}</p>
-                                                    </span>
-                                                </div>
-                                                <div>
-                                                    <h5 className=' fw-bold text-center mt-2'>Flight Details</h5>
-                                                    <p className=' text-center small'>{flight?.planeNumber}</p>
-
-                                                    <p className='mb-0 small'>  {(flight?.flightFromCurrentLocation)}, {new Date(flight.flightDepartingDate).toDateString()}, {flight.flightDepartingTime}</p>
-
-                                                    <p className=' mt-0 small'>  {(flight?.flightToDestinationLocation)}, {new Date(flight.flightArrivalDate).toDateString()},{flight.flightArrivalTime}</p>
-                                                </div>
-
-                                                {/* <div className=' text-center'>
-                                                    <button onClick={() => handleBookingFlights("return", flight)} className='btn btn-info btn-sm'>Select Flight</button>
-                                                </div> */}
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td className=' col-md-8'>
-                                        <div className=' d-flex justify-content-around' >
-                                            <div className='packageBg p-2'>
-                                                <p className=' text-center'><span className='fw-bold mb-1 packageHeading text-white'>Silver Package</span> </p>
-                                                <p><span className='fw-bold my-0'>Price:</span> {flight.silverPackagesPrice}TK</p>
-                                                <p className=' '><span className=' fw-bold' >Weight:</span> Bag Weight Maximum {flight.bagWeight}10 KG</p>
-                                                <p>Its a real silver package</p>
-                                                <p>Non smoking cabin</p>
-                                                <div className=' text-center'>
-                                                    <button onClick={() => handleBookingFlights("return", flight)} className='btn btn-info btn-sm'>Select Flight</button>
-                                                </div>
-                                            </div>
-                                            <div className=' packageBg   p-2'>
-                                                <p className=' text-center'><span className='fw-bold mb-1 packageHeading text-white'>Gold Package</span> </p>
-                                                <p><span className='fw-bold my-0'>Price:</span> {flight.goldPackagesPrice}TK</p>
-                                                <p className=' '><span className=' fw-bold' >Weight:</span> Bag Weight Maximum {flight?.bagWeight}10 KG</p>
-                                                <p>Its a real Gold package</p>
-                                                <p>Non smoking cabin</p>
-                                                <div className=' text-center'>
-                                                    <button onClick={() => handleBookingFlights("return", flight)} className='btn btn-info btn-sm'>Select Flight</button>
-                                                </div>
-                                            </div>
-                                            <div className=' packageBg p-2'>
-                                                <p className=' text-center'><span className='fw-bold mb-1 packageHeading text-white'>Platinum Package</span> </p>
-                                                <p><span className='fw-bold my-0'>Price:</span> {flight?.platinumpackagesPrice}TK</p>
-                                                <p className=' '><span className=' fw-bold' >Weight:</span> Bag Weight Maximum {flight?.bagWeight}10 KG</p>
-                                                <p>Its a real Platinum package</p>
-                                                <p>Non smoking cabin</p>
-                                                <div className=' text-center'>
-                                                    <button onClick={() => handleBookingFlights("return", flight)} className='btn btn-info btn-sm'>Select Flight</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
 
                     <div className=''>
                         <div className=' row'>
                             <div className=' col-md-8   '>
                                 <h4>Trip Summary</h4>
-                                <div className=' d-flex justify-content-between tripSummary px-2 py-4'>
-
-                                    <div>
-
+                                {/* summary for multi city */}
+                                {searchData.travelType === 'multiWay' ?
+                                    <div className=' d-flex justify-content-between  tripSummary px-2 py-4'>
+                                        {/* for departure */}
                                         <div>
-                                            {(selectedFlight !== '')
-                                                ?
-                                                <>
-                                                    <p className='mb-0 text-uppercase fw-bold'>{(selectedFlight.flightFromCurrentLocation)}-{selectedFlight.flightToDestinationLocation}</p>
-                                                    <p className='mb-0'> <b> Departure: </b> {new Date(selectedFlight.flightDepartingDate).toLocaleDateString()}({selectedFlight.flightDepartingTime})</p>
-                                                    <p>  <b> Arrival :  </b> {new Date(selectedFlight.flightArrivalDate).toLocaleDateString()}({selectedFlight.flightArrivalTime})</p>
-
-
-                                                    <div className=' d-flex'>
-                                                        {/* <span className=' fw-bold'>Arrival: </span>   <span className='mt-0 ms-1'>{new Date(searchData.flightArrivalDate).toDateString()},{searchData.flightArrivalTime}</span> */}
+                                            {multiCityBooking.map(data =>
+                                                <div key={data._id}>
+                                                    <div className=' col-md-8    d-flex justify-content-between mb-0'>
+                                                        <p className=' text-uppercase'>{data?.flightFromCurrentLocation}</p>
+                                                        <span className=' fw-bold'> <i> To</i></span>
+                                                        <p className=' text-uppercase'>{data?.flightToDestinationLocation}</p>
                                                     </div>
 
-                                                </>
-                                                :
-                                                <>
-                                                    <p className=' text-danger   fw-bold'>You have not selected any flight</p>
-                                                </>
-                                            }
+                                                    <p className=''>
+                                                        {new Date(data?.flightDepartingDate).toLocaleDateString()} ({data?.flightDepartingTime})
+                                                        <span className=' fw-bold'> <i> To </i></span>
+                                                        {new Date(data?.flightDepartingDate).toLocaleDateString()}({data?.flightArrivalTime})
+                                                    </p>
 
-                                            {selectedPackage !== '' ?
-                                                <><b> Amount:</b> {handleTotalFare()}TK</> : <p className=' fw-bold text-danger'>You have not selected any package</p>
-                                            }
-                                            <div className=' d-flex justify-content-between mt-2'>
-                                                <p className=' col-md-4 small refundable '>
-                                                    <b>Refundable with fee</b> <br />
-                                                    Up to 24 hours before the flight : 1,500 BDT  Starting 24 hours until flight 1,800 BDT   After the flight : 2,000 BDT   Exchange with fee (for all passengers)</p>
 
-                                                <p className='col-md-4 small exchange'>
-                                                    <b> Exchange with fee (for all passengers)</b><br />
-                                                    Up to 24 hours before the flight : 1,500 BDT  Starting 24 hours until flight 1,800 BDT After the flight : 2,000 BDT Exchange with fee (for all passengers)</p>
-                                                <p className='col-md-3 small luggage '>
-                                                    <b>Checked-in luggage</b> <br /> Adult(s) : 20 Kg
-                                                </p>
-                                            </div>
+                                                    <div className=' d-flex justify-content-between'>
+                                                        <p><b>Plane  : </b>{data?.planeNumber}</p>
+                                                        <p><b>Flight : </b>{data?.flightNumber}</p>
+                                                    </div>
+                                                    <p>
+                                                        <b>Packages: </b>{data?.packageName} <br />
+                                                        <b>Fare: </b>{data?.packagePrice}
+                                                    </p>
+                                                    {/* <p>{departureBookingInfo}</p> */}
+
+                                                </div>
+                                            )
+
+
+
+                                            }
 
                                         </div>
+                                        {Object.keys(returnBookingInfo).length > 0 ? <div className=' vr'></div> : <></>}
+                                        {/* for return */}
+
+                                        <div>
+                                            {Object.keys(returnBookingInfo).length > 0 ?
+                                                <div>
+                                                    <div className=' col-md-8    d-flex justify-content-between mb-0'>
+                                                        <p className=' text-uppercase'>{returnBookingInfo?.flightFromCurrentLocation}</p>
+                                                        <span className=' fw-bold'> <i> To</i></span>
+                                                        <p className=' text-uppercase'>{returnBookingInfo?.flightToDestinationLocation}</p>
+                                                    </div>
+
+                                                    <p className=''>
+                                                        {new Date(returnBookingInfo?.flightDepartingDate).toLocaleDateString()} ({returnBookingInfo?.flightDepartingTime})
+                                                        <span className=' fw-bold'> <i> To </i></span>
+                                                        {new Date(returnBookingInfo?.flightDepartingDate).toLocaleDateString()}({returnBookingInfo?.flightArrivalTime})
+                                                    </p>
+
+
+                                                    <div className=' d-flex justify-content-between'>
+                                                        <p><b>Plane  : </b>{returnBookingInfo?.planeNumber}</p>
+                                                        <p><b>Flight : </b>{returnBookingInfo?.flightNumber}</p>
+                                                    </div>
+                                                    <p>
+                                                        <b>Packages: </b>{returnBookingInfo?.packageName} <br />
+                                                        <b>Fare: </b>{returnBookingInfo?.packagePrice}
+                                                    </p>
+                                                    {/* <p>{departureBookingInfo}</p> */}
+
+                                                </div>
+                                                :
+                                                <></>
+                                            }
+
+                                        </div>
+
+
                                     </div>
+                                    : <></>
+                                }
+
+                                {/* summary for multi city */}
+
+                                <div className=' d-flex justify-content-between  tripSummary px-2 py-4'>
+                                    {/* for departure */}
+                                    <div>
+                                        {Object.keys(departureBookingInfo).length > 0 ?
+                                            <div>
+                                                <div className=' col-md-8    d-flex justify-content-between mb-0'>
+                                                    <p className=' text-uppercase'>{departureBookingInfo?.flightFromCurrentLocation}</p>
+                                                    <span className=' fw-bold'> <i> To</i></span>
+                                                    <p className=' text-uppercase'>{departureBookingInfo?.flightToDestinationLocation}</p>
+                                                </div>
+
+                                                <p className=''>
+                                                    {new Date(departureBookingInfo?.flightDepartingDate).toLocaleDateString()} ({departureBookingInfo?.flightDepartingTime})
+                                                    <span className=' fw-bold'> <i> To </i></span>
+                                                    {new Date(departureBookingInfo?.flightDepartingDate).toLocaleDateString()}({departureBookingInfo?.flightArrivalTime})
+                                                </p>
+
+
+                                                <div className=' d-flex justify-content-between'>
+                                                    <p><b>Plane  : </b>{departureBookingInfo?.planeNumber}</p>
+                                                    <p><b>Flight : </b>{departureBookingInfo?.flightNumber}</p>
+                                                </div>
+                                                <p>
+                                                    <b>Packages: </b>{departureBookingInfo?.packageName} <br />
+                                                    <b>Fare: </b>{departureBookingInfo?.packagePrice}
+                                                </p>
+                                                {/* <p>{departureBookingInfo}</p> */}
+
+                                            </div>
+                                            :
+                                            <></>
+                                        }
+
+                                    </div>
+                                    {Object.keys(returnBookingInfo).length > 0 ? <div className=' vr'></div> : <></>}
+                                    {/* for return */}
+
+                                    <div>
+                                        {Object.keys(returnBookingInfo).length > 0 ?
+                                            <div>
+                                                <div className=' col-md-8    d-flex justify-content-between mb-0'>
+                                                    <p className=' text-uppercase'>{returnBookingInfo?.flightFromCurrentLocation}</p>
+                                                    <span className=' fw-bold'> <i> To</i></span>
+                                                    <p className=' text-uppercase'>{returnBookingInfo?.flightToDestinationLocation}</p>
+                                                </div>
+
+                                                <p className=''>
+                                                    {new Date(returnBookingInfo?.flightDepartingDate).toLocaleDateString()} ({returnBookingInfo?.flightDepartingTime})
+                                                    <span className=' fw-bold'> <i> To </i></span>
+                                                    {new Date(returnBookingInfo?.flightDepartingDate).toLocaleDateString()}({returnBookingInfo?.flightArrivalTime})
+                                                </p>
+
+
+                                                <div className=' d-flex justify-content-between'>
+                                                    <p><b>Plane  : </b>{returnBookingInfo?.planeNumber}</p>
+                                                    <p><b>Flight : </b>{returnBookingInfo?.flightNumber}</p>
+                                                </div>
+                                                <p>
+                                                    <b>Packages: </b>{returnBookingInfo?.packageName} <br />
+                                                    <b>Fare: </b>{returnBookingInfo?.packagePrice}
+                                                </p>
+                                                {/* <p>{departureBookingInfo}</p> */}
+
+                                            </div>
+                                            :
+                                            <></>
+                                        }
+
+                                    </div>
+
+
                                 </div>
                             </div>
 
                             <div className=' col-md-4 '>
                                 <h4>Your Selection</h4>
                                 <div className=' selectedFlight px-1 py-2'>
-                                    {/* <p className=' text-primary text-uppercase text-center text-white'>Your Trip</p> */}
+                                    {/* summary for multi city */}
+                                    {multiCityBooking.length > 0 && (
+                                        multiCityBooking.map(data => (
+                                            <div className=' ' key={data._id}>
+                                                <p className='text-uppercase text-center mb-0'>
+                                                    {data?.flightFromCurrentLocation}
+                                                    <span className='mx-2'> <i> To </i></span>
+                                                    {data?.flightToDestinationLocation}
+                                                </p>
+                                                <p className='text-center mt-0'>
+                                                    {new Date(data?.flightDepartingDate).toLocaleDateString()} ({data?.flightDepartingTime})
+                                                    <span className='mx-2'> <i> To </i></span>
+                                                    {new Date(data?.flightDepartingDate).toLocaleDateString()} ({data?.flightArrivalTime})
+                                                </p>
+                                            </div>
+                                        ))
+                                    )}
 
+                                    {/* end summary for multi city */}
 
-                                    {(selectedFlight !== '') ?
+                                    {Object.keys(departureBookingInfo).length > 0
+                                        ?
+                                        <>
+                                            <div className=' '>
+                                                <p className=' text-uppercase text-center  mb-0'>
+                                                    {departureBookingInfo?.flightFromCurrentLocation}
+                                                    <span className=' mx-2 '> <i>   To  </i></span>
+                                                    {departureBookingInfo?.flightToDestinationLocation}
+                                                </p>
 
-                                        <div className=' text-center text-uppercase'>
-                                            <p className='mb-0'>{(selectedFlight.flightFromCurrentLocation)}-{selectedFlight.flightToDestinationLocation}</p>
-                                            <p className='mb-0'>{new Date(selectedFlight.flightDepartingDate).toLocaleDateString()}({selectedFlight.flightDepartingTime})-{new Date(selectedFlight.flightArrivalDate).toLocaleDateString()}({selectedFlight.flightArrivalTime})</p>
-                                        </div>
+                                                <p className=' text-center mt-0'>
+                                                    {new Date(departureBookingInfo?.flightDepartingDate).toLocaleDateString()} ({departureBookingInfo?.flightDepartingTime})
+                                                    <span className=' mx-2'> <i> To </i></span>
+                                                    {new Date(departureBookingInfo?.flightDepartingDate).toLocaleDateString()}({departureBookingInfo?.flightArrivalTime})
+                                                </p>
+                                            </div>
 
+                                        </>
                                         :
                                         <>
-                                            <p className=' text-danger text-center fw-bold'>You have not selected any flight</p>
+                                            <p className=' fs-3 text-info fst-italic'>Please select a package</p>
+                                        </>
+                                    }
+
+                                    {Object.keys(returnBookingInfo).length > 0
+                                        ?
+                                        <>
+                                            <div className='  mb-0'>
+                                                <p className=' text-uppercase text-center mb-0'>
+                                                    {returnBookingInfo?.flightFromCurrentLocation}
+                                                    <span className=' mx-2 '> <i>   To  </i></span>
+                                                    {returnBookingInfo?.flightToDestinationLocation}
+                                                </p>
+
+                                                <p className=' text-center mt-0'>
+                                                    {new Date(returnBookingInfo?.flightDepartingDate).toLocaleDateString()} ({returnBookingInfo?.flightDepartingTime})
+                                                    <span className=' mx-2'> <i> To </i></span>
+                                                    {new Date(returnBookingInfo?.flightDepartingDate).toLocaleDateString()}({returnBookingInfo?.flightArrivalTime})
+                                                </p>
+                                            </div>
+
+                                        </>
+                                        :
+                                        <>
+                                            <p className=' fs-3 text-info fst-italic'>Please select a package</p>
                                         </>
                                     }
 
 
-                                    <p className=' text-center'>{(travellers > 1) ? <>{travellers} Persons</> : <>{travellers} Person</>}
-                                        {selectedPackage !== '' ?
-                                            <><b> Amount:</b> {handleTotalFare()}TK</> : <span className=' fw-bold text-danger'> You have not selected any package</span>
-                                        }
-                                    </p>
+
+
                                     <div className=' fs-3 text-center'>
                                         <span className=' mb-0'>Booking total amount</span>  <br />
 
@@ -322,7 +322,7 @@ const FlightSearchResultPage = () => {
 
                 </div>
             }
-        </div>
+        </div >
     );
 };
 

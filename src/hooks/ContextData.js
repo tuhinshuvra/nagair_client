@@ -32,6 +32,10 @@ const ContextProvider = ({ children }) => {
     const [totalFare, setTotalFare] = useState(0);
     const [flights, setFlights] = useState([]);
     const [selectedFlight, setSelectedFlight] = useState('');
+    const [departureBookingInfo, setDepartureBookingInfo] = useState({});
+    const [returnBookingInfo, setReturnBookingInfo] = useState({});
+    const [multiCityBooking, setMultiCityBooking] = useState([]);
+
     const [trips, setTrips] = useState({ trip1: [{ flightFromCurrentLocation: '', flightToDestinationLocation: '', flightDepartingDate: '' }] });
 
 
@@ -96,6 +100,12 @@ const ContextProvider = ({ children }) => {
         setSelectedFlight,
         totalFare,
         setTotalFare,
+        departureBookingInfo,
+        setDepartureBookingInfo,
+        returnBookingInfo,
+        setReturnBookingInfo,
+        multiCityBooking,
+        setMultiCityBooking
     };
 
     return (
